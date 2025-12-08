@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Lemon grass - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Lemon grass.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Lemon grass</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Lemon grass in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Lemon grass (Cymbopogon citratus) is a tropical, tender perennial herb with a strong, citrusy flavour and aroma. This tall, grass-like plant is essential in Southeast Asian cuisine and is valued for its lemony flavour that's more intense than lemon itself. In the UK, lemon grass is typically grown as an annual or overwintered indoors, as it's not frost-hardy.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Tender perennial (not frost-hardy in UK)</li>
+                    <li>Grows 60–120cm (2–4ft) tall with grass-like leaves</li>
+                    <li>Produces aromatic, lemon-scented stems</li>
+                    <li>Essential in Southeast Asian cooking</li>
+                    <li>Best grown in containers for easy overwintering</li>
+                    <li>Requires warmth and consistent moisture</li>
+                </ul>
+            </div>
+            
+            <p>Lemon grass is native to tropical regions of Asia and is widely used in Thai, Vietnamese, and other Southeast Asian cuisines. The lower, bulbous portion of the stems is the most flavourful part and is used fresh or dried in cooking. The leaves can also be used to make tea or infuse flavour into dishes.</p>
+            
+            <p>In the UK, lemon grass requires special care due to its tropical nature. It needs warmth to germinate and grow, and must be protected from frost. Many gardeners grow it in containers so it can be moved indoors during winter. With proper care, lemon grass can be a rewarding addition to your herb garden, providing fresh, aromatic stems for cooking throughout the summer.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Lemon grass is best started from seed indoors in early spring, as it needs warmth to germinate. Use a heat mat or propagator to maintain consistent temperature (20–25°C / 68–77°F). Once established, it's relatively easy to grow, but remember it's not frost-hardy and must be protected or brought indoors in winter.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow lemon grass, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4pfADcz" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3LJp8vv" target="_blank" rel="noopener">
+                    <span class="emoji">🌡️</span>
+                    <h4>Heat Mat or Propagator</h4>
+                    <p>A heated propagator or heat mat ensures consistent temperature for successful germination.</p>
+                    <span class="browse-button">Browse Heat Mat or Propagator</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+            </div>
+
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>There are a few varieties of lemon grass available, though most sold for culinary use is simply labeled as "lemon grass" or "Cymbopogon citratus." The main distinction is between West Indian lemon grass (Cymbopogon citratus), which is the most commonly grown culinary variety, and East Indian lemon grass (Cymbopogon flexuosus), which is more often used for essential oil production.</p>
+            
+            <p>For UK gardeners, West Indian lemon grass is the best choice for culinary use. It has the characteristic lemon flavour and aroma and is well-suited to container growing. When purchasing lemon grass, you're usually buying seeds or small plants. You can also start lemon grass from fresh stems purchased at the supermarket—simply place the base of the stem in water until roots develop, then pot up.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>West Indian Lemon Grass</h4>
+                    <p>The standard culinary variety (Cymbopogon citratus). Most commonly grown for cooking. Has the characteristic lemon flavour and aroma. Best choice for UK gardens.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>East Indian Lemon Grass</h4>
+                    <p>Less commonly grown for culinary use, more often used for essential oils. Has a slightly different flavour profile. Can be grown in UK but West Indian is preferred for cooking.</p>
+                </div>
+            </div>
+        
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Lemon grass</h2>
+            
+            <h3>Sowing Indoors (Recommended)</h3>
+            <p>Lemon grass is best started indoors in early spring, as it needs warmth to germinate and is not frost-hardy. Sow seeds in late winter or early spring (February to April) for planting out after the last frost.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare seed trays:</strong> Fill seed trays or small pots with peat-free seed compost. Moisten the compost before sowing.
+                </li>
+                <li>
+                    <strong>Sow seeds:</strong> Sow seeds thinly on the surface of the compost and cover very lightly (seeds need light to germinate). Space seeds about 2–3cm (1in) apart.
+                </li>
+                <li>
+                    <strong>Provide warmth:</strong> Place in a propagator or on a heat mat set to 20–25°C (68–77°F). Cover with a clear lid or plastic bag to maintain humidity.
+                </li>
+                <li>
+                    <strong>Maintain moisture:</strong> Keep the compost moist but not waterlogged. Mist the surface if it starts to dry out.
+                </li>
+                <li>
+                    <strong>Germination:</strong> Seeds should germinate within 14–21 days. Once seedlings appear, remove the cover and continue growing in a warm, bright location.
+                </li>
+                <li>
+                    <strong>Pot on:</strong> When seedlings are large enough to handle, pot them on into individual pots. Keep in a warm, bright location until ready to plant out.
+                </li>
+            </ol>
+            
+            <h3>Starting from Fresh Stems</h3>
+            <p>You can also start lemon grass from fresh stems purchased at the supermarket. Cut the base of the stem (the bulbous part) and place it in a glass of water. Change the water every few days. Roots should develop within 1–2 weeks. Once roots are 2–3cm (1in) long, pot up into compost and grow on in a warm, bright location.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Sowing Tip:</strong> Lemon grass seeds need consistent warmth to germinate reliably. A heat mat or propagator is essential for successful germination. If you don't have one, place seed trays in the warmest spot in your house, such as on top of a radiator (with protection) or near a heat source. Once germinated, seedlings need bright light to grow well.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Lemon grass is best grown in containers in the UK, as it's not frost-hardy and needs to be moved indoors in winter. However, it can be grown in the ground in warm, sheltered locations if you're prepared to protect it or treat it as an annual.</p>
+            
+            <h3>Container Planting (Recommended)</h3>
+            <p>Growing lemon grass in containers is the best option for UK gardeners. Use a large container (at least 30cm / 12in wide and deep) with good drainage. Fill with peat-free multi-purpose compost. Plant seedlings or small plants, spacing them 20–30cm (8–12in) apart if planting multiple plants. Container-grown lemon grass can be moved indoors in winter or placed in a greenhouse or conservatory.</p>
+            
+            <h3>Site Selection (Ground Planting)</h3>
+            <p>If planting in the ground, choose the warmest, most sheltered spot in your garden. Lemon grass needs full sun and protection from cold winds. The soil should be well-drained and reasonably fertile. However, ground planting is only recommended in very mild areas or if you're prepared to protect plants with fleece or treat them as annuals.</p>
+            
+            <h3>Planting Out</h3>
+            <p>Plant lemon grass outdoors only after all risk of frost has passed (usually late May or early June in the UK). Harden off seedlings first by gradually exposing them to outdoor conditions over 1–2 weeks. Plant at the same depth they were growing in their pots. Space plants 30–45cm (12–18in) apart if planting multiple plants in the ground.</p>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> Lemon grass is not frost-hardy and will be killed by temperatures below 5°C (41°F). In the UK, it must be protected from frost or brought indoors in winter. Container growing is strongly recommended, as it allows you to move plants to a protected location when temperatures drop.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Lemon grass requires consistent care to thrive in UK conditions. It needs warmth, regular watering, and protection from cold. With proper care, it will grow vigorously throughout the summer and can be overwintered for use the following year.</p>
+            
+            <h3>Watering</h3>
+            <p>Lemon grass needs consistent moisture and should not be allowed to dry out. Water regularly during the growing season, especially during hot, dry weather. Container-grown plants will need more frequent watering than those in the ground. Water at the base of plants to avoid wetting the leaves, which can lead to fungal issues. Reduce watering in winter if overwintering indoors, but don't let the compost dry out completely.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed lemon grass regularly during the growing season to encourage vigorous growth. Use a balanced, liquid fertiliser every 2–3 weeks from spring to early autumn. Container-grown plants will benefit more from regular feeding than those in the ground. Reduce or stop feeding in winter if overwintering indoors.</p>
+            
+            <h3>Temperature and Light</h3>
+            <p>Lemon grass needs warmth and bright light to grow well. It prefers temperatures of 20–30°C (68–86°F) during the growing season. In the UK, place containers in the sunniest, warmest spot available. If growing indoors, provide bright light—a south-facing window is ideal, or use grow lights if natural light is insufficient.</p>
+            
+            <h3>Overwintering</h3>
+            <p>To overwinter lemon grass, move container-grown plants indoors before the first frost (usually by late September or early October in the UK). Place in a bright, warm location such as a greenhouse, conservatory, or sunny windowsill. Reduce watering but don't let the compost dry out completely. Plants may die back somewhat in winter but should regrow in spring when temperatures and light levels increase. Alternatively, you can harvest all the stems in autumn and start fresh plants from seed the following year.</p>
+            
+            <h3>Dividing</h3>
+            <p>Lemon grass forms clumps that can be divided to create new plants. Divide plants in spring when they're actively growing. Dig up the clump (or remove from container) and separate into smaller sections, each with roots and some stems. Replant immediately in fresh compost. This is a great way to propagate new plants and maintain vigour.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Lemon grass stems can be harvested once plants are well-established, usually 3–4 months after planting. The lower, bulbous portion of the stems is the most flavourful part. Harvest stems as needed throughout the growing season, or harvest the entire plant in autumn before the first frost.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Harvest individual stems:</strong> Cut stems at the base when they're at least 30cm (12in) tall. Use a sharp knife or secateurs. Leave some stems on the plant to continue growing.</li>
+                <li><strong>Harvest the bulbous base:</strong> The lower 10–15cm (4–6in) of the stem is the most flavourful part. This is the portion that's typically used in cooking.</li>
+                <li><strong>Use the leaves:</strong> The upper leaves can also be used to make tea or infuse flavour into dishes. They're less intense than the stems but still useful.</li>
+                <li><strong>Harvest before frost:</strong> If you're not overwintering, harvest all stems before the first frost. Cut stems at the base and use fresh or preserve for later use.</li>
+            </ul>
+            
+            <h3>Using Your Lemon grass</h3>
+            <p>Fresh lemon grass is essential in Southeast Asian cooking. Use the lower, bulbous portion of the stems in curries, soups, stir-fries, and marinades. The stems are typically bruised or sliced before use to release their flavour. Remove the tough outer layers and use the tender inner portion. Lemon grass can also be used to make tea—steep the leaves or stems in hot water for a refreshing, citrusy drink.</p>
+            
+            <h3>Preparing Lemon grass</h3>
+            <p>To prepare lemon grass for cooking, remove the tough outer layers and the upper, woody portion of the stem. Use only the lower 10–15cm (4–6in), which is the most tender and flavourful. Bruise the stem with the back of a knife to release the oils, or slice it thinly. In some dishes, whole stems are used and removed before serving.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh lemon grass stems can be stored in the refrigerator for 2–3 weeks. Wrap them in damp kitchen paper and store in the fridge, or place stems in a glass of water like cut flowers. You can also freeze lemon grass—chop the stems and freeze in ice cube trays with a little water, or freeze whole stems in freezer bags. Dried lemon grass is also available, but fresh has the best flavour. To dry, hang stems in a warm, well-ventilated area out of direct sunlight, then store in an airtight container.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Lemon grass is generally trouble-free when grown in the right conditions, but there are a few issues to watch out for, mostly related to temperature and moisture.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Spider mites:</strong> Can occur in hot, dry conditions, especially when overwintering indoors. Increase humidity and improve air circulation. Usually not serious if caught early.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially when plants are stressed. Usually not serious and can be controlled by encouraging natural predators or using organic methods.</li>
+                <li><strong>Mealybugs:</strong> Can occur on overwintered plants. Check plants regularly and remove manually or use organic controls if necessary.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Root rot:</strong> Can occur if plants are overwatered or if drainage is poor. Ensure good drainage and avoid overwatering. Container-grown plants are particularly susceptible if drainage is poor.</li>
+                <li><strong>Fungal leaf spots:</strong> Can occur in humid conditions or when leaves are kept wet. Improve air circulation and avoid overhead watering.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Cold damage:</strong> The main issue with lemon grass in the UK is cold damage. Protect from frost and bring indoors before temperatures drop below 5°C (41°F). Cold-damaged plants may recover if the roots are still alive.</li>
+                <li><strong>Insufficient light:</strong> Can cause weak, leggy growth. Ensure plants receive bright light—full sun outdoors or a bright windowsill or grow lights indoors.</li>
+                <li><strong>Drying out:</strong> Lemon grass needs consistent moisture and will suffer if allowed to dry out. Water regularly, especially container-grown plants.</li>
+                <li><strong>Poor growth:</strong> Can occur if plants don't receive enough warmth or light. Ensure adequate temperature (20–30°C / 68–86°F) and bright light for best growth.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Lemon grass is a rewarding herb to grow in the UK, but it does require some special care due to its tropical nature. The key to success is providing warmth, consistent moisture, and protection from frost. Container growing makes it much easier to manage, as you can move plants to the best location and bring them indoors in winter. With proper care, you'll have a steady supply of fresh, aromatic lemon grass for your cooking!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

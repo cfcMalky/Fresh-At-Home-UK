@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Lovage - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Lovage.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Lovage</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Lovage in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Lovage (Levisticum officinale) is a tall, stately perennial herb with a strong, celery-like flavour. This impressive plant can reach up to 2m (6ft) in height and provides both leaves and seeds for culinary use. Lovage is easy to grow in UK gardens and will return year after year, making it a valuable addition to any herb garden.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Hardy perennial that returns year after year</li>
+                    <li>Grows tall (up to 2m / 6ft) with large, divided leaves</li>
+                    <li>Produces yellow umbel flowers in summer</li>
+                    <li>Strong celery-like flavour and aroma</li>
+                    <li>All parts of the plant are edible</li>
+                    <li>Very easy to grow and low maintenance</li>
+                </ul>
+            </div>
+            
+            <p>Lovage is native to the Mediterranean region and has been cultivated for centuries for its culinary and medicinal uses. The leaves have a strong, celery-like flavour that's more intense than celery itself, making it perfect for soups, stews, and stocks. The seeds also have a similar flavour and can be used as a spice. The stems can even be candied or used like celery.</p>
+            
+            <p>Lovage is a member of the carrot family (Apiaceae) and has a similar appearance to celery, though it's much larger and more vigorous. It's a very easy herb to grow and requires minimal care once established. The plant will self-seed readily, so you may find volunteer seedlings appearing in your garden.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Lovage is very easy to grow from seeds, and once established, it will return year after year. The plant can become quite large, so give it plenty of space. It's also a good idea to remove flower heads before they set seed if you want to prevent self-seeding, though the seeds are also useful in cooking.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow lovage, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4nYpSdt" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+            </div>
+
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>There aren't many named varieties of lovage available—most sold is simply labeled as "lovage" or "Levisticum officinale." However, there are a few distinctions worth noting, and the plant is generally consistent in its characteristics.</p>
+            
+            <p>Lovage is typically grown from seeds, though you can also purchase small plants or divide established clumps. When purchasing lovage, you're usually buying seeds or small plants. The main consideration is ensuring you have enough space, as lovage can grow quite large.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Common Lovage</h4>
+                    <p>The standard variety (Levisticum officinale). Most widely available and reliable performer. Grows tall with strong celery-like flavour. Best choice for UK gardens.</p>
+                </div>
+            </div>
+        
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Lovage</h2>
+            
+            <h3>Sowing Outdoors</h3>
+            <p>Lovage can be sown directly outdoors from mid-spring to early summer. It's very easy to grow from seed and will germinate reliably. Sow seeds in their final position or in a seedbed for transplanting later.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Choose a sunny or partially shaded location with well-drained, reasonably fertile soil. Remove weeds and rake the soil to a fine tilth.
+                </li>
+                <li>
+                    <strong>Sow seeds:</strong> Sow seeds thinly in drills about 1cm (½in) deep, spacing rows 60cm (24in) apart. Lovage grows large, so give it plenty of space.
+                </li>
+                <li>
+                    <strong>Water gently:</strong> Water the soil gently after sowing, taking care not to wash away the seeds. Keep the soil moist until germination.
+                </li>
+                <li>
+                    <strong>Thin seedlings:</strong> When seedlings are large enough to handle, thin them to 60–90cm (2–3ft) apart. Lovage needs plenty of space to grow.
+                </li>
+                <li>
+                    <strong>Transplant if needed:</strong> If you've sown in a seedbed, transplant seedlings to their final position when they're large enough to handle.
+                </li>
+            </ol>
+            
+            <h3>Sowing Indoors</h3>
+            <p>You can start lovage indoors in late winter or early spring for an earlier start. Sow seeds in pots or seed trays filled with peat-free seed compost. Cover seeds with about 1cm (½in) of compost. Keep at 15–20°C (59–68°F) and maintain consistent moisture. Seeds should germinate within 14–21 days. Transplant seedlings outdoors after the last frost, hardening them off first.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Sowing Tip:</strong> Lovage seeds are relatively large and easy to handle. They germinate reliably if kept moist and at the right temperature. Once established, lovage will self-seed readily, so you may find volunteer seedlings appearing in your garden. These can be left to grow or transplanted to desired locations.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Lovage prefers a sunny or partially shaded position with well-drained, reasonably fertile soil. It can be grown in containers, but due to its size, it's best suited to ground planting. The key is to give it plenty of space, as it can grow quite large.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny or partially shaded location with well-drained, reasonably fertile soil. Lovage will tolerate most soil types, including clay, but prefers soil that doesn't become waterlogged. It will also grow in light shade, though it may be less vigorous. Avoid very dry, poor soil, as this will result in weak growth. Lovage grows tall, so avoid windy positions if possible, or provide support.</p>
+            
+            <h3>Container Planting</h3>
+            <p>Lovage can be grown in containers, but choose a large container (at least 45cm / 18in wide and deep) to accommodate its size. Use peat-free multi-purpose compost and ensure good drainage. Container-grown lovage will need more frequent watering than ground-grown plants and may need support as it grows tall. Due to its size, container growing is less ideal than ground planting.</p>
+            
+            <h3>Ground Planting</h3>
+            <p>If planting in the ground, prepare the soil by removing weeds and incorporating well-rotted compost if the soil is poor. Space plants 60–90cm (2–3ft) apart to allow for their large size. Lovage grows tall, so consider its position carefully—it can provide shade for other plants or be used as a backdrop in herb gardens.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> Lovage is a large plant that can dominate a small herb garden. Consider planting it at the back of a border or in a dedicated area where it won't overshadow smaller herbs. It's also a good idea to remove flower heads before they set seed if you want to prevent self-seeding, though the seeds are also useful in cooking.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Lovage is very low-maintenance once established. It's a hardy perennial that will return year after year with minimal care. However, a few simple practices will help ensure healthy growth and prevent it from becoming too invasive.</p>
+            
+            <h3>Watering</h3>
+            <p>Water lovage regularly during dry spells, especially when plants are young. Once established, lovage is quite drought-tolerant, but regular watering will encourage more vigorous growth and better leaf quality. Container-grown plants will need more frequent watering than those in the ground. Water at the base of plants to avoid wetting the leaves, which can lead to fungal issues.</p>
+            
+            <h3>Feeding</h3>
+            <p>Lovage doesn't usually need additional feeding if grown in reasonably fertile soil. However, if your soil is poor, you can apply a balanced, organic fertiliser in spring. Container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season. Avoid over-fertilising, as this can encourage excessive growth.</p>
+            
+            <h3>Supporting</h3>
+            <p>Lovage grows tall and may need support, especially in windy positions. Use stakes or plant supports to prevent plants from falling over. This is particularly important when plants are flowering and setting seed, as the seed heads can be heavy. Supporting plants also helps keep them tidy and prevents damage to stems.</p>
+            
+            <h3>Pruning and Cutting Back</h3>
+            <p>Regular harvesting of leaves helps keep lovage bushy and encourages new growth. Cut back plants by about one-third after flowering to encourage fresh growth. You can also cut back hard in early spring to remove old growth and encourage new shoots. In autumn, cut back any dead foliage to keep the garden tidy.</p>
+            
+            <h3>Controlling Self-Seeding</h3>
+            <p>Lovage self-seeds readily, so if you allow plants to flower and set seed, you'll often get volunteer seedlings the following year. These can be left to grow or transplanted to desired locations. However, if you want to prevent self-seeding, remove flower heads before they set seed. The seeds are also useful in cooking, so you may want to allow some to develop.</p>
+            
+            <h3>Dividing</h3>
+            <p>Lovage benefits from being divided every 3–4 years to maintain vigour. Divide plants in spring or autumn by digging up the clump and separating it into smaller sections. Replant the divisions immediately, spacing them 60–90cm (2–3ft) apart. This is also a great way to propagate new plants and share with friends.</p>
+            
+            <h3>Winter Care</h3>
+            <p>Lovage is fully hardy and will die back in winter, then regrow in spring. In autumn, cut back any dead foliage. The roots will survive underground and send up new growth in spring. Container-grown plants may benefit from some protection in very cold areas—move containers to a sheltered spot or wrap them in fleece.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Lovage leaves can be harvested as soon as plants are large enough, usually 8–10 weeks after sowing. The leaves are best used fresh, as they lose much of their flavour when dried. However, they can be dried or frozen for later use. The seeds can also be harvested when they turn brown and dry on the plant.</p>
+            
+            <h3>How to Harvest Leaves</h3>
+            <ul>
+                <li><strong>Pick young leaves:</strong> Harvest leaves when they're young and tender for the best flavour. Older leaves can become tough and less flavourful.</li>
+                <li><strong>Harvest regularly:</strong> Pick leaves regularly throughout the growing season to encourage new growth and prevent plants from becoming leggy.</li>
+                <li><strong>Cut whole stems:</strong> You can cut whole stems near the base, or pick individual leaves as needed. Cutting stems encourages bushier growth.</li>
+                <li><strong>Use immediately:</strong> Lovage leaves are best used fresh. The flavour diminishes quickly after picking, so use within a few hours if possible.</li>
+            </ul>
+            
+            <h3>Harvesting Seeds</h3>
+            <p>To harvest lovage seeds, allow plants to flower and set seed. When the seed heads turn brown and dry, cut the stems and hang them upside down in a paper bag in a warm, dry place. The seeds will fall into the bag as they dry. Alternatively, place seed heads in a paper bag and shake to release the seeds. Store dried seeds in an airtight container.</p>
+            
+            <h3>Using Your Lovage</h3>
+            <p>Fresh lovage leaves add a strong, celery-like flavour to many dishes. Use them in soups, stews, stocks, and sauces. They're excellent in potato dishes, salads, and egg dishes. Lovage has a very strong flavour, so use it sparingly—a little goes a long way. The seeds can be used as a spice, similar to celery seeds. The stems can be candied or used like celery in cooking.</p>
+            
+            <h3>Drying Lovage</h3>
+            <p>While fresh leaves have the best flavour, lovage can be dried for later use. Harvest leaves in the morning after the dew has dried. Dry them in a warm, well-ventilated area out of direct sunlight, or use a dehydrator. Store dried leaves in an airtight container in a cool, dark place. Dried lovage retains some flavour but is not as aromatic as fresh leaves.</p>
+            
+            <h3>Freezing Lovage</h3>
+            <p>Lovage can be frozen for use in cooked dishes. Freeze whole leaves on a tray, then transfer to freezer bags, or chop leaves and freeze in ice cube trays with a little water. Frozen lovage is best used in cooked dishes rather than raw applications, as freezing can affect the texture.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh lovage leaves can be stored in the refrigerator for a few days. Place stems in a glass of water like cut flowers, or wrap in damp kitchen paper and store in the fridge. For longer storage, dry or freeze the leaves as described above. Dried lovage can be stored in an airtight container for up to a year, though the flavour will diminish over time. Seeds store well in an airtight container for up to a year.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Lovage is generally very trouble-free and rarely suffers from serious pests or diseases. However, there are a few issues to watch out for, mostly related to its size and growth habit.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious and can be controlled by encouraging natural predators or using organic methods.</li>
+                <li><strong>Slugs and snails:</strong> Can damage young leaves, especially in spring. Use barriers, traps, or organic controls. Once established, lovage is less attractive to slugs.</li>
+                <li><strong>Carrot fly:</strong> Can affect lovage as it's related to carrots. Use barriers or companion planting to deter them.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Powdery mildew:</strong> Can occur in humid conditions or when plants are overcrowded. Improve air circulation and avoid overhead watering. Usually not serious if caught early.</li>
+                <li><strong>Rust:</strong> Fungal disease that can affect leaves, causing orange or brown pustules. Remove affected leaves and improve air circulation. Usually not serious.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Self-seeding:</strong> The main issue with lovage is its tendency to self-seed. Control by removing flower heads before they set seed, or by regularly removing volunteer seedlings.</li>
+                <li><strong>Size:</strong> Lovage can grow quite large and may overshadow smaller plants. Plan its position carefully and give it plenty of space.</li>
+                <li><strong>Wind damage:</strong> Tall plants can be damaged by strong winds. Provide support or choose a sheltered position.</li>
+                <li><strong>Poor growth:</strong> Can occur if plants don't receive enough water or if soil is very poor. Ensure adequate water and reasonable soil fertility for best growth.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Lovage is one of the easiest herbs to grow and is perfect for beginners. It's very forgiving and will thrive with minimal care. The main challenge is managing its size and preventing it from self-seeding too much. With proper care and positioning, you'll have a steady supply of fresh, flavourful lovage leaves for years to come!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

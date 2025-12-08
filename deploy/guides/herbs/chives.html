@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Chives - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Chives.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Chives</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Chives in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Chives (Allium schoenoprasum) are one of the easiest and most versatile herbs to grow, providing a continuous supply of mild onion-flavoured leaves throughout the growing season. These hardy perennials are perfect for UK gardens, thriving in containers, borders, or even as an attractive edging plant. Chives are a must-have herb for any kitchen garden, offering both culinary value and ornamental appeal with their pretty purple flowers.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Hardy perennial herb, easy to grow</li>
+                    <li>Provides continuous harvests from spring to autumn</li>
+                    <li>Perfect for containers, borders, or edging</li>
+                    <li>Attractive purple flowers attract pollinators</li>
+                    <li>Mild onion flavour, perfect for salads and cooking</li>
+                    <li>Low-maintenance and very reliable</li>
+                </ul>
+            </div>
+            
+            <p>Chives are members of the onion family and are one of the most reliable herbs for UK gardens. They form neat clumps of hollow, grass-like leaves that can be harvested repeatedly throughout the growing season. The leaves have a mild, delicate onion flavour that's perfect for adding to salads, soups, egg dishes, and many other recipes without being overpowering.</p>
+            
+            <p>In addition to their culinary value, chives produce attractive spherical purple flowers in early summer that are not only beautiful but also edible and attractive to bees and other beneficial insects. Chives are extremely low-maintenance once established and will return year after year, making them an excellent investment for any garden.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Chives are one of the best herbs for beginners. They're almost impossible to kill, grow quickly, and provide harvests within weeks of planting. Start with chives if you're new to growing herbs!</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow chives, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/47X2AjL" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+            </div>
+
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>While common chives (Allium schoenoprasum) are the most widely grown, there are a few varieties worth considering. Garlic chives (Allium tuberosum) are also popular and have a slightly different flavour profile, with flat leaves and white flowers.</p>
+            
+            <p>Common chives have round, hollow leaves and purple flowers, while garlic chives have flat, solid leaves and white flowers with a more garlicky flavour. Both are easy to grow and have similar cultivation requirements, though garlic chives tend to be slightly less hardy.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Common Chives</h4>
+                    <p>The standard variety with round, hollow leaves and purple flowers. Most widely available and reliable for UK growing. Perfect for all culinary uses.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Garlic Chives</h4>
+                    <p>Features flat, solid leaves with a garlicky flavour. White flowers appear later in summer. Slightly less hardy but still suitable for UK gardens.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Forescate'</h4>
+                    <p>A variety of common chives with particularly large, flavourful leaves. Excellent for culinary use and reliable in UK conditions.</p>
+                </div>
+            </div>
+        
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Chives</h2>
+            
+            <h3>Sowing Indoors</h3>
+            <p>For an early start, sow chives seeds indoors from late winter to early spring. Chives germinate easily and grow quickly, making them straightforward to start from seed.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare containers:</strong> Fill seed trays or small pots with peat-free seed compost. Chives seeds are small, so use fine compost.
+                </li>
+                <li>
+                    <strong>Sow seeds:</strong> Sow seeds thinly on the surface of the compost, or cover very lightly with a fine layer of vermiculite. Chives seeds need light to germinate.
+                </li>
+                <li>
+                    <strong>Provide warmth:</strong> Keep in a warm location (15–20°C / 59–68°F) such as on a windowsill or in a propagator. Germination usually takes 10–14 days.
+                </li>
+                <li>
+                    <strong>Water carefully:</strong> Water from below or use a fine mist to avoid disturbing the small seeds. Keep compost moist but not waterlogged.
+                </li>
+                <li>
+                    <strong>Pot on:</strong> When seedlings are large enough to handle, pot them into individual containers or thin to allow space for growth. Chives can be grown in clumps.
+                </li>
+            </ol>
+            
+            <h3>Sowing Outdoors</h3>
+            <p>Chives can be sown directly outdoors from early spring to early summer. They're easy to grow and will establish quickly. For best results, sow in a prepared seedbed and transplant to their final position when large enough.</p>
+            
+            <p>Sow seeds thinly in drills about 0.5cm (¼in) deep, spacing rows 30cm (12in) apart. Thin seedlings to 15–20cm (6–8in) apart when they're large enough to handle. Alternatively, sow in small clumps and thin to leave the strongest seedlings in each position.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Start:</strong> If you want chives quickly, consider buying young plants from a garden centre. They'll establish faster than seeds and can be harvested within a few weeks of planting.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Chives are extremely adaptable and can be grown in containers, borders, raised beds, or even as an attractive edging plant. They prefer a sunny position but will tolerate partial shade, and they're not fussy about soil type as long as it's reasonably well-drained.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny location with well-drained soil. Chives prefer full sun but will grow in partial shade, though growth may be slightly slower. They're not fussy about soil type and will grow in most conditions, though they prefer reasonably fertile, moisture-retentive soil.</p>
+            
+            <h3>Container Planting</h3>
+            <p>Chives are perfect for container growing, making them ideal for patios, balconies, and windowsills. Use pots at least 15–20cm (6–8in) in diameter with good drainage. Fill with peat-free multi-purpose compost and plant seedlings or divisions 15–20cm (6–8in) apart. Container-grown chives will need regular watering, especially during dry spells.</p>
+            
+            <h3>Ground Planting</h3>
+            <p>If planting in the ground, prepare the soil by removing weeds and incorporating well-rotted compost if the soil is poor. Plant seedlings or divisions at the same depth they were growing previously, spacing them 15–20cm (6–8in) apart. Water well after planting and keep the soil moist until plants are established.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Edging Plant:</strong> Chives make excellent edging plants for vegetable gardens or herb borders. Their neat, clumping habit and attractive flowers add both function and beauty to the garden.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Chives are extremely low-maintenance once established. Regular watering, occasional feeding, and dividing every few years will keep plants healthy and productive. They're very reliable and will return year after year with minimal care.</p>
+            
+            <h3>Watering</h3>
+            <p>Water chives regularly during dry spells, especially when plants are young or growing in containers. Once established, chives are quite drought-tolerant, but regular watering will encourage more vigorous growth and better harvests. Container-grown chives will need more frequent watering than those in the ground.</p>
+            
+            <h3>Feeding</h3>
+            <p>Chives don't usually need additional feeding if grown in reasonably fertile soil. However, container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season. Use a balanced, organic fertiliser at half strength. A spring mulch of well-rotted compost around ground-grown plants will help maintain soil fertility.</p>
+            
+            <h3>Dividing</h3>
+            <p>Chives benefit from being divided every 3–4 years to maintain vigour. Divide in spring or autumn by lifting the clump and separating it into smaller sections, each with a few bulbs. Replant the divisions immediately, spacing them 15–20cm (6–8in) apart. This not only rejuvenates the plants but also provides you with more plants to expand your chive collection or share with friends.</p>
+            
+            <h3>Removing Flowers</h3>
+            <p>Chives produce attractive purple (or white for garlic chives) flowers in early summer. While these are edible and attractive to pollinators, removing the flower stems as they appear will encourage the plant to produce more leaves. If you want to enjoy the flowers, allow some to bloom but remove others to maintain leaf production.</p>
+            
+            <h3>Winter Care</h3>
+            <p>Chives are fully hardy in the UK and will survive winter outdoors without protection. The leaves die back in autumn and new growth appears in spring. In mild winters, you may get some growth throughout the year. Container-grown chives can be moved to a sheltered position if desired, but this isn't necessary.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Chives can be harvested as soon as the leaves are large enough, usually 6–8 weeks after planting. Harvest regularly throughout the growing season by cutting leaves from the outside of the clump, leaving the central growing point intact to encourage new growth.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Cut from the outside:</strong> Harvest leaves from the outside of the clump, cutting them about 2–3cm (1in) above the base. This encourages new growth from the centre.</li>
+                <li><strong>Harvest regularly:</strong> Regular harvesting encourages more vigorous growth and prevents plants from becoming overcrowded. Cut leaves as needed throughout the growing season.</li>
+                <li><strong>Use sharp scissors:</strong> Use clean, sharp scissors or a knife to cut chives. This gives a clean cut and doesn't damage the plant.</li>
+                <li><strong>Harvest before flowering:</strong> Leaves have the best flavour before the plant flowers, though you can continue harvesting after flowering. Removing flower stems encourages more leaf production.</li>
+            </ul>
+            
+            <h3>Using Your Chives</h3>
+            <p>Chives are best used fresh and add a mild, delicate onion flavour to many dishes. They're perfect for adding to salads, soups, egg dishes, potatoes, fish, and many other recipes. Add chives at the end of cooking or use raw, as heat can diminish their delicate flavour. The flowers are also edible and make an attractive garnish.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh chives can be stored in the refrigerator for a few days. Place stems in a glass of water like cut flowers, or wrap in damp kitchen paper and store in the fridge. Chives can be frozen, but they lose their texture and are best used in cooked dishes. They don't dry well, so fresh is always best.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Chives are generally trouble-free and very reliable. They're rarely affected by pests or diseases and are one of the easiest herbs to grow successfully. Most problems are minor and easily managed.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Onion fly:</strong> Can occasionally affect chives, causing leaves to yellow and wilt. Usually not a serious problem. Remove affected plants and practice crop rotation if growing in the ground.</li>
+                <li><strong>Slugs and snails:</strong> Can damage young seedlings, but established plants are rarely affected. Use barriers, traps, or organic controls if needed.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Rust:</strong> Can occasionally affect chives, causing orange spots on leaves. Usually not serious. Remove affected leaves and improve air circulation. Avoid overhead watering.</li>
+                <li><strong>White rot:</strong> A fungal disease that can affect alliums. If it occurs, remove affected plants and don't replant chives or other alliums in the same spot for several years.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Overcrowding:</strong> Chives can become overcrowded after a few years, leading to reduced growth. Divide plants every 3–4 years to maintain vigour.</li>
+                <li><strong>Poor growth:</strong> Can occur if plants don't receive enough water or are growing in very poor soil. Ensure adequate watering and improve soil with compost if needed.</li>
+                <li><strong>Flowering too early:</strong> If chives flower very early, it may indicate stress. Ensure plants have adequate water and nutrients. Remove flower stems to encourage leaf production.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Chives are one of the most reliable herbs you can grow. They're almost impossible to kill, provide continuous harvests, and return year after year. If you're new to growing herbs, chives are an excellent place to start!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Parsley - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Parsley.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Parsley</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Parsley in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Parsley (Petroselinum crispum) is one of the most popular and versatile herbs, with a fresh, mild flavour that complements many dishes. This biennial herb is easy to grow in UK gardens and provides fresh leaves throughout the growing season. Parsley comes in two main types: flat-leaf (Italian) and curly-leaf, each with its own culinary uses.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Biennial (lives for two years, but best treated as annual)</li>
+                    <li>Grows 20–30cm (8–12in) tall with spreading habit</li>
+                    <li>Produces small yellow-green flowers in second year</li>
+                    <li>Fresh, mild flavour</li>
+                    <li>Essential in many cuisines worldwide</li>
+                    <li>Rich in vitamins and minerals</li>
+                </ul>
+            </div>
+            
+            <p>Parsley is native to the Mediterranean region and has been cultivated for centuries for its culinary and medicinal uses. The leaves have a fresh, mild flavour that's perfect for garnishing and adding to a wide variety of dishes. Parsley is rich in vitamins A, C, and K, as well as iron and other minerals, making it a nutritious addition to your diet.</p>
+            
+            <p>There are two main types of parsley: flat-leaf (Italian) parsley, which has a stronger flavour and is preferred for cooking, and curly-leaf parsley, which is more decorative and often used as a garnish. Both types are easy to grow and can be used interchangeably in most recipes.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Parsley can be slow to germinate, often taking 3–4 weeks. To speed up germination, soak seeds in warm water overnight before sowing, or try pre-chilling them in the refrigerator for a week. Once established, parsley is easy to grow and will provide fresh leaves throughout the season.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow parsley, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/3X5q4wH" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+            </div>
+
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>There are two main types of parsley: flat-leaf (Italian) and curly-leaf. Within each type, there are several varieties to choose from, each with slightly different characteristics.</p>
+            
+            <p>Parsley is typically grown from seeds, though you can also purchase small plants. When purchasing parsley, you're usually buying seeds or small plants. The main consideration is whether you prefer flat-leaf or curly-leaf parsley, as they have slightly different flavours and uses.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Flat-Leaf Parsley (Italian)</h4>
+                    <p>Stronger flavour than curly-leaf, preferred for cooking. Easier to chop and has a more robust taste. Best choice for culinary use. Most widely available.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Curly-Leaf Parsley</h4>
+                    <p>More decorative with tightly curled leaves. Milder flavour than flat-leaf. Often used as a garnish. Attractive appearance makes it popular for ornamental use.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Giant of Italy'</h4>
+                    <p>Flat-leaf variety with large, dark green leaves. Strong flavour and vigorous growth. Excellent for cooking. Reliable performer in UK conditions.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Moss Curled'</h4>
+                    <p>Curly-leaf variety with very tightly curled, decorative leaves. Milder flavour. Perfect for garnishing. Attractive in herb gardens and containers.</p>
+                </div>
+            </div>
+        
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Parsley</h2>
+            
+            <h3>Sowing Outdoors</h3>
+            <p>Parsley can be sown directly outdoors from early spring to early summer. It's best sown in its final position, as it doesn't transplant well. Parsley can be slow to germinate (often 3–4 weeks), so be patient.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Choose a sunny or partially shaded location with well-drained, reasonably fertile soil. Remove weeds and rake the soil to a fine tilth.
+                </li>
+                <li>
+                    <strong>Soak seeds (optional):</strong> To speed up germination, soak seeds in warm water overnight before sowing. Alternatively, pre-chill seeds in the refrigerator for a week.
+                </li>
+                <li>
+                    <strong>Sow seeds:</strong> Sow seeds thinly in drills about 1cm (½in) deep, spacing rows 30cm (12in) apart. Parsley seeds are slow to germinate, so be patient.
+                </li>
+                <li>
+                    <strong>Water gently:</strong> Water the soil gently after sowing, taking care not to wash away the seeds. Keep the soil moist until germination.
+                </li>
+                <li>
+                    <strong>Thin seedlings:</strong> When seedlings are large enough to handle, thin them to 15–20cm (6–8in) apart. Parsley needs space to grow well.
+                </li>
+            </ol>
+            
+            <h3>Sowing Indoors</h3>
+            <p>You can start parsley indoors in late winter or early spring for an earlier start. Sow seeds in pots or seed trays filled with peat-free seed compost. Cover seeds with about 1cm (½in) of compost. Keep at 15–20°C (59–68°F) and maintain consistent moisture. Seeds should germinate within 3–4 weeks. Transplant seedlings outdoors after the last frost, hardening them off first. Be careful when transplanting, as parsley has a taproot and doesn't like being disturbed.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Sowing Tip:</strong> Parsley seeds are slow to germinate, often taking 3–4 weeks. To speed up germination, soak seeds in warm water overnight before sowing, or pre-chill them in the refrigerator for a week. Once germinated, parsley grows quickly. Succession sow every few weeks for a continuous harvest.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Parsley prefers a sunny or partially shaded position with well-drained, reasonably fertile soil. It can be grown in containers or in the ground, and it's fully hardy in the UK. The key is to provide good drainage and avoid disturbing the roots.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny or partially shaded location with well-drained, reasonably fertile soil. Parsley prefers full sun but will tolerate light shade. It will not grow well in heavy, waterlogged soil, so ensure good drainage. Avoid very dry, poor soil, as this will result in weak growth. Parsley grows best in soil that's reasonably fertile but not overly rich.</p>
+            
+            <h3>Container Planting</h3>
+            <p>Growing parsley in containers is an excellent option, especially for smaller spaces. Use a container at least 20cm (8in) wide and deep with good drainage. Fill with peat-free multi-purpose compost. Container-grown parsley will need more frequent watering than ground-grown plants. You can also grow different varieties in separate containers.</p>
+            
+            <h3>Ground Planting</h3>
+            <p>If planting in the ground, prepare the soil by removing weeds and incorporating well-rotted compost if the soil is poor. Space plants 15–20cm (6–8in) apart to allow for their spreading habit. Parsley grows well in the ground and can be interplanted with other vegetables or herbs.</p>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> Parsley has a taproot and doesn't like being transplanted. If you must transplant, do so very carefully when seedlings are small, taking care not to disturb the roots. Direct sowing is strongly recommended for best results.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Parsley is relatively low-maintenance once established. It's a biennial that will provide leaves in its first year and may flower in its second year. However, many gardeners treat it as an annual and sow fresh seeds each year for the best leaf quality.</p>
+            
+            <h3>Watering</h3>
+            <p>Water parsley regularly during dry spells, especially when plants are young. Once established, parsley is quite drought-tolerant, but regular watering will encourage more vigorous growth and better leaf quality. Container-grown plants will need more frequent watering than those in the ground. Parsley prefers consistently moist soil, so don't let it dry out completely. Water at the base of plants to avoid wetting the leaves, which can lead to fungal issues.</p>
+            
+            <h3>Feeding</h3>
+            <p>Parsley doesn't usually need additional feeding if grown in reasonably fertile soil. However, if your soil is poor, you can apply a balanced, organic fertiliser in spring. Container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season. Avoid over-fertilising, as this can encourage excessive growth at the expense of flavour.</p>
+            
+            <h3>Preventing Bolting</h3>
+            <p>Parsley may bolt (go to seed) in its second year or if stressed. To prevent bolting, ensure adequate water, especially during hot, dry weather. Harvest leaves regularly to encourage new growth and delay flowering. If plants do bolt, the leaves become less flavourful, so it's best to remove flower stalks or sow fresh seeds.</p>
+            
+            <h3>Succession Sowing</h3>
+            <p>For a continuous harvest, sow parsley seeds every few weeks from early spring to early summer. This ensures you'll always have fresh leaves available. As older plants start to decline or bolt, younger plants will be ready to harvest.</p>
+            
+            <h3>Winter Care</h3>
+            <p>Parsley is fully hardy and will survive winter in the UK. In mild winters, it may retain some leaves. In colder areas, it will die back but may regrow in spring. You can protect plants with fleece in very cold areas, or simply sow fresh seeds in spring for a new crop. Container-grown plants may benefit from being moved to a sheltered spot in winter.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Parsley leaves can be harvested as soon as plants are large enough, usually 8–10 weeks after sowing. The leaves are best used fresh, as they lose much of their flavour when dried. However, they can be dried or frozen for later use. Harvest regularly to encourage new growth and prevent plants from bolting.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Pick outer leaves:</strong> Harvest leaves from the outside of the plant, leaving the central growing point intact. This encourages new growth from the centre.</li>
+                <li><strong>Harvest regularly:</strong> Pick leaves regularly throughout the growing season to encourage new growth and prevent plants from becoming leggy or bolting.</li>
+                <li><strong>Cut whole stems:</strong> You can cut whole stems near the base, or pick individual leaves as needed. Cutting stems encourages bushier growth.</li>
+                <li><strong>Harvest before flowering:</strong> For the best flavour, harvest leaves before the plant flowers. Once parsley flowers, the leaves become less flavourful.</li>
+            </ul>
+            
+            <h3>Using Your Parsley</h3>
+            <p>Fresh parsley leaves add a fresh, mild flavour to many dishes. Use them in salads, soups, stews, sauces, and as a garnish. They're excellent in Mediterranean, Middle Eastern, and many other cuisines. Parsley is particularly good with fish, chicken, vegetables, and in herb butters. Flat-leaf parsley has a stronger flavour and is preferred for cooking, while curly-leaf parsley is more decorative and often used as a garnish.</p>
+            
+            <h3>Drying Parsley</h3>
+            <p>While fresh leaves have the best flavour, parsley can be dried for later use. However, dried parsley loses much of its flavour and is not as aromatic as fresh. If you do want to dry it, harvest leaves in the morning after the dew has dried. Dry them in a warm, well-ventilated area out of direct sunlight, or use a dehydrator. Store dried leaves in an airtight container in a cool, dark place.</p>
+            
+            <h3>Freezing Parsley</h3>
+            <p>Parsley freezes better than it dries. Freeze whole leaves on a tray, then transfer to freezer bags, or chop leaves and freeze in ice cube trays with a little water. Frozen parsley is best used in cooked dishes rather than raw applications, as freezing can affect the texture. It retains more flavour than dried parsley.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh parsley leaves can be stored in the refrigerator for a few days. Place stems in a glass of water like cut flowers, or wrap in damp kitchen paper and store in the fridge. For longer storage, freeze the leaves as described above. Dried parsley can be stored in an airtight container for up to a year, though the flavour will diminish significantly over time.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Parsley is generally trouble-free, but there are a few issues to watch out for, mostly related to germination, bolting, and pests.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Carrot fly:</strong> Can affect parsley as it's related to carrots. Use barriers or companion planting to deter them. Usually not serious if caught early.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious and can be controlled by encouraging natural predators or using organic methods.</li>
+                <li><strong>Slugs and snails:</strong> Can damage young leaves, especially in spring. Use barriers, traps, or organic controls. Once established, parsley is less attractive to slugs.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Powdery mildew:</strong> Can occur in humid conditions or when plants are overcrowded. Improve air circulation and avoid overhead watering. Usually not serious if caught early.</li>
+                <li><strong>Leaf spot:</strong> Fungal disease that can affect leaves, causing brown or black spots. Remove affected leaves and improve air circulation. Usually not serious.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Slow germination:</strong> Parsley seeds are slow to germinate, often taking 3–4 weeks. This is normal. To speed up germination, soak seeds in warm water overnight or pre-chill them in the refrigerator.</li>
+                <li><strong>Bolting:</strong> Parsley may bolt (go to seed) in its second year or if stressed. Ensure adequate water, especially during hot, dry weather. Harvest leaves regularly to delay flowering. If plants do bolt, remove flower stalks or sow fresh seeds.</li>
+                <li><strong>Poor growth:</strong> Can occur if plants don't receive enough water or if soil is very poor. Ensure adequate water and reasonable soil fertility for best growth.</li>
+                <li><strong>Transplant shock:</strong> Parsley has a taproot and doesn't like being transplanted. If you must transplant, do so very carefully when seedlings are small. Direct sowing is strongly recommended.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Parsley is one of the most useful herbs to grow and is perfect for beginners. The main challenge is the slow germination, but once established, it's easy to grow. Succession sow every few weeks for a continuous harvest, and remember that fresh parsley has much better flavour than dried. With proper care, you'll have a steady supply of fresh, flavourful parsley leaves throughout the growing season!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

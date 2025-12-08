@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Kiwi fruit - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Kiwi.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Kiwi fruit</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Kiwi fruit in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Kiwi fruit (Actinidia) are attractive, vigorous climbing vines that produce delicious, vitamin-rich fruits. While the fuzzy kiwi (Actinidia deliciosa) needs a warm climate, hardy kiwi varieties (Actinidia arguta) can be successfully grown in the UK. These productive vines are self-fertile or need a pollination partner, depending on the variety, and can be trained against walls, pergolas, or trellises.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Vigorous, deciduous climbing vines that can reach 5–8m (16–26ft) or more</li>
+                    <li>Hardy kiwi varieties are suitable for UK growing; fuzzy kiwi needs greenhouse protection</li>
+                    <li>Some varieties are self-fertile, while others need male and female plants</li>
+                    <li>Fruits ripen from September to November, depending on variety</li>
+                    <li>Can be grown outdoors against sunny walls or on pergolas</li>
+                    <li>Excellent for eating fresh; rich in vitamin C</li>
+                </ul>
+            </div>
+            
+            <p>Kiwi fruit are native to China but can be grown successfully in the UK with the right variety. Hardy kiwi varieties (Actinidia arguta) are much more suitable for UK conditions than the fuzzy kiwi (Actinidia deliciosa), which needs greenhouse protection. Hardy kiwi produce smaller, smooth-skinned fruits that are sweeter and can be eaten whole (skin and all).</p>
+            
+            <p>These vines are very productive and can be trained in various ways to suit different spaces. They're best trained against sunny walls or on pergolas, where they provide attractive foliage and delicious fruits. With proper care, a single vine can produce 10–20kg (22–44lb) of fruit each year. Kiwi fruit are particularly valued for their high vitamin C content and unique flavour.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Hardy kiwi varieties are much better suited to UK growing than fuzzy kiwi. Choose self-fertile varieties like 'Issai' to avoid needing separate male and female plants. Kiwi vines need a warm, sunny, sheltered position - a south-facing wall is ideal. They're vigorous growers and need strong supports. Regular pruning is essential to control growth and encourage fruiting.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow kiwi fruit, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/47PTzJ2" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4rbFxJA" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Strong wires, trellises, or pergolas for training vigorous vines. Essential for supporting growth and fruit production.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4oOdqyo" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A small hand trowel for planting, transplanting, and general garden maintenance.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>When choosing kiwi varieties, consider whether you want hardy kiwi (suitable for outdoor UK growing) or fuzzy kiwi (needs greenhouse protection), as well as pollination requirements. Hardy kiwi varieties are much better suited to UK conditions and produce smaller, smooth-skinned fruits that can be eaten whole.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Type:</strong> Hardy kiwi (Actinidia arguta) are suitable for outdoor UK growing, while fuzzy kiwi (Actinidia deliciosa) need greenhouse protection. Hardy kiwi produce smaller, smooth-skinned fruits.</li>
+                <li><strong>Pollination:</strong> Some varieties are self-fertile (only need one plant), while others need separate male and female plants. Self-fertile varieties are easier for smaller gardens.</li>
+                <li><strong>Hardiness:</strong> Hardy kiwi varieties are more cold-tolerant and suitable for UK conditions. Fuzzy kiwi are less hardy and need protection.</li>
+                <li><strong>Fruit Size:</strong> Hardy kiwi produce smaller fruits (2–3cm / 1in) that can be eaten whole, while fuzzy kiwi produce larger fruits (5–8cm / 2–3in) that need peeling.</li>
+                <li><strong>Flavour:</strong> Hardy kiwi are sweeter and can be eaten whole (skin and all), while fuzzy kiwi have the classic kiwi flavour but need peeling.</li>
+                <li><strong>Vigour:</strong> All kiwi vines are vigorous growers and need strong supports. Some varieties are more vigorous than others.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Issai'</h4>
+                    <p>Self-fertile hardy kiwi producing small, smooth-skinned fruits that can be eaten whole. Sweet flavour. Harvest in September-October. Ideal for UK growing. No pollination partner needed.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Jenny'</h4>
+                    <p>Self-fertile hardy kiwi producing medium-sized, smooth-skinned fruits. Good flavour. Harvest in September-October. Ideal for UK growing. No pollination partner needed.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Weiki' (Male)</h4>
+                    <p>Male hardy kiwi variety, excellent pollinator for female varieties. Produces no fruit but is essential for pollination. Plant one male for every 3–5 female plants.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Ananasnaya'</h4>
+                    <p>Female hardy kiwi producing small, smooth-skinned fruits with pineapple-like flavour. Harvest in September-October. Needs a male pollinator. Good for UK growing.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Hayward'</h4>
+                    <p>Fuzzy kiwi variety producing large, fuzzy fruits with classic kiwi flavour. Needs greenhouse protection in the UK. Harvest in October-November. Needs a male pollinator.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Tomuri' (Male)</h4>
+                    <p>Male fuzzy kiwi variety, excellent pollinator for 'Hayward' and other fuzzy kiwi. Produces no fruit but is essential for pollination. Needs greenhouse protection.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Kiwi fruit are best planted during the dormant season, from late autumn to early spring. Container-grown plants can be planted year-round, though autumn and spring are still best for establishment. The most important consideration is choosing the right location - kiwi vines need a warm, sunny, sheltered position with strong supports.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a warm, sunny, sheltered position. South- or west-facing walls are ideal, as they provide extra heat and protection. The soil should be well-drained, moisture-retentive, and fertile. Kiwi prefer a pH of 6.0–7.0, though they're reasonably tolerant of different soil types. Avoid waterlogged sites and frost pockets. Good air circulation helps reduce disease problems.</p>
+            
+            <h3>Planting Kiwi Vines</h3>
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Dig a hole at least 60cm (2ft) wide and deep, breaking up the soil at the bottom. Mix in well-rotted organic matter or compost. Ensure the site is free from perennial weeds.
+                </li>
+                <li>
+                    <strong>Check the roots:</strong> If planting a container-grown vine, gently tease out any roots that are circling the root ball.
+                </li>
+                <li>
+                    <strong>Plant at correct depth:</strong> Position the vine so it sits at the same depth it was in its previous pot. Spread roots out evenly in the hole.
+                </li>
+                <li>
+                    <strong>Backfill and firm:</strong> Fill around the roots with the soil mixture, firming gently to eliminate air pockets. Create a slight depression around the vine to help water reach the roots.
+                </li>
+                <li>
+                    <strong>Water and mulch:</strong> Water thoroughly after planting. Mulch with organic matter, keeping it away from the stem.
+                </li>
+                <li>
+                    <strong>Install supports:</strong> Install strong wires, trellis, or pergola for training the vine. Kiwi vines are vigorous and need strong supports. For wall training, fix wires 30cm (12in) apart, starting 30cm (12in) above ground level.
+                </li>
+            </ol>
+            
+            <h3>Pollination</h3>
+            <p>If planting varieties that need pollination, plant one male plant for every 3–5 female plants. Ensure male and female plants are within 5m (16ft) of each other for good pollination. Self-fertile varieties like 'Issai' don't need a pollination partner, making them ideal for smaller gardens.</p>
+            
+            <h3>Spacing</h3>
+            <p>Space vines 3–4m (10–13ft) apart to allow for mature growth. This spacing helps reduce competition and makes maintenance easier. For wall training, space 2–3m (6–10ft) apart.</p>
+            
+            <h3>Training Systems</h3>
+            <p>Kiwi vines can be trained in several ways:</p>
+            <ul>
+                <li><strong>Wall training:</strong> Train along horizontal wires fixed to a wall. Ideal for outdoor kiwi. Provides extra heat and protection.</li>
+                <li><strong>Pergola training:</strong> Train over a pergola or arch. Decorative and provides shade. Good for outdoor kiwi in larger gardens.</li>
+                <li><strong>Trellis training:</strong> Train along a freestanding trellis. Good for outdoor kiwi. Ensure the trellis is strong enough to support the vigorous growth.</li>
+                <li><strong>Greenhouse training:</strong> For fuzzy kiwi, train along wires or trellis within the greenhouse. Allows better control of growing conditions.</li>
+            </ul>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> For best results, plant kiwi in autumn so roots can establish before spring growth. Kiwi vines need a very warm, sunny, sheltered position - a south-facing wall is ideal. Install strong supports before or immediately after planting, as kiwi vines are very vigorous. Choose self-fertile varieties like 'Issai' to avoid needing separate male and female plants. Hardy kiwi varieties are much better suited to UK growing than fuzzy kiwi.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Kiwi vines need regular care to produce healthy crops. Key tasks include watering, feeding, pruning, and training. With proper care, vines will reward you with abundant harvests for many years.</p>
+            
+            <h3>Watering</h3>
+            <p>Water newly planted vines regularly during the first growing season, especially during dry spells. Established vines are more drought-tolerant but will benefit from watering during prolonged dry periods, particularly when fruits are swelling (usually July to September). Water at the base of the vine, avoiding wetting the foliage to reduce disease risk. Mulch to help conserve moisture.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed kiwi vines in late winter with a balanced fertiliser or well-rotted organic matter. Apply a high-potassium fertiliser in spring to encourage fruiting. Avoid excessive nitrogen, which promotes leafy growth at the expense of fruit. Mulch annually in spring with well-rotted organic matter, keeping it away from the stem. This helps conserve moisture, suppress weeds, and gradually improves soil structure.</p>
+            
+            <h3>Pruning</h3>
+            <p>Pruning is essential for kiwi vines to control vigorous growth and encourage fruiting. Prune in winter (December to February) when the vine is dormant, and in summer to control growth.</p>
+            <ul>
+                <li><strong>Winter pruning:</strong> Prune in December to February. Remove dead, diseased, or overcrowded growth. Cut back the previous year's growth to 2–3 buds from the main framework. Maintain the permanent framework.</li>
+                <li><strong>Summer pruning:</strong> In summer, pinch out the tips of new shoots to control vigour. Remove any unwanted shoots. This helps direct energy into fruit production and keeps the vine manageable.</li>
+                <li><strong>Training:</strong> Tie in new growth regularly to maintain the training system. For wall training, tie shoots to horizontal wires. Remove any shoots growing in the wrong direction.</li>
+            </ul>
+            
+            <h3>Training</h3>
+            <p>Training is essential for kiwi vines to maintain shape and encourage fruiting. Tie in new growth regularly to maintain the training system. For wall training, tie shoots to horizontal wires. For pergola training, tie shoots to the pergola structure. Remove any shoots growing in the wrong direction. Kiwi vines are very vigorous, so regular training is necessary.</p>
+            
+            <h3>Thinning</h3>
+            <p>In early summer, thin out excess fruits to improve fruit size and quality. Leave 1–2 fruits per cluster, depending on the variety and vigour. This also helps prevent overcropping, which can reduce fruit quality and weaken the vine.</p>
+            
+            <div class="info-box">
+                <p><strong>Pruning for Control:</strong> Kiwi vines are very vigorous growers and need regular pruning to keep them manageable. Winter pruning maintains the framework and encourages fruiting, while summer pruning controls growth and directs energy into fruit production. Without regular pruning, kiwi vines can become unmanageable and produce fewer fruits.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Kiwi fruit are ready to harvest from September to November, depending on variety. Ripe fruits are fully coloured (green or brown depending on variety), slightly soft, and have a sweet flavour. For hardy kiwi, fruits should come away easily from the vine. Test a few fruits before harvesting, as fruits on the same vine can ripen at slightly different times.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Check ripeness:</strong> Ripe kiwi are fully coloured, slightly soft, and have a sweet flavour. For hardy kiwi, fruits should come away easily from the vine. Test a few fruits from different parts of the vine before harvesting.</li>
+                <li><strong>Harvest carefully:</strong> Handle kiwi gently to avoid bruising. Pick fruits with the stalk attached. Place in shallow containers to prevent them from being crushed. Don't stack fruits too deeply.</li>
+                <li><strong>Harvest regularly:</strong> Kiwi on the same vine can ripen over several weeks, so check regularly and harvest as they become ready. Harvest in the morning when fruits are cool and firm.</li>
+                <li><strong>Storage ripening:</strong> Kiwi can be picked slightly underripe and will ripen in storage. Store at room temperature to ripen, then move to the refrigerator once ripe.</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Ripe kiwi can be stored in the refrigerator for up to 2–3 weeks. Don't wash until just before eating. Store in a shallow container to prevent crushing. Underripe kiwi can be stored at room temperature to ripen, then moved to the refrigerator once ripe. For longer-term storage, kiwi can be frozen (peel and slice first for fuzzy kiwi, or freeze whole for hardy kiwi).</p>
+            
+            <h3>Using Your Kiwi</h3>
+            <p>Fresh kiwi are delicious eaten raw. Hardy kiwi can be eaten whole (skin and all), while fuzzy kiwi need to be peeled. They're excellent for desserts, salads, and snacking. Kiwi are also wonderful for cooking, making great additions to tarts, cakes, and smoothies. They can be used in jams and preserves. Kiwi are particularly valued for their high vitamin C content - one kiwi provides more than the daily recommended amount of vitamin C.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Harvesting Tip:</strong> Kiwi can be picked slightly underripe and will ripen in storage at room temperature. Once ripe, move to the refrigerator to extend storage life. Hardy kiwi can be eaten whole (skin and all), making them very convenient. If you have a large crop, process excess fruits promptly - they can be frozen or made into jam. Kiwi are particularly valued for their high vitamin C content.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Kiwi vines are generally trouble-free, but they can be affected by various pests and diseases. The main challenges in the UK are providing adequate warmth for ripening and controlling vigorous growth. With good cultural practices and proper site selection, most problems can be managed effectively.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Birds:</strong> Birds are attracted to ripening fruits. Protect vines with netting before fruits start to ripen. Ensure netting is well-secured and doesn't trap birds.</li>
+                <li><strong>Wasps:</strong> Wasps are attracted to ripening fruits. Hang wasp traps near vines or protect fruits with netting. Remove any fallen fruits promptly.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious, but can distort leaves and spread viruses. Encourage natural predators or use organic sprays if necessary.</li>
+                <li><strong>Scale insects:</strong> Can cluster on stems and leaves. Usually not serious, but can affect plant health. Remove by hand or treat with organic sprays if necessary.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Powdery mildew:</strong> Causes white, powdery coating on leaves. Prevent by ensuring good air circulation through proper pruning and spacing. Remove and destroy affected parts. More common in humid conditions.</li>
+                <li><strong>Botrytis (grey mould):</strong> Causes fruits to rot, especially in wet weather. Remove affected fruits promptly. Ensure good air circulation and avoid overcrowding. Harvest regularly to prevent overripe fruits from rotting.</li>
+                <li><strong>Root rot:</strong> Can occur in waterlogged soils. Ensure good drainage and avoid overwatering. Remove and destroy affected plants if severe.</li>
+                <li><strong>Leaf spot:</strong> Causes brown spots on leaves, which can lead to defoliation. Remove and destroy affected leaves. Ensure good air circulation through proper pruning. More common in wet conditions.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Fruits not ripening:</strong> Can be caused by lack of sun, cool weather, or lack of warmth. Ensure vines are in a sunny, warm position, preferably against a south-facing wall. In poor summers, fruits may not ripen fully.</li>
+                <li><strong>Poor fruiting:</strong> Can be caused by lack of pollination (for varieties that need it), lack of pruning, or nutrient imbalances. Ensure vines are properly pollinated, pruned, and fed. Self-fertile varieties avoid pollination issues.</li>
+                <li><strong>Frost damage:</strong> Early growth can be vulnerable to spring frosts. Choose warm, sheltered sites. Cover vines with fleece when frost is forecast during early growth.</li>
+                <li><strong>Overvigorous growth:</strong> Kiwi vines are very vigorous and can become unmanageable without regular pruning. Prune regularly in winter and summer to control growth and encourage fruiting.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Most Common Problem:</strong> Overvigorous growth is the main challenge with kiwi vines. They're very vigorous growers and can become unmanageable without regular pruning. Prune regularly in winter to maintain the framework and in summer to control growth. Without regular pruning, vines produce lots of leaves but fewer fruits and can overwhelm their supports.</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> The key to success with kiwi in the UK is choosing the right variety and controlling vigorous growth. Hardy kiwi varieties are much better suited to UK growing than fuzzy kiwi. Choose self-fertile varieties like 'Issai' to avoid needing separate male and female plants. Kiwi vines need a very warm, sunny, sheltered position - a south-facing wall is ideal. Regular pruning is essential to control growth and encourage fruiting. With proper care, kiwi vines will produce abundant harvests for many years.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

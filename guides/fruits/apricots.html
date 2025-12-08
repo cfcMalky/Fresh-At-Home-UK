@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Apricots - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Apricots.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Apricots</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Apricots in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Apricots (Prunus armeniaca) are beautiful, small trees that produce delicious, succulent fruits with a unique sweet-tart flavour. While they're native to warmer climates, many modern varieties are well-suited to UK gardens, especially when grown in warm, sheltered positions or trained against sunny walls. Apricots flower early in spring, making them vulnerable to frost, but with careful site selection and protection, they can be successfully grown in the UK.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Small, round-headed trees reaching up to 8m (26ft) tall, but can be kept smaller</li>
+                    <li>Early spring flowers (white or pink-tinged) that are vulnerable to frost</li>
+                    <li>Most varieties are self-fertile, so only one tree is needed</li>
+                    <li>Fruits ripen from late July to August</li>
+                    <li>Best grown in warm, sheltered positions or trained as fans against walls</li>
+                    <li>Can be grown in containers with dwarf varieties</li>
+                </ul>
+            </div>
+            
+            <p>Apricots are members of the Prunus family, related to peaches, plums, and cherries. They're more challenging to grow in the UK than some other stone fruits due to their early flowering and need for warmth, but modern varieties like 'Tomcot' and 'Flavorcot' are better suited to our climate. The key to success is choosing a warm, sheltered site and protecting early flowers from frost.</p>
+            
+            <p>Apricots are often trained as fans against sunny walls or fences, which helps improve fruiting and ripening by capturing and reflecting heat. This training method also makes them ideal for smaller gardens, as they take up minimal ground space while providing an attractive feature. Container-grown apricots can be moved to protected positions during flowering and early fruit development.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Apricots flower very early in spring (often February or March), making them vulnerable to frost damage. Choose a warm, sheltered site, preferably against a south- or west-facing wall. If frost is forecast during flowering, cover the tree with horticultural fleece overnight to protect the blossoms. Most varieties are self-fertile, so you only need one tree.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow apricots, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/3XyK7Un" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4rbFxJA" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Stakes, canes, or trellises for supporting plants as they grow. Essential for climbing varieties.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4oOdqyo" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A small hand trowel for planting, transplanting, and general garden maintenance.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>When choosing an apricot variety, consider your garden's microclimate, available space, and whether you want to grow in the ground or in containers. Most modern apricot varieties are self-fertile, so you only need one tree. Look for varieties that are better suited to UK conditions, with good disease resistance and reliable cropping.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Climate Suitability:</strong> Choose varieties that are better adapted to UK conditions, such as 'Tomcot' or 'Flavorcot', which are more reliable in cooler climates.</li>
+                <li><strong>Self-Fertility:</strong> Most modern varieties are self-fertile, meaning you only need one tree. This is ideal for smaller gardens.</li>
+                <li><strong>Disease Resistance:</strong> Look for varieties with good resistance to common problems like bacterial canker and silver leaf disease.</li>
+                <li><strong>Size:</strong> Standard trees can reach 8m (26ft), but dwarf varieties are available for containers. Fan-trained trees take up minimal ground space.</li>
+                <li><strong>Flowering Time:</strong> Early-flowering varieties are more vulnerable to frost. Consider varieties that flower slightly later if you're in a frost-prone area.</li>
+                <li><strong>Use:</strong> Some varieties are best for eating fresh, while others are excellent for cooking and preserving.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Tomcot'®</h4>
+                    <p>Self-fertile variety better suited for UK climate. Produces fruits with red tinges when fully ripe. Excellent flavour. Harvest in late July. Good disease resistance.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Flavorcot'®</h4>
+                    <p>Self-fertile, one of the best-flavoured varieties. Excellent for eating fresh. Heavy cropper. Harvest in late July. Good for UK gardens.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Alfred'</h4>
+                    <p>Self-fertile variety with orange to pink-flushed skin. Less prone to canker. Reliable cropper. Harvest in early August. Good for cooking and eating fresh.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Goldcot'</h4>
+                    <p>Self-fertile variety that produces heavy crops. Very good for cooking and preserving. Harvest in early August. Reliable performer.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Aprigold'®</h4>
+                    <p>Dwarf variety ideal for containers. Self-fertile. Compact growth habit, reaching only 1.5–2m (5–6ft) tall. Good for small spaces and patios.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Apricompakt'®</h4>
+                    <p>Another dwarf variety perfect for containers. Self-fertile. Compact, manageable size. Ideal for growing in pots on patios or balconies.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Apricots are best planted during the dormant season, from late autumn to early spring. Bare-root trees are available from November to March, while container-grown trees can be planted year-round, though autumn and spring are still best for establishment.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a warm, sheltered, sunny location. Apricots need maximum sun exposure and protection from cold winds and frost. South- or west-facing walls are ideal for fan-trained trees. Avoid frost pockets and exposed positions. The soil should be deep, moisture-retentive, and well-drained, ideally slightly alkaline (pH 6.5–7.5). Apricots struggle in poor, shallow soils.</p>
+            
+            <h3>Planting Bare-Root Trees</h3>
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Dig a hole at least 60cm (2ft) wide and deep, breaking up the soil at the bottom. Mix in well-rotted organic matter or compost. Ensure the site is free from weeds.
+                </li>
+                <li>
+                    <strong>Check the roots:</strong> Soak bare roots in water for 30 minutes before planting. Trim any damaged or broken roots back to healthy tissue.
+                </li>
+                <li>
+                    <strong>Plant at correct depth:</strong> Position the tree so the soil mark on the stem is level with the soil surface. Spread roots out evenly in the hole. The graft union should be well above soil level.
+                </li>
+                <li>
+                    <strong>Backfill and firm:</strong> Fill the hole with soil, firming gently as you go to eliminate air pockets. Create a slight depression around the tree to help water reach the roots.
+                </li>
+                <li>
+                    <strong>Stake and water:</strong> Insert a stake on the windward side and tie the tree loosely. Water thoroughly and mulch with organic matter, keeping it away from the trunk.
+                </li>
+            </ol>
+            
+            <h3>Planting Container-Grown Trees</h3>
+            <p>Plant container-grown trees at the same depth they were in the pot. Gently tease out any roots that are circling the root ball. Water well after planting and keep well-watered during the first growing season, especially during dry spells.</p>
+            
+            <h3>Training as Fans</h3>
+            <p>Apricots are often trained as fans against sunny walls or fences. This method improves fruiting and ripening by capturing heat, and takes up minimal ground space. Fans have a short trunk topped with a flat fan of radiating branches, making an attractive feature. They can be kept to just 1.8m (6ft) tall and 3.5–5m (11–16ft) wide. Start training in the first year after planting.</p>
+            
+            <h3>Container Growing</h3>
+            <p>Dwarf varieties like 'Aprigold' and 'Apricompakt' are ideal for containers. Use a large pot (45–50cm / 18–20in in diameter) with good drainage. Plant in a mix of John Innes No 3 compost and grit or perlite for good drainage. Position in full sun and protect from frost. Container-grown trees can be moved to protected positions during flowering and early fruit development.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> For best results, plant apricots in autumn so roots can establish before spring growth. If planting in spring, ensure trees are well-watered throughout the first summer. Fan-trained trees against walls benefit from the extra heat and protection, making them ideal for UK conditions. Always plant with the graft union well above soil level.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Apricots need regular care to produce healthy crops. Key tasks include watering, feeding, pruning, and protecting from frost and pests. With proper care, trees will reward you with delicious fruits for many years.</p>
+            
+            <h3>Watering</h3>
+            <p>Water newly planted trees regularly during the first two years, especially during dry spells. Established trees are more drought-tolerant but will benefit from watering during prolonged dry periods, particularly when fruits are swelling (usually June to July). Water at the base of the tree, avoiding wetting the foliage to reduce disease risk. Container-grown trees need more frequent watering than those in the ground, as they dry out faster.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed apricot trees in late winter with a balanced fertiliser or well-rotted organic matter. Apply a high-potassium fertiliser in spring to encourage fruiting. Avoid excessive nitrogen, which promotes leafy growth at the expense of fruit. Mulch annually in spring with well-rotted organic matter, keeping it away from the trunk. This helps conserve moisture, suppress weeds, and gradually improves soil structure.</p>
+            
+            <h3>Pruning</h3>
+            <p>Prune apricots annually to maintain health and productivity. Prune in spring or summer to minimize the risk of silver leaf disease and bacterial canker (avoid pruning in autumn and winter when these diseases are more active).</p>
+            <ul>
+                <li><strong>Formative pruning:</strong> In the first few years, establish the desired shape. For fan-trained trees, create a framework of radiating branches tied to wires.</li>
+                <li><strong>Established trees:</strong> Prune after fruiting (late summer) to maintain shape and encourage new growth. Remove dead, diseased, or crossing branches. Thin out overcrowded growth to allow light and air to reach all parts of the tree.</li>
+                <li><strong>Summer pruning:</strong> For fan-trained trees, prune in summer to maintain the fan shape and encourage fruiting spurs. This also helps control vigour.</li>
+            </ul>
+            
+            <h3>Frost Protection</h3>
+            <p>Apricots flower very early (often February or March), making them vulnerable to frost damage. Protect blossoms by covering trees with horticultural fleece overnight when frost is forecast. Fan-trained trees against walls are naturally more protected, but may still need covering during severe frosts. Container-grown trees can be moved to a protected position during flowering.</p>
+            
+            <h3>Pollination</h3>
+            <p>Most modern apricot varieties are self-fertile, so you only need one tree. However, if insect activity is low during flowering (due to cold weather), you can hand-pollinate using a small paintbrush. Gently transfer pollen from one flower to another. This can significantly improve fruit set in cool springs.</p>
+            
+            <div class="info-box">
+                <p><strong>Hand Pollination:</strong> If weather is cold during flowering and there are few insects about, hand-pollination can improve fruit set. Use a small, soft paintbrush to gently transfer pollen from the anthers (the pollen-bearing parts) of one flower to the stigma (the central part) of another. Do this on a dry day when flowers are fully open.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Apricots are ready to harvest from late July to August, depending on variety and weather conditions. Ripe fruits are soft, rich in colour (usually deep orange with red tinges), and come away easily from the tree with a gentle twist. They should have a sweet, aromatic fragrance.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Check ripeness:</strong> Ripe apricots are soft to the touch, fully coloured, and detach easily from the tree. The fruit should have a sweet, aromatic smell. Don't harvest too early, as apricots don't ripen well off the tree.</li>
+                <li><strong>Harvest carefully:</strong> Handle apricots gently to avoid bruising, as they're quite delicate when ripe. Place in a shallow container to prevent them from being crushed by their own weight.</li>
+                <li><strong>Harvest in stages:</strong> Not all fruits ripen at once. Harvest over several days or weeks, picking only those that are fully ripe. Check trees daily during harvest season.</li>
+                <li><strong>Use promptly:</strong> Apricots are best eaten immediately after harvest, as they don't store well. Use within a few days of picking.</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Apricots don't store well fresh and are best eaten within a few days of harvest. Store at room temperature if eating within 1–2 days, or in the refrigerator for up to 5 days. Don't store in sealed containers, as this can cause them to become mushy. For longer-term storage, apricots can be dried, frozen, or made into preserves, jams, or chutneys.</p>
+            
+            <h3>Using Your Apricots</h3>
+            <p>Fresh apricots are delicious eaten raw, with their unique sweet-tart flavour. They're also excellent for cooking, making wonderful pies, tarts, crumbles, and sauces. Apricots can be dried to make a delicious, chewy snack that stores well. They also make excellent jams, preserves, and chutneys. The fruits are rich in vitamins A and C, and are a good source of dietary fibre.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Harvesting Tip:</strong> Apricots don't ripen well off the tree, so it's important to wait until they're fully ripe before harvesting. The fruits should be soft, fully coloured, and come away easily. If you need to protect ripening fruits from birds, cover the tree with netting or individual fruit sleeves before the fruits start to colour up.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Apricots can be affected by various pests and diseases, but with good cultural practices and appropriate site selection, most problems can be managed effectively. The main challenges in the UK are frost damage to flowers and ensuring adequate warmth for ripening.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Birds:</strong> Birds are attracted to ripening apricots. Protect trees with netting or individual fruit sleeves before fruits start to colour up. Alternatively, grow trees in a fruit cage or move container-grown trees to a protected area.</li>
+                <li><strong>Squirrels:</strong> Can damage fruits and bark. Use tree guards and netting to protect trees. Squirrel-proof feeders may help distract them.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious, but can distort leaves. Encourage natural predators or use organic sprays if necessary.</li>
+                <li><strong>Wasps:</strong> Attracted to ripening fruits. Remove affected fruits promptly and consider using wasp traps if the problem is severe.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Bacterial canker:</strong> Causes sunken, dead areas on branches and trunk, often with gum oozing from the wounds. Prune out affected areas, cutting back to healthy wood. Avoid pruning in autumn and winter when the disease is more active. Choose resistant varieties like 'Alfred'.</li>
+                <li><strong>Silver leaf:</strong> A serious fungal disease causing silvery leaves and branch dieback. Prune in spring or summer to minimize risk (avoid autumn/winter pruning). Remove and destroy affected branches promptly.</li>
+                <li><strong>Peach leaf curl:</strong> Causes distorted, reddened leaves. More common in wet springs. Remove affected leaves and treat with fungicide if necessary. Ensure good air circulation through pruning.</li>
+                <li><strong>Blossom wilt:</strong> Causes flowers and young fruits to wither and die. Remove affected parts promptly. Ensure good air circulation and avoid overhead watering.</li>
+                <li><strong>Honey fungus:</strong> A serious root disease that can kill trees. Symptoms include dieback, poor growth, and honey-coloured mushrooms at the base in autumn. Remove infected trees and their roots. Avoid replanting in the same spot.</li>
+                <li><strong>Brown rot:</strong> Causes fruits to rot and develop brown patches. Remove and destroy affected fruits promptly. Ensure good air circulation and avoid overcrowding.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Lack of fruit:</strong> Can be caused by frost damage to flowers, poor pollination, or lack of warmth. Protect blossoms from frost, consider hand-pollination if insect activity is low, and ensure trees are in warm, sunny positions. Some varieties are more reliable than others in UK conditions.</li>
+                <li><strong>Failure to ripen:</strong> Cool weather and lack of sun can prevent fruits from ripening properly. Train trees against sunny walls to capture heat, and choose varieties better suited to UK conditions. In poor summers, fruits may not ripen fully.</li>
+                <li><strong>Frost damage:</strong> Early-flowering apricots are very vulnerable to spring frosts. Choose warm, sheltered sites, preferably against walls. Cover trees with fleece when frost is forecast during flowering.</li>
+                <li><strong>Poor growth:</strong> Can be caused by poor soil, lack of water, or unsuitable site. Ensure deep, well-drained soil, adequate watering, and a warm, sunny position. Apricots need good growing conditions to thrive.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> Apricots are a high-risk host for Xylella fastidiosa, a serious bacterial disease. If you notice unusual symptoms like leaf scorch, dieback, or stunted growth, report it to plant health authorities. This disease is not currently present in the UK, but early detection is crucial.</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> The key to success with apricots in the UK is choosing the right site and variety. Warm, sheltered positions against sunny walls are ideal. Protect early flowers from frost, and choose modern varieties that are better adapted to UK conditions. With proper care and site selection, apricots can be successfully grown and will reward you with delicious, sun-ripened fruits.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

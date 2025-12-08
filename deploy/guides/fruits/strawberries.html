@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Strawberries - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Strawberries.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Strawberries</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Strawberries in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Strawberries are one of the most popular and rewarding fruits to grow in UK gardens, producing delicious, sweet berries perfect for eating fresh, freezing, or making preserves. With different types available - summer-fruiting, perpetual (everbearing), and alpine - you can enjoy fresh strawberries from early summer through to autumn.</p>
+            
+            <h3>Key Characteristics</h3>
+            <ul>
+                <li><strong>Fruiting Types:</strong> Summer-fruiting (June-July), perpetual/everbearing (summer and autumn), and alpine (small, continuous)</li>
+                <li><strong>Growth Habit:</strong> Low-growing plants that spread by runners (stolons)</li>
+                <li><strong>Pollination:</strong> Self-fertile, so a single plant will produce fruits</li>
+                <li><strong>Planting:</strong> Typically grown from plants or runners, though some varieties can be grown from seed</li>
+                <li><strong>Harvesting:</strong> Fruits ripen from early summer through to autumn, depending on type</li>
+                <li><strong>Hardiness:</strong> Fully hardy in UK conditions</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Strawberries are perfect for small gardens and containers. They can be grown in the ground, raised beds, hanging baskets, or containers. Plant a mix of summer-fruiting and perpetual varieties to extend your harvest season from June to October.
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow strawberries, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4i8p30C" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>Selecting the right strawberry varieties is crucial for success. The main choice is between summer-fruiting, perpetual (everbearing), and alpine types, each with different characteristics and harvest times.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Fruiting Type:</strong> Summer-fruiting (one main crop), perpetual (summer and autumn crops), or alpine (continuous small fruits)</li>
+                <li><strong>Flavour:</strong> Some varieties have better flavour or are more disease-resistant</li>
+                <li><strong>Size:</strong> Consider available space - strawberries can be grown in beds, containers, or hanging baskets</li>
+                <li><strong>Disease Resistance:</strong> Some varieties show better resistance to common problems like powdery mildew or verticillium wilt</li>
+                <li><strong>Use:</strong> Consider whether you want large fruits for eating fresh or smaller fruits for preserves</li>
+            </ul>
+
+            <h3>Recommended Varieties for UK Gardens</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Elsanta (Summer)</h4>
+                    <p><strong>Type:</strong> Summer-fruiting<br>
+                    <strong>Harvest:</strong> June to July<br>
+                    <strong>Notes:</strong> Most popular commercial variety, reliable, large fruits, good flavour. Heavy cropper, disease resistant.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Cambridge Favourite (Summer)</h4>
+                    <p><strong>Type:</strong> Summer-fruiting<br>
+                    <strong>Harvest:</strong> June to July<br>
+                    <strong>Notes:</strong> Traditional favourite, reliable, good flavour, disease resistant. Excellent for UK conditions.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Mara des Bois (Perpetual)</h4>
+                    <p><strong>Type:</strong> Perpetual/Everbearing<br>
+                    <strong>Harvest:</strong> June to October<br>
+                    <strong>Notes:</strong> Excellent flavour, produces fruits from summer to autumn. Good for extending season.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Albion (Perpetual)</h4>
+                    <p><strong>Type:</strong> Perpetual/Everbearing<br>
+                    <strong>Harvest:</strong> June to October<br>
+                    <strong>Notes:</strong> Large fruits, excellent flavour, disease resistant. Produces well into autumn.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Honeoye (Summer)</h4>
+                    <p><strong>Type:</strong> Summer-fruiting<br>
+                    <strong>Harvest:</strong> Early to mid-June<br>
+                    <strong>Notes:</strong> Early variety, large fruits, good flavour, reliable. Excellent for early harvests.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Mignonette (Alpine)</h4>
+                    <p><strong>Type:</strong> Alpine<br>
+                    <strong>Harvest:</strong> June to October<br>
+                    <strong>Notes:</strong> Small, intensely flavoured fruits, continuous cropping. Perfect for containers and small spaces.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>ℹ️ Fruiting Types:</strong> Summer-fruiting varieties produce one main crop in early to mid-summer. Perpetual (everbearing) varieties produce fruits in summer and again in autumn. Alpine varieties produce small, intensely flavoured fruits continuously from summer to autumn.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Proper planting sets the foundation for healthy, productive strawberry plants. Choose the right site, prepare the soil well, and plant at the correct time and depth. Strawberries can be grown in the ground, raised beds, containers, or hanging baskets.</p>
+            
+            <h3>Site Selection</h3>
+            <ul>
+                <li><strong>Sunlight:</strong> Full sun is ideal for best fruit production and flavour</li>
+                <li><strong>Soil:</strong> Well-drained, fertile soil with pH 6.0-6.5. Strawberries dislike waterlogged conditions</li>
+                <li><strong>Shelter:</strong> Protect from strong winds, which can damage plants and fruits</li>
+                <li><strong>Rotation:</strong> Don't plant where strawberries, tomatoes, or potatoes have been grown in the last 3 years (to avoid verticillium wilt)</li>
+                <li><strong>Position:</strong> Can be grown in beds, raised beds, containers, hanging baskets, or grow bags</li>
+            </ul>
+
+            <h3>Planting Bare-Root Plants</h3>
+            <ol class="step-list">
+                <li><strong>Timing:</strong> Plant in late summer to early autumn (August-September) or early spring (March-April)</li>
+                <li><strong>Preparation:</strong> Soak roots in water for 30 minutes before planting</li>
+                <li><strong>Hole:</strong> Dig a hole wide enough to spread roots comfortably</li>
+                <li><strong>Depth:</strong> Plant so the crown (where roots meet stem) is level with the soil surface - not too deep or too shallow</li>
+                <li><strong>Roots:</strong> Spread roots out in the planting hole</li>
+                <li><strong>Backfill:</strong> Fill hole, firming soil gently around roots</li>
+                <li><strong>Watering:</strong> Water thoroughly after planting</li>
+                <li><strong>Mulching:</strong> Apply straw or other mulch around plants (but not touching the crown)</li>
+            </ol>
+
+            <h3>Planting Container-Grown Plants</h3>
+            <ul>
+                <li>Can be planted year-round, but spring or late summer is best</li>
+                <li>Plant at the same depth as in the container</li>
+                <li>Water regularly, especially if planting in spring or summer</li>
+                <li>Ensure the crown is level with the soil surface</li>
+            </ul>
+
+            <h3>Planting in Containers</h3>
+            <ul>
+                <li><strong>Containers:</strong> Use containers at least 30cm wide and deep with good drainage</li>
+                <li><strong>Compost:</strong> Use good-quality, well-draining compost</li>
+                <li><strong>Spacing:</strong> Plant 3-4 plants per 30cm container, or one plant per 20cm pot</li>
+                <li><strong>Watering:</strong> Containers need more frequent watering than ground-grown plants</li>
+                <li><strong>Feeding:</strong> Feed regularly with liquid fertiliser during the growing season</li>
+            </ul>
+
+            <h3>Spacing Guidelines</h3>
+            <ul>
+                <li><strong>In Ground:</strong> Plant 30-45cm apart in rows 60-90cm apart</li>
+                <li><strong>Raised Beds:</strong> Plant 30cm apart in all directions</li>
+                <li><strong>Containers:</strong> 3-4 plants per 30cm container, or one per 20cm pot</li>
+                <li><strong>Hanging Baskets:</strong> 3-4 plants per 30cm basket</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> The most critical aspect of planting strawberries is getting the depth right - the crown must be level with the soil surface. If planted too deep, the crown will rot; if too shallow, roots will dry out. Plant in late summer for best establishment and earliest crops the following year.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Consistent care throughout the growing season ensures healthy growth, good yields, and high-quality fruits. Strawberries require attention to watering, feeding, runner management, and protection from pests and diseases.</p>
+            
+            <h3>Watering</h3>
+            <ul>
+                <li><strong>Establishment:</strong> Water regularly during the first few weeks after planting</li>
+                <li><strong>Growing Season:</strong> Water regularly, especially during dry spells and when fruits are developing</li>
+                <li><strong>Method:</strong> Water at the base of plants, avoiding wetting the foliage and fruits</li>
+                <li><strong>Containers:</strong> Container-grown plants need more frequent watering - check daily in hot weather</li>
+                <li><strong>Mulching:</strong> Apply organic mulch around plants to conserve moisture and keep fruits clean</li>
+            </ul>
+
+            <h3>Feeding</h3>
+            <ul>
+                <li><strong>Spring:</strong> Apply balanced fertiliser (e.g., Growmore) or well-rotted manure in early spring</li>
+                <li><strong>Potassium:</strong> Apply sulphate of potash in late winter to improve fruit quality</li>
+                <li><strong>After Harvest:</strong> Feed again after harvesting summer-fruiting varieties to encourage new growth</li>
+                <li><strong>Container Plants:</strong> Feed regularly with liquid fertiliser during the growing season</li>
+                <li><strong>Frequency:</strong> Feed every 2-3 weeks during the growing season for container plants</li>
+            </ul>
+
+            <h3>Mulching</h3>
+            <ul>
+                <li><strong>Straw:</strong> Apply straw around plants when fruits start to form to keep them clean and prevent rot</li>
+                <li><strong>Alternative:</strong> Use black plastic, fabric mulch, or other organic materials</li>
+                <li><strong>Timing:</strong> Apply mulch in late spring when fruits are forming</li>
+                <li><strong>Method:</strong> Keep mulch away from the crown, but cover the soil around plants</li>
+            </ul>
+
+            <h3>Runner Management</h3>
+            <p>Strawberries produce runners (stolons) that can be used to propagate new plants or removed to focus energy on fruiting.</p>
+            <ul>
+                <li><strong>For Fruiting:</strong> Remove runners from plants you want to fruit well - they divert energy from fruit production</li>
+                <li><strong>For Propagation:</strong> Allow runners to develop and root, then cut them from the parent plant</li>
+                <li><strong>Timing:</strong> Remove runners throughout the growing season as they appear</li>
+                <li><strong>Method:</strong> Cut runners close to the parent plant with secateurs</li>
+                <li><strong>Replacement:</strong> Use runners to replace old plants (strawberries are most productive in years 2-3)</li>
+            </ul>
+
+            <h3>Protecting Fruits</h3>
+            <ul>
+                <li><strong>Netting:</strong> Net plants when fruits start to ripen to protect from birds</li>
+                <li><strong>Slugs:</strong> Use slug barriers, traps, or organic controls to protect fruits</li>
+                <li><strong>Straw:</strong> Apply straw under fruits to keep them clean and prevent rot</li>
+                <li><strong>Containers:</strong> Raise containers off the ground to reduce slug damage</li>
+            </ul>
+
+            <h3>After Harvest Care (Summer-Fruiting Varieties)</h3>
+            <ul>
+                <li><strong>Remove Old Leaves:</strong> Cut back old leaves after harvest to encourage new growth</li>
+                <li><strong>Feed:</strong> Apply fertiliser to encourage new growth</li>
+                <li><strong>Remove Runners:</strong> Continue removing runners to maintain plant vigour</li>
+                <li><strong>Renovation:</strong> After 3-4 years, replace plants with new ones from runners</li>
+            </ul>
+
+            <h3>Winter Care</h3>
+            <ul>
+                <li><strong>Protection:</strong> Cover plants with fleece or cloches if severe frosts are forecast</li>
+                <li><strong>Containers:</strong> Move containers to a sheltered spot or protect from frost</li>
+                <li><strong>Clean Up:</strong> Remove dead leaves and debris in late winter</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>ℹ️ Runner Note:</strong> Strawberries produce runners to create new plants. For best fruiting, remove runners from plants you want to crop well. However, use runners to propagate new plants to replace old ones after 3-4 years, as productivity declines with age.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Strawberries are ready to harvest when fully coloured and easily come away from the plant. Harvest regularly as fruits ripen quickly and don't store well once picked.</p>
+            
+            <h3>When to Harvest</h3>
+            <ul>
+                <li><strong>Colour:</strong> Fruits should be fully red (or appropriate colour for the variety) when ripe</li>
+                <li><strong>Feel:</strong> Fruits should be firm but yield slightly to gentle pressure</li>
+                <li><strong>Ease of Picking:</strong> Ripe strawberries should come away easily with a gentle pull</li>
+                <li><strong>Taste:</strong> Taste one to check - they should be sweet and fully flavoured</li>
+                <li><strong>Timing:</strong> Harvest every 2-3 days during the fruiting season</li>
+                <li><strong>Season:</strong> Summer varieties (June-July), perpetual varieties (June-October), alpine varieties (June-October)</li>
+                <li><strong>Weather:</strong> Harvest in dry weather, preferably in the morning when cool</li>
+            </ul>
+
+            <h3>Harvesting Method</h3>
+            <ul>
+                <li><strong>Gentle Pull:</strong> Gently pull the fruit, leaving the green calyx (cap) attached</li>
+                <li><strong>Stem:</strong> Leave a short piece of stem attached to the fruit</li>
+                <li><strong>Avoid Squashing:</strong> Handle fruits carefully as they're very delicate and bruise easily</li>
+                <li><strong>Container:</strong> Use shallow containers to avoid crushing fruits - don't pile them deep</li>
+                <li><strong>Regular Picking:</strong> Pick regularly to encourage more fruits to develop</li>
+                <li><strong>Check Daily:</strong> During peak season, check plants daily as fruits ripen quickly</li>
+            </ul>
+
+            <h3>Storage</h3>
+            <ul>
+                <li><strong>Immediate Use:</strong> Strawberries are best eaten fresh, within 1-2 days of picking</li>
+                <li><strong>Refrigeration:</strong> Store in the refrigerator for up to 2-3 days, but use as soon as possible</li>
+                <li><strong>Handling:</strong> Don't wash until just before eating - moisture causes them to deteriorate quickly</li>
+                <li><strong>Freezing:</strong> Strawberries freeze well - freeze whole or sliced, with or without sugar</li>
+                <li><strong>Preserving:</strong> Excellent for making jams, jellies, and preserves</li>
+            </ul>
+
+            <h3>Harvesting Tips</h3>
+            <ul>
+                <li><strong>Peak Season:</strong> Harvest is usually heaviest in mid-season - be prepared for large quantities</li>
+                <li><strong>Staggered Ripening:</strong> Fruits on the same plant ripen at different times - multiple harvests needed</li>
+                <li><strong>Quality:</strong> Pick only fully ripe fruits - they won't ripen further after picking</li>
+                <li><strong>Damaged Fruits:</strong> Remove and discard any damaged or mouldy fruits immediately</li>
+                <li><strong>Calyx:</strong> Leave the green calyx attached until just before eating - it helps preserve freshness</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Strawberries don't keep well once picked, so harvest only what you can use within a day or two. For longer storage, freeze them immediately after picking. Don't wash until just before eating, as moisture causes rapid deterioration.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Strawberries can be affected by various pests and diseases. Early identification and appropriate action help maintain healthy, productive plants. Good hygiene, proper spacing, and rotation are key to prevention.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Birds:</strong> Can strip entire crops. Use netting to protect fruits, especially during ripening season.</li>
+                <li><strong>Slugs and Snails:</strong> Can damage fruits, especially those touching the ground. Use barriers, traps, or organic controls, apply straw mulch.</li>
+                <li><strong>Aphids:</strong> Can cause leaf curl and spread viruses. Usually not serious - encourage natural predators, use insecticidal soap if severe.</li>
+                <li><strong>Vine Weevil:</strong> Larvae feed on roots, causing plants to wilt. Use biological controls or nematodes, check container-grown plants regularly.</li>
+                <li><strong>Strawberry Seed Beetle:</strong> Larvae feed inside fruits. Remove affected fruits, use pheromone traps.</li>
+            </ul>
+
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Grey Mould (Botrytis):</strong> Fruits develop grey, fuzzy mould. Remove affected fruits, improve air circulation, avoid wetting foliage, apply straw mulch.</li>
+                <li><strong>Powdery Mildew:</strong> White, powdery coating on leaves and fruits. Improve air circulation, remove affected material, consider resistant varieties.</li>
+                <li><strong>Verticillium Wilt:</strong> Causes plants to wilt and die. Avoid planting where tomatoes, potatoes, or strawberries have been grown. Remove and destroy affected plants.</li>
+                <li><strong>Red Core (Phytophthora):</strong> Causes root rot and plant death. Improve drainage, avoid waterlogged conditions, remove affected plants.</li>
+                <li><strong>Leaf Spot:</strong> Brown spots on leaves. Usually not serious - remove affected leaves, improve air circulation.</li>
+            </ul>
+
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Poor Drainage:</strong> Strawberries dislike waterlogged soil. Improve drainage, plant in raised beds or containers if necessary.</li>
+                <li><strong>Drought Stress:</strong> Can cause poor fruit development and small fruits. Water regularly during dry periods, especially when fruits are developing.</li>
+                <li><strong>Frost Damage:</strong> Late spring frosts can damage flowers and developing fruits. Protect with fleece or cloches if frost is forecast.</li>
+                <li><strong>Overcrowding:</strong> Too many plants reduce air circulation and increase disease risk. Maintain proper spacing, remove runners regularly.</li>
+                <li><strong>Poor Fruit Set:</strong> Can be due to lack of pollination, frost damage, or poor growing conditions. Ensure good growing conditions, protect from frost.</li>
+            </ul>
+
+            <h3>Prevention Strategies</h3>
+            <ul>
+                <li><strong>Good Hygiene:</strong> Remove and destroy all affected fruits, leaves, and plant debris</li>
+                <li><strong>Air Circulation:</strong> Maintain proper spacing and remove runners to ensure good air flow</li>
+                <li><strong>Rotation:</strong> Don't plant strawberries where they, tomatoes, or potatoes have been grown (wait 3+ years)</li>
+                <li><strong>Healthy Stock:</strong> Buy certified virus-free plants from reputable suppliers</li>
+                <li><strong>Proper Watering:</strong> Water at the base, avoid wetting foliage and fruits</li>
+                <li><strong>Mulching:</strong> Apply straw or other mulch to keep fruits clean and prevent rot</li>
+                <li><strong>Netting:</strong> Protect fruits from birds with netting during ripening</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ Verticillium Wilt Warning:</strong> This serious disease can persist in soil for many years. Never plant strawberries where tomatoes, potatoes, or other strawberries have been grown recently. If plants show symptoms (wilting, yellowing leaves), remove and destroy them immediately.
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Prevention Tips:</strong> Maintain good plant health through proper feeding and watering, ensure good air circulation through correct spacing and runner removal, practice good garden hygiene by removing all affected material, use crop rotation, protect fruits from birds and slugs, and choose disease-resistant varieties.
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

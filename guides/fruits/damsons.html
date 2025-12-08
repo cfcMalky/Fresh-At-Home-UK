@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Damsons - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Damsons.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Damsons</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Damsons in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Damsons (Prunus domestica subsp. insititia) are hardy, productive trees that produce small, tart, dark purple fruits perfect for cooking, jams, and preserves. These easy-to-grow trees are well-suited to UK gardens and are more reliable croppers than many plum varieties. Damsons are particularly valued for their excellent flavour when cooked and their ability to thrive in less-than-ideal conditions.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Hardy, deciduous trees reaching 3–5m (10–16ft) in height</li>
+                    <li>Small, dark purple fruits with tart flavour, excellent for cooking</li>
+                    <li>Most varieties are self-fertile, so only one tree is needed</li>
+                    <li>Fruits ripen from late August to September</li>
+                    <li>More reliable and easier to grow than many plum varieties</li>
+                    <li>Excellent for jams, jellies, and preserves</li>
+                </ul>
+            </div>
+            
+            <p>Damsons are a type of plum, but they're smaller, more tart, and generally hardier than dessert plums. They're native to the UK and are perfectly adapted to our climate, making them one of the easiest stone fruits to grow. Damsons are particularly valued for cooking, as their tart flavour and high pectin content make them excellent for jams, jellies, and preserves.</p>
+            
+            <p>These trees are very productive and relatively trouble-free, making them ideal for beginners. They're tolerant of most soil types and positions, though they produce best in full sun. With proper care, a single tree can produce 15–30kg (33–66lb) of fruit each year. Damsons are also more reliable croppers than many plum varieties, making them an excellent choice for UK gardens.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Damsons are among the easiest stone fruits to grow in the UK. Most varieties are self-fertile, so you only need one tree. They're more reliable croppers than many plum varieties and are particularly good for cooking and preserving. Choose a sunny, sheltered site for best results, though they'll tolerate partial shade.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow damsons, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/484TMak" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4rbFxJA" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Stakes, canes, or trellises for supporting trees and training fans if needed.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4oOdqyo" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A small hand trowel for planting, transplanting, and general garden maintenance.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>When choosing damson varieties, consider harvest time, fruit size, and reliability. Most damson varieties are self-fertile, so you only need one tree. Damsons are generally more reliable croppers than many plum varieties, making them an excellent choice for UK gardens.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Self-Fertility:</strong> Most damson varieties are self-fertile, meaning you only need one tree. This is ideal for smaller gardens.</li>
+                <li><strong>Harvest Time:</strong> Most damsons ripen in late August to September. Choose varieties that suit your needs.</li>
+                <li><strong>Fruit Size:</strong> Damsons are generally smaller than plums, but some varieties produce larger fruits than others.</li>
+                <li><strong>Reliability:</strong> Damsons are generally more reliable croppers than many plum varieties, making them a good choice for UK conditions.</li>
+                <li><strong>Use:</strong> All damsons are excellent for cooking, jams, and preserves. Some can also be eaten fresh when fully ripe.</li>
+                <li><strong>Disease Resistance:</strong> Damsons are generally more disease-resistant than many plum varieties.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Merryweather'</h4>
+                    <p>Classic damson variety producing small, dark purple fruits with excellent flavour. Self-fertile. Heavy cropper. Harvest in late August to September. Excellent for cooking and preserving.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Shropshire Prune'</h4>
+                    <p>Traditional damson producing small, dark purple fruits. Self-fertile. Reliable cropper. Harvest in late August to September. Excellent for cooking and preserving.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Farleigh Damson'</h4>
+                    <p>Compact variety producing good crops of small, dark purple fruits. Self-fertile. Good for smaller gardens. Harvest in late August to September. Excellent for cooking.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Prune Damson'</h4>
+                    <p>Traditional variety producing small, dark purple fruits. Self-fertile. Heavy cropper. Harvest in late August to September. Excellent for cooking and preserving.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Blue Violet'</h4>
+                    <p>Produces medium-sized, dark purple fruits. Self-fertile. Good cropper. Harvest in late August to September. Can be eaten fresh when fully ripe or used for cooking.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Bradley's King'</h4>
+                    <p>Produces good crops of small, dark purple fruits. Self-fertile. Reliable cropper. Harvest in late August to September. Excellent for cooking and preserving.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Damsons are best planted during the dormant season, from late autumn to early spring. Bare-root trees are available from November to March, while container-grown trees can be planted year-round, though autumn and spring are still best for establishment.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny position for best fruit production, though damsons will tolerate partial shade. Avoid waterlogged sites and frost pockets. Most soil types are suitable, but well-drained, moisture-retentive, fertile soil is ideal. Damsons prefer a pH of 6.0–7.0, though they're reasonably tolerant of different soil types. Good air circulation helps reduce disease problems.</p>
+            
+            <h3>Planting Bare-Root Trees</h3>
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Dig a hole at least 60cm (2ft) wide and deep, breaking up the soil at the bottom. Mix in well-rotted organic matter or compost. Ensure the site is free from perennial weeds.
+                </li>
+                <li>
+                    <strong>Check the roots:</strong> Soak bare roots in water for 30 minutes before planting. Trim any damaged or broken roots back to healthy tissue.
+                </li>
+                <li>
+                    <strong>Plant at correct depth:</strong> Position the tree so the soil mark on the stem (where it was previously planted) is level with the soil surface. Spread roots out evenly in the hole. The graft union (the bulge where the variety joins the rootstock) should be well above soil level.
+                </li>
+                <li>
+                    <strong>Backfill and firm:</strong> Fill the hole with soil, firming gently as you go to eliminate air pockets. Create a slight depression around the tree to help water reach the roots.
+                </li>
+                <li>
+                    <strong>Stake and water:</strong> Insert a stake on the windward side and tie the tree loosely with a tree tie. Water thoroughly and mulch with organic matter, keeping it away from the trunk.
+                </li>
+            </ol>
+            
+            <h3>Planting Container-Grown Trees</h3>
+            <p>Plant container-grown trees at the same depth they were in the pot. Gently tease out any roots that are circling the root ball. Water well after planting and keep well-watered during the first growing season, especially during dry spells.</p>
+            
+            <h3>Spacing</h3>
+            <p>Space trees 4–5m (13–16ft) apart to allow for mature growth and good air circulation. This spacing helps reduce disease problems and makes maintenance easier. For fan-trained trees, space 3–4m (10–13ft) apart.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> For best results, plant damsons in autumn so roots can establish before spring growth. If planting in spring, ensure trees are well-watered throughout the first summer. Always plant with the graft union well above soil level. Damsons are more tolerant of less-than-ideal conditions than many plum varieties, making them a good choice for challenging sites.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Damsons need regular care to produce healthy crops. Key tasks include watering, feeding, mulching, and pruning. With proper care, trees will reward you with abundant harvests for many years.</p>
+            
+            <h3>Watering</h3>
+            <p>Water newly planted trees regularly during the first two years, especially during dry spells. Established trees are more drought-tolerant but will benefit from watering during prolonged dry periods, particularly when fruits are swelling (usually July to August). Water at the base of the tree, avoiding wetting the foliage to reduce disease risk.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed damson trees in late winter with a balanced fertiliser or well-rotted organic matter. Apply a high-potassium fertiliser in spring to encourage fruiting. Avoid excessive nitrogen, which promotes leafy growth at the expense of fruit. Mulch annually in spring with well-rotted organic matter, keeping it away from the trunk. This helps conserve moisture, suppress weeds, and gradually improves soil structure.</p>
+            
+            <h3>Pruning</h3>
+            <p>Prune damsons in summer (after fruiting) to minimize the risk of silver leaf disease and bacterial canker. Avoid pruning in autumn and winter when these diseases are more active.</p>
+            <ul>
+                <li><strong>Formative pruning:</strong> In the first few years, establish a balanced framework of branches. For bush trees, select a central leader and 4–5 evenly spaced lateral branches.</li>
+                <li><strong>Established trees:</strong> Prune after fruiting (late summer) to maintain shape and encourage new growth. Remove dead, diseased, or crossing branches. Thin out overcrowded growth to allow light and air to reach all parts of the tree.</li>
+                <li><strong>Summer pruning:</strong> For fan-trained trees, prune in summer to maintain the fan shape and encourage fruiting spurs. This also helps control vigour.</li>
+                <li><strong>Renovation:</strong> Neglected trees can be renovated over several years by removing dead wood and gradually reshaping the canopy. Avoid removing more than one-third of the tree in any one year.</li>
+            </ul>
+            
+            <h3>Mulching</h3>
+            <p>Mulch annually in spring with well-rotted organic matter, keeping it away from the trunk to prevent rot. Mulching helps conserve moisture, suppress weeds, and gradually improves soil structure. Apply a layer 5–7cm (2–3in) deep around the base of the tree.</p>
+            
+            <h3>Thinning</h3>
+            <p>In early summer (June), thin out excess fruitlets to improve fruit size and quality. Leave one fruit per cluster, spacing them 5–8cm (2–3in) apart. This also helps prevent branches from breaking under heavy fruit loads and reduces the risk of biennial bearing.</p>
+            
+            <div class="info-box">
+                <p><strong>Pruning Timing:</strong> Damsons should be pruned in summer (after fruiting) to minimize the risk of silver leaf disease and bacterial canker, which are more active in autumn and winter. Avoid pruning in autumn and winter. If you must prune in winter, seal all cuts with wound paint to prevent disease entry.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Damsons are ready to harvest from late August to September, depending on variety. Ripe fruits are fully coloured (dark purple), slightly soft to the touch, and come away easily from the tree with a gentle twist. They should have a sweet-tart flavour. Fruits don't all ripen at once, so harvest over several weeks.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Check ripeness:</strong> Ripe damsons are fully coloured (dark purple), slightly soft to the touch, and detach easily from the tree with a gentle twist. They should have a sweet-tart flavour. Test a few fruits before harvesting the whole crop.</li>
+                <li><strong>Harvest carefully:</strong> Handle damsons gently to avoid bruising. Pick with the stalk attached for better storage. Place in shallow containers to prevent them from being crushed. Don't stack fruits too deeply.</li>
+                <li><strong>Harvest regularly:</strong> Pick fruits every few days during the harvest season, as they ripen over several weeks. Check trees regularly when fruits are ripening. Harvest in the morning when fruits are cool and firm.</li>
+                <li><strong>Use promptly:</strong> Fresh damsons don't store well and are best used within a few days of harvest. Use or process promptly for best quality.</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Fresh damsons don't store well and are best used within 2–3 days of harvest. Store in the refrigerator in a shallow container, but don't wash until just before using. For longer-term storage, damsons can be frozen (freeze on trays first, then transfer to bags), made into jams, jellies, or preserves, or used in cooking and baking. Damsons are particularly good for preserving due to their high pectin content.</p>
+            
+            <h3>Using Your Damsons</h3>
+            <p>Fresh damsons are quite tart and are usually better when cooked or preserved. They're excellent for cooking, making wonderful pies, crumbles, tarts, and sauces. Damsons are particularly valued for making jams, jellies, and preserves, as they have a high pectin content and distinctive flavour. They can also be used in chutneys and pickles. When fully ripe, some varieties can be eaten fresh, though they're still quite tart. The fruits are rich in vitamins A and C, and are a good source of dietary fibre and antioxidants.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Harvesting Tip:</strong> Harvest damsons when they're fully coloured and slightly soft. They can be left on the tree a little longer than dessert plums, as they're used for cooking. If you have a large crop, freeze excess fruits on trays first (so they don't stick together), then transfer to freezer bags. This allows you to use them in smaller portions throughout the year. Damsons are particularly good for making jam and jelly due to their high pectin content.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Damsons are generally trouble-free and more disease-resistant than many plum varieties, but they can still be affected by various pests and diseases. With good cultural practices and appropriate site selection, most problems can be managed effectively.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Birds:</strong> Birds are attracted to ripening fruits. Protect trees with netting before fruits start to ripen. Ensure netting is well-secured and doesn't trap birds. Alternatively, grow trees in a fruit cage.</li>
+                <li><strong>Plum moth:</strong> Larvae feed inside developing fruits, causing them to be maggoty. Remove and destroy affected fruits. Good hygiene and regular harvesting help reduce problems.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious, but can distort leaves and spread viruses. Encourage natural predators or use organic sprays if necessary.</li>
+                <li><strong>Winter moth:</strong> Caterpillars can defoliate trees. Hand-pick when possible, or use biological controls. Encourage birds which will help control caterpillar populations.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Bacterial canker:</strong> Causes sunken, dead areas on branches and trunk, often with gum oozing from the wounds. Prune out affected areas, cutting back to healthy wood. Avoid pruning in autumn and winter when the disease is more active. Seal all cuts with wound paint.</li>
+                <li><strong>Silver leaf:</strong> A serious fungal disease causing silvery leaves and branch dieback. Prune in summer to minimize risk (avoid autumn/winter pruning). Remove and destroy affected branches promptly. Seal all cuts with wound paint.</li>
+                <li><strong>Plum leaf spot:</strong> Causes brown spots on leaves, which can lead to defoliation. Remove and destroy affected leaves. Ensure good air circulation through proper pruning. More common in wet conditions.</li>
+                <li><strong>Brown rot:</strong> Causes fruits to rot and develop brown patches. Remove and destroy affected fruits promptly. Ensure good air circulation and avoid overcrowding. Harvest regularly to prevent overripe fruits from rotting.</li>
+                <li><strong>Blossom wilt:</strong> Causes flowers and young fruits to wither and die. Remove affected parts promptly. Ensure good air circulation and avoid overhead watering.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Poor fruiting:</strong> Can be caused by lack of pollination, frost damage to flowers, or nutrient imbalances. Most damsons are self-fertile, so ensure good growing conditions. Young trees may take a few years to start fruiting well.</li>
+                <li><strong>Frost damage:</strong> Early-flowering damsons can be vulnerable to spring frosts. Choose warm, sheltered sites. Cover trees with fleece when frost is forecast during flowering.</li>
+                <li><strong>Fruits splitting:</strong> Can be caused by irregular watering or heavy rain after dry periods. Ensure consistent watering, especially when fruits are swelling. Some varieties are more prone to splitting than others.</li>
+                <li><strong>Biennial bearing:</strong> Trees produce heavy crops one year and light crops the next. Prevent by thinning fruits in heavy-crop years. Some varieties are more prone to this than others.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Damsons are among the easiest stone fruits to grow in the UK and are more reliable croppers than many plum varieties. Most varieties are self-fertile, so you only need one tree. Prune in summer to minimize disease risk. With proper care and site selection, damsons will produce abundant harvests for many years. They're particularly valued for cooking and preserving due to their excellent flavour and high pectin content.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

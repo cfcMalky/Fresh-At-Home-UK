@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Citrus - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Citrus.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Citrus</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Citrus in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Citrus fruits (lemons, oranges, limes, and others) are attractive, evergreen plants that produce delicious fruits perfect for eating fresh, cooking, or making drinks. While they're native to warmer climates, many citrus varieties can be successfully grown in the UK in containers, allowing them to be moved indoors or into a greenhouse during winter. Citrus plants are not hardy and need protection from frost, making container growing the ideal method for UK gardens.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Evergreen trees or shrubs, usually grown in containers in the UK</li>
+                    <li>Not hardy - need protection from frost (minimum 5°C / 41°F)</li>
+                    <li>Fruits ripen at different times depending on variety (year-round for some)</li>
+                    <li>Most varieties are self-fertile, so only one plant is needed</li>
+                    <li>Fragrant flowers and attractive glossy foliage</li>
+                    <li>Ideal for conservatories, greenhouses, or bright indoor spaces</li>
+                </ul>
+            </div>
+            
+            <p>Citrus plants are native to subtropical and tropical regions, but with proper care they can be grown successfully in the UK. The key to success is providing adequate warmth, light, and protection from frost. Container growing allows you to move plants to protected positions during winter, making them ideal for patios, conservatories, and bright indoor spaces.</p>
+            
+            <p>Modern citrus varieties offer improved characteristics including better cold tolerance (though still not hardy), more compact growth, and reliable fruiting. With proper care, citrus plants will reward you with fragrant flowers, attractive foliage, and delicious fruits. Lemons are among the easiest citrus to grow in the UK, while oranges and limes can be more challenging but are still achievable with the right conditions.</p>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> Citrus plants are not hardy and will be damaged or killed by frost. They need a minimum temperature of 5°C (41°F), though 10–15°C (50–59°F) is ideal for winter. In the UK, citrus must be grown in containers so they can be moved to protected positions (conservatory, greenhouse, or bright indoor space) during winter. They cannot be left outside year-round.</p>
+            </div>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Lemons are the easiest citrus to grow in the UK, as they're more tolerant of cooler conditions than oranges or limes. Start with a lemon tree if you're new to growing citrus. All citrus need bright light, regular watering, and protection from frost. Container growing is essential so you can move plants to protected positions during winter.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow citrus, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/49swHRe" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Citrus Compost</h4>
+                    <p>Specialist compost for citrus plants, or use a good-quality, free-draining compost. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Citrus Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3LJp8vv" target="_blank" rel="noopener">
+                    <span class="emoji">🌡️</span>
+                    <h4>Heat Mat or Propagator</h4>
+                    <p>A heated propagator or heat mat ensures consistent temperature for successful germination.</p>
+                    <span class="browse-button">Browse Heat Mat or Propagator</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4i6l6cw" target="_blank" rel="noopener">
+                    <span class="emoji">💡</span>
+                    <h4>Grow Lights</h4>
+                    <p>LED grow lights provide the bright conditions plants need. Essential for winter growing or north-facing windows.</p>
+                    <span class="browse-button">Browse Grow Lights</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>When choosing citrus varieties, consider your available space, light levels, and temperature control. Lemons are the easiest to grow in the UK, while oranges and limes can be more challenging. All citrus need bright light and protection from frost, so consider where you'll keep them during winter.</p>
+            
+            <h3>Types of Citrus</h3>
+            <ul>
+                <li><strong>Lemons:</strong> Easiest to grow in the UK. More tolerant of cooler conditions. Varieties like 'Meyer' and 'Eureka' are good choices. Fruits year-round.</li>
+                <li><strong>Oranges:</strong> More challenging, need warmer conditions. 'Calamondin' is a good choice for UK growing. Fruits in winter.</li>
+                <li><strong>Limes:</strong> Need the warmest conditions. 'Kaffir' lime is grown more for its leaves (used in cooking) than fruits. Fruits year-round.</li>
+                <li><strong>Kumquats:</strong> Small, ornamental citrus. More cold-tolerant than most. Fruits in winter.</li>
+                <li><strong>Grapefruits:</strong> Large trees, need lots of space and warmth. Less suitable for UK growing.</li>
+            </ul>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Hardiness:</strong> No citrus are truly hardy in the UK. All need protection from frost. Lemons are the most cold-tolerant.</li>
+                <li><strong>Space:</strong> Consider where you'll keep the plant during winter. Conservatories, greenhouses, or bright indoor spaces are ideal.</li>
+                <li><strong>Light:</strong> Citrus need bright light year-round. South-facing windows or conservatories are ideal.</li>
+                <li><strong>Temperature:</strong> Minimum 5°C (41°F) in winter, ideally 10–15°C (50–59°F). Can tolerate higher temperatures in summer.</li>
+                <li><strong>Fruiting:</strong> Most citrus are self-fertile, so only one plant is needed. Some varieties fruit more reliably than others.</li>
+                <li><strong>Size:</strong> Choose compact varieties if space is limited. Many citrus can be kept small with regular pruning.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Meyer' Lemon</h4>
+                    <p>Compact, cold-tolerant lemon variety. Produces medium-sized, thin-skinned fruits with excellent flavour. Fruits year-round. Ideal for UK growing. Self-fertile.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Eureka' Lemon</h4>
+                    <p>Classic lemon variety. Produces large, juicy fruits. Reliable cropper. Fruits year-round. Good for UK growing. Self-fertile.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Calamondin' Orange</h4>
+                    <p>Small, ornamental orange. Produces small, tart fruits. More cold-tolerant than standard oranges. Fruits in winter. Good for UK growing. Self-fertile.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Kaffir' Lime</h4>
+                    <p>Grown primarily for its aromatic leaves (used in Thai cooking). Produces small, bumpy fruits. Needs warm conditions. Fruits year-round. Self-fertile.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Nagami' Kumquat</h4>
+                    <p>Small, ornamental citrus. Produces small, edible fruits (eat whole, including skin). More cold-tolerant than most citrus. Fruits in winter. Self-fertile.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Improved Meyer' Lemon</h4>
+                    <p>Improved version of Meyer lemon with better disease resistance. Compact growth. Produces excellent fruits year-round. Ideal for containers. Self-fertile.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Citrus plants are best planted in containers, as they need to be moved to protected positions during winter. Plant in spring or early summer to allow plants to establish before winter. Use a good-quality, free-draining compost and ensure containers have adequate drainage.</p>
+            
+            <h3>Container Selection</h3>
+            <p>Choose a container that's large enough for the plant's root system but not so large that the compost stays wet. Start with a pot 30–45cm (12–18in) in diameter. Ensure the container has good drainage holes. Terracotta pots are ideal as they allow the compost to breathe, but plastic pots are also fine and retain moisture better.</p>
+            
+            <h3>Compost</h3>
+            <p>Use a good-quality, free-draining compost. Specialist citrus compost is available, but a good multi-purpose compost mixed with grit or perlite (for drainage) works well. Avoid heavy, water-retentive composts, as citrus don't like waterlogged roots. The compost should be slightly acidic to neutral (pH 6.0–7.0).</p>
+            
+            <h3>Planting Steps</h3>
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the container:</strong> Ensure the container has good drainage holes. Add a layer of crocks or gravel at the bottom to improve drainage.
+                </li>
+                <li>
+                    <strong>Check the roots:</strong> If the plant is root-bound, gently tease out some of the roots to encourage them to grow into the new compost.
+                </li>
+                <li>
+                    <strong>Plant at correct depth:</strong> Position the plant so it sits at the same depth it was in its previous pot. The top of the root ball should be just below the rim of the container.
+                </li>
+                <li>
+                    <strong>Backfill and firm:</strong> Fill around the roots with compost, firming gently to eliminate air pockets. Leave a gap of 2–3cm (1in) between the compost surface and the rim for watering.
+                </li>
+                <li>
+                    <strong>Water and position:</strong> Water thoroughly after planting. Position in a bright, sheltered spot (outdoors in summer, protected position in winter).
+                </li>
+            </ol>
+            
+            <h3>Positioning</h3>
+            <p>In summer, position citrus plants outdoors in a sunny, sheltered spot. A south- or west-facing patio is ideal. In winter, move plants to a protected position such as a conservatory, greenhouse, or bright indoor space. Ensure the winter position has good light and maintains a minimum temperature of 5°C (41°F), ideally 10–15°C (50–59°F).</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> Plant citrus in spring or early summer to allow plants to establish before winter. Use a free-draining compost and ensure containers have good drainage. Position plants in a sunny, sheltered spot in summer, and move them to a protected position (conservatory, greenhouse, or bright indoor space) before the first frost. Lemons are the easiest to grow and most tolerant of UK conditions.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Citrus plants need regular care to produce healthy crops. Key tasks include watering, feeding, pruning, and providing adequate light and temperature. With proper care, plants will reward you with fragrant flowers, attractive foliage, and delicious fruits.</p>
+            
+            <h3>Watering</h3>
+            <p>Water citrus plants regularly, keeping the compost moist but not waterlogged. In summer, water when the top 2–3cm (1in) of compost feels dry. In winter, reduce watering but don't let the compost dry out completely. Use rainwater if possible, as tap water can be hard and may cause leaf yellowing over time. Water at the base of the plant, avoiding wetting the foliage.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed citrus plants regularly during the growing season (spring to autumn) with a specialist citrus fertiliser or a high-potassium liquid feed. Follow package instructions, usually feeding every 2–4 weeks. Reduce or stop feeding in winter when growth slows. Citrus are heavy feeders and need regular nutrients to produce good crops.</p>
+            
+            <h3>Pruning</h3>
+            <p>Prune citrus plants in spring to maintain shape and size. Remove any dead, diseased, or damaged branches. Thin out overcrowded growth to allow light to reach all parts of the plant. Citrus can be kept compact with regular pruning. Don't prune too heavily, as this can reduce fruiting. Most citrus fruit on new growth, so light pruning encourages fruiting.</p>
+            
+            <h3>Temperature and Light</h3>
+            <p>Citrus need bright light year-round. In summer, position outdoors in full sun. In winter, move to a bright position indoors (south-facing window, conservatory, or greenhouse). Maintain a minimum temperature of 5°C (41°F) in winter, ideally 10–15°C (50–59°F). Avoid sudden temperature changes, which can cause leaf drop.</p>
+            
+            <h3>Repotting</h3>
+            <p>Repot citrus plants every 2–3 years in spring, moving to a slightly larger container. Use fresh compost and ensure good drainage. Don't increase pot size too dramatically, as citrus prefer to be slightly root-bound. If plants are already in large containers, top-dress with fresh compost instead of repotting.</p>
+            
+            <h3>Overwintering</h3>
+            <p>Move citrus plants to a protected position before the first frost (usually October in the UK). A conservatory, greenhouse, or bright indoor space is ideal. Ensure good light and maintain a minimum temperature of 5°C (41°F). Reduce watering but don't let the compost dry out. Move plants back outdoors in late spring after the risk of frost has passed.</p>
+            
+            <div class="info-box">
+                <p><strong>Overwintering:</strong> Citrus plants must be protected from frost. Move them to a protected position (conservatory, greenhouse, or bright indoor space) before the first frost, usually in October. Maintain a minimum temperature of 5°C (41°F), ideally 10–15°C (50–59°F). Ensure good light and reduce watering. Move plants back outdoors in late spring after the risk of frost has passed, usually in May.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Citrus fruits are ready to harvest when they're fully coloured and come away easily from the plant. Harvest time varies by variety, with some citrus fruiting year-round. Fruits can be left on the plant until needed, as they don't ripen further once picked.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Check ripeness:</strong> Ripe citrus fruits are fully coloured (yellow for lemons, orange for oranges, green for limes) and come away easily from the plant with a gentle twist. The fruits should feel firm and heavy for their size.</li>
+                <li><strong>Harvest carefully:</strong> Use secateurs or scissors to cut fruits from the plant, leaving a short stalk attached. This prevents damage to the plant and helps fruits store better.</li>
+                <li><strong>Harvest as needed:</strong> Citrus fruits can be left on the plant until needed, as they don't ripen further once picked. This is particularly useful for lemons, which can be harvested year-round.</li>
+                <li><strong>Use promptly:</strong> Fresh citrus fruits are best used soon after harvest, though they can be stored for several weeks in the refrigerator.</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Fresh citrus fruits can be stored at room temperature for a week or two, or in the refrigerator for several weeks. Don't store in sealed containers, as this can cause them to become mouldy. For longer-term storage, citrus can be juiced and frozen, or the zest can be frozen. Citrus fruits can also be preserved in sugar or made into marmalade.</p>
+            
+            <h3>Using Your Citrus</h3>
+            <p>Fresh citrus fruits are delicious eaten raw, juiced, or used in cooking and baking. Lemons are particularly versatile, used in drinks, desserts, savoury dishes, and preserves. Oranges are excellent for juicing, eating fresh, or making marmalade. Limes are perfect for drinks, cooking, and desserts. The zest (outer skin) of all citrus is highly aromatic and adds flavour to many dishes. Citrus fruits are rich in vitamin C and are a good source of dietary fibre.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Harvesting Tip:</strong> Citrus fruits can be left on the plant until needed, as they don't ripen further once picked. This is particularly useful for lemons, which can be harvested year-round. Cut fruits from the plant with secateurs, leaving a short stalk attached. Use fresh citrus soon after harvest for the best flavour, though they can be stored for several weeks in the refrigerator.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Citrus plants can be affected by various pests and diseases, but with good cultural practices and proper care, most problems can be managed effectively. The main challenges in the UK are providing adequate light, temperature control, and protection from frost.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Scale insects:</strong> Small, brown or white insects that cluster on stems and leaves. Can cause yellowing and leaf drop. Remove by hand or treat with organic sprays. More common on stressed plants.</li>
+                <li><strong>Mealybugs:</strong> White, fluffy insects that cluster on stems and leaves. Can cause yellowing and leaf drop. Remove by hand or treat with organic sprays. More common in warm, dry conditions.</li>
+                <li><strong>Spider mites:</strong> Tiny mites that cause mottled, discoloured leaves. More common in warm, dry conditions. Increase humidity by misting leaves (in the morning) and ensure adequate watering.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious, but can distort leaves. Encourage natural predators or use organic sprays if necessary.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Root rot:</strong> Can occur in waterlogged compost or containers with poor drainage. Ensure good drainage and avoid overwatering. Remove and destroy affected plants if severe.</li>
+                <li><strong>Leaf drop:</strong> Can be caused by sudden temperature changes, overwatering, underwatering, or lack of light. Ensure consistent conditions, adequate light, and proper watering. Some leaf drop in winter is normal.</li>
+                <li><strong>Yellowing leaves:</strong> Can be caused by nutrient deficiencies, overwatering, or hard water. Feed regularly with citrus fertiliser, ensure good drainage, and use rainwater if possible.</li>
+                <li><strong>Fruit drop:</strong> Can be caused by stress, overwatering, or lack of nutrients. Ensure consistent conditions, proper watering, and regular feeding. Some fruit drop is normal, especially on young plants.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Frost damage:</strong> Citrus are not hardy and will be damaged or killed by frost. Always move plants to protected positions before the first frost. Maintain a minimum temperature of 5°C (41°F) in winter.</li>
+                <li><strong>Lack of light:</strong> Can cause poor growth, leaf drop, and lack of fruiting. Ensure plants have bright light year-round. South-facing windows or conservatories are ideal.</li>
+                <li><strong>Poor fruiting:</strong> Can be caused by lack of light, incorrect temperature, or lack of nutrients. Ensure bright light, appropriate temperature, and regular feeding. Young plants may take several years to start fruiting.</li>
+                <li><strong>Leaf drop:</strong> Can be caused by sudden temperature changes, overwatering, underwatering, or lack of light. Ensure consistent conditions, adequate light, and proper watering. Some leaf drop in winter is normal.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Most Common Problem:</strong> Frost damage is the most common problem with citrus in the UK. Citrus are not hardy and will be damaged or killed by frost. Always move plants to protected positions (conservatory, greenhouse, or bright indoor space) before the first frost, usually in October. Maintain a minimum temperature of 5°C (41°F) in winter, ideally 10–15°C (50–59°F).</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> The key to success with citrus in the UK is providing adequate light, temperature control, and protection from frost. Grow in containers so plants can be moved to protected positions during winter. Lemons are the easiest to grow and most tolerant of UK conditions. Ensure bright light year-round, regular feeding during the growing season, and consistent watering. With proper care, citrus plants will reward you with fragrant flowers, attractive foliage, and delicious fruits.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle for favicon -->
+  <circle cx="100" cy="100" r="95" fill="#2d5016" opacity="0.1"/>
+  
+  <!-- Plant pot -->
+  <path d="M 70 130 L 75 150 L 125 150 L 130 130 Z" fill="#c97855" stroke="#a0613f" stroke-width="2"/>
+  <ellipse cx="100" cy="130" rx="30" ry="8" fill="#d68a65"/>
+  
+  <!-- Soil -->
+  <ellipse cx="100" cy="130" rx="28" ry="6" fill="#5d4037"/>
+  
+  <!-- Central stem -->
+  <path d="M 100 130 Q 98 110 100 90" stroke="#2d5016" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Left leaf -->
+  <path d="M 100 105 Q 75 100 70 85 Q 72 95 85 102 Q 92 105 100 105" fill="#4caf50" stroke="#2d5016" stroke-width="1.5"/>
+  <path d="M 85 102 Q 78 98 75 92" stroke="#2d5016" stroke-width="1" fill="none" opacity="0.5"/>
+  
+  <!-- Right leaf -->
+  <path d="M 100 105 Q 125 100 130 85 Q 128 95 115 102 Q 108 105 100 105" fill="#66bb6a" stroke="#2d5016" stroke-width="1.5"/>
+  <path d="M 115 102 Q 122 98 125 92" stroke="#2d5016" stroke-width="1" fill="none" opacity="0.5"/>
+  
+  <!-- Left sprout -->
+  <path d="M 100 115 Q 80 112 75 100 Q 77 108 88 114 Q 94 116 100 115" fill="#81c784" stroke="#2d5016" stroke-width="1.5"/>
+  
+  <!-- Right sprout -->
+  <path d="M 100 115 Q 120 112 125 100 Q 123 108 112 114 Q 106 116 100 115" fill="#a5d6a7" stroke="#2d5016" stroke-width="1.5"/>
+  
+  <!-- Top leaves (smaller) -->
+  <path d="M 100 95 Q 88 92 85 82 Q 86 88 94 93 Q 97 94 100 95" fill="#4caf50" stroke="#2d5016" stroke-width="1.5"/>
+  <path d="M 100 95 Q 112 92 115 82 Q 114 88 106 93 Q 103 94 100 95" fill="#66bb6a" stroke="#2d5016" stroke-width="1.5"/>
+  
+  <!-- Small seedling dot at top -->
+  <circle cx="100" cy="88" r="3" fill="#8bc34a"/>
+  <circle cx="100" cy="88" r="1.5" fill="#f4ff81"/>
+  
+  <!-- Decorative sparkles (growth energy) -->
+  <circle cx="65" cy="95" r="2" fill="#8bc34a" opacity="0.6"/>
+  <circle cx="135" cy="90" r="2" fill="#8bc34a" opacity="0.6"/>
+  <circle cx="85" cy="75" r="1.5" fill="#f4ff81" opacity="0.8"/>
+  <circle cx="115" cy="78" r="1.5" fill="#f4ff81" opacity="0.8"/>
+</svg>

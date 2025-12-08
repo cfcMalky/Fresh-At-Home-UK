@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Figs - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Figs.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Figs</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Figs in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Figs (Ficus carica) are attractive, productive trees that produce delicious, sweet fruits perfect for eating fresh, cooking, or preserving. While they're native to warmer climates, figs can be successfully grown in the UK, especially when trained against sunny walls or grown in containers. Figs have a unique fruiting cycle, with embryonic fruits forming in late summer that overwinter and ripen the following year.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Deciduous trees or large shrubs, can reach 3–5m (10–16ft) but can be kept smaller</li>
+                    <li>Need root restriction to encourage fruiting and control vigorous growth</li>
+                    <li>Fruits ripen from late August to October, depending on variety</li>
+                    <li>Self-fertile, so only one tree is needed</li>
+                    <li>Embryonic figs form in late summer and overwinter, ripening the following year</li>
+                    <li>Ideal for training against sunny walls or growing in containers</li>
+                </ul>
+            </div>
+            
+            <p>Figs are native to the Mediterranean and western Asia but can be grown successfully in the UK with proper care. The key to success is providing adequate warmth, root restriction to encourage fruiting, and protection from severe frosts. Figs are particularly well-suited to training against sunny walls, which provides extra heat and protection.</p>
+            
+            <p>One of the unique aspects of growing figs is that they need root restriction to fruit well. In the ground, this is achieved by planting in a restricted root run (using paving slabs or a root-control bag), while container growing naturally restricts roots. This may seem counterintuitive, but it encourages the tree to focus on fruiting rather than vegetative growth. With proper care, a single tree can produce 20–50 fruits each year.</p>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> Figs need root restriction to fruit well. If roots are unrestricted, the tree will produce lots of leaves but few fruits. This is achieved by planting in containers or by restricting the root run in the ground (using paving slabs or a root-control bag). This is essential for good fruiting.</p>
+            </div>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Figs are best grown against a sunny, south-facing wall or in large containers. Root restriction is essential for fruiting - if roots are unrestricted, trees produce leaves but few fruits. 'Brown Turkey' is the most reliable variety for UK growing. Protect overwintering embryonic fruits from severe frosts by wrapping the tree with horticultural fleece.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow figs, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/3K5slVL" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4oOdqyo" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A small hand trowel for planting, transplanting, and general garden maintenance.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>When choosing fig varieties, consider hardiness, fruit quality, and size. Some varieties are better suited to UK conditions than others. All figs are self-fertile, so you only need one tree. Look for varieties that are reliable croppers in cooler climates.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Hardiness:</strong> Some varieties are more cold-tolerant than others. 'Brown Turkey' is particularly hardy and reliable in the UK.</li>
+                <li><strong>Fruit Quality:</strong> Some varieties produce larger, sweeter fruits than others. Consider whether you want fruits for eating fresh or cooking.</li>
+                <li><strong>Size:</strong> Some varieties are more compact and suitable for smaller gardens or containers, while others are more vigorous.</li>
+                <li><strong>Reliability:</strong> Some varieties are more reliable croppers in UK conditions than others. 'Brown Turkey' is the most reliable.</li>
+                <li><strong>Ripening Time:</strong> Most figs ripen from late August to October. Choose varieties that suit your needs.</li>
+                <li><strong>Container Growing:</strong> Some varieties are better suited to container growing than others. Compact varieties are ideal.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Brown Turkey'</h4>
+                    <p>The most reliable variety for UK growing. Produces medium-sized, brown-skinned fruits with excellent flavour. Hardy and reliable cropper. Harvest from late August to October. Self-fertile.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Brunswick'</h4>
+                    <p>Produces large, green-skinned fruits with excellent flavour. Good cropper. Harvest from late August to October. Self-fertile. Good for UK conditions.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'White Marseilles'</h4>
+                    <p>Produces medium-sized, green-skinned fruits with sweet flavour. Good cropper. Harvest from late August to October. Self-fertile. Good for UK conditions.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Little Miss Figgy'</h4>
+                    <p>Compact variety ideal for containers. Produces small, burgundy-skinned fruits with sweet flavour. Good cropper. Harvest from late August to October. Self-fertile.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Violette de Bordeaux'</h4>
+                    <p>Produces small, dark purple fruits with excellent flavour. Good cropper. Harvest from late August to October. Self-fertile. Good for UK conditions.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Rouge de Bordeaux'</h4>
+                    <p>Produces medium-sized, dark red fruits with excellent flavour. Good cropper. Harvest from late August to October. Self-fertile. Good for UK conditions.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Figs are best planted in early spring, though container-grown plants can be planted year-round. The most important consideration is root restriction, which is essential for good fruiting. Figs can be grown in containers or in the ground with restricted root runs.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a warm, sunny, sheltered position. South- or west-facing walls are ideal, as they provide extra heat and protection. The soil should be well-drained, moisture-retentive, and fertile. Figs prefer slightly alkaline to neutral soil (pH 6.5–7.5), though they're reasonably tolerant of different soil types. Avoid waterlogged sites and frost pockets.</p>
+            
+            <h3>Root Restriction (Essential)</h3>
+            <p>Figs need root restriction to fruit well. If roots are unrestricted, trees produce lots of leaves but few fruits. There are two main methods:</p>
+            <ul>
+                <li><strong>Container growing:</strong> Plant in a large container (at least 45cm / 18in diameter). This naturally restricts roots and encourages fruiting.</li>
+                <li><strong>Ground planting with root restriction:</strong> Dig a hole 60cm (2ft) square and deep. Line the sides and bottom with paving slabs or use a root-control bag. This restricts root growth and encourages fruiting.</li>
+            </ul>
+            
+            <h3>Planting in the Ground (with Root Restriction)</h3>
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the restricted root run:</strong> Dig a hole 60cm (2ft) square and deep. Line the sides and bottom with paving slabs, leaving a 2.5cm (1in) gap between slabs for drainage. Alternatively, use a root-control bag.
+                </li>
+                <li>
+                    <strong>Prepare the soil:</strong> Fill the bottom of the hole with a layer of broken bricks or crocks for drainage. Add well-rotted organic matter or compost mixed with the existing soil.
+                </li>
+                <li>
+                    <strong>Check the roots:</strong> If planting a container-grown tree, gently tease out any roots that are circling the root ball.
+                </li>
+                <li>
+                    <strong>Plant at correct depth:</strong> Position the tree so it sits at the same depth it was in its previous pot. Spread roots out evenly in the hole.
+                </li>
+                <li>
+                    <strong>Backfill and firm:</strong> Fill around the roots with the soil mixture, firming gently to eliminate air pockets. Create a slight depression around the tree to help water reach the roots.
+                </li>
+                <li>
+                    <strong>Water and mulch:</strong> Water thoroughly after planting. Mulch with organic matter, keeping it away from the trunk.
+                </li>
+            </ol>
+            
+            <h3>Container Growing</h3>
+            <p>Container growing is ideal for figs, as it naturally restricts roots. Use a large container (at least 45cm / 18in diameter) with good drainage. Plant in a loam-based compost mixed with sharp sand or grit for good drainage. Position in a sunny, sheltered spot. Container-grown figs can be moved to protected positions during severe weather.</p>
+            
+            <h3>Training Against Walls</h3>
+            <p>Training figs as fans against sunny walls is ideal for UK conditions, as it provides extra heat and protection. Install wires or trellis on the wall and train branches to form a fan shape. This takes up minimal ground space and helps fruits ripen better.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> Root restriction is essential for figs to fruit well. If you plant in the ground without restricting roots, the tree will produce lots of leaves but few fruits. Use paving slabs to line the planting hole or plant in a large container. Training against a sunny wall provides extra heat and helps fruits ripen. 'Brown Turkey' is the most reliable variety for UK growing.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Figs need regular care to produce healthy crops. Key tasks include watering, feeding, pruning, and protecting overwintering embryonic fruits. With proper care, trees will reward you with abundant harvests for many years.</p>
+            
+            <h3>Watering</h3>
+            <p>Water figs regularly, especially during dry spells and when fruits are swelling. Keep the soil consistently moist but not waterlogged. Container-grown figs need more frequent watering than those in the ground, as containers dry out faster. Water at the base of the tree, avoiding wetting the foliage to reduce disease risk. Reduce watering in winter when growth slows.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed fig trees in early spring with a balanced fertiliser or well-rotted organic matter. Apply a high-potassium liquid feed every 2–4 weeks during the growing season (May to August) to encourage fruiting. Avoid excessive nitrogen, which promotes leafy growth at the expense of fruit. Mulch annually in spring with well-rotted organic matter, keeping it away from the trunk.</p>
+            
+            <h3>Pruning</h3>
+            <p>Prune figs in early spring (after the risk of frost has passed) and in summer to maintain shape and encourage fruiting.</p>
+            <ul>
+                <li><strong>Spring pruning:</strong> Remove dead, damaged, or diseased wood. Thin out congested growth to improve air circulation. For fan-trained figs, maintain the framework by tying in new shoots and removing unwanted ones.</li>
+                <li><strong>Summer pruning:</strong> In early summer, pinch out the tips of new shoots to 5–6 leaves. This encourages the formation of fruiting spurs and helps control vigour. Remove any vigorous, upright shoots that may shade developing fruits.</li>
+                <li><strong>Maintenance:</strong> Keep the framework open and well-spaced. Remove any shoots growing in the wrong direction or crowding the framework.</li>
+            </ul>
+            
+            <h3>Fruiting Cycle</h3>
+            <p>Figs have a unique fruiting cycle. Embryonic figs (small, pea-sized fruits) form in late summer and overwinter on the tree. These develop and ripen in late summer to early autumn of the following year. It's important to protect these overwintering fruits from severe frosts, as they're the following year's crop.</p>
+            
+            <h3>Winter Protection</h3>
+            <p>Protect overwintering embryonic fruits from severe frosts by wrapping the tree with horticultural fleece or straw held in place with netting. This is especially important for young trees or in cold areas. Container-grown figs can be moved to a protected position (greenhouse, conservatory, or sheltered spot) during severe weather. Remove protection in spring when the risk of severe frost has passed.</p>
+            
+            <div class="info-box">
+                <p><strong>Fruiting Cycle:</strong> Figs produce embryonic fruits in late summer that overwinter on the tree and ripen the following year. These small, pea-sized fruits are the following year's crop, so it's important to protect them from severe frosts. In addition, some varieties may produce a small early crop (breba crop) on old wood, but the main crop comes from the overwintering embryonic fruits.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Figs are ready to harvest from late August to October, depending on variety and weather conditions. Ripe figs are soft, drooping on the branch, and the skin shows slight cracks. They should have a sweet, honey-like flavour and be juicy. Figs don't ripen well off the tree, so it's important to harvest them at peak ripeness.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Check ripeness:</strong> Ripe figs are soft to the touch, drooping on the branch, and the skin shows slight cracks. They should have a sweet, honey-like smell. The fruits should feel heavy for their size. Don't harvest too early, as figs don't ripen well off the tree.</li>
+                <li><strong>Harvest carefully:</strong> Handle figs gently to avoid bruising. Pick by gently twisting the fruit from the branch, leaving the stalk attached. Place in shallow containers to prevent them from being crushed. Don't stack figs too deeply.</li>
+                <li><strong>Harvest regularly:</strong> Pick figs every few days during the harvest season, as they ripen over several weeks. Check trees regularly when fruits are ripening. Harvest in the morning when fruits are cool and firm.</li>
+                <li><strong>Use promptly:</strong> Fresh figs are highly perishable and are best eaten within 1–2 days of harvest. Use or process promptly for best quality.</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Fresh figs are highly perishable and are best eaten within 1–2 days of harvest. Store at room temperature if eating within a day, or in the refrigerator for up to 2–3 days. Don't store in sealed containers, as this can cause them to become mouldy. For longer-term storage, figs can be dried, made into jams or preserves, or used in cooking and baking.</p>
+            
+            <h3>Using Your Figs</h3>
+            <p>Fresh figs are delicious eaten raw, with their sweet, honey-like flavour and soft, juicy texture. They're excellent for desserts, salads, and snacking. Figs are also wonderful for cooking, making great additions to tarts, cakes, and savoury dishes. They can be used in jams, preserves, and chutneys. Dried figs are a delicious, chewy snack that stores well. The fruits are rich in vitamins and minerals, and are a good source of dietary fibre.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Harvesting Tip:</strong> Figs don't ripen well off the tree, so it's important to wait until they're fully ripe before harvesting. Ripe figs are soft, drooping, and the skin shows slight cracks. They should have a sweet, honey-like smell. If you have a large crop, process excess figs promptly - they can be dried, made into jam, or frozen for later use.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Figs are generally trouble-free, but they can be affected by various pests and diseases. The main challenges in the UK are providing adequate warmth for ripening and protecting overwintering embryonic fruits from frost. With good cultural practices and proper site selection, most problems can be managed effectively.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Birds:</strong> Birds are attracted to ripening fruits. Protect trees with netting before fruits start to ripen. Ensure netting is well-secured and doesn't trap birds.</li>
+                <li><strong>Scale insects:</strong> Small, brown or white insects that cluster on stems and leaves. Can cause yellowing and leaf drop. Remove by hand or treat with organic sprays. More common on stressed plants.</li>
+                <li><strong>Mealybugs:</strong> White, fluffy insects that cluster on stems and leaves. Can cause yellowing and leaf drop. Remove by hand or treat with organic sprays. More common in warm, dry conditions.</li>
+                <li><strong>Fig rust mite:</strong> Can cause mottled, discoloured leaves. Usually not serious, but can affect plant health. Ensure good air circulation and avoid overcrowding.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Root rot:</strong> Can occur in waterlogged soils or containers with poor drainage. Ensure good drainage and avoid overwatering. Remove and destroy affected plants if severe.</li>
+                <li><strong>Leaf spot:</strong> Causes brown spots on leaves, which can lead to defoliation. Remove and destroy affected leaves. Ensure good air circulation through proper pruning. More common in wet conditions.</li>
+                <li><strong>Botrytis (grey mould):</strong> Causes fruits to rot, especially in wet weather. Remove affected fruits promptly. Ensure good air circulation and avoid overcrowding. Harvest regularly to prevent overripe fruits from rotting.</li>
+                <li><strong>Fig rust:</strong> Causes orange pustules on leaves. Remove and destroy affected leaves. Ensure good air circulation. More common in humid conditions.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Fruits not ripening:</strong> Can be caused by lack of sun, cool weather, or lack of warmth. Ensure trees are in a sunny, warm position, preferably against a south-facing wall. In poor summers, fruits may not ripen fully.</li>
+                <li><strong>Frost damage to embryonic fruits:</strong> Severe frosts can damage overwintering embryonic fruits, reducing the following year's crop. Protect trees with horticultural fleece or move container-grown plants to protected positions during severe weather.</li>
+                <li><strong>Poor fruiting:</strong> Can be caused by lack of root restriction, lack of warmth, or nutrient imbalances. Ensure roots are restricted (essential for fruiting), provide adequate warmth, and feed appropriately. Young trees may take a few years to start fruiting well.</li>
+                <li><strong>Excessive vegetative growth:</strong> Can be caused by lack of root restriction or excessive nitrogen. Ensure roots are restricted and avoid excessive nitrogen fertiliser. Prune in summer to control vigour.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Most Common Problem:</strong> Poor fruiting is often caused by lack of root restriction. If fig roots are unrestricted, trees produce lots of leaves but few fruits. This is why root restriction (either through container growing or by lining the planting hole with paving slabs) is essential for good fruiting. Without it, you'll get a beautiful tree but very few fruits.</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> The key to success with figs in the UK is root restriction and adequate warmth. Restrict roots by planting in containers or by lining the planting hole with paving slabs. Train against a sunny wall for extra heat and protection. Protect overwintering embryonic fruits from severe frosts. 'Brown Turkey' is the most reliable variety for UK conditions. With proper care, figs will produce abundant harvests for many years.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

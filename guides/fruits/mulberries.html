@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Mulberries - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Mulberries.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Mulberries</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Mulberries in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Mulberries (Morus spp.) are hardy, low-maintenance trees that produce sweet, blackberry-like fruits perfect for eating fresh, cooking, and preserving. These attractive trees are well-suited to UK gardens and are particularly valued for their ornamental beauty and delicious fruits. Mulberries are easy to grow and require minimal care once established, making them ideal for both experienced and novice gardeners.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Hardy, deciduous trees reaching up to 10m (33ft) in height and spread</li>
+                    <li>Self-fertile, so only one tree is needed</li>
+                    <li>Fruits ripen from late summer (August to September)</li>
+                    <li>Attractive, large leaves and spreading habit</li>
+                    <li>Excellent for eating fresh, cooking, jams, and preserves</li>
+                    <li>Very hardy and trouble-free, making them ideal for UK gardens</li>
+                </ul>
+            </div>
+            
+            <p>Mulberries are native to Asia, Europe, and North America but have been grown in the UK for centuries. They're particularly valued for their ornamental beauty, with large, attractive leaves and a spreading habit. The fruits are unique - they resemble large blackberries and are sweet and juicy when fully ripe. Black mulberry (Morus nigra) is the most commonly grown species in the UK.</p>
+            
+            <p>These trees are very hardy and relatively trouble-free, making them ideal for UK gardens. They're self-fertile, so you only need one tree, and they're tolerant of most soil types and positions. With proper care, a single tree can produce 10–20kg (22–44lb) of fruit each year. Mulberries are particularly valued for their ornamental qualities and delicious fruits, which are excellent for eating fresh and preserving.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Mulberries are self-fertile, so you only need one tree. They're very hardy and trouble-free, making them ideal for UK gardens. The fruits ripen from late summer (August to September) and are delicious eaten fresh. Black mulberry (Morus nigra) is the most commonly grown species. Choose a sunny, sheltered site with well-drained soil for best results. Trees may take several years to start fruiting, but the wait is worthwhile.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow mulberries, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4a5IXXQ" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4rbFxJA" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Stakes, canes, or trellises for supporting trees and training fans if needed.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4oOdqyo" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A small hand trowel for planting, transplanting, and general garden maintenance.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>When choosing mulberry varieties, consider fruit size, flavour, and tree size. All mulberries are self-fertile, so you only need one tree. Look for varieties that are reliable croppers and have good flavour. Black mulberry (Morus nigra) is the most commonly grown species in the UK.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Fruit Size:</strong> Some varieties produce larger fruits than others. Larger fruits are often easier to handle and process.</li>
+                <li><strong>Flavour:</strong> Mulberry varieties vary in flavour, from sweet black mulberries to milder white mulberries. Black mulberries are generally considered the best for eating fresh.</li>
+                <li><strong>Tree Size:</strong> Mulberries can grow up to 10m (33ft) tall and wide. Consider available space when choosing. Dwarf varieties are available for smaller gardens.</li>
+                <li><strong>Reliability:</strong> Some varieties are more reliable croppers than others in UK conditions.</li>
+                <li><strong>Ornamental Value:</strong> All mulberries are ornamental, but some have particularly attractive leaves or growth habits.</li>
+                <li><strong>Hardiness:</strong> Most mulberry varieties are very hardy, but some may be more tolerant of challenging conditions.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Black Mulberry (Morus nigra)</h4>
+                    <p>Most commonly grown species in the UK. Produces large, sweet, dark fruits with excellent flavour. Self-fertile. Reliable cropper. Harvest in late August to September. Excellent for eating fresh and preserving. Large tree, up to 10m (33ft) tall and wide.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>White Mulberry (Morus alba)</h4>
+                    <p>Produces sweet, less tart fruits. Self-fertile. Reliable cropper. Harvest in late August to September. Traditionally used for silkworm cultivation. Large tree, up to 10m (33ft) tall and wide.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Charlotte Russe'</h4>
+                    <p>Dwarf variety reaching about 1.5m (5ft) tall. Produces medium-sized, sweet fruits. Self-fertile. Good cropper. Harvest in late August to September. Excellent for smaller gardens or container growing.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'King James'</h4>
+                    <p>Produces large, sweet, dark fruits with excellent flavour. Self-fertile. Reliable cropper. Harvest in late August to September. Excellent for eating fresh and preserving. Large tree, up to 10m (33ft) tall and wide.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Chelsea'</h4>
+                    <p>Produces medium-sized, sweet fruits with good flavour. Self-fertile. Reliable cropper. Harvest in late August to September. Good for eating fresh and preserving. Large tree, up to 10m (33ft) tall and wide.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Red Mulberry (Morus rubra)</h4>
+                    <p>Native to North America. Produces medium-sized, sweet fruits. Self-fertile. Good cropper. Harvest in late August to September. Good for eating fresh and preserving. Large tree, up to 10m (33ft) tall and wide.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Mulberries are best planted during the dormant season, from late autumn to early spring. Bare-root trees are available from November to March, while container-grown trees can be planted year-round, though autumn and spring are still best for establishment.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny or partially shaded position. Mulberries are very tolerant and will grow in most positions, but they produce best in full sun. Avoid waterlogged sites and frost pockets. Most soil types are suitable, but well-drained, moist, fertile soil is ideal. Mulberries prefer slightly acidic to neutral soil (pH 5.5–7.5), though they're very tolerant of different soil types. Good air circulation helps reduce disease problems. Allow plenty of space for the tree's mature size (up to 10m / 33ft tall and wide).</p>
+            
+            <h3>Planting Bare-Root Trees</h3>
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Dig a hole at least 60cm (2ft) wide and deep, breaking up the soil at the bottom. Mix in well-rotted organic matter or compost. Ensure the site is free from perennial weeds.
+                </li>
+                <li>
+                    <strong>Check the roots:</strong> Soak bare roots in water for 30 minutes before planting. Trim any damaged or broken roots back to healthy tissue.
+                </li>
+                <li>
+                    <strong>Plant at correct depth:</strong> Position the tree so the soil mark on the stem (where it was previously planted) is level with the soil surface. Spread roots out evenly in the hole.
+                </li>
+                <li>
+                    <strong>Backfill and firm:</strong> Fill the hole with soil, firming gently as you go to eliminate air pockets. Create a slight depression around the tree to help water reach the roots.
+                </li>
+                <li>
+                    <strong>Water and mulch:</strong> Water thoroughly and mulch with organic matter, keeping it away from the trunk. Mulberries don't usually need staking unless in exposed positions.
+                </li>
+            </ol>
+            
+            <h3>Planting Container-Grown Trees</h3>
+            <p>Plant container-grown trees at the same depth they were in the pot. Gently tease out any roots that are circling the root ball. Water well after planting and keep well-watered during the first growing season, especially during dry spells.</p>
+            
+            <h3>Spacing</h3>
+            <p>Space trees at least 4.5m (15ft) apart to allow for mature growth and good air circulation. This spacing helps reduce disease problems and makes maintenance easier. Mulberries can be kept smaller with pruning if space is limited, but they naturally form large, spreading trees.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> For best results, plant mulberries in autumn so roots can establish before spring growth. If planting in spring, ensure trees are well-watered throughout the first summer. Always plant at the same depth as the soil mark on the stem. Mulberries are very tolerant of different soil types and positions, making them ideal for challenging sites. They're self-fertile, so you only need one tree. Allow plenty of space for the tree's mature size.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Mulberries need regular care during establishment, but once established, they're very low-maintenance. Key tasks include watering, feeding, and minimal pruning. With proper care, trees will reward you with abundant harvests and ornamental beauty for many years.</p>
+            
+            <h3>Watering</h3>
+            <p>Water newly planted trees regularly during the first year, especially during dry spells. Established trees are more drought-tolerant but will benefit from watering during prolonged dry periods, particularly when fruits are developing (usually July to August). Water at the base of the tree, avoiding wetting the foliage to reduce disease risk.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed mulberry trees in late winter with a balanced fertiliser or well-rotted organic matter. Apply a mulch of compost or well-rotted manure around the base in spring to provide nutrients. Avoid excessive nitrogen, which promotes leafy growth at the expense of fruit. Mulch annually in spring with well-rotted organic matter, keeping it away from the trunk. This helps conserve moisture, suppress weeds, and gradually improves soil structure.</p>
+            
+            <h3>Pruning</h3>
+            <p>Mulberries need minimal pruning. Prune in late winter (when dormant) to remove dead, diseased, or damaged wood. Avoid heavy pruning, as mulberries can bleed sap. The natural shape of mulberries is attractive, so only prune if necessary for shape or to remove problematic branches.</p>
+            <ul>
+                <li><strong>Formative pruning:</strong> In the first few years, establish a balanced framework of branches. Remove any weak, crossing, or overcrowded branches. Mulberries naturally form a spreading, open habit.</li>
+                <li><strong>Established trees:</strong> Prune in late winter to remove dead, diseased, or damaged wood. Thin out overcrowded growth if necessary. Avoid heavy pruning, as mulberries can bleed sap.</li>
+                <li><strong>Maintenance:</strong> Keep the framework open and well-spaced. Remove any branches growing into the centre if necessary. Mulberries respond well to minimal pruning.</li>
+                <li><strong>Renovation:</strong> Neglected trees can be renovated over several years by removing dead wood and gradually reshaping the canopy. Avoid removing more than one-third of the tree in any one year, and avoid heavy pruning due to bleeding.</li>
+            </ul>
+            
+            <h3>Mulching</h3>
+            <p>Mulch annually in spring with well-rotted organic matter, keeping it away from the trunk to prevent rot. Mulching helps conserve moisture, suppress weeds, and gradually improves soil structure. Apply a layer 5–7cm (2–3in) deep around the base of the tree.</p>
+            
+            <div class="info-box">
+                <p><strong>Pruning Timing:</strong> Mulberries should be pruned in late winter when the tree is dormant. This is the best time to see the tree's structure and make pruning decisions. Avoid heavy pruning, as mulberries can bleed sap. The natural shape of mulberries is attractive, so only prune if necessary for shape or to remove problematic branches.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Mulberries are ready to harvest from late August to September, when fruits turn dark (black or dark purple) and are soft to the touch. The fruits should come away easily from the tree. Unlike most fruits, mulberries don't all ripen at once, so you'll need to harvest over several weeks.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Check ripeness:</strong> Mulberries are ready to harvest when they turn dark (black or dark purple) and are soft to the touch. They should come away easily from the tree with a gentle pull. Ripe fruits are sweet and juicy. Harvest regularly as fruits ripen over several weeks.</li>
+                <li><strong>Harvest carefully:</strong> Handle mulberries gently to avoid bruising. Pick individual berries by hand, or spread a sheet under the tree and gently shake branches to collect ripe fruit. Be careful, as mulberries can stain hands and clothing. Harvest in the morning when fruits are cool.</li>
+                <li><strong>Harvest timing:</strong> Mulberries don't all ripen at once, so you'll need to harvest over several weeks. Check trees regularly when fruits start to ripen. Harvest regularly to prevent overripe fruits from falling and making a mess.</li>
+                <li><strong>Use promptly:</strong> Fresh mulberries are best eaten within a few days of harvest. Use or process promptly for best quality.</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Fresh mulberries can be stored in the refrigerator for a few days, but they're best eaten promptly. For longer-term storage, mulberries can be frozen (spread on a tray first, then transfer to containers) or used in preserves. They can also be dried. Some varieties store better than others.</p>
+            
+            <h3>Using Your Mulberries</h3>
+            <p>Fresh mulberries are delicious eaten raw, with their sweet, juicy flavour making them perfect for desserts, snacking, and breakfast. They're excellent for fruit salads, smoothies, and baking. Mulberries can also be used in cooking, making wonderful jams, jellies, and preserves. They can be used in pies, tarts, and other desserts. The fruits are rich in vitamins and minerals, and are a good source of dietary fibre and antioxidants.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Harvesting Tip:</strong> Mulberries don't all ripen at once, so you'll need to harvest over several weeks. Ripe fruits turn dark (black or dark purple) and are soft to the touch. Spread a sheet under the tree and gently shake branches to collect ripe fruit, or pick individual berries by hand. Be careful, as mulberries can stain hands and clothing. If you have a large crop, process excess fruits promptly - they can be frozen or used in preserves.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Mulberries are generally very trouble-free and are resistant to most pests and diseases. They're particularly hardy and well-suited to UK conditions. With good cultural practices and appropriate site selection, most problems can be avoided or managed effectively.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Birds:</strong> Birds are attracted to ripening fruits. Protect trees with netting before fruits start to ripen. Ensure netting is well-secured and doesn't trap birds. Alternatively, grow trees in a fruit cage or accept that some fruits will be eaten by birds.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious, but can distort leaves and spread viruses. Encourage natural predators or use organic sprays if necessary.</li>
+                <li><strong>Scale insects:</strong> Can occasionally affect mulberries. Usually not serious, but can weaken trees if severe. Encourage natural predators or use organic sprays if necessary.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Powdery mildew:</strong> Causes white, powdery coating on leaves. Usually not serious, but can affect growth if severe. Ensure good air circulation through proper spacing. Remove and destroy affected leaves if necessary.</li>
+                <li><strong>Bacterial canker:</strong> Can cause branches to die back. Prune out affected areas promptly, cutting back to healthy wood. Ensure good air circulation through proper spacing.</li>
+                <li><strong>Root rot:</strong> Can occur in waterlogged soils. Ensure good drainage and avoid overwatering. Remove and destroy affected plants if severe.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Poor fruiting:</strong> Can be caused by young age, lack of sun, or nutrient imbalances. Young trees may take several years to start fruiting well. Ensure trees receive plenty of sun and are properly fed. Mulberries are self-fertile, so pollination isn't usually a problem.</li>
+                <li><strong>Frost damage:</strong> Mulberries are very hardy, but young trees can be vulnerable to severe frosts. Choose sheltered sites if possible. Cover young trees with fleece when severe frost is forecast.</li>
+                <li><strong>Fruits staining:</strong> Fallen mulberries can stain surfaces, including driveways and patios. Plant trees away from areas where staining would be a problem, or accept that some cleanup may be necessary.</li>
+                <li><strong>Slow fruiting:</strong> Mulberry trees may take several years (5–10 years) to start producing fruit. This is normal, and the wait is worthwhile for their delicious fruits.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Mulberries are among the hardiest and most trouble-free fruit trees, making them ideal for UK gardens. They're self-fertile, so you only need one tree. The fruits ripen from late summer (August to September) and are delicious eaten fresh. Prune minimally in late winter to maintain shape. With proper care, mulberries will produce abundant harvests and ornamental beauty for many years. They're particularly valued for their unique fruits and ornamental qualities. Trees may take several years to start fruiting, but the wait is worthwhile.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

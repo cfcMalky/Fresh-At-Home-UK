@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Melons - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Melons.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Melons</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Melons in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Melons (Cucumis melo) are warm-season fruits that produce delicious, sweet fruits perfect for eating fresh. While they're native to warmer climates, melons can be successfully grown in the UK with greenhouse protection. These productive plants need warmth, consistent watering, and careful attention to produce good crops. With the right variety and care, melons can produce abundant harvests even in cooler climates.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Tender, trailing or climbing plants that need greenhouse protection in the UK</li>
+                    <li>Most varieties are self-fertile, but hand-pollination may be needed in greenhouses</li>
+                    <li>Fruits ripen from late July to September, depending on variety and conditions</li>
+                    <li>Need consistent warmth (minimum 18°C / 64°F) and plenty of water</li>
+                    <li>Excellent for eating fresh; sweet and juicy when fully ripe</li>
+                    <li>Can be grown in containers or in greenhouse borders</li>
+                </ul>
+            </div>
+            
+            <p>Melons are native to Africa and Asia but can be grown successfully in the UK with greenhouse protection. They need consistent warmth and plenty of water to produce good crops. In the UK, melons are best grown in greenhouses or polytunnels, where they can be provided with the warmth and protection they need.</p>
+            
+            <p>These plants are productive and can be trained vertically to save space, or allowed to trail along the ground. With proper care, a single plant can produce 2–6 fruits each year, depending on variety and growing conditions. Melons are particularly valued for their sweet, juicy flavour when fully ripe, making them a real treat in UK gardens.</p>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> Melons need greenhouse protection in the UK. They require consistent warmth (minimum 18°C / 64°F) and cannot tolerate frost. Outdoor growing is not recommended in the UK climate. Choose varieties suited to greenhouse growing, such as 'Sweetheart' or 'Emir'.</p>
+            </div>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Melons need greenhouse protection in the UK and require consistent warmth (minimum 18°C / 64°F). Start seeds indoors in late spring and transplant to the greenhouse when all risk of frost has passed. Provide plenty of water and feed regularly. Hand-pollination may be needed in greenhouses. 'Sweetheart' and 'Emir' are good varieties for UK greenhouse growing.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow melons, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4i3Coam" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3LJp8vv" target="_blank" rel="noopener">
+                    <span class="emoji">🌡️</span>
+                    <h4>Heat Mat or Propagator</h4>
+                    <p>A heated propagator or heat mat ensures consistent temperature for successful germination.</p>
+                    <span class="browse-button">Browse Heat Mat or Propagator</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>When choosing melon varieties, consider whether they're suited to greenhouse growing, fruit size, flavour, and ripening time. In the UK, all melons need greenhouse protection, so choose varieties that are known to perform well in greenhouses. Look for varieties that are reliable croppers and have good flavour.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Greenhouse Suitability:</strong> All melons need greenhouse protection in the UK. Choose varieties that are known to perform well in greenhouses, such as 'Sweetheart' or 'Emir'.</li>
+                <li><strong>Fruit Size:</strong> Some varieties produce larger fruits than others. Consider your needs and available space.</li>
+                <li><strong>Flavour:</strong> Melon varieties vary in flavour, from sweet cantaloupes to milder honeydews. Choose based on your preferences.</li>
+                <li><strong>Ripening Time:</strong> Early-ripening varieties are better for UK conditions, as they have more time to ripen before autumn. Most melons ripen in late July to September.</li>
+                <li><strong>Vigour:</strong> Some varieties are more vigorous than others. More vigorous varieties may need more space and pruning.</li>
+                <li><strong>Disease Resistance:</strong> Some varieties have better resistance to common problems like powdery mildew.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Sweetheart'</h4>
+                    <p>Excellent greenhouse variety producing medium-sized, orange-fleshed fruits with excellent flavour. Early ripening (late July to August). Self-fertile. Reliable cropper. Good for UK greenhouse growing.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Emir'</h4>
+                    <p>Produces medium-sized, orange-fleshed fruits with good flavour. Early ripening (late July to August). Self-fertile. Reliable cropper. Good for UK greenhouse growing.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Ogen'</h4>
+                    <p>Produces small to medium-sized, green-fleshed fruits with excellent flavour. Early ripening (late July to August). Self-fertile. Good cropper. Good for UK greenhouse growing.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Honeydew'</h4>
+                    <p>Produces medium-sized, green-fleshed fruits with sweet flavour. Mid-season ripening (August to September). Self-fertile. Good cropper. Needs longer growing season.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Charentais'</h4>
+                    <p>Produces small, orange-fleshed fruits with excellent flavour. Early ripening (late July to August). Self-fertile. Good cropper. Good for UK greenhouse growing.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Galia'</h4>
+                    <p>Produces medium-sized, green-fleshed fruits with good flavour. Mid-season ripening (August to September). Self-fertile. Good cropper. Needs longer growing season.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Melons are best started from seed indoors in late spring, then transplanted to the greenhouse when all risk of frost has passed. They need consistent warmth (minimum 18°C / 64°F) and cannot tolerate frost. Greenhouse growing is essential in the UK.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Melons must be grown in a greenhouse or polytunnel in the UK. They need consistent warmth (minimum 18°C / 64°F) and cannot tolerate frost. Choose a position in the greenhouse that receives plenty of light. The soil should be well-drained, moisture-retentive, and fertile. Melons prefer a pH of 6.0–7.0. Good air circulation helps reduce disease problems.</p>
+            
+            <h3>Sowing Seeds Indoors</h3>
+            <ol class="step-list">
+                <li>
+                    <strong>Timing:</strong> Sow seeds indoors in late April to early May. Use individual pots (at least 7.5cm / 3in wide) filled with seed compost.
+                </li>
+                <li>
+                    <strong>Sowing:</strong> Sow one seed per pot, 1–2cm (0.5–1in) deep. Water gently and place in a propagator or on a heat mat at 18–21°C (65–70°F).
+                </li>
+                <li>
+                    <strong>Germination:</strong> Seeds should germinate within 7–14 days. Keep in a warm, bright position. Once germinated, remove from the propagator but keep warm.
+                </li>
+                <li>
+                    <strong>Growing on:</strong> When seedlings have developed their first true leaves, pot on into larger pots (at least 10cm / 4in wide) filled with multi-purpose compost. Keep in a warm, bright position.
+                </li>
+                <li>
+                    <strong>Hardening off:</strong> Before transplanting to the greenhouse, gradually acclimatise plants to greenhouse conditions. Ensure the greenhouse is heated if necessary.
+                </li>
+            </ol>
+            
+            <h3>Planting in the Greenhouse</h3>
+            <p>Transplant melons to the greenhouse in late May to early June, when all risk of frost has passed and the greenhouse is consistently warm (minimum 18°C / 64°F). Plant in greenhouse borders or large containers (at least 30cm / 12in diameter). Space plants 60–90cm (2–3ft) apart. Plant at the same depth they were in their pots.</p>
+            
+            <h3>Container Growing</h3>
+            <p>Melons can be grown in large containers (at least 30cm / 12in diameter) in the greenhouse. Use a loam-based compost mixed with well-rotted organic matter. Ensure containers have good drainage. Container-grown melons may need more frequent watering and feeding.</p>
+            
+            <h3>Training and Support</h3>
+            <p>Melons can be trained vertically up supports (wires or canes) to save space, or allowed to trail along the ground. Vertical training is more space-efficient and helps keep fruits clean. Provide supports when planting and tie in stems as they grow.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> Melons need greenhouse protection in the UK and consistent warmth (minimum 18°C / 64°F). Start seeds indoors in late spring and transplant to the greenhouse when all risk of frost has passed. Provide plenty of water and feed regularly. Hand-pollination may be needed in greenhouses. Choose varieties suited to greenhouse growing, such as 'Sweetheart' or 'Emir'.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Melons need regular care to produce healthy crops. Key tasks include watering, feeding, training, and pollination. With proper care, plants will reward you with abundant harvests of sweet, juicy fruits.</p>
+            
+            <h3>Watering</h3>
+            <p>Water melons regularly and consistently. They need plenty of water, especially when fruits are developing. Keep the soil consistently moist but not waterlogged. Water at the base of the plant, avoiding wetting the foliage to reduce disease risk. In hot weather, plants may need watering twice daily. Mulch around plants to help conserve moisture.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed melon plants regularly with a high-potassium liquid feed every 1–2 weeks once flowers appear. This encourages fruiting. Avoid excessive nitrogen, which promotes leafy growth at the expense of fruit. Stop feeding once fruits start to ripen. Mulch around plants with well-rotted organic matter to help conserve moisture and provide nutrients.</p>
+            
+            <h3>Temperature and Ventilation</h3>
+            <p>Maintain a minimum temperature of 18°C (64°F) in the greenhouse. Melons need warmth to grow and fruit well. Ventilate the greenhouse on warm days to prevent overheating, but avoid draughts. In hot weather, provide shade if necessary to prevent scorching.</p>
+            
+            <h3>Pollination</h3>
+            <p>Melons are self-fertile, but in greenhouses, pollination may be poor due to lack of insects. Hand-pollination is often necessary. To hand-pollinate, use a small brush to transfer pollen from male flowers to female flowers. Female flowers have a small swelling (the future fruit) at the base of the flower. Pollinate in the morning when flowers are open.</p>
+            
+            <h3>Training and Pruning</h3>
+            <p>Train melon plants up supports or allow them to trail. For vertical training, tie in the main stem and side shoots as they grow. Pinch out the growing tip when the plant reaches the top of the support. Limit the number of fruits to 2–4 per plant (depending on variety) to ensure good size and quality. Remove any excess fruits when they're small.</p>
+            
+            <h3>Supporting Fruits</h3>
+            <p>When fruits start to develop, support them with netting or slings tied to the support structure. This prevents them from breaking off and keeps them clean. Check supports regularly as fruits grow and become heavier.</p>
+            
+            <div class="info-box">
+                <p><strong>Pollination:</strong> In greenhouses, melons often need hand-pollination because there are fewer insects. Use a small brush to transfer pollen from male flowers to female flowers in the morning when flowers are open. Female flowers have a small swelling (the future fruit) at the base of the flower. This is essential for good fruit set.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Melons are ready to harvest from late July to September, depending on variety and growing conditions. Ripe melons have a sweet smell at the stem end, the skin may show slight cracking around the stem, and the fruit should come away easily from the vine. The timing varies by variety, so check the specific variety's characteristics.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Check ripeness:</strong> Ripe melons have a sweet smell at the stem end, the skin may show slight cracking around the stem, and the fruit should come away easily from the vine with a gentle twist. The fruit should feel heavy for its size. Test a few fruits before harvesting.</li>
+                <li><strong>Harvest carefully:</strong> Handle melons gently to avoid bruising. Cut fruits from the vine with secateurs, leaving a short stem attached. Support the fruit as you cut to prevent it from falling. Place in shallow containers to prevent them from being crushed.</li>
+                <li><strong>Harvest timing:</strong> Melons don't ripen well off the vine, so it's important to wait until they're fully ripe before harvesting. Check regularly when fruits are ripening. Harvest in the morning when fruits are cool.</li>
+                <li><strong>Use promptly:</strong> Fresh melons are best eaten within a few days of harvest. Use or process promptly for best quality.</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Fresh melons can be stored at room temperature for a few days, or in the refrigerator for up to a week. Don't store in sealed containers, as this can cause them to become mouldy. For longer-term storage, melons can be frozen (cut into chunks first) or used in preserves. Some varieties store better than others.</p>
+            
+            <h3>Using Your Melons</h3>
+            <p>Fresh melons are delicious eaten raw, with their sweet, juicy flavour making them perfect for desserts, salads, and snacking. They're excellent for fruit salads, smoothies, and sorbets. Melons can also be used in cooking, making great additions to savoury dishes and desserts. The fruits are rich in vitamins A and C, and are a good source of dietary fibre and antioxidants.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Harvesting Tip:</strong> Melons don't ripen well off the vine, so it's important to wait until they're fully ripe before harvesting. Ripe melons have a sweet smell at the stem end and should come away easily from the vine. If you have a large crop, process excess fruits promptly - they can be frozen or used in preserves. Store at room temperature for a few days or in the refrigerator for up to a week.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Melons can be affected by various pests and diseases, especially in greenhouse conditions. The main challenges in the UK are providing adequate warmth and preventing disease problems. With good cultural practices and proper greenhouse management, most problems can be managed effectively.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Whitefly:</strong> Small, white insects that cluster on the undersides of leaves. Can cause yellowing and leaf drop. Use yellow sticky traps or biological controls. Ensure good ventilation in the greenhouse.</li>
+                <li><strong>Red spider mite:</strong> Tiny mites that cause mottled, discoloured leaves. More common in hot, dry conditions. Increase humidity and use biological controls. Ensure good ventilation.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious, but can distort leaves and spread viruses. Encourage natural predators or use organic sprays if necessary.</li>
+                <li><strong>Thrips:</strong> Small insects that can cause distorted leaves and fruits. Use biological controls or organic sprays if necessary.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Powdery mildew:</strong> Causes white, powdery coating on leaves. Prevent by ensuring good air circulation and avoiding overhead watering. Remove and destroy affected parts. More common in humid conditions.</li>
+                <li><strong>Downy mildew:</strong> Causes yellow spots on leaves and can affect fruits. Prevent by ensuring good air circulation and avoiding overhead watering. Remove and destroy affected parts. More common in wet conditions.</li>
+                <li><strong>Botrytis (grey mould):</strong> Causes fruits to rot, especially in wet conditions. Remove affected fruits promptly. Ensure good air circulation and avoid overcrowding. Harvest regularly to prevent overripe fruits from rotting.</li>
+                <li><strong>Root rot:</strong> Can occur in waterlogged soils or containers with poor drainage. Ensure good drainage and avoid overwatering. Remove and destroy affected plants if severe.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Fruits not ripening:</strong> Can be caused by lack of warmth, lack of sun, or cool weather. Ensure the greenhouse maintains a minimum temperature of 18°C (64°F). Provide plenty of light. In poor summers, fruits may not ripen fully.</li>
+                <li><strong>Poor fruiting:</strong> Can be caused by lack of pollination, lack of warmth, or nutrient imbalances. Hand-pollinate if necessary. Ensure adequate warmth and feed regularly. Limit the number of fruits per plant to ensure good size and quality.</li>
+                <li><strong>Fruits splitting:</strong> Can be caused by irregular watering or heavy rain after dry periods. Ensure consistent watering, especially when fruits are developing. Some varieties are more prone to splitting than others.</li>
+                <li><strong>Flowers dropping:</strong> Can be caused by lack of pollination, temperature fluctuations, or stress. Hand-pollinate if necessary. Maintain consistent temperature and watering. Avoid draughts.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Most Common Problem:</strong> Fruits not ripening is often caused by lack of warmth. Melons need a minimum temperature of 18°C (64°F) to grow and fruit well. Ensure the greenhouse is heated if necessary, especially in early and late season. In poor summers, fruits may not ripen fully. Hand-pollination is also essential for good fruit set in greenhouses.</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> The key to success with melons in the UK is providing adequate warmth and consistent care. They need greenhouse protection and a minimum temperature of 18°C (64°F). Hand-pollination is often necessary for good fruit set. Provide plenty of water and feed regularly. Limit the number of fruits per plant to ensure good size and quality. With proper care, melons will produce abundant harvests of sweet, juicy fruits.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

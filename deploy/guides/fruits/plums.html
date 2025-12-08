@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Plums - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Plums.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Plums</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Plums in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Plums are among the most rewarding fruit trees for UK gardens, producing abundant crops of delicious fruits perfect for eating fresh, cooking, or preserving. Many varieties are self-fertile, making them ideal for smaller gardens, and they're generally easier to grow than some other stone fruits.</p>
+            
+            <h3>Key Characteristics</h3>
+            <ul>
+                <li><strong>Pollination:</strong> Many varieties are self-fertile, though some benefit from a pollination partner for better crops</li>
+                <li><strong>Growth Habit:</strong> Available as bushes, half-standards, standards, or fan-trained forms</li>
+                <li><strong>Harvesting:</strong> Fruits ripen on the tree and are ready when fully coloured and slightly soft</li>
+                <li><strong>Pruning:</strong> Prune in summer to avoid silver leaf disease, which enters through winter wounds</li>
+                <li><strong>Hardiness:</strong> Generally hardy in UK conditions, though early-flowering varieties need frost protection</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Plums are one of the easiest stone fruits to grow in the UK. Many varieties are self-fertile, meaning you can grow just one tree and still get excellent crops. Summer pruning is essential to prevent silver leaf disease.
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow plums, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4r5tQnB" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3Xz7qJZ" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Stakes and ties for supporting young trees and training fan-trained forms. Essential for establishing proper growth structure.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3Xz7qJZ" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A sturdy hand trowel for planting bare-root and container-grown trees, essential for proper root placement and soil preparation.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>Selecting the right plum variety is crucial for success. Consider pollination requirements, harvest times, intended use, and available space when making your choice.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Pollination:</strong> Many plums are self-fertile, but some need a partner. Self-fertile varieties still benefit from cross-pollination</li>
+                <li><strong>Harvest Time:</strong> Early (July-August), mid-season (August-September), or late (September-October) varieties extend your harvest</li>
+                <li><strong>Use:</strong> Dessert plums for eating fresh, cooking plums for culinary use, or dual-purpose varieties</li>
+                <li><strong>Tree Form:</strong> Choose rootstock and form (bush, standard, fan) to match your space</li>
+                <li><strong>Disease Resistance:</strong> Some varieties show better resistance to common problems like silver leaf or bacterial canker</li>
+            </ul>
+
+            <h3>Recommended Varieties for UK Gardens</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Victoria</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Mid-August to early September<br>
+                    <strong>Use:</strong> Dessert/Cooking<br>
+                    <strong>Notes:</strong> Most popular UK variety, reliable, heavy cropper, excellent flavour. Perfect for beginners.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Marjorie's Seedling</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Late September to October<br>
+                    <strong>Use:</strong> Dessert/Cooking<br>
+                    <strong>Notes:</strong> Late season, reliable, disease resistant, stores well. Good for extending the season.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Czar</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Early August<br>
+                    <strong>Use:</strong> Cooking<br>
+                    <strong>Notes:</strong> Early, reliable, excellent for cooking and jam-making. Tolerant of heavy soils.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Opal</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Early August<br>
+                    <strong>Use:</strong> Dessert<br>
+                    <strong>Notes:</strong> Early, excellent flavour, reliable cropper. Good for eating fresh.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Jubilee</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Late August to early September<br>
+                    <strong>Use:</strong> Dessert<br>
+                    <strong>Notes:</strong> Large, sweet fruits, reliable, good flavour. Excellent dessert variety.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Warwickshire Drooper</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Mid-September<br>
+                    <strong>Use:</strong> Dessert/Cooking<br>
+                    <strong>Notes:</strong> Weeping habit, reliable, good flavour, heavy cropper. Attractive tree form.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>ℹ️ Pollination Note:</strong> While many plum varieties are self-fertile, planting two compatible varieties will improve pollination and increase yields. Even self-fertile varieties produce better crops with a partner.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Proper planting sets the foundation for healthy, productive plum trees. Choose the right site, prepare the soil well, and plant at the correct time and depth.</p>
+            
+            <h3>Site Selection</h3>
+            <ul>
+                <li><strong>Sunlight:</strong> Full sun is ideal for best fruit production and flavour</li>
+                <li><strong>Shelter:</strong> Protect from strong winds, especially important for early-flowering varieties</li>
+                <li><strong>Soil:</strong> Well-drained, fertile soil with pH 6.0-7.0. Plums tolerate heavier soils better than many other fruits</li>
+                <li><strong>Frost Pockets:</strong> Avoid low-lying areas where cold air collects, as early flowers are frost-sensitive</li>
+                <li><strong>Space:</strong> Allow adequate space for the mature tree size based on rootstock</li>
+            </ul>
+
+            <h3>Planting Bare-Root Trees</h3>
+            <ol class="step-list">
+                <li><strong>Timing:</strong> Plant during dormancy (November-March), avoiding frozen or waterlogged soil</li>
+                <li><strong>Preparation:</strong> Soak roots in water for 2-3 hours before planting</li>
+                <li><strong>Hole:</strong> Dig a hole wide enough to spread roots comfortably (at least 60cm wide), depth to match soil mark on trunk</li>
+                <li><strong>Soil Improvement:</strong> Mix well-rotted compost or manure with excavated soil, but avoid over-enrichment</li>
+                <li><strong>Planting:</strong> Position tree with roots spread out, ensuring the soil mark on trunk is level with soil surface</li>
+                <li><strong>Backfill:</strong> Fill hole, firming soil gently around roots to eliminate air pockets</li>
+                <li><strong>Staking:</strong> Insert stake before backfilling, tie tree with flexible tie, check regularly</li>
+                <li><strong>Watering:</strong> Water thoroughly after planting and during first growing season</li>
+            </ol>
+
+            <h3>Planting Container-Grown Trees</h3>
+            <ul>
+                <li>Can be planted year-round, but autumn-winter is still best</li>
+                <li>Tease out any circling roots before planting</li>
+                <li>Plant at the same depth as in the container</li>
+                <li>Water regularly, especially if planting in spring or summer</li>
+            </ul>
+
+            <h3>Spacing Guidelines</h3>
+            <ul>
+                <li><strong>Bush trees (Pixy rootstock):</strong> 3-4m apart</li>
+                <li><strong>Half-standard (St. Julien A):</strong> 4-5m apart</li>
+                <li><strong>Standard (Brompton):</strong> 5-6m apart</li>
+                <li><strong>Fan-trained:</strong> 3-4m apart</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Plums are more tolerant of heavy, clay soils than many other fruit trees, making them excellent choices for gardens with less-than-ideal soil conditions. However, good drainage is still essential.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Consistent care throughout the growing season ensures healthy growth, good yields, and high-quality fruits. Plums require attention to watering, feeding, and most importantly, summer pruning to avoid silver leaf disease.</p>
+            
+            <h3>Watering</h3>
+            <ul>
+                <li><strong>Establishment:</strong> Water regularly during the first two years, especially in dry periods</li>
+                <li><strong>Mature Trees:</strong> Water during prolonged dry spells, particularly when fruits are swelling (June-August)</li>
+                <li><strong>Method:</strong> Apply water slowly and deeply around the root zone, avoiding the trunk</li>
+                <li><strong>Mulching:</strong> Apply organic mulch around the base (but not touching the trunk) to conserve moisture</li>
+            </ul>
+
+            <h3>Feeding</h3>
+            <ul>
+                <li><strong>Spring:</strong> Apply balanced fertiliser (e.g., Growmore) or well-rotted manure in early spring</li>
+                <li><strong>Potassium:</strong> Apply sulphate of potash in late winter to improve fruit quality and disease resistance</li>
+                <li><strong>Nitrogen:</strong> Avoid excessive nitrogen, which promotes leafy growth at the expense of fruiting</li>
+                <li><strong>Container Trees:</strong> Feed regularly with liquid fertiliser during the growing season</li>
+            </ul>
+
+            <h3>Pruning</h3>
+            <p>Pruning plums is different from apples and pears - <strong>always prune in summer</strong> to avoid silver leaf disease, which enters through winter pruning wounds.</p>
+            
+            <h4>Summer Pruning (Essential)</h4>
+            <ul>
+                <li><strong>Timing:</strong> Prune between late spring and early autumn (May-September), avoiding wet weather</li>
+                <li><strong>Formative Pruning:</strong> In early years, establish the framework by removing competing leaders and poorly placed branches</li>
+                <li><strong>Maintenance Pruning:</strong> Remove dead, diseased, or damaged wood</li>
+                <li><strong>Thinning:</strong> Remove overcrowded branches to maintain an open centre and improve air circulation</li>
+                <li><strong>Shoot Pruning:</strong> Shorten overly long shoots to maintain shape and encourage fruiting</li>
+                <li><strong>Fan Training:</strong> Tie in new growth and prune to maintain fan shape</li>
+            </ul>
+
+            <h4>Winter Pruning (Avoid if Possible)</h4>
+            <ul>
+                <li><strong>Only if Necessary:</strong> If winter pruning is unavoidable, keep it minimal and seal all cuts immediately</li>
+                <li><strong>Disease Risk:</strong> Silver leaf disease spores are most active in winter, entering through pruning wounds</li>
+                <li><strong>Seal Cuts:</strong> Use a proprietary wound paint or sealant on all winter cuts</li>
+            </ul>
+
+            <h3>Frost Protection</h3>
+            <ul>
+                <li><strong>Early Flowering:</strong> Protect blossoms from late frosts using fleece or move container trees under cover</li>
+                <li><strong>Site Selection:</strong> Choose sites that avoid frost pockets</li>
+                <li><strong>Delayed Pruning:</strong> Pruning in late spring can delay flowering slightly, helping avoid frost damage</li>
+            </ul>
+
+            <h3>Thinning Fruits</h3>
+            <ul>
+                <li><strong>When:</strong> Thin in late May to early June if the tree sets heavy crops</li>
+                <li><strong>Spacing:</strong> Leave one fruit every 5-8cm along branches</li>
+                <li><strong>Benefits:</strong> Improves fruit size, quality, reduces branch breakage, and prevents biennial bearing</li>
+                <li><strong>Method:</strong> Remove smaller or damaged fruits, leaving the largest, healthiest ones</li>
+            </ul>
+
+            <h3>Mulching</h3>
+            <ul>
+                <li>Apply a 5-8cm layer of organic mulch (compost, well-rotted manure, or bark chips) around the base</li>
+                <li>Keep mulch away from the trunk to prevent rot</li>
+                <li>Replenish annually in spring</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ Silver Leaf Warning:</strong> Always prune plums in summer (May-September) to avoid silver leaf disease. If winter pruning is absolutely necessary, seal all cuts immediately with wound paint. Silver leaf is a serious fungal disease that can kill trees.
+            </div>
+
+            <div class="info-box">
+                <strong>ℹ️ Pruning Note:</strong> Plums produce fruit on one-year-old wood and on spurs on older wood. Avoid heavy pruning that removes too much fruiting wood. Light, regular summer pruning is better than heavy, infrequent pruning.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Plums are ready to harvest when they're fully ripe on the tree. Unlike pears, plums develop their best flavour when allowed to ripen fully before picking.</p>
+            
+            <h3>When to Harvest</h3>
+            <ul>
+                <li><strong>Colour:</strong> Fruits should be fully coloured according to variety (deep purple, red, yellow, or green depending on type)</li>
+                <li><strong>Feel:</strong> Fruits should yield slightly to gentle pressure when ripe</li>
+                <li><strong>Ease of Picking:</strong> Ripe plums should come away easily with a gentle twist</li>
+                <li><strong>Flavour:</strong> Taste one to check - it should be sweet and juicy</li>
+                <li><strong>Season:</strong> Early varieties (July-August), mid-season (August-September), late (September-October)</li>
+                <li><strong>Weather:</strong> Harvest in dry weather, handle fruits carefully to avoid bruising</li>
+            </ul>
+
+            <h3>Harvesting Method</h3>
+            <ul>
+                <li><strong>Gentle Handling:</strong> Plums bruise easily, so handle with care</li>
+                <li><strong>Twist and Lift:</strong> Gently twist the fruit while lifting - if ripe, it will come away easily</li>
+                <li><strong>Stalks:</strong> Leave stalks attached to fruits for better storage</li>
+                <li><strong>Staged Harvesting:</strong> Fruits on the same tree ripen at different times - harvest over several weeks</li>
+                <li><strong>Container:</strong> Use shallow containers to avoid crushing fruits</li>
+            </ul>
+
+            <h3>Storage</h3>
+            <ul>
+                <li><strong>Short-term:</strong> Store ripe plums in the refrigerator for up to a week</li>
+                <li><strong>Long-term:</strong> Late varieties like Marjorie's Seedling can store for several weeks in cool conditions</li>
+                <li><strong>Check Regularly:</strong> Remove any fruits showing signs of rot</li>
+                <li><strong>Freezing:</strong> Plums freeze well - halve, remove stones, and freeze for later use</li>
+                <li><strong>Preserving:</strong> Excellent for making jams, chutneys, and bottling</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Plums don't continue ripening significantly after picking, so wait until they're fully ripe on the tree for the best flavour. However, if birds are a problem, you can pick slightly under-ripe and they'll finish ripening indoors.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Plums can be affected by various pests and diseases. Early identification and appropriate action help maintain healthy, productive trees. The most serious issue is silver leaf disease, which can be prevented by summer pruning.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Plum Moth:</strong> Caterpillars tunnel into fruits, causing premature dropping. Use pheromone traps, remove affected fruits, consider biological controls.</li>
+                <li><strong>Aphids:</strong> Can cause leaf curl and sooty mould. Encourage natural predators, use insecticidal soap if severe.</li>
+                <li><strong>Plum Sawfly:</strong> Larvae feed on developing fruits, causing them to drop. Remove affected fruits, use biological controls.</li>
+                <li><strong>Birds:</strong> Can strip entire crops. Use netting, scare devices, or grow in a fruit cage.</li>
+                <li><strong>Wasps:</strong> Attracted to ripe fruits. Remove fallen fruits, use wasp traps, harvest promptly when ripe.</li>
+            </ul>
+
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Silver Leaf:</strong> Serious fungal disease causing silvery leaves and branch dieback. Prevent by summer pruning only. If infected, prune out affected branches well below infection in summer, seal cuts.</li>
+                <li><strong>Bacterial Canker:</strong> Causes sunken, dead areas on bark and branches. Prune out affected areas in summer, improve tree health, avoid bark damage.</li>
+                <li><strong>Brown Rot:</strong> Fruits develop brown, rotting areas with white pustules. Remove affected fruits promptly, improve air circulation, avoid damage to fruits.</li>
+                <li><strong>Plum Rust:</strong> Orange spots on leaves, usually not serious. Remove affected leaves, improve air circulation.</li>
+                <li><strong>Pocket Plums:</strong> Fruits become elongated and hollow, caused by fungus. Remove affected fruits promptly.</li>
+            </ul>
+
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Poor Fruit Set:</strong> Often due to frost damage to flowers. Choose later-flowering varieties, provide frost protection, ensure good pollination.</li>
+                <li><strong>Biennial Bearing:</strong> Heavy crops one year, light the next. Thin fruits in heavy years, maintain consistent feeding and watering.</li>
+                <li><strong>Frost Damage:</strong> Early flowers damaged by late frosts. Choose later-flowering varieties, provide frost protection, avoid frost pockets.</li>
+                <li><strong>Branch Breakage:</strong> Heavy crops can break branches. Thin fruits, support heavily laden branches if necessary.</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ Silver Leaf Disease:</strong> This is the most serious disease affecting plums. Always prune in summer (May-September) to prevent infection. Symptoms include silvery leaves and branch dieback. If you suspect silver leaf, prune out affected branches well below the infection in summer and seal all cuts.
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Prevention Tips:</strong> Maintain good tree health through proper feeding and watering, ensure good air circulation through summer pruning, choose disease-resistant varieties, practice good garden hygiene by removing fallen leaves and fruits, and always prune in summer to avoid silver leaf disease.
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

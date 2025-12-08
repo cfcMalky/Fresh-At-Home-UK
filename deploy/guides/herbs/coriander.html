@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Coriander - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Coriander.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Coriander</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Coriander in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Coriander (Coriandrum sativum) is a versatile annual herb that provides both fresh leaves (cilantro) and aromatic seeds. This fast-growing herb is essential in many cuisines, particularly Asian, Middle Eastern, and Latin American dishes. Coriander is easy to grow in UK gardens and can be harvested throughout the growing season, making it a must-have for any kitchen garden.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Fast-growing annual herb</li>
+                    <li>Provides both leaves (cilantro) and seeds</li>
+                    <li>Easy to grow from seed</li>
+                    <li>Can be grown in containers or in the ground</li>
+                    <li>Self-seeds readily for continuous harvests</li>
+                    <li>Essential in many world cuisines</li>
+                </ul>
+            </div>
+            
+            <p>Coriander is a member of the carrot family and has two distinct parts used in cooking: the fresh leaves (known as cilantro in some regions) and the dried seeds. The leaves have a fresh, citrusy flavour that's quite different from the warm, spicy flavour of the seeds. Both are valuable in the kitchen, making coriander a highly versatile herb.</p>
+            
+            <p>One of the challenges with coriander is its tendency to bolt (go to seed) quickly, especially in warm weather. However, this can be managed with regular succession sowing and choosing bolt-resistant varieties. The plant's tendency to self-seed also means you'll often get volunteer plants appearing in subsequent years.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Coriander bolts quickly in hot weather. For continuous leaf harvests, sow small batches every 2–3 weeks from early spring to late summer. Choose bolt-resistant varieties like 'Calypso' or 'Leisure' for longer leaf production.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow coriander, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4oKrbOm" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+            </div>
+
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>There are several varieties of coriander available, with the main differences being their resistance to bolting and leaf characteristics. For UK gardens, bolt-resistant varieties are particularly valuable as they provide longer leaf harvests.</p>
+            
+            <p>Standard coriander varieties tend to bolt quickly in warm weather, but newer varieties have been bred specifically for leaf production and are more resistant to bolting. If you're growing primarily for seeds, standard varieties work well, but for continuous leaf harvests, choose bolt-resistant types.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Calypso'</h4>
+                    <p>Excellent bolt-resistant variety with good leaf production. Slower to bolt, making it ideal for continuous leaf harvests throughout summer.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Leisure'</h4>
+                    <p>Another bolt-resistant variety with large, flavourful leaves. Reliable performer in UK conditions with good disease resistance.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Santo'</h4>
+                    <p>Popular variety with good flavour and reasonable bolt resistance. Widely available and reliable for UK gardens.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Slow Bolt'</h4>
+                    <p>As the name suggests, this variety is specifically bred to delay bolting, providing extended leaf harvests.</p>
+                </div>
+            </div>
+        
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Coriander</h2>
+            
+            <h3>Sowing Indoors</h3>
+            <p>For an early start, sow coriander seeds indoors from late winter to early spring. Coriander doesn't transplant well, so sow directly into individual pots or modules to avoid disturbing the roots.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare containers:</strong> Fill small pots or modules with peat-free seed compost. Coriander prefers not to be transplanted, so individual containers work best.
+                </li>
+                <li>
+                    <strong>Sow seeds:</strong> Sow seeds about 1cm (½in) deep. Coriander seeds are actually two seeds joined together, so you may get two seedlings from each. Thin to one strong seedling per pot if needed.
+                </li>
+                <li>
+                    <strong>Provide warmth:</strong> Keep in a warm location (15–20°C / 59–68°F) such as on a windowsill or in a propagator. Germination usually takes 7–14 days.
+                </li>
+                <li>
+                    <strong>Water carefully:</strong> Keep compost moist but not waterlogged. Coriander seedlings are delicate and prone to damping off if overwatered.
+                </li>
+                <li>
+                    <strong>Harden off:</strong> Before planting out, gradually acclimatise plants to outdoor conditions over 7–10 days.
+                </li>
+            </ol>
+            
+            <h3>Sowing Outdoors</h3>
+            <p>Coriander can be sown directly outdoors from early spring to late summer. For best results, sow in succession every 2–3 weeks to ensure continuous harvests. Choose a sunny or partially shaded spot with well-drained soil.</p>
+            
+            <p>Sow seeds thinly in drills about 1cm (½in) deep, spacing rows 20–30cm (8–12in) apart. Thin seedlings to 15–20cm (6–8in) apart when they're large enough to handle. Coriander can also be broadcast sown in a patch and thinned as needed.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Succession Sowing:</strong> Coriander bolts quickly in hot weather. To maintain a continuous supply of leaves, sow small batches every 2–3 weeks from early spring through to late summer. In very hot weather, provide shade or skip a sowing.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Coriander can be grown in containers, raised beds, or directly in the ground. It prefers a sunny position but will tolerate partial shade, especially in warmer weather. The soil should be well-drained and reasonably fertile.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny or partially shaded location with well-drained, fertile soil. Coriander prefers full sun but will benefit from some shade during the hottest part of the day in summer, which can help delay bolting. A spot that receives morning sun and afternoon shade is ideal.</p>
+            
+            <h3>Container Planting</h3>
+            <p>Coriander grows well in containers, making it perfect for patios, balconies, and windowsills. Use pots at least 20cm (8in) deep with good drainage. Fill with peat-free multi-purpose compost and plant seedlings 15–20cm (6–8in) apart. Container-grown coriander can be moved to shadier positions during hot weather to prevent bolting.</p>
+            
+            <h3>Ground Planting</h3>
+            <p>If planting in the ground, prepare the soil by removing weeds and incorporating well-rotted compost or organic matter. Plant seedlings at the same depth they were growing in their pots, spacing them 15–20cm (6–8in) apart. Water well after planting and keep the soil moist until plants are established.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Companion Planting:</strong> Coriander is said to improve the flavour of nearby vegetables and can help deter some pests. It's a good companion for tomatoes, peppers, and other vegetables. However, avoid planting near fennel as they can cross-pollinate.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Coriander is relatively low-maintenance but benefits from regular watering and attention to prevent bolting. Keep plants well-watered and provide shade during hot weather to extend the harvest period.</p>
+            
+            <h3>Watering</h3>
+            <p>Keep coriander plants well-watered, especially during dry spells. The soil should be kept consistently moist but not waterlogged. Container-grown plants will need more frequent watering, especially in warm weather. Water at the base of plants to avoid wetting the leaves, which can lead to fungal problems.</p>
+            
+            <h3>Feeding</h3>
+            <p>Coriander doesn't usually need additional feeding if grown in reasonably fertile soil. However, container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season. Use a balanced, organic fertiliser at half strength. Avoid overfeeding, as this can encourage bolting.</p>
+            
+            <h3>Preventing Bolting</h3>
+            <p>Coriander has a strong tendency to bolt (go to seed) in hot weather or when stressed. To delay bolting, keep plants well-watered, provide shade during the hottest part of the day, and harvest regularly. Choose bolt-resistant varieties for longer leaf production. Once plants start to bolt, the leaves become less flavourful, so it's best to remove bolting plants and sow a fresh batch.</p>
+            
+            <h3>Harvesting to Encourage Growth</h3>
+            <p>Regular harvesting encourages new growth and helps delay bolting. Pick leaves from the outside of the plant, leaving the central growing point intact. This encourages the plant to produce more leaves and extends the harvest period. Don't harvest more than one-third of the plant at once.</p>
+            
+            <h3>Self-Seeding</h3>
+            <p>Coriander self-seeds readily, so if you allow some plants to flower and set seed, you'll often get volunteer seedlings the following year. These can be left to grow or transplanted to desired locations. Self-seeded plants often appear at the perfect time for your local conditions.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Coriander leaves can be harvested as soon as plants are large enough, usually 6–8 weeks after sowing. The leaves are best used fresh, as they lose much of their flavour when dried. Seeds can be harvested when they turn brown and dry on the plant.</p>
+            
+            <h3>How to Harvest Leaves</h3>
+            <ul>
+                <li><strong>Pick young leaves:</strong> Harvest leaves when they're young and tender for the best flavour. Older leaves can become tough and less flavourful.</li>
+                <li><strong>Harvest regularly:</strong> Pick leaves from the outside of the plant regularly to encourage new growth and delay bolting.</li>
+                <li><strong>Cut whole stems:</strong> You can cut whole stems near the base, or pick individual leaves as needed. Regular harvesting encourages bushier growth.</li>
+                <li><strong>Use immediately:</strong> Coriander leaves are best used fresh. The flavour diminishes quickly after picking, so use within a few hours if possible.</li>
+            </ul>
+            
+            <h3>Harvesting Seeds</h3>
+            <p>To harvest coriander seeds, allow plants to flower and set seed. When the seed heads turn brown and dry, cut the stems and hang them upside down in a paper bag in a warm, dry place. The seeds will fall into the bag as they dry. Store dried seeds in an airtight container.</p>
+            
+            <h3>Using Your Coriander</h3>
+            <p>Coriander leaves (cilantro) are essential in many cuisines, particularly Asian, Middle Eastern, and Latin American dishes. They add a fresh, citrusy flavour to curries, salsas, salads, and many other recipes. Add coriander leaves at the end of cooking or use raw, as heat diminishes their flavour. The seeds have a warm, spicy flavour and are used whole or ground in spice blends, curries, and pickling.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh coriander leaves can be stored in the refrigerator for a few days. Place stems in a glass of water like cut flowers, or wrap in damp kitchen paper and store in the fridge. Coriander leaves don't dry well, losing most of their flavour, so they're best used fresh. The seeds, however, store well in an airtight container for up to a year.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Coriander is generally trouble-free, but there are a few issues to watch out for. Most problems are related to growing conditions, particularly heat stress causing premature bolting.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Slugs and snails:</strong> These can damage young seedlings and leaves. Use barriers, traps, or organic controls. Coriander's delicate leaves are particularly attractive to slugs.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Remove by hand or spray with a strong jet of water. Usually not a serious problem if plants are healthy.</li>
+                <li><strong>Carrot fly:</strong> Can affect coriander as it's related to carrots. Use barriers or companion planting to deter them.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Damping off:</strong> Fungal disease that affects seedlings, causing them to collapse. Prevent by avoiding overwatering, ensuring good air circulation, and using clean compost.</li>
+                <li><strong>Powdery mildew:</strong> Can occur in humid conditions or when plants are stressed. Improve air circulation and avoid overhead watering. Usually not serious if caught early.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Bolting:</strong> Coriander bolts quickly in hot weather or when stressed. Provide shade, keep well-watered, and harvest regularly to delay. Once bolting starts, remove plants and sow a fresh batch.</li>
+                <li><strong>Poor germination:</strong> Coriander seeds can be slow to germinate, especially if conditions are too warm or too cold. Ensure temperatures are between 15–20°C and keep compost moist but not waterlogged.</li>
+                <li><strong>Leggy growth:</strong> Can occur if plants don't receive enough light or are overcrowded. Ensure adequate spacing and provide bright light.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Coriander's tendency to bolt in hot weather is actually a natural response. Rather than fighting it, work with it by making regular succession sowings. This ensures you always have fresh, tender leaves available. If plants do bolt, you can still harvest the seeds, which are valuable in their own right!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

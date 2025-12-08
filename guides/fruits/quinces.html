@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Quinces - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Quinces.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Quinces</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Quinces in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Quinces are beautiful, ornamental fruit trees that produce large, aromatic fruits perfect for cooking, preserving, and making jellies. While rarely eaten raw due to their astringent, hard flesh, quinces transform into delicious treats when cooked, developing a wonderful flavour and rosy colour.</p>
+            
+            <h3>Key Characteristics</h3>
+            <ul>
+                <li><strong>Pollination:</strong> Self-fertile, so a single tree will produce fruits</li>
+                <li><strong>Growth Habit:</strong> Large, spreading trees that can reach 4-6m in height and spread</li>
+                <li><strong>Ornamental Value:</strong> Beautiful pink or white spring flowers and attractive large, golden fruits in autumn</li>
+                <li><strong>Harvesting:</strong> Fruits are harvested in late autumn (October-November) when fully coloured</li>
+                <li><strong>Use:</strong> Primarily for cooking, preserving, and making jellies - not eaten raw</li>
+                <li><strong>Hardiness:</strong> Fully hardy in UK conditions</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Quinces are excellent dual-purpose trees - they're ornamental enough to be grown as specimen trees in the garden, while also producing useful fruits. They're self-fertile, low-maintenance, and very hardy, making them ideal for UK gardens.
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow quinces, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4pg3H3F" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3Xz7qJZ" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Stakes and ties for supporting young trees during establishment. Essential for proper growth structure in early years.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3Xz7qJZ" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A sturdy hand trowel for planting bare-root and container-grown trees, essential for proper root placement and soil preparation.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>While there are fewer quince varieties available compared to apples or pears, the main types offer different characteristics. All are self-fertile, so you only need one tree.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Tree Size:</strong> Quinces are large trees - ensure you have adequate space (4-6m height and spread)</li>
+                <li><strong>Fruit Size:</strong> Some varieties produce larger fruits than others</li>
+                <li><strong>Flower Colour:</strong> Pink or white flowers - both are attractive</li>
+                <li><strong>Fruit Shape:</strong> Apple-shaped or pear-shaped fruits</li>
+                <li><strong>Ornamental Value:</strong> All quinces are ornamental, but some may be more suited to your garden design</li>
+            </ul>
+
+            <h3>Recommended Varieties for UK Gardens</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Vranja (Serbian Gold)</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Late October to November<br>
+                    <strong>Fruit:</strong> Large, pear-shaped, golden-yellow<br>
+                    <strong>Notes:</strong> Most popular variety, reliable, large fruits, excellent flavour when cooked. Pink flowers.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Meech's Prolific</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Late October to November<br>
+                    <strong>Fruit:</strong> Medium-large, apple-shaped, golden-yellow<br>
+                    <strong>Notes:</strong> Reliable cropper, good flavour, attractive tree. White flowers.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Champion</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Late October to November<br>
+                    <strong>Fruit:</strong> Large, pear-shaped, golden-yellow<br>
+                    <strong>Notes:</strong> Large fruits, reliable, good flavour. Attractive ornamental tree.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Portugal</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Late October to November<br>
+                    <strong>Fruit:</strong> Large, pear-shaped, golden-yellow<br>
+                    <strong>Notes:</strong> Large, aromatic fruits, reliable, excellent for cooking. Ornamental value.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>ℹ️ Note:</strong> All quince varieties are self-fertile, so you only need one tree. However, quinces can also be used as rootstocks for pears, creating smaller pear trees. The variety choice mainly affects fruit size, shape, and ornamental characteristics.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Proper planting sets the foundation for healthy, productive quince trees. Choose the right site with adequate space, prepare the soil well, and plant at the correct time and depth.</p>
+            
+            <h3>Site Selection</h3>
+            <ul>
+                <li><strong>Sunlight:</strong> Full sun is ideal for best fruit production and ornamental value</li>
+                <li><strong>Space:</strong> Allow plenty of space - quinces grow to 4-6m in height and spread</li>
+                <li><strong>Shelter:</strong> Protect from strong winds, though quinces are generally wind-tolerant</li>
+                <li><strong>Soil:</strong> Well-drained, fertile soil with pH 6.0-7.5. Quinces tolerate a range of soil types</li>
+                <li><strong>Position:</strong> Can be grown as a specimen tree or in an orchard setting</li>
+            </ul>
+
+            <h3>Planting Bare-Root Trees</h3>
+            <ol class="step-list">
+                <li><strong>Timing:</strong> Plant during dormancy (November-March), avoiding frozen or waterlogged soil</li>
+                <li><strong>Preparation:</strong> Soak roots in water for 2-3 hours before planting</li>
+                <li><strong>Hole:</strong> Dig a hole wide enough to spread roots comfortably (at least 60cm wide), depth to match soil mark on trunk</li>
+                <li><strong>Soil Improvement:</strong> Mix well-rotted compost or manure with excavated soil, but avoid over-enrichment</li>
+                <li><strong>Planting:</strong> Position tree with roots spread out, ensuring the soil mark on trunk is level with soil surface</li>
+                <li><strong>Backfill:</strong> Fill hole, firming soil gently around roots to eliminate air pockets</li>
+                <li><strong>Staking:</strong> Insert stake before backfilling, tie tree with flexible tie, check regularly</li>
+                <li><strong>Watering:</strong> Water thoroughly after planting and during first growing season</li>
+            </ol>
+
+            <h3>Planting Container-Grown Trees</h3>
+            <ul>
+                <li>Can be planted year-round, but autumn-winter is still best</li>
+                <li>Tease out any circling roots before planting</li>
+                <li>Plant at the same depth as in the container</li>
+                <li>Water regularly, especially if planting in spring or summer</li>
+            </ul>
+
+            <h3>Spacing Guidelines</h3>
+            <ul>
+                <li><strong>Specimen Tree:</strong> Allow 5-6m clearance on all sides</li>
+                <li><strong>Orchard Setting:</strong> Plant 5-6m apart in all directions</li>
+                <li><strong>Consider Mature Size:</strong> Quinces are large trees - don't plant too close to buildings or other trees</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Quinces make excellent specimen trees due to their ornamental value. Plant where you can enjoy both the spring flowers and the autumn fruits. They're also useful as windbreaks or screening trees.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Quinces are relatively low-maintenance trees once established. They require minimal pruning and are generally trouble-free, making them ideal for gardeners who want ornamental fruit trees without too much work.</p>
+            
+            <h3>Watering</h3>
+            <ul>
+                <li><strong>Establishment:</strong> Water regularly during the first two years, especially in dry periods</li>
+                <li><strong>Mature Trees:</strong> Generally drought-tolerant once established, but water during prolonged dry spells</li>
+                <li><strong>Method:</strong> Apply water slowly and deeply around the root zone, avoiding the trunk</li>
+                <li><strong>Mulching:</strong> Apply organic mulch around the base (but not touching the trunk) to conserve moisture</li>
+            </ul>
+
+            <h3>Feeding</h3>
+            <ul>
+                <li><strong>Spring:</strong> Apply balanced fertiliser (e.g., Growmore) or well-rotted manure in early spring</li>
+                <li><strong>Frequency:</strong> Feed annually for best growth and fruiting</li>
+                <li><strong>Container Trees:</strong> Feed regularly with liquid fertiliser during the growing season</li>
+                <li><strong>Avoid Over-feeding:</strong> Excessive nitrogen can promote leafy growth at the expense of fruiting</li>
+            </ul>
+
+            <h3>Pruning</h3>
+            <p>Quinces require minimal pruning compared to apples and pears. They naturally form attractive, spreading trees with little intervention needed.</p>
+            
+            <h4>Formative Pruning (Early Years)</h4>
+            <ul>
+                <li><strong>Timing:</strong> Prune in winter (November-March) during dormancy</li>
+                <li><strong>Purpose:</strong> Establish a good framework by removing competing leaders and poorly placed branches</li>
+                <li><strong>Method:</strong> Aim for an open-centred tree with well-spaced main branches</li>
+            </ul>
+
+            <h4>Maintenance Pruning (Established Trees)</h4>
+            <ul>
+                <li><strong>Timing:</strong> Prune in winter when dormant</li>
+                <li><strong>Remove:</strong> Dead, diseased, or damaged wood</li>
+                <li><strong>Thin:</strong> Remove overcrowded branches to maintain an open centre and improve air circulation</li>
+                <li><strong>Minimal Pruning:</strong> Quinces don't need heavy pruning - light maintenance is usually sufficient</li>
+                <li><strong>Shape:</strong> Maintain the natural spreading habit</li>
+            </ul>
+
+            <h3>Frost Protection</h3>
+            <ul>
+                <li><strong>Hardiness:</strong> Quinces are fully hardy and rarely need frost protection</li>
+                <li><strong>Flowering:</strong> Late spring flowers are less susceptible to frost damage than early-flowering fruits</li>
+                <li><strong>Young Trees:</strong> Protect very young trees in their first winter if in exposed positions</li>
+            </ul>
+
+            <h3>Mulching</h3>
+            <ul>
+                <li>Apply a 5-8cm layer of organic mulch (compost, well-rotted manure, or bark chips) around the base</li>
+                <li>Keep mulch away from the trunk to prevent rot</li>
+                <li>Replenish annually in spring</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>ℹ️ Pruning Note:</strong> Quinces produce fruit on the tips of new growth and on spurs. They don't require the intensive pruning that apples and pears need. Light, annual pruning to maintain shape and remove dead wood is usually sufficient.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Quinces are harvested in late autumn when fully coloured and aromatic. Unlike many fruits, quinces are not eaten raw but are excellent for cooking, preserving, and making jellies.</p>
+            
+            <h3>When to Harvest</h3>
+            <ul>
+                <li><strong>Timing:</strong> Harvest in late October to November, before the first hard frosts</li>
+                <li><strong>Colour:</strong> Fruits should be fully golden-yellow when ripe</li>
+                <li><strong>Aroma:</strong> Ripe quinces have a strong, aromatic fragrance</li>
+                <li><strong>Feel:</strong> Fruits should be firm but not rock-hard</li>
+                <li><strong>Ease of Picking:</strong> Ripe quinces should come away easily with a gentle twist</li>
+                <li><strong>Weather:</strong> Harvest in dry weather, handle fruits carefully</li>
+            </ul>
+
+            <h3>Harvesting Method</h3>
+            <ul>
+                <li><strong>Gentle Handling:</strong> Handle fruits carefully to avoid bruising</li>
+                <li><strong>Twist and Lift:</strong> Gently twist the fruit while lifting - if ripe, it will come away easily</li>
+                <li><strong>Stalks:</strong> Leave stalks attached to fruits for better storage</li>
+                <li><strong>Container:</strong> Use shallow containers to avoid crushing fruits</li>
+                <li><strong>Check Regularly:</strong> Harvest as fruits ripen - they may not all ripen at once</li>
+            </ul>
+
+            <h3>Storage</h3>
+            <ul>
+                <li><strong>Short-term:</strong> Store in a cool, well-ventilated place for several weeks</li>
+                <li><strong>Long-term:</strong> Quinces store well in cool conditions (5-10°C) for 2-3 months</li>
+                <li><strong>Check Regularly:</strong> Remove any fruits showing signs of rot</li>
+                <li><strong>Separate:</strong> Store quinces separately from other fruits</li>
+                <li><strong>Ripening:</strong> Quinces continue to develop flavour and aroma in storage</li>
+            </ul>
+
+            <h3>Using Quinces</h3>
+            <ul>
+                <li><strong>Cooking:</strong> Quinces must be cooked - they're too hard and astringent to eat raw</li>
+                <li><strong>Jellies:</strong> Excellent for making quince jelly, which has a beautiful rosy colour and wonderful flavour</li>
+                <li><strong>Preserving:</strong> Can be poached, stewed, or used in pies and tarts</li>
+                <li><strong>Flavour:</strong> Cooking transforms quinces, developing a sweet, aromatic flavour and rosy colour</li>
+                <li><strong>Pectin:</strong> High in pectin, making them excellent for jams and jellies</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Quinces develop their best flavour and colour after a few weeks in storage. Store harvested fruits in a cool place and use them gradually. The strong aroma of stored quinces will fill the room - this is normal and indicates they're ready to use.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Quinces are generally trouble-free and suffer from fewer pests and diseases than many other fruit trees. However, they can occasionally be affected by some common issues.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Codling Moth:</strong> Caterpillars may tunnel into fruits. Use pheromone traps, remove affected fruits, consider biological controls.</li>
+                <li><strong>Aphids:</strong> Can cause leaf curl and sooty mould. Usually not serious - encourage natural predators, use insecticidal soap if severe.</li>
+                <li><strong>Scale Insects:</strong> May appear on bark. Usually not serious, but can be treated with winter wash if severe.</li>
+                <li><strong>Birds:</strong> May peck at fruits. Usually not a major problem, but use netting if necessary.</li>
+            </ul>
+
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Fire Blight:</strong> Serious bacterial disease causing blackened, scorched appearance. Rare but possible. Prune out affected branches well below infection, disinfect tools. Report to plant health authorities if suspected.</li>
+                <li><strong>Brown Rot:</strong> Fruits develop brown, rotting areas. Remove affected fruits promptly, improve air circulation.</li>
+                <li><strong>Leaf Spot:</strong> Fungal spots on leaves. Usually not serious - remove affected leaves, improve air circulation.</li>
+                <li><strong>Canker:</strong> Sunken, dead areas on bark. Prune out affected areas, avoid bark damage, maintain tree health.</li>
+            </ul>
+
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Poor Fruit Set:</strong> Usually due to lack of pollination or frost damage. Quinces are self-fertile, but poor weather during flowering can affect fruit set.</li>
+                <li><strong>Frost Damage:</strong> Late spring frosts can damage flowers. Quinces flower later than many fruits, reducing risk, but protect if frost is forecast.</li>
+                <li><strong>Drought Stress:</strong> Young trees may suffer in prolonged dry periods. Water regularly during establishment.</li>
+                <li><strong>Wind Damage:</strong> Strong winds can break branches. Provide shelter or support heavily laden branches if necessary.</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>ℹ️ Disease Resistance:</strong> Quinces are generally more resistant to pests and diseases than apples and pears. They're particularly resistant to scab and many other common fruit tree diseases, making them excellent low-maintenance choices.
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Prevention Tips:</strong> Maintain good tree health through proper feeding and watering, ensure good air circulation through light pruning, practice good garden hygiene by removing fallen leaves and fruits, and choose a suitable site with adequate space and good drainage.
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

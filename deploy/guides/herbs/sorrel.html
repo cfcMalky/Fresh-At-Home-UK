@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Sorrel - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Sorrel.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Sorrel</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Sorrel in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Sorrel (Rumex acetosa) is a hardy, perennial herb with a sharp, lemony flavour that adds a tangy kick to salads, soups, and sauces. This easy-to-grow herb is a valuable addition to any herb garden, providing fresh leaves from spring through autumn. Sorrel is fully hardy in the UK and will return year after year, making it a low-maintenance choice for gardeners.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Hardy perennial that returns year after year</li>
+                    <li>Grows 30–60cm (12–24in) tall with upright habit</li>
+                    <li>Produces small greenish flowers in summer</li>
+                    <li>Sharp, lemony flavour</li>
+                    <li>Excellent in salads, soups, and sauces</li>
+                    <li>Very easy to grow and low maintenance</li>
+                </ul>
+            </div>
+            
+            <p>Sorrel is native to Europe and Asia and has been cultivated for centuries for its culinary and medicinal properties. The leaves have a distinctive sharp, lemony flavour that's perfect for adding a tangy note to salads, soups, sauces, and egg dishes. Sorrel is rich in vitamin C and has a refreshing, acidic taste that pairs well with fish, poultry, and vegetables.</p>
+            
+            <p>In the UK, sorrel is fully hardy and will thrive in most gardens. It prefers a sunny or partially shaded position with moist, well-drained soil. Sorrel can be grown in containers or in the ground, and it's an excellent choice for a low-maintenance herb garden. The plant will produce fresh leaves from spring through autumn, and it's very easy to grow from seeds or by dividing established plants.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Sorrel is very easy to grow and will self-seed readily, so once you've grown it once, you'll often have new plants appearing each year. The leaves are best used fresh and young, as older leaves can become tough and overly acidic. Harvest regularly to encourage new growth and prevent the plant from flowering too early.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow sorrel, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4oULF7u" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>There are two main types of sorrel commonly grown: common sorrel (Rumex acetosa) and French sorrel (Rumex scutatus). Each has slightly different characteristics and uses.</p>
+            
+            <p>Common sorrel is the most widely grown type, with large, arrow-shaped leaves and a strong, sharp flavour. French sorrel has smaller, more rounded leaves and a milder flavour. Both are easy to grow and will provide fresh leaves throughout the growing season.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Common Sorrel</h4>
+                    <p>The standard variety (Rumex acetosa). Most widely available and reliable performer. Has large, arrow-shaped leaves with a strong, sharp, lemony flavour. Best choice for UK gardens and culinary use.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>French Sorrel</h4>
+                    <p>Smaller-leaved variety (Rumex scutatus) with a milder flavour. Has more rounded leaves and is less acidic than common sorrel. Good choice for those who prefer a gentler flavour.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Red-Veined Sorrel</h4>
+                    <p>Ornamental variety with attractive red-veined leaves. Same flavour as common sorrel but adds visual interest to the garden. Can be used both for culinary and ornamental purposes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Sorrel</h2>
+            
+            <h3>Sowing Outdoors</h3>
+            <p>Sorrel can be sown directly outdoors from early spring to early summer, or in late summer to early autumn for overwintering. It's easy to grow from seeds and germinates readily.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the soil:</strong> Choose a sunny or partially shaded location with moist, well-drained soil. Remove weeds and rake the soil to a fine tilth.
+                </li>
+                <li>
+                    <strong>Sow seeds:</strong> Sow seeds thinly in drills about 1cm (½in) deep, or broadcast sow in a prepared area. Space rows 30cm (12in) apart.
+                </li>
+                <li>
+                    <strong>Water well:</strong> Water gently after sowing and keep the soil moist until seeds germinate. Germination usually takes 10–14 days.
+                </li>
+                <li>
+                    <strong>Thin seedlings:</strong> When seedlings are large enough to handle, thin them to 20–30cm (8–12in) apart. Use the thinned seedlings in salads.
+                </li>
+                <li>
+                    <strong>Successional sowing:</strong> For a continuous supply, make successional sowings every few weeks from spring to early summer.
+                </li>
+            </ol>
+            
+            <h3>Sowing Indoors</h3>
+            <p>For an earlier start, sow sorrel seeds indoors in late winter or early spring. Sow seeds in seed trays or small pots filled with peat-free seed compost. Keep at 15–20°C (59–68°F) and maintain consistent moisture. Once germinated, grow on in a bright location until ready to plant out after the last frost.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Sowing Tip:</strong> Sorrel is very easy to grow from seeds and will self-seed readily, so once you've grown it once, you'll often have new plants appearing each year. For a continuous supply of fresh leaves, make successional sowings every few weeks from spring to early summer. Sorrel can also be grown from root divisions in spring or autumn.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Sorrel prefers a sunny or partially shaded position with moist, well-drained soil. It can be grown in containers or in the ground, and it's an excellent choice for a low-maintenance herb garden.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny or partially shaded location with moist, well-drained soil. Sorrel prefers full sun but will tolerate partial shade, though growth may be slower. It will not grow well in very dry, poor soil, so ensure the soil is reasonably fertile and retains moisture well.</p>
+            
+            <h3>Container Planting</h3>
+            <p>Growing sorrel in containers is an excellent option, especially for smaller spaces or if you want to move plants around. Use a container at least 25cm (10in) wide and deep with good drainage. Fill with a mix of peat-free multi-purpose compost and well-rotted compost for extra nutrients. Container-grown sorrel will need regular watering, especially during dry spells, as it prefers moist conditions.</p>
+            
+            <h3>Ground Planting</h3>
+            <p>If planting in the ground, prepare the soil by removing weeds and incorporating well-rotted compost if the soil is poor. Plant seedlings at the same depth they were growing in their pots. Space plants 20–30cm (8–12in) apart to allow for their spreading habit. Sorrel grows well in the ground and can be used in herb gardens or as a border plant. It's also excellent for growing in vegetable gardens where it can be harvested regularly.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> Sorrel is fully hardy in the UK and will return year after year. It's a great choice for a low-maintenance herb garden. The plant prefers moist conditions and doesn't like to dry out, so ensure regular watering, especially during dry spells. In very dry soils, consider adding organic matter to improve moisture retention.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Sorrel is relatively low-maintenance once established. It's a hardy perennial that will provide fresh leaves from spring through autumn with minimal care. However, a few simple practices will help ensure healthy growth and good harvests.</p>
+            
+            <h3>Watering</h3>
+            <p>Water sorrel regularly, especially during dry spells, as it prefers moist conditions. Container-grown plants will need more frequent watering than those in the ground, but still allow the compost to dry out slightly between waterings. Sorrel doesn't like to dry out completely, so keep the soil consistently moist but not waterlogged.</p>
+            
+            <h3>Feeding</h3>
+            <p>Sorrel doesn't usually need additional feeding if grown in reasonably fertile soil. However, if your soil is very poor, you can apply a balanced, organic fertiliser in spring. Container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season. Avoid over-fertilising, as this can encourage excessive leaf growth at the expense of flavour.</p>
+            
+            <h3>Preventing Bolting</h3>
+            <p>Sorrel can bolt (flower prematurely) in hot, dry conditions or if plants become stressed. To prevent bolting, keep plants well-watered during hot weather and harvest leaves regularly. Once plants start to flower, the leaves may become tougher and less flavourful, so harvest leaves before flowering for the best flavour. Remove flower stalks as they appear to encourage continued leaf production.</p>
+            
+            <h3>Dividing</h3>
+            <p>Sorrel can become congested over time, so divide plants every 3–4 years in spring or autumn. Lift the plant, divide the root ball into several sections, and replant the divisions. This helps rejuvenate the plant and encourages fresh growth. You can also use divisions to propagate new plants.</p>
+            
+            <h3>Winter Care</h3>
+            <p>Sorrel is fully hardy in the UK and will survive winter without protection. The leaves will die back in winter, but the plant will regrow in spring. In very cold areas or exposed positions, you may want to protect plants with a layer of mulch, but this is usually not necessary. Container-grown plants may benefit from being moved to a sheltered spot in very cold areas.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Sorrel leaves can be harvested from spring through autumn. The leaves are best used fresh and young, as older leaves can become tough and overly acidic. Harvest regularly to encourage new growth and prevent the plant from flowering too early.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Pick individual leaves:</strong> Harvest individual leaves or small sprigs by cutting them from the plant with sharp scissors. Cut just above the base to encourage new growth.</li>
+                <li><strong>Harvest regularly:</strong> Pick leaves regularly throughout the growing season to encourage new growth and prevent plants from becoming leggy or flowering too early.</li>
+                <li><strong>Use young leaves:</strong> For the best flavour, harvest young, tender leaves. Older leaves can become tough and overly acidic.</li>
+                <li><strong>Harvest before flowering:</strong> For the best flavour, harvest leaves before the plant flowers. Once plants start to flower, the leaves may become tougher and less flavourful.</li>
+            </ul>
+            
+            <h3>Using Your Sorrel</h3>
+            <p>Fresh sorrel leaves add a sharp, lemony flavour to many dishes. Use them in salads, soups, sauces, and egg dishes. They're excellent with fish, poultry, and vegetables. Sorrel has a strong, acidic flavour, so use it sparingly—a little goes a long way. The leaves can be cooked or used raw, and they're particularly good in creamy sauces and soups where their acidity balances the richness.</p>
+            
+            <h3>Freezing Sorrel</h3>
+            <p>Sorrel can be frozen for later use, though it's best used fresh. Freeze whole leaves or chopped leaves in freezer bags, or purée leaves and freeze in ice cube trays. Frozen sorrel is best used in cooked dishes. It retains its flavour reasonably well when frozen, though the texture will change.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh sorrel leaves can be stored in the refrigerator for a few days. Place stems in a glass of water like cut flowers, or wrap in damp kitchen paper and store in the fridge. For longer storage, freeze the leaves as described above. Sorrel is best used fresh, so harvest as needed for the best flavour.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Sorrel is generally very trouble-free and rarely suffers from serious pests or diseases. However, there are a few issues to watch out for, mostly related to growing conditions.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Slugs and snails:</strong> Can damage young leaves, especially in wet conditions. Use organic controls or hand-pick. Usually not serious if caught early.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious and can be controlled by encouraging natural predators or using organic methods.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Rust:</strong> Can affect sorrel, causing orange spots on leaves. Remove affected leaves and improve air circulation. Usually not serious if caught early.</li>
+                <li><strong>Powdery mildew:</strong> Can occur in humid conditions or when plants are overcrowded. Improve air circulation and avoid overhead watering. Usually not serious if caught early.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Drought stress:</strong> Sorrel prefers moist conditions and doesn't like to dry out. Ensure regular watering, especially during dry spells. Mulch around plants to help retain moisture.</li>
+                <li><strong>Bolting:</strong> Sorrel can bolt (flower prematurely) in hot, dry conditions or if plants become stressed. Keep plants well-watered and harvest leaves regularly to prevent bolting.</li>
+                <li><strong>Overcrowding:</strong> Can occur if plants aren't divided regularly. Divide plants every 3–4 years to prevent overcrowding and encourage fresh growth.</li>
+                <li><strong>Poor flavour:</strong> Can occur if leaves are harvested too old or if plants are stressed. Harvest young, tender leaves and keep plants well-watered for the best flavour.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Sorrel is one of the easiest herbs to grow and is perfect for beginners. It's very forgiving and will thrive with minimal care. The key to success is providing moist conditions and harvesting leaves regularly. With proper care, you'll have a steady supply of fresh, tangy sorrel leaves from spring through autumn, and the plant will return year after year!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

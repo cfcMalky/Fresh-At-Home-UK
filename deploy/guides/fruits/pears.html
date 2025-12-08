@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Pears - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Pears.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Pears</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Pears in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Pears are elegant, long-lived fruit trees that produce delicious, juicy fruits perfect for eating fresh, cooking, or preserving. While similar to apples in many ways, pears have their own unique requirements and characteristics that make them a rewarding addition to UK gardens.</p>
+            
+            <h3>Key Characteristics</h3>
+            <ul>
+                <li><strong>Pollination:</strong> Most pear varieties require a pollination partner from a compatible group, though some self-fertile varieties exist</li>
+                <li><strong>Growth Habit:</strong> Available as standards, bushes, cordons, or espaliers to suit different garden sizes</li>
+                <li><strong>Harvesting:</strong> Pears are picked when still firm and ripened off the tree for best flavour</li>
+                <li><strong>Storage:</strong> Many varieties store well, extending the harvest season</li>
+                <li><strong>Hardiness:</strong> Generally hardy in UK conditions, though early-flowering varieties need frost protection</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Pears are often considered easier to grow than apples in some respects, as they're less prone to certain pests and diseases. However, they do require careful attention to pollination and harvesting timing.
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow pears, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4iqAd0Z" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3Xz7qJZ" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Stakes and ties for supporting young trees and training cordons or espaliers. Essential for establishing proper growth structure.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3Xz7qJZ" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A sturdy hand trowel for planting bare-root and container-grown trees, essential for proper root placement and soil preparation.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>Selecting the right pear varieties is crucial for success. Consider pollination groups, harvest times, intended use, and available space when making your choice.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Pollination Groups:</strong> Most pears need a partner from a compatible pollination group (typically the same group or adjacent groups)</li>
+                <li><strong>Harvest Time:</strong> Early (August), mid-season (September), or late (October-November) varieties extend your harvest</li>
+                <li><strong>Use:</strong> Dessert pears for eating fresh, cooking pears for culinary use, or dual-purpose varieties</li>
+                <li><strong>Tree Form:</strong> Choose rootstock and form (bush, cordon, espalier) to match your space</li>
+                <li><strong>Disease Resistance:</strong> Some varieties show better resistance to common problems like scab or fire blight</li>
+            </ul>
+
+            <h3>Recommended Varieties for UK Gardens</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Conference</h4>
+                    <p><strong>Pollination Group:</strong> 3 (self-fertile)<br>
+                    <strong>Harvest:</strong> Late September-October<br>
+                    <strong>Use:</strong> Dessert<br>
+                    <strong>Notes:</strong> Reliable, self-fertile, excellent flavour, stores well. Most popular UK variety.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Doyenné du Comice</h4>
+                    <p><strong>Pollination Group:</strong> 4<br>
+                    <strong>Harvest:</strong> Mid-October<br>
+                    <strong>Use:</strong> Dessert<br>
+                    <strong>Notes:</strong> Exceptional flavour, large fruits, needs a warm, sheltered site. Best dessert pear.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Williams' Bon Chrétien</h4>
+                    <p><strong>Pollination Group:</strong> 3<br>
+                    <strong>Harvest:</strong> Late August-September<br>
+                    <strong>Use:</strong> Dessert/Cooking<br>
+                    <strong>Notes:</strong> Early, reliable, good flavour. Excellent for canning and bottling.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Concorde</h4>
+                    <p><strong>Pollination Group:</strong> 3 (self-fertile)<br>
+                    <strong>Harvest:</strong> Early October<br>
+                    <strong>Use:</strong> Dessert<br>
+                    <strong>Notes:</strong> Self-fertile, reliable cropper, good flavour, stores well. Good for smaller gardens.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Beth</h4>
+                    <p><strong>Pollination Group:</strong> 3<br>
+                    <strong>Harvest:</strong> Late September<br>
+                    <strong>Use:</strong> Dessert<br>
+                    <strong>Notes:</strong> Compact growth, good for smaller spaces, reliable, good flavour.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Onward</h4>
+                    <p><strong>Pollination Group:</strong> 3<br>
+                    <strong>Harvest:</strong> Early October<br>
+                    <strong>Use:</strong> Dessert<br>
+                    <strong>Notes:</strong> Reliable, good flavour, stores well, disease resistant.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>ℹ️ Pollination Note:</strong> While Conference and Concorde are self-fertile, all pears produce better crops with a pollination partner. Plant at least two compatible varieties for best results.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Proper planting sets the foundation for healthy, productive pear trees. Choose the right site, prepare the soil well, and plant at the correct time and depth.</p>
+            
+            <h3>Site Selection</h3>
+            <ul>
+                <li><strong>Sunlight:</strong> Full sun is ideal, though pears tolerate light shade</li>
+                <li><strong>Shelter:</strong> Protect from strong winds, especially important for early-flowering varieties</li>
+                <li><strong>Soil:</strong> Well-drained, fertile soil with pH 6.0-7.0. Pears tolerate heavier soils better than apples</li>
+                <li><strong>Frost Pockets:</strong> Avoid low-lying areas where cold air collects, as early flowers are frost-sensitive</li>
+                <li><strong>Space:</strong> Allow adequate space for the mature tree size based on rootstock</li>
+            </ul>
+
+            <h3>Planting Bare-Root Trees</h3>
+            <ol class="step-list">
+                <li><strong>Timing:</strong> Plant during dormancy (November-March), avoiding frozen or waterlogged soil</li>
+                <li><strong>Preparation:</strong> Soak roots in water for 2-3 hours before planting</li>
+                <li><strong>Hole:</strong> Dig a hole wide enough to spread roots comfortably (at least 60cm wide), depth to match soil mark on trunk</li>
+                <li><strong>Soil Improvement:</strong> Mix well-rotted compost or manure with excavated soil, but avoid over-enrichment</li>
+                <li><strong>Planting:</strong> Position tree with roots spread out, ensuring the soil mark on trunk is level with soil surface</li>
+                <li><strong>Backfill:</strong> Fill hole, firming soil gently around roots to eliminate air pockets</li>
+                <li><strong>Staking:</strong> Insert stake before backfilling, tie tree with flexible tie, check regularly</li>
+                <li><strong>Watering:</strong> Water thoroughly after planting and during first growing season</li>
+            </ol>
+
+            <h3>Planting Container-Grown Trees</h3>
+            <ul>
+                <li>Can be planted year-round, but autumn-winter is still best</li>
+                <li>Tease out any circling roots before planting</li>
+                <li>Plant at the same depth as in the container</li>
+                <li>Water regularly, especially if planting in spring or summer</li>
+            </ul>
+
+            <h3>Spacing Guidelines</h3>
+            <ul>
+                <li><strong>Bush trees (M26 rootstock):</strong> 3-4m apart</li>
+                <li><strong>Half-standard (MM106):</strong> 4-5m apart</li>
+                <li><strong>Standard (MM111):</strong> 6-8m apart</li>
+                <li><strong>Cordons:</strong> 60-90cm apart in rows 2-3m apart</li>
+                <li><strong>Espaliers:</strong> 3-4m apart</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> When planting multiple trees for pollination, ensure compatible varieties are within 15-20m of each other for effective cross-pollination.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Consistent care throughout the growing season ensures healthy growth, good yields, and high-quality fruits. Pears require attention to watering, feeding, pruning, and pest management.</p>
+            
+            <h3>Watering</h3>
+            <ul>
+                <li><strong>Establishment:</strong> Water regularly during the first two years, especially in dry periods</li>
+                <li><strong>Mature Trees:</strong> Water during prolonged dry spells, particularly when fruits are swelling (June-August)</li>
+                <li><strong>Method:</strong> Apply water slowly and deeply around the root zone, avoiding the trunk</li>
+                <li><strong>Mulching:</strong> Apply organic mulch around the base (but not touching the trunk) to conserve moisture</li>
+            </ul>
+
+            <h3>Feeding</h3>
+            <ul>
+                <li><strong>Spring:</strong> Apply balanced fertiliser (e.g., Growmore) or well-rotted manure in early spring</li>
+                <li><strong>Potassium:</strong> Apply sulphate of potash in late winter to improve fruit quality and disease resistance</li>
+                <li><strong>Nitrogen:</strong> Avoid excessive nitrogen, which promotes leafy growth at the expense of fruiting</li>
+                <li><strong>Container Trees:</strong> Feed regularly with liquid fertiliser during the growing season</li>
+            </ul>
+
+            <h3>Pruning</h3>
+            <p>Pears are pruned similarly to apples but are generally more forgiving. The main pruning is done in winter, with summer pruning for trained forms.</p>
+            
+            <h4>Winter Pruning (Dormant Season)</h4>
+            <ul>
+                <li><strong>Formative Pruning:</strong> In early years, establish the framework by removing competing leaders and poorly placed branches</li>
+                <li><strong>Maintenance Pruning:</strong> Remove dead, diseased, or damaged wood</li>
+                <li><strong>Thinning:</strong> Remove overcrowded branches to maintain an open centre</li>
+                <li><strong>Spur Pruning:</strong> Shorten side shoots to encourage fruiting spurs on established trees</li>
+                <li><strong>Timing:</strong> Prune between November and March, avoiding frosty weather</li>
+            </ul>
+
+            <h4>Summer Pruning (Trained Forms)</h4>
+            <ul>
+                <li><strong>Cordons/Espaliers:</strong> Prune new growth back to 3-4 leaves in late summer (August)</li>
+                <li><strong>Purpose:</strong> Maintain shape, improve light penetration, and encourage fruiting</li>
+                <li><strong>Timing:</strong> After the main growth flush, typically late July to early September</li>
+            </ul>
+
+            <h3>Frost Protection</h3>
+            <ul>
+                <li><strong>Early Flowering:</strong> Protect blossoms from late frosts using fleece or move container trees under cover</li>
+                <li><strong>Site Selection:</strong> Choose sites that avoid frost pockets</li>
+                <li><strong>Delayed Pruning:</strong> Pruning in late winter can delay flowering slightly, helping avoid frost damage</li>
+            </ul>
+
+            <h3>Thinning Fruits</h3>
+            <ul>
+                <li><strong>When:</strong> Thin in late June to early July if the tree sets heavy crops</li>
+                <li><strong>Spacing:</strong> Leave one fruit per cluster, spacing fruits 10-15cm apart</li>
+                <li><strong>Benefits:</strong> Improves fruit size, quality, and reduces biennial bearing</li>
+            </ul>
+
+            <h3>Mulching</h3>
+            <ul>
+                <li>Apply a 5-8cm layer of organic mulch (compost, well-rotted manure, or bark chips) around the base</li>
+                <li>Keep mulch away from the trunk to prevent rot</li>
+                <li>Replenish annually in spring</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>ℹ️ Pruning Note:</strong> Pears produce fruit on spurs (short, stubby branches) that develop on 2-3 year old wood. Avoid heavy pruning that removes too much fruiting wood.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Pears are unique in that they must be harvested when still firm and ripened off the tree. Learning to recognise the correct picking time is essential for quality fruits.</p>
+            
+            <h3>When to Harvest</h3>
+            <ul>
+                <li><strong>Timing:</strong> Harvest when fruits are full-sized but still hard and green</li>
+                <li><strong>Test:</strong> Gently lift and twist the fruit - if it comes away easily with the stalk, it's ready</li>
+                <li><strong>Colour:</strong> Some varieties show subtle colour changes (slight yellowing or russeting)</li>
+                <li><strong>Season:</strong> Early varieties (August-September), mid-season (September-October), late (October-November)</li>
+                <li><strong>Weather:</strong> Harvest in dry weather, handle fruits carefully to avoid bruising</li>
+            </ul>
+
+            <h3>Ripening Off the Tree</h3>
+            <ul>
+                <li><strong>Storage:</strong> Store harvested pears in a cool, dark place (garage or shed) initially</li>
+                <li><strong>Ripening:</strong> Bring indoors to room temperature when you want them to ripen</li>
+                <li><strong>Check Regularly:</strong> Pears ripen quickly once started - check daily</li>
+                <li><strong>Signs of Ripeness:</strong> Fruit yields slightly to gentle pressure at the neck, skin may change colour</li>
+                <li><strong>Timing:</strong> Eat within a few days of ripening for best flavour</li>
+            </ul>
+
+            <h3>Storage</h3>
+            <ul>
+                <li><strong>Short-term:</strong> Store unripe pears in a cool, well-ventilated place (5-10°C)</li>
+                <li><strong>Long-term:</strong> Late varieties can store for several months in cool conditions</li>
+                <li><strong>Check Regularly:</strong> Remove any fruits showing signs of rot</li>
+                <li><strong>Separate:</strong> Store pears separately from other fruits, as they release ethylene gas</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> If pears are left on the tree until soft, they develop a gritty texture and poor flavour. Always harvest firm and ripen indoors for the best eating quality.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Pears can be affected by various pests and diseases. Early identification and appropriate action help maintain healthy, productive trees.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Pear Midge:</strong> Larvae cause fruits to drop early. Remove and destroy affected fruits. Use pheromone traps for monitoring.</li>
+                <li><strong>Codling Moth:</strong> Caterpillars tunnel into fruits. Use pheromone traps, remove affected fruits, consider biological controls.</li>
+                <li><strong>Aphids:</strong> Can cause leaf curl and sooty mould. Encourage natural predators, use insecticidal soap if severe.</li>
+                <li><strong>Pear Sawfly:</strong> Larvae skeletonise leaves. Pick off by hand or use biological controls.</li>
+                <li><strong>Pear Leaf Blister Mite:</strong> Causes blisters on leaves. Usually not serious, but can be treated with winter wash if severe.</li>
+            </ul>
+
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Pear Scab:</strong> Dark spots on leaves and fruits, can cause cracking. Remove affected material, improve air circulation, consider resistant varieties.</li>
+                <li><strong>Fire Blight:</strong> Serious bacterial disease causing blackened, scorched appearance. Prune out affected branches well below infection, disinfect tools. Report to plant health authorities if suspected.</li>
+                <li><strong>Pear Rust:</strong> Orange spots on leaves, caused by juniper rust fungus. Remove nearby junipers if possible, or accept minor damage.</li>
+                <li><strong>Brown Rot:</strong> Fruits develop brown, rotting areas. Remove affected fruits promptly, improve air circulation.</li>
+                <li><strong>Canker:</strong> Sunken, dead areas on bark. Prune out affected areas, avoid bark damage, maintain tree health.</li>
+            </ul>
+
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Poor Fruit Set:</strong> Often due to lack of pollination. Ensure compatible varieties are nearby, consider hand-pollination, protect blossoms from frost.</li>
+                <li><strong>Biennial Bearing:</strong> Heavy crops one year, light the next. Thin fruits in heavy years, maintain consistent feeding and watering.</li>
+                <li><strong>Frost Damage:</strong> Early flowers damaged by late frosts. Choose later-flowering varieties, provide frost protection, avoid frost pockets.</li>
+                <li><strong>Sun Scald:</strong> Bark damage from intense sun. Paint trunk with white latex paint or use tree guards.</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ Fire Blight Warning:</strong> Fire blight is a notifiable disease in the UK. If you suspect your tree has fire blight, contact the relevant plant health authority. Symptoms include blackened, scorched-looking branches and a characteristic "shepherd's crook" appearance.
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Prevention Tips:</strong> Maintain good tree health through proper feeding and watering, ensure good air circulation through pruning, choose disease-resistant varieties, and practice good garden hygiene by removing fallen leaves and fruits.
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

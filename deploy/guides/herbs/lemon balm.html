@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Lemon balm - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Lemon balm.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Lemon balm</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Lemon balm in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Lemon balm (Melissa officinalis) is a fragrant, easy-to-grow perennial herb with a delightful lemon scent and flavour. This member of the mint family is valued for its culinary uses, medicinal properties, and ability to attract bees to the garden. Lemon balm is incredibly easy to grow in UK gardens and will spread readily, making it an excellent ground cover or border plant.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Hardy perennial that returns year after year</li>
+                    <li>Grows 30–60cm (1–2ft) tall with spreading habit</li>
+                    <li>Produces small white or pale yellow flowers</li>
+                    <li>Attracts bees and beneficial insects</li>
+                    <li>Can spread vigorously if not contained</li>
+                    <li>Delightful lemon scent and flavour</li>
+                </ul>
+            </div>
+            
+            <p>Lemon balm is native to the Mediterranean region and has been cultivated for centuries for its culinary and medicinal uses. The leaves have a fresh, lemony flavour that's milder than lemon itself, making it perfect for teas, salads, desserts, and savoury dishes. The plant is also valued for its calming properties and is often used in herbal teas to promote relaxation.</p>
+            
+            <p>One thing to note about lemon balm is that it can spread quite vigorously, similar to mint. For this reason, many gardeners prefer to grow it in containers or use barriers to prevent it from taking over the garden. However, with proper management, lemon balm is an excellent addition to any herb garden and provides a steady supply of fresh leaves throughout the growing season.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Lemon balm is very easy to grow from seeds, cuttings, or division. It's one of the most forgiving herbs for beginners. The plant will self-seed readily, so you may find volunteer seedlings appearing in your garden. These can be left to grow or transplanted to desired locations.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow lemon balm, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/3Kaj8vl" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+            </div>
+
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>While there aren't many named varieties of lemon balm, there are a few options to consider. Most lemon balm sold is simply labeled as "common lemon balm" or "Melissa officinalis," but there are some variations worth noting.</p>
+            
+            <p>Lemon balm is typically grown from seeds, cuttings, or division. When purchasing lemon balm, you're usually buying seeds, small plants, or root divisions. The main consideration is whether you want the standard green-leaved variety or one of the variegated forms, which add visual interest to the garden.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Common Lemon Balm</h4>
+                    <p>The standard variety with bright green leaves and strong lemon scent. Most widely available and reliable performer. Best for culinary use.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Aurea' (Golden Lemon Balm)</h4>
+                    <p>Variegated variety with golden-yellow leaves edged in green. Less vigorous than common lemon balm but adds ornamental value. Same culinary uses.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Variegata'</h4>
+                    <p>Variegated form with green leaves edged in white or cream. Attractive ornamental variety with same lemon scent and flavour as common lemon balm.</p>
+                </div>
+            </div>
+        
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Lemon balm</h2>
+            
+            <h3>Sowing Outdoors</h3>
+            <p>Lemon balm can be sown directly outdoors from mid-spring to early summer. It's very easy to grow from seed and will germinate reliably. Sow seeds in their final position or in a seedbed for transplanting later.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Choose a sunny or partially shaded location with well-drained soil. Remove weeds and rake the soil to a fine tilth.
+                </li>
+                <li>
+                    <strong>Sow seeds:</strong> Sow seeds thinly on the soil surface or cover very lightly (seeds need light to germinate). Space rows 30–45cm (12–18in) apart.
+                </li>
+                <li>
+                    <strong>Water gently:</strong> Water the soil gently after sowing, taking care not to wash away the seeds. Keep the soil moist until germination.
+                </li>
+                <li>
+                    <strong>Thin seedlings:</strong> When seedlings are large enough to handle, thin them to 30–45cm (12–18in) apart. Lemon balm spreads, so give it plenty of space.
+                </li>
+                <li>
+                    <strong>Transplant if needed:</strong> If you've sown in a seedbed, transplant seedlings to their final position when they're large enough to handle.
+                </li>
+            </ol>
+            
+            <h3>Sowing Indoors</h3>
+            <p>You can start lemon balm indoors in late winter or early spring for an earlier start. Sow seeds in pots or seed trays filled with peat-free seed compost. Cover seeds very lightly or not at all, as they need light to germinate. Keep at 15–20°C (59–68°F) and maintain consistent moisture. Seeds should germinate within 10–14 days. Transplant seedlings outdoors after the last frost, hardening them off first.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Sowing Tip:</strong> Lemon balm seeds are very small and need light to germinate, so don't cover them with too much soil. A very light covering or no covering at all is best. The seeds will germinate reliably if kept moist and at the right temperature.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Lemon balm is very adaptable and will grow in a wide range of conditions. It prefers a sunny or partially shaded position with well-drained soil, but will tolerate less than ideal conditions. The main consideration is controlling its spread, so many gardeners prefer to grow it in containers.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny or partially shaded location with well-drained, reasonably fertile soil. Lemon balm will tolerate most soil types, including clay, but prefers soil that doesn't become waterlogged. It will also grow in light shade, though it may be less vigorous. Avoid very dry, poor soil, as this will result in weak growth.</p>
+            
+            <h3>Container Planting</h3>
+            <p>Growing lemon balm in containers is an excellent way to control its spread. Use a container at least 30cm (12in) wide and deep with good drainage. Fill with peat-free multi-purpose compost and plant seedlings or small plants. Container-grown lemon balm will need more frequent watering than ground-grown plants. You can also grow it in hanging baskets or window boxes for easy access to the leaves.</p>
+            
+            <h3>Ground Planting</h3>
+            <p>If planting in the ground, prepare the soil by removing weeds and incorporating well-rotted compost if the soil is poor. Space plants 30–45cm (12–18in) apart to allow for spreading. Consider installing a root barrier (at least 30cm / 12in deep) around the planting area to control spread, or plant it in a bottomless container sunk into the ground.</p>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> Lemon balm can spread vigorously through both roots and self-seeding. Consider growing it in containers or using root barriers if you want to control its spread. It's also a good idea to remove flower heads before they set seed if you want to prevent self-seeding.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Lemon balm is very low-maintenance once established. It's a hardy perennial that will return year after year with minimal care. However, a few simple practices will help ensure healthy growth and prevent it from becoming too invasive.</p>
+            
+            <h3>Watering</h3>
+            <p>Water lemon balm regularly during dry spells, especially when plants are young. Once established, lemon balm is quite drought-tolerant, but regular watering will encourage more vigorous growth and better leaf quality. Container-grown plants will need more frequent watering than those in the ground. Water at the base of plants to avoid wetting the leaves, which can lead to fungal issues.</p>
+            
+            <h3>Feeding</h3>
+            <p>Lemon balm doesn't usually need additional feeding if grown in reasonably fertile soil. However, if your soil is poor, you can apply a balanced, organic fertiliser in spring. Container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season. Avoid over-fertilising, as this can encourage excessive growth and make the plant more invasive.</p>
+            
+            <h3>Pruning and Cutting Back</h3>
+            <p>Regular pruning helps keep lemon balm bushy and prevents it from becoming leggy. Cut back plants by about one-third after flowering to encourage fresh growth. You can also cut back hard in early spring to remove old growth and encourage new shoots. Regular harvesting of leaves also helps keep the plant compact and encourages new growth.</p>
+            
+            <h3>Controlling Spread</h3>
+            <p>Lemon balm can spread vigorously through both roots and self-seeding. To control spread, regularly dig up any roots that extend beyond your desired area. Remove flower heads before they set seed if you want to prevent self-seeding. If you're growing lemon balm in the ground, consider installing a root barrier (at least 30cm / 12in deep) around the planting area. Alternatively, grow it in containers to completely control its spread.</p>
+            
+            <h3>Dividing</h3>
+            <p>Lemon balm benefits from being divided every 2–3 years to maintain vigour. Divide plants in spring or autumn by digging up the clump and separating it into smaller sections. Replant the divisions immediately, spacing them 30–45cm (12–18in) apart. This is also a great way to propagate new plants and share with friends.</p>
+            
+            <h3>Winter Care</h3>
+            <p>Lemon balm is fully hardy and will die back in winter, then regrow in spring. In autumn, cut back any dead foliage. The roots will survive underground and send up new growth in spring. Container-grown plants may benefit from some protection in very cold areas—move containers to a sheltered spot or wrap them in fleece. In mild winters, lemon balm may retain some leaves.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Lemon balm leaves can be harvested as soon as plants are large enough, usually 6–8 weeks after sowing. The leaves are best used fresh, as they lose much of their flavour when dried. However, they can be dried or frozen for later use. Harvest regularly to encourage new growth and keep plants bushy.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Pick young leaves:</strong> Harvest leaves when they're young and tender for the best flavour. Older leaves can become tough and less flavourful.</li>
+                <li><strong>Harvest regularly:</strong> Pick leaves regularly throughout the growing season to encourage new growth and prevent plants from becoming leggy.</li>
+                <li><strong>Cut whole stems:</strong> You can cut whole stems near the base, or pick individual leaves as needed. Cutting stems encourages bushier growth.</li>
+                <li><strong>Harvest before flowering:</strong> For the best flavour, harvest leaves before the plant flowers. However, the flowers are attractive to bees, so you may want to allow some to flower.</li>
+            </ul>
+            
+            <h3>Using Your Lemon balm</h3>
+            <p>Fresh lemon balm leaves add a delightful lemon flavour to many dishes. Use them in salads, desserts, teas, and savoury dishes. They're excellent in fruit salads, ice cream, sorbets, and cakes. Lemon balm also makes a wonderful herbal tea, either on its own or mixed with other herbs. The leaves can be used to flavour drinks, syrups, and vinegars.</p>
+            
+            <h3>Drying Lemon balm</h3>
+            <p>While fresh leaves have the best flavour, lemon balm can be dried for later use. Harvest leaves in the morning after the dew has dried. Dry them in a warm, well-ventilated area out of direct sunlight, or use a dehydrator. Store dried leaves in an airtight container in a cool, dark place. Dried lemon balm retains some flavour but is not as aromatic as fresh leaves.</p>
+            
+            <h3>Freezing Lemon balm</h3>
+            <p>Lemon balm can be frozen for use in cooked dishes. Freeze whole leaves on a tray, then transfer to freezer bags, or chop leaves and freeze in ice cube trays with a little water. Frozen lemon balm is best used in cooked dishes rather than raw applications, as freezing can affect the texture.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh lemon balm leaves can be stored in the refrigerator for a few days. Place stems in a glass of water like cut flowers, or wrap in damp kitchen paper and store in the fridge. For longer storage, dry or freeze the leaves as described above. Dried lemon balm can be stored in an airtight container for up to a year, though the flavour will diminish over time.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Lemon balm is generally very trouble-free and rarely suffers from serious pests or diseases. However, there are a few issues to watch out for, mostly related to its vigorous growth habit.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious and can be controlled by encouraging natural predators or using organic methods. Lemon balm's flowers attract beneficial insects that help control aphids.</li>
+                <li><strong>Slugs and snails:</strong> Can damage young leaves, especially in spring. Use barriers, traps, or organic controls. Once established, lemon balm is less attractive to slugs.</li>
+                <li><strong>Spider mites:</strong> Can occur in hot, dry conditions. Improve air circulation and increase humidity. Usually not serious if caught early.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Powdery mildew:</strong> Can occur in humid conditions or when plants are overcrowded. Improve air circulation and avoid overhead watering. Usually not serious if caught early.</li>
+                <li><strong>Rust:</strong> Fungal disease that can affect leaves, causing orange or brown pustules. Remove affected leaves and improve air circulation. Usually not serious.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Invasive spread:</strong> The main issue with lemon balm is its tendency to spread. Control by growing in containers, using root barriers, or regularly digging up spreading roots. Remove flower heads before they set seed to prevent self-seeding.</li>
+                <li><strong>Leggy growth:</strong> Can occur if plants aren't pruned regularly. Cut back plants by about one-third after flowering and harvest leaves regularly to encourage bushy growth.</li>
+                <li><strong>Poor flavour:</strong> Can occur if plants are stressed, over-fertilised, or harvested at the wrong time. Ensure adequate water, avoid over-fertilising, and harvest leaves before flowering for the best flavour.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Lemon balm is one of the easiest herbs to grow and is perfect for beginners. It's very forgiving and will thrive with minimal care. The main challenge is controlling its spread, so plan ahead and use containers or root barriers. With proper management, you'll have a steady supply of fresh, fragrant lemon balm leaves for years to come!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

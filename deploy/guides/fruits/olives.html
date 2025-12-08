@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Olives - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Olives.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Olives</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Olives in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Olive trees (Olea europaea) are evergreen trees native to the Mediterranean region, renowned for their silvery foliage and edible fruits. While traditionally associated with warmer climates, olive trees can be cultivated in the UK with appropriate care and conditions. In milder regions, they can be grown in the ground, while in cooler areas, container cultivation is recommended. These attractive trees are valued for their ornamental beauty and, in favourable conditions, their fruits.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Evergreen trees reaching 3–6m (10–20ft) in height, smaller in containers</li>
+                    <li>Most varieties are self-fertile, but fruiting may be inconsistent in UK</li>
+                    <li>Fruits ripen in autumn, turning from green to black</li>
+                    <li>Need warm, sunny, sheltered positions for best results</li>
+                    <li>Excellent for ornamental use; fruits can be cured for eating</li>
+                    <li>Can be grown in the ground in mild areas or in containers</li>
+                </ul>
+            </div>
+            
+            <p>Olive trees are native to the Mediterranean region but can be grown in the UK with appropriate care. They're particularly valued for their ornamental beauty, with silvery-green foliage and attractive, gnarled trunks. In the UK, fruiting may be inconsistent due to cooler summers, but the trees themselves are hardy and make excellent ornamental plants.</p>
+            
+            <p>These trees are evergreen and relatively drought-tolerant once established. In milder regions of the UK, such as southern England, they can be grown in the ground. In cooler areas, container cultivation is recommended, allowing for relocation to sheltered spots during colder months. With proper care, olive trees can thrive in UK gardens, adding a touch of the Mediterranean.</p>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> Olive trees need warm, sunny, sheltered positions to produce fruits. In the UK, fruiting may be inconsistent due to cooler summers. In colder areas, container cultivation is recommended, allowing for relocation to sheltered spots during winter. Protect from severe frosts, especially when young.</p>
+            </div>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Olive trees are evergreen and relatively hardy, but they need warm, sunny, sheltered positions for best results. In milder regions, they can be grown in the ground. In cooler areas, container cultivation is recommended. Choose self-fertile varieties like 'Arbequina' or 'Picual'. Protect from severe frosts, especially when young. Fruiting may be inconsistent in UK conditions, but the trees make excellent ornamental plants.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow olives, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/43B1pDZ" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4oOdqyo" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A small hand trowel for planting, transplanting, and general garden maintenance.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>When choosing olive varieties, consider whether they're suited to UK conditions, tree size, and fruiting reliability. Most olive varieties are self-fertile, but fruiting may be inconsistent in UK conditions. Look for varieties that are compact and known to perform well in cooler climates.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>UK Suitability:</strong> Choose varieties that are known to perform well in UK conditions. Some varieties are better suited to container growing, while others can be grown in the ground in mild areas.</li>
+                <li><strong>Tree Size:</strong> Olive trees can grow large, but many varieties are available in more compact forms suitable for containers. Consider available space when choosing.</li>
+                <li><strong>Fruiting Reliability:</strong> Fruiting may be inconsistent in UK conditions due to cooler summers. Choose varieties that are known to fruit in cooler climates, such as 'Arbequina' or 'Picual'.</li>
+                <li><strong>Self-Fertility:</strong> Most olive varieties are self-fertile, but some may benefit from cross-pollination. For UK conditions, self-fertile varieties are recommended.</li>
+                <li><strong>Hardiness:</strong> Some varieties are more tolerant of cold than others. Choose varieties that are known to be hardy in UK conditions.</li>
+                <li><strong>Ornamental Value:</strong> All olive trees are ornamental, but some have particularly attractive foliage or growth habits.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Arbequina'</h4>
+                    <p>Compact, self-fertile variety producing small, black fruits. Good for UK conditions. Suitable for container growing. Harvest in autumn. Excellent for ornamental use. More reliable fruiting in cooler climates.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Picual'</h4>
+                    <p>Self-fertile variety producing medium-sized, black fruits. Good for UK conditions. Suitable for container growing. Harvest in autumn. Excellent for ornamental use. More reliable fruiting in cooler climates.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Frantoio'</h4>
+                    <p>Self-fertile variety producing medium-sized, black fruits. Good for UK conditions. Suitable for container growing. Harvest in autumn. Excellent for ornamental use. Good for oil production.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Leccino'</h4>
+                    <p>Self-fertile variety producing medium-sized, black fruits. Good for UK conditions. Suitable for container growing. Harvest in autumn. Excellent for ornamental use. Good for oil production.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Pendolino'</h4>
+                    <p>Self-fertile variety producing small, black fruits. Good for UK conditions. Suitable for container growing. Harvest in autumn. Excellent for ornamental use. Good pollinator for other varieties.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Manzanilla'</h4>
+                    <p>Self-fertile variety producing medium-sized, green to black fruits. Good for UK conditions. Suitable for container growing. Harvest in autumn. Excellent for ornamental use. Good for table olives.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Olive trees are best planted in spring (March to May) to allow establishment before winter. In milder regions, they can be planted in the ground. In cooler areas, container cultivation is recommended. Choose a sunny, sheltered position with well-drained soil.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a warm, sunny, sheltered position. Olive trees need plenty of sun and protection from cold winds and frost. South or south-west-facing positions are ideal. Avoid frost pockets and exposed sites. Most soil types are suitable, but well-drained soil is essential. Olives prefer slightly alkaline to neutral soil (pH 7.0–8.0), though they're tolerant of a range of pH levels. If planting in the ground, consider adding grit to improve drainage.</p>
+            
+            <h3>Planting in the Ground</h3>
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Dig a hole at least 60cm (2ft) wide and deep, breaking up the soil at the bottom. Mix in well-rotted organic matter or compost and grit to improve drainage. Ensure the site is free from perennial weeds.
+                </li>
+                <li>
+                    <strong>Check the roots:</strong> Gently remove the tree from its container and check the roots. Trim any damaged or circling roots.
+                </li>
+                <li>
+                    <strong>Plant at correct depth:</strong> Position the tree so it's at the same depth as it was in its container. Spread roots out evenly in the hole.
+                </li>
+                <li>
+                    <strong>Backfill and firm:</strong> Fill the hole with soil mixed with grit, firming gently as you go to eliminate air pockets. Create a slight depression around the tree to help water reach the roots.
+                </li>
+                <li>
+                    <strong>Water and mulch:</strong> Water thoroughly and mulch with organic matter, keeping it away from the trunk. Olives don't usually need staking unless in exposed positions.
+                </li>
+            </ol>
+            
+            <h3>Container Growing</h3>
+            <p>Container cultivation is recommended in cooler areas, allowing for relocation to sheltered spots during winter. Choose a pot with multiple drainage holes and a diameter of at least 30–35cm (12–14in). Use a gritty, loam-based compost (such as John Innes No. 3) mixed with horticultural grit. Ensure containers have good drainage. Container-grown olives may need more frequent watering and feeding, and should be repotted every 2–3 years.</p>
+            
+            <h3>Spacing</h3>
+            <p>Space trees at least 3–4m (10–13ft) apart to allow for mature growth and good air circulation. This spacing helps reduce disease problems and makes maintenance easier. Container-grown trees can be positioned closer together, but ensure adequate room for growth.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> For best results, plant olive trees in spring (March to May) so they can establish before winter. In milder regions, they can be grown in the ground. In cooler areas, container cultivation is recommended. Always ensure good drainage - add grit to improve drainage if necessary. They need warm, sunny, sheltered positions for best results. Most varieties are self-fertile, so you only need one tree.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Olive trees need regular care during establishment, but once established, they're relatively low-maintenance. Key tasks include watering, feeding, pruning, and winter protection. With proper care, trees will reward you with ornamental beauty and, in favourable conditions, fruits.</p>
+            
+            <h3>Watering</h3>
+            <p>Water newly planted trees regularly until established, especially during dry spells. Once mature, olive trees are drought-tolerant but should be watered during prolonged dry periods. Avoid overwatering, especially in winter, as olives dislike waterlogged conditions. Water at the base of the tree, avoiding wetting the foliage to reduce disease risk. Container-grown trees need more frequent watering, especially during hot weather, but ensure good drainage.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed olive trees with a balanced liquid fertiliser monthly during the growing season (spring and summer). Avoid excessive nitrogen, which promotes leafy growth at the expense of fruit. Stop feeding in autumn to allow the tree to harden off before winter. Mulch annually in spring with well-rotted organic matter, keeping it away from the trunk. This helps conserve moisture, suppress weeds, and gradually improves soil structure.</p>
+            
+            <h3>Pruning</h3>
+            <p>Prune olive trees in early spring to maintain shape and remove any dead or diseased wood. The aim is to create an open-centred tree with good air circulation. Olive trees respond well to pruning and can be kept to a manageable size.</p>
+            <ul>
+                <li><strong>Formative pruning:</strong> In the first few years, establish a balanced framework of branches. Remove any weak, crossing, or overcrowded branches. Olive trees naturally form an attractive, gnarled habit.</li>
+                <li><strong>Established trees:</strong> Prune in early spring to remove dead, diseased, or damaged wood. Thin out overcrowded growth to allow light and air to reach all parts of the tree. Maintain an open-centred structure.</li>
+                <li><strong>Maintenance:</strong> Keep the framework open and well-spaced. Remove any branches growing into the centre. Olive trees can be pruned to maintain size or shape.</li>
+                <li><strong>Renovation:</strong> Neglected trees can be renovated over several years by removing dead wood and gradually reshaping the canopy. Avoid removing more than one-third of the tree in any one year.</li>
+            </ul>
+            
+            <h3>Winter Protection</h3>
+            <p>In colder areas, protect olive trees from severe frosts, especially when young. Container-grown trees can be moved to a sheltered, frost-free location during winter. For trees in the ground, wrap them in horticultural fleece when severe frost is forecast. Ensure the location receives ample sunlight. Mature trees are more frost-tolerant than young trees.</p>
+            
+            <h3>Mulching</h3>
+            <p>Mulch annually in spring with well-rotted organic matter, keeping it away from the trunk to prevent rot. Mulching helps conserve moisture, suppress weeds, and gradually improves soil structure. Apply a layer 5–7cm (2–3in) deep around the base of the tree.</p>
+            
+            <div class="info-box">
+                <p><strong>Pruning Timing:</strong> Olive trees should be pruned in early spring to maintain shape and remove any dead or diseased wood. This is the best time to see the tree's structure and make pruning decisions. Avoid heavy pruning in autumn or winter, as this can increase the risk of frost damage. Olive trees respond well to pruning and can be kept to a manageable size.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Olives typically ripen in autumn, turning from green to black. In the UK, fruiting may be inconsistent due to cooler summers, but when fruits do develop, they can be harvested and cured for eating. The timing varies by variety and growing conditions.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Check ripeness:</strong> Olives are ready to harvest when they turn from green to black (or remain green for green olives). They should be firm and fully developed. Harvest in autumn, usually October to November. In the UK, fruiting may be inconsistent, so harvest when fruits are available.</li>
+                <li><strong>Harvest carefully:</strong> Handle olives gently to avoid bruising. Pick fruits individually by hand, or use a small rake or comb to harvest. Place in shallow containers to prevent them from being crushed. Harvest in the morning when fruits are cool.</li>
+                <li><strong>Harvest timing:</strong> Green olives are harvested when still green, while black olives are harvested when fully ripe (black). The timing varies by variety and growing conditions. In the UK, harvest when fruits are available, as fruiting may be inconsistent.</li>
+                <li><strong>Curing required:</strong> Fresh olives are very bitter and need to be cured before eating. Green olives require soaking in salted water for several days, while black olives need dry curing in salt for several weeks before storing in brine or olive oil.</li>
+            </ul>
+            
+            <h3>Curing Olives</h3>
+            <p>Fresh olives are very bitter and need to be cured before eating. Green olives require soaking in salted water (changed daily) for several days to remove bitterness. Black olives need dry curing in salt for several weeks before storing in brine or olive oil. The curing process makes olives edible and preserves them. There are various curing methods, so research the best method for your needs.</p>
+            
+            <h3>Storage</h3>
+            <p>After curing, olives can be stored in brine or olive oil in sealed containers. They can be kept for several months in the refrigerator. Some varieties store better than others. For longer-term storage, olives can be frozen, though this may affect texture.</p>
+            
+            <h3>Using Your Olives</h3>
+            <p>Cured olives are delicious eaten as a snack or used in cooking, with their rich, savoury flavour making them perfect for salads, pizzas, and Mediterranean dishes. They're excellent for adding flavour to various dishes. Olives are rich in healthy fats and antioxidants, and are a good source of dietary fibre.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Harvesting Tip:</strong> In the UK, fruiting may be inconsistent due to cooler summers, but when fruits do develop, they can be harvested and cured for eating. Fresh olives are very bitter and need to be cured before eating. Green olives require soaking in salted water for several days, while black olives need dry curing in salt for several weeks. Research the best curing method for your needs. After curing, olives can be stored in brine or olive oil.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Olive trees are generally trouble-free and are resistant to most pests and diseases. The main challenges in the UK are providing adequate warmth, protecting from frost, and ensuring good drainage. With good cultural practices and appropriate site selection, most problems can be avoided or managed effectively.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Scale insects:</strong> Can occasionally affect olive trees. Usually not serious, but can weaken trees if severe. Encourage natural predators or use organic sprays if necessary.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious, but can distort leaves and spread viruses. Encourage natural predators or use organic sprays if necessary.</li>
+                <li><strong>Olive fruit fly:</strong> Can affect fruits in warmer climates, but is less common in the UK. Monitor fruits and remove affected ones if necessary.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Root rot:</strong> Can occur in waterlogged soils or containers with poor drainage. Ensure good drainage and avoid overwatering. Remove and destroy affected plants if severe.</li>
+                <li><strong>Leaf spot:</strong> Causes brown spots on leaves, which can lead to defoliation. Remove and destroy affected leaves. Ensure good air circulation through proper pruning. More common in wet conditions.</li>
+                <li><strong>Verticillium wilt:</strong> A serious fungal disease that can affect olive trees. Causes branches to die back. Prune out affected areas promptly, cutting back to healthy wood. Ensure good air circulation through proper pruning.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Poor fruiting:</strong> Can be caused by lack of warmth, lack of sun, or cool summers. In the UK, fruiting may be inconsistent due to cooler summers. Ensure trees receive plenty of sun and are in warm, sheltered positions. Most varieties are self-fertile, so pollination isn't usually a problem.</li>
+                <li><strong>Frost damage:</strong> Olive trees can be vulnerable to severe frosts, especially when young. Protect from severe frosts by wrapping in horticultural fleece or moving container-grown trees to a sheltered, frost-free location. Mature trees are more frost-tolerant than young trees.</li>
+                <li><strong>Waterlogging:</strong> Olives dislike waterlogged conditions. Ensure good drainage, especially in containers. Avoid overwatering, especially in winter.</li>
+                <li><strong>Leaf drop:</strong> Can be caused by overwatering, waterlogging, or stress. Ensure good drainage and avoid overwatering. Maintain consistent watering, especially during establishment.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Most Common Problem:</strong> Poor fruiting is common in the UK due to cooler summers. Fruiting may be inconsistent, but the trees themselves are hardy and make excellent ornamental plants. Ensure trees receive plenty of sun and are in warm, sheltered positions. In colder areas, container cultivation is recommended, allowing for relocation to sheltered spots during winter.</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> The key to success with olive trees in the UK is providing adequate warmth and ensuring good drainage. They need warm, sunny, sheltered positions for best results. In milder regions, they can be grown in the ground. In cooler areas, container cultivation is recommended. Protect from severe frosts, especially when young. Fruiting may be inconsistent in UK conditions, but the trees make excellent ornamental plants. With proper care, olive trees will thrive in UK gardens, adding a touch of the Mediterranean.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

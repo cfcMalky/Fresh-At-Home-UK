@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Thyme - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Thyme.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Thyme</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Thyme in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Thyme (Thymus vulgaris) is a hardy, evergreen perennial herb with small, aromatic leaves and a strong, earthy flavour. This Mediterranean herb is essential in many cuisines and is valued for both its culinary and ornamental qualities. Thyme is fully hardy in the UK and will return year after year, making it a valuable addition to any herb garden.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Hardy evergreen perennial that returns year after year</li>
+                    <li>Grows 15–30cm (6–12in) tall with spreading or upright habit</li>
+                    <li>Produces small pink, purple, or white flowers in summer</li>
+                    <li>Strong, earthy flavour</li>
+                    <li>Essential in Mediterranean cooking and herb blends</li>
+                    <li>Very easy to grow and low maintenance</li>
+                </ul>
+            </div>
+            
+            <p>Thyme is native to the Mediterranean region and has been cultivated for centuries for its culinary, medicinal, and aromatic properties. The leaves have a strong, earthy flavour that's perfect for flavouring meats, vegetables, and Mediterranean dishes. Thyme is also valued for its ornamental qualities, with attractive evergreen foliage and beautiful flowers that attract bees.</p>
+            
+            <p>In the UK, thyme is fully hardy and will thrive in most gardens. It prefers a sunny position with well-drained soil and is very drought-tolerant once established. Thyme can be grown as a low-growing ground cover, in containers, or in the ground, and it's an excellent choice for a low-maintenance herb garden. The plant will produce fresh leaves year-round, and it's very easy to grow from seeds, cuttings, or division.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Thyme is very easy to grow and is perfect for beginners. It's very forgiving and will thrive with minimal care. The key to success is providing good drainage and avoiding overwatering. Once established, thyme is very low-maintenance and will provide fresh leaves year-round. Thyme can be grown from seeds, cuttings, or division, making it easy to propagate and share with other gardeners.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow thyme, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/44iSJSO" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>There are many varieties of thyme available, each with slightly different flavours, growth habits, and flower colours. The most common is common thyme (Thymus vulgaris), but there are also lemon thyme, caraway thyme, and many ornamental varieties.</p>
+            
+            <p>Thyme is typically grown from seeds, cuttings, or division. When purchasing thyme, you're usually buying small plants or cuttings. The main consideration is whether you want common thyme for cooking or one of the flavoured varieties like lemon thyme, which adds a citrus note to dishes.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Common Thyme</h4>
+                    <p>The standard variety (Thymus vulgaris). Most widely available and reliable performer. Has the characteristic strong, earthy flavour. Best choice for UK gardens and culinary use.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Lemon Thyme</h4>
+                    <p>Variety with a citrusy flavour (Thymus × citriodorus). Same growth habit as common thyme but adds a lemon note to dishes. Excellent for fish, chicken, and vegetable dishes.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Caraway Thyme</h4>
+                    <p>Variety with a caraway-like flavour (Thymus herba-barona). Less common but adds a unique flavour to dishes. Good for experimenting with different flavours.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Creeping Thyme</h4>
+                    <p>Low-growing variety (Thymus serpyllum) perfect for ground cover or between paving stones. Same flavour as common thyme but with a spreading habit. Attractive ornamental form.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Thyme</h2>
+            
+            <h3>Sowing from Seeds</h3>
+            <p>Thyme can be grown from seeds, though it's often easier to start from cuttings or small plants. Sow seeds indoors in late winter or early spring for best results.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Sow seeds:</strong> Sow seeds thinly on the surface of peat-free seed compost and cover very lightly. Thyme seeds are small and need light to germinate.
+                </li>
+                <li>
+                    <strong>Provide warmth:</strong> Keep at 15–20°C (59–68°F) in a bright location. Germination usually takes 2–3 weeks.
+                </li>
+                <li>
+                    <strong>Water carefully:</strong> Water from below or use a fine mist to avoid disturbing the small seeds. Keep compost moist but not waterlogged.
+                </li>
+                <li>
+                    <strong>Pot on:</strong> When seedlings are large enough to handle, pot on into individual pots. Grow on in a bright location until ready to plant out.
+                </li>
+                <li>
+                    <strong>Plant out:</strong> Plant out after the last frost, once seedlings are well-established and the soil has warmed up.
+                </li>
+            </ol>
+            
+            <h3>Growing from Cuttings</h3>
+            <p>Thyme is very easy to grow from cuttings, which is often the most reliable method. Take cuttings in spring or early summer from healthy, non-flowering shoots. Remove the lower leaves, dip in rooting hormone (optional), and insert into pots filled with a mix of peat-free compost and sharp sand. Keep in a warm, bright location and roots should develop within 4–6 weeks.</p>
+            
+            <h3>Growing from Division</h3>
+            <p>Thyme can also be propagated by dividing established plants in spring or autumn. Lift the plant, divide the root ball into several sections, and replant the divisions. This helps rejuvenate the plant and encourages fresh growth.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Sowing Tip:</strong> Thyme is very easy to grow from seeds, cuttings, or division. Seeds can be slow to germinate, so be patient. Cuttings are often the most reliable method and ensure you get the exact variety you want. Once established, thyme is very easy to propagate by taking cuttings from your own plants or by dividing established plants.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Thyme prefers a sunny position with well-drained soil. It's fully hardy in the UK and can be grown in containers, in the ground, or as ground cover. The key is to provide good drainage, as thyme doesn't like wet feet.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny location with well-drained, reasonably fertile soil. Thyme prefers full sun but will tolerate light shade. It will not grow well in heavy, waterlogged soil, so ensure good drainage. Thyme is very drought-tolerant and grows best in soil that's not too rich. Avoid very dry, poor soil, as this will result in weak growth.</p>
+            
+            <h3>Container Planting</h3>
+            <p>Growing thyme in containers is an excellent option, especially for smaller spaces or if you want to move plants around. Use a container at least 20cm (8in) wide and deep with good drainage. Fill with a mix of peat-free multi-purpose compost and sharp sand or perlite for extra drainage. Container-grown thyme will need more frequent watering than ground-grown plants, but still allow the compost to dry out between waterings.</p>
+            
+            <h3>Ground Planting</h3>
+            <p>If planting in the ground, prepare the soil by removing weeds and incorporating sharp sand or grit if the soil is heavy, to improve drainage. Space plants 20–30cm (8–12in) apart to allow for their spreading habit. Thyme grows well in the ground and can be used as a border plant, in herb gardens, or as ground cover. It's also excellent for growing in rock gardens or between paving stones where drainage is good.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> Thyme is fully hardy in the UK and will return year after year. It's a great choice for a low-maintenance herb garden. The plant prefers well-drained soil and doesn't like wet feet, so ensure good drainage. In very heavy soils, consider planting on a mound or in a raised bed to improve drainage. Thyme is also excellent for growing in rock gardens or between paving stones.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Thyme is very low-maintenance once established. It's a hardy evergreen that will provide fresh leaves year-round with minimal care. However, a few simple practices will help ensure healthy growth and good harvests.</p>
+            
+            <h3>Watering</h3>
+            <p>Water thyme regularly during the first year after planting to help it establish. Once established, thyme is very drought-tolerant and rarely needs watering, except during prolonged dry spells. Container-grown plants will need more frequent watering than those in the ground, but still allow the compost to dry out between waterings. Overwatering is the main cause of problems with thyme, so err on the side of too dry rather than too wet.</p>
+            
+            <h3>Feeding</h3>
+            <p>Thyme doesn't usually need additional feeding if grown in reasonably fertile soil. In fact, overly rich soil can encourage excessive growth at the expense of flavour. However, if your soil is very poor, you can apply a balanced, organic fertiliser in spring. Container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season. Avoid over-fertilising, as this can reduce the intensity of the flavour.</p>
+            
+            <h3>Pruning</h3>
+            <p>Regular pruning helps keep thyme bushy and prevents it from becoming leggy. Prune after flowering in late summer, cutting back by about one-third. You can also prune lightly throughout the year to harvest leaves and maintain shape. Avoid cutting into old, woody stems, as these may not regrow. Regular harvesting of leaves also helps keep the plant compact.</p>
+            
+            <h3>Rejuvenating</h3>
+            <p>Thyme can become woody and less productive over time. To rejuvenate plants, cut back hard in spring, removing about half of the growth. This encourages new, fresh growth from the base. Alternatively, take cuttings from healthy plants and replace old plants every few years.</p>
+            
+            <h3>Winter Care</h3>
+            <p>Thyme is fully hardy in the UK and will survive winter without protection. The plant is evergreen and will continue to provide fresh leaves throughout the year. In very cold areas or exposed positions, you may want to protect plants with a layer of mulch, but this is usually not necessary. Container-grown plants may benefit from being moved to a sheltered spot in very cold areas.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Thyme leaves can be harvested year-round, as the plant is evergreen. The leaves are best used fresh, but they can also be dried for later use. Dried thyme retains its flavour well, making it a popular herb for storage. Harvest regularly to encourage new growth and keep plants bushy.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Pick individual leaves:</strong> Harvest individual leaves or small sprigs by cutting them from the plant with sharp scissors. Cut just above a leaf node to encourage new growth.</li>
+                <li><strong>Harvest regularly:</strong> Pick leaves regularly throughout the year to encourage new growth and prevent plants from becoming leggy.</li>
+                <li><strong>Use fresh or dry:</strong> Thyme can be used fresh or dried. Fresh thyme has the best flavour, but dried thyme also retains its flavour well.</li>
+                <li><strong>Harvest before flowering:</strong> For the best flavour, harvest leaves before the plant flowers. However, the flowers are attractive to bees, so you may want to allow some to flower.</li>
+            </ul>
+            
+            <h3>Using Your Thyme</h3>
+            <p>Fresh thyme leaves add a strong, earthy flavour to many dishes. Use them in roasting meats (particularly lamb and chicken), vegetables, Mediterranean cuisine, and herb blends. They're excellent with potatoes, tomatoes, and in marinades. Thyme has a strong flavour, so use it sparingly—a little goes a long way. The leaves can be used whole or stripped from the stems, and they're particularly good in slow-cooked dishes where the flavour has time to develop.</p>
+            
+            <h3>Drying Thyme</h3>
+            <p>Thyme is one of the best herbs for drying, as it retains its flavour well. Harvest sprigs and hang them upside down in a warm, well-ventilated area out of direct sunlight. Once dry, strip the leaves from the stems and store in an airtight container. Dried thyme can be stored for up to a year and retains its flavour better than many other dried herbs.</p>
+            
+            <h3>Freezing Thyme</h3>
+            <p>Thyme can be frozen for later use. Freeze whole sprigs in freezer bags, or strip the leaves and freeze them. Frozen thyme is best used in cooked dishes. It retains its flavour well when frozen.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh thyme sprigs can be stored in the refrigerator for a few days. Place stems in a glass of water like cut flowers, or wrap in damp kitchen paper and store in the fridge. For longer storage, dry the leaves as described above. Dried thyme can be stored in an airtight container for up to a year, and it retains its flavour better than many other dried herbs.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Thyme is generally very trouble-free and rarely suffers from serious pests or diseases. However, there are a few issues to watch out for, mostly related to moisture and soil conditions.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious and can be controlled by encouraging natural predators or using organic methods.</li>
+                <li><strong>Spider mites:</strong> Can occur in hot, dry conditions. Increase humidity and improve air circulation. Usually not serious if caught early.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Root rot:</strong> The main issue with thyme is root rot, which occurs if plants are overwatered or if drainage is poor. Ensure good drainage and avoid overwatering. Container-grown plants are particularly susceptible if drainage is poor.</li>
+                <li><strong>Powdery mildew:</strong> Can occur in humid conditions or when plants are overcrowded. Improve air circulation and avoid overhead watering. Usually not serious if caught early.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Overwatering:</strong> The main issue with thyme is overwatering. Thyme is very drought-tolerant and doesn't like wet feet. Ensure good drainage and allow the soil to dry out between waterings.</li>
+                <li><strong>Poor drainage:</strong> Can cause root rot and other problems. Ensure good drainage, especially in heavy soils. Consider planting on a mound or in a raised bed if drainage is poor.</li>
+                <li><strong>Leggy growth:</strong> Can occur if plants aren't pruned regularly. Prune after flowering and harvest leaves regularly to encourage bushy growth. Cut back hard every few years to rejuvenate.</li>
+                <li><strong>Woody growth:</strong> Thyme can become woody and less productive over time. Rejuvenate by cutting back hard in spring, or take cuttings and replace old plants every few years.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Thyme is one of the easiest herbs to grow and is perfect for beginners. It's very forgiving and will thrive with minimal care. The key to success is providing good drainage and avoiding overwatering. With proper care, you'll have a steady supply of fresh, aromatic thyme leaves year-round, and the plant will return year after year!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

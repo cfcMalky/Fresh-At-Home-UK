@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Blackberries and hybrid berries - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Blackberries and hybrid berries.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Blackberries and hybrid berries</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Blackberries and hybrid berries in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Blackberries and hybrid berries (including tayberries, loganberries, boysenberries, and others) are vigorous, productive plants that produce delicious fruits perfect for eating fresh, cooking, or preserving. These cane fruits are easy to grow in the UK and are well-suited to our climate, producing abundant harvests from mid-summer to early autumn. They're ideal for training against walls, fences, or on supports, making them perfect for smaller gardens.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Vigorous, thorny or thornless canes that produce fruit on second-year growth</li>
+                    <li>Most varieties are self-fertile, so only one plant is needed</li>
+                    <li>Fruits ripen from mid-July to September, depending on variety</li>
+                    <li>Can be trained on supports, walls, or grown as free-standing bushes</li>
+                    <li>Hybrid berries often have larger, sweeter fruits than wild blackberries</li>
+                    <li>Thornless varieties available for easier harvesting and maintenance</li>
+                </ul>
+            </div>
+            
+            <p>Blackberries (Rubus fruticosus) are native to the UK and grow wild in hedgerows, but cultivated varieties offer larger fruits, better flavour, and thornless options. Hybrid berries are crosses between blackberries and raspberries, combining the best traits of both. Tayberries, loganberries, and boysenberries are among the most popular hybrid varieties, offering unique flavours and excellent cropping potential.</p>
+            
+            <p>These plants are very productive and relatively easy to grow, making them ideal for beginners. They're tolerant of most soil types and positions, though they produce best in full sun. With proper pruning and training, a single plant can produce several kilograms of fruit each year. The canes are biennial, producing leaves in the first year and flowers and fruits in the second year before dying back.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Choose thornless varieties if you have children or want easier harvesting and maintenance. Thornless varieties like 'Loch Ness' and 'Apache' produce excellent crops without the hassle of thorns. Most varieties are self-fertile, so you only need one plant, though having more can increase yields through better pollination.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow blackberries and hybrid berries, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4iaXVxY" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4rbFxJA" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Stakes, canes, wires, or trellises for supporting canes as they grow. Essential for training and managing growth.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4oOdqyo" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A small hand trowel for planting, transplanting, and general garden maintenance.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>When choosing blackberry or hybrid berry varieties, consider whether you want thornless varieties, the size of fruits, flavour, and cropping period. Hybrid berries often offer larger, sweeter fruits than standard blackberries, while thornless varieties make harvesting and maintenance much easier.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Thorns:</strong> Thornless varieties like 'Loch Ness' and 'Apache' are much easier to harvest and maintain, making them ideal for family gardens.</li>
+                <li><strong>Fruit Size:</strong> Hybrid berries typically produce larger fruits than standard blackberries, with tayberries and boysenberries being particularly large.</li>
+                <li><strong>Flavour:</strong> Hybrid berries often have a more complex, sweeter flavour than standard blackberries. Tayberries have a distinctive tangy-sweet flavour.</li>
+                <li><strong>Cropping Period:</strong> Some varieties crop earlier (late July) while others extend into September. Choose varieties that suit your needs.</li>
+                <li><strong>Vigour:</strong> Some varieties are more vigorous than others. Consider your available space and support system.</li>
+                <li><strong>Disease Resistance:</strong> Modern varieties often have better resistance to common problems like cane spot and rust.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Loch Ness'</h4>
+                    <p>Thornless variety producing large, sweet, glossy black fruits. Heavy cropper from mid-August to September. Excellent flavour. Easy to harvest and maintain.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Apache'</h4>
+                    <p>Thornless variety with large, firm, sweet fruits. Crops from late July to early September. Good disease resistance. Reliable performer.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Tayberry'</h4>
+                    <p>Hybrid berry (blackberry × raspberry) producing large, elongated, deep red-purple fruits with distinctive tangy-sweet flavour. Crops in July. Excellent for eating fresh and cooking.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Loganberry'</h4>
+                    <p>Classic hybrid berry with large, dark red fruits. Crops from late July to August. Excellent flavour, good for eating fresh, cooking, and preserving. Vigorous grower.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Boysenberry'</h4>
+                    <p>Hybrid berry producing very large, dark purple-black fruits with excellent flavour. Crops in July and August. Less vigorous than some varieties, making it easier to manage.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Black Butte'</h4>
+                    <p>Compact variety producing very large, sweet black fruits. Good for smaller gardens or containers. Crops from mid-July. Thornless option available.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Blackberries and hybrid berries are best planted during the dormant season, from late autumn to early spring. Container-grown plants can be planted year-round, though autumn and spring are still best for establishment. These plants are vigorous and need adequate space and support.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny position for best fruit production, though plants will tolerate partial shade. Avoid waterlogged or very dry sites. Most soil types are suitable, but well-drained, moisture-retentive soil is ideal. Blackberries and hybrid berries can be grown against walls, fences, or on freestanding supports. They're also suitable for growing in large containers.</p>
+            
+            <h3>Planting Bare-Root Plants</h3>
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Dig a hole at least 45cm (18in) wide and deep. Break up the soil at the bottom and mix in well-rotted organic matter or compost. Ensure the site is free from perennial weeds.
+                </li>
+                <li>
+                    <strong>Check the roots:</strong> Soak bare roots in water for 30 minutes before planting. Trim any damaged or broken roots back to healthy tissue.
+                </li>
+                <li>
+                    <strong>Plant at correct depth:</strong> Position the plant so the soil mark on the stem (where it was previously planted) is level with the soil surface. Spread roots out evenly in the hole.
+                </li>
+                <li>
+                    <strong>Backfill and firm:</strong> Fill the hole with soil, firming gently as you go to eliminate air pockets. Create a slight depression around the plant to help water reach the roots.
+                </li>
+                <li>
+                    <strong>Water and mulch:</strong> Water thoroughly after planting. Mulch with organic matter, keeping it away from the base of the canes to prevent rot.
+                </li>
+            </ol>
+            
+            <h3>Planting Container-Grown Plants</h3>
+            <p>Plant container-grown plants at the same depth they were in the pot. Gently tease out any roots that are circling the root ball. Water well after planting and keep well-watered during the first growing season, especially during dry spells.</p>
+            
+            <h3>Spacing and Support</h3>
+            <p>Space plants 2–3m (6–10ft) apart, depending on variety vigour. Install supports before or immediately after planting. Options include:</p>
+            <ul>
+                <li><strong>Post and wire system:</strong> Posts 2–3m (6–10ft) apart with wires at 60cm (2ft) intervals. Ideal for rows of plants.</li>
+                <li><strong>Wall or fence training:</strong> Attach wires or trellis to support canes. Good for smaller gardens.</li>
+                <li><strong>Freestanding supports:</strong> Individual posts or tripods for single plants. Good for containers or small spaces.</li>
+            </ul>
+            
+            <h3>Container Growing</h3>
+            <p>Compact varieties can be grown in large containers (at least 45cm / 18in diameter). Use a good-quality, moisture-retentive compost. Ensure containers have good drainage. Position in full sun and water regularly, as containers dry out faster than ground-planted specimens. Provide support for the canes.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> Install supports before or immediately after planting to avoid damaging roots later. For best results, plant in autumn so roots can establish before spring growth. If planting in spring, ensure plants are well-watered throughout the first summer. Mulch annually to suppress weeds and conserve moisture.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Blackberries and hybrid berries need regular care to produce healthy crops. Key tasks include watering, feeding, pruning, and training. With proper care, plants will reward you with abundant harvests for many years.</p>
+            
+            <h3>Watering</h3>
+            <p>Water newly planted canes regularly during the first year, especially during dry spells. Established plants are more drought-tolerant but will benefit from watering during prolonged dry periods, particularly when fruits are swelling (usually June to August). Water at the base of plants, avoiding wetting the foliage to reduce disease risk. Container-grown plants need more frequent watering than those in the ground.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed plants in late winter or early spring with a balanced fertiliser or well-rotted organic matter. Apply a high-potassium fertiliser in spring to encourage fruiting. Avoid excessive nitrogen, which promotes leafy growth at the expense of fruit. Mulch annually in spring with well-rotted organic matter, keeping it away from the base of canes. This helps conserve moisture, suppress weeds, and gradually improves soil structure.</p>
+            
+            <h3>Pruning</h3>
+            <p>Pruning is essential for maintaining healthy, productive plants. Blackberries and hybrid berries fruit on second-year canes (floricanes), which die after fruiting. New canes (primocanes) grow each year and will fruit the following year.</p>
+            <ul>
+                <li><strong>After fruiting:</strong> Cut out all canes that have fruited (floricanes) at ground level immediately after harvest. These canes are brown and woody and won't fruit again.</li>
+                <li><strong>Training new canes:</strong> Select 6–8 of the strongest new canes (primocanes) and tie them to supports. These will fruit next year. Remove any weak or damaged canes.</li>
+                <li><strong>Tip pruning:</strong> In late summer, tip-prune new canes to about 2m (6ft) to encourage branching and increase fruit production.</li>
+                <li><strong>Winter pruning:</strong> In late winter, shorten side shoots on fruiting canes to 30–45cm (12–18in) to encourage fruiting spurs.</li>
+            </ul>
+            
+            <h3>Training</h3>
+            <p>Train canes to keep them manageable and improve air circulation, which reduces disease risk. Tie canes to supports using soft garden twine. For post and wire systems, train fruiting canes along the wires, keeping new canes separate. This makes it easier to identify and remove fruited canes after harvest.</p>
+            
+            <h3>Weed Control</h3>
+            <p>Keep the area around plants free from weeds, especially during the first year. Mulching helps suppress weeds and conserve moisture. Avoid deep cultivation near plants, as blackberries and hybrid berries have shallow roots that can be damaged.</p>
+            
+            <div class="info-box">
+                <p><strong>Pruning System:</strong> Blackberries and hybrid berries follow a biennial fruiting cycle. Canes grow in year one (primocanes), produce fruit in year two (floricanes), then die. Always remove fruited canes immediately after harvest to make room for new growth. This keeps plants productive and manageable.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Blackberries and hybrid berries are ready to harvest when they're fully coloured, soft to the touch, and come away easily from the plant. Harvest time varies by variety, from mid-July (early varieties) to September (later varieties). Fruits don't all ripen at once, so harvest over several weeks.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Check ripeness:</strong> Ripe fruits are fully coloured (black for blackberries, deep red-purple for hybrids), soft to the touch, and detach easily from the plant with a gentle pull. They should have a sweet, aromatic smell.</li>
+                <li><strong>Harvest carefully:</strong> Handle fruits gently to avoid bruising. Pick into shallow containers to prevent them from being crushed by their own weight. Don't stack fruits too deeply.</li>
+                <li><strong>Harvest regularly:</strong> Pick fruits every 2–3 days during the harvest season, as they ripen quickly. Check plants daily when fruits are ripening. Harvest in the morning when fruits are cool and firm.</li>
+                <li><strong>Use promptly:</strong> Fresh berries don't store well and are best eaten within a few days of harvest. Use or process promptly for best quality.</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Fresh blackberries and hybrid berries don't store well and are best eaten within 2–3 days of harvest. Store in the refrigerator in a shallow container, but don't wash until just before eating. For longer-term storage, berries can be frozen (freeze on trays first, then transfer to bags), made into jams, jellies, or preserves, or used in cooking and baking.</p>
+            
+            <h3>Using Your Berries</h3>
+            <p>Fresh berries are delicious eaten raw, with their sweet-tart flavour. They're excellent for cooking, making wonderful pies, crumbles, tarts, and sauces. Berries can be used in smoothies, yoghurts, and desserts. They also make excellent jams, jellies, and preserves. Hybrid berries like tayberries and loganberries are particularly good for cooking, as they have a more complex flavour than standard blackberries. The fruits are rich in vitamins C and K, and are a good source of dietary fibre and antioxidants.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Harvesting Tip:</strong> Harvest berries in the morning when they're cool and firm. Don't wash berries until just before eating, as moisture can cause them to spoil faster. If you have a large crop, freeze excess berries on trays first (so they don't stick together), then transfer to freezer bags. This allows you to use them in smaller portions throughout the year.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Blackberries and hybrid berries are generally trouble-free, but they can be affected by various pests and diseases. With good cultural practices and appropriate site selection, most problems can be managed effectively.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Birds:</strong> Birds are attracted to ripening fruits. Protect plants with netting before fruits start to ripen. Ensure netting is well-secured and doesn't trap birds. Alternatively, grow plants in a fruit cage.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious, but can distort leaves and spread viruses. Encourage natural predators or use organic sprays if necessary.</li>
+                <li><strong>Raspberry beetle:</strong> Larvae feed inside developing fruits, causing them to be maggoty. Remove and destroy affected fruits. Good hygiene and regular harvesting help reduce problems.</li>
+                <li><strong>Spider mites:</strong> Can cause mottled, discoloured leaves in hot, dry weather. Increase humidity by watering foliage (in the morning) and ensure adequate watering.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Cane spot:</strong> Causes purple spots on canes and leaves, which can lead to dieback. Remove and destroy affected canes. Ensure good air circulation through proper pruning and training. Choose resistant varieties where possible.</li>
+                <li><strong>Rust:</strong> Causes orange pustules on leaves and canes. Remove and destroy affected parts. Ensure good air circulation and avoid overhead watering. More common in humid conditions.</li>
+                <li><strong>Botrytis (grey mould):</strong> Causes fruits to rot, especially in wet weather. Remove affected fruits promptly. Ensure good air circulation and avoid overcrowding. Harvest regularly to prevent overripe fruits from rotting.</li>
+                <li><strong>Virus diseases:</strong> Can cause stunted growth, distorted leaves, and poor fruiting. There's no cure, so remove and destroy affected plants. Buy certified virus-free plants from reputable suppliers.</li>
+                <li><strong>Root rot:</strong> Can occur in waterlogged soils. Ensure good drainage and avoid overwatering. Remove and destroy affected plants.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Poor fruiting:</strong> Can be caused by lack of pruning, poor pollination, or nutrient imbalances. Ensure proper pruning to maintain productive canes, feed appropriately, and ensure good growing conditions. Young plants may take a year or two to start fruiting well.</li>
+                <li><strong>Fruits not ripening:</strong> Can be caused by lack of sun, cool weather, or poor growing conditions. Ensure plants are in a sunny position and have adequate water and nutrients. Some varieties are more reliable than others.</li>
+                <li><strong>Canes too vigorous:</strong> Some varieties can be very vigorous. Control through regular pruning and training. Consider less vigorous varieties if space is limited.</li>
+                <li><strong>Winter damage:</strong> Canes can be damaged by severe frosts, especially in exposed positions. Protect with horticultural fleece if severe frosts are forecast. Most varieties are hardy in the UK.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> The key to success with blackberries and hybrid berries is proper pruning and training. Remove fruited canes immediately after harvest to make room for new growth. Keep plants well-watered and fed, and ensure good air circulation through proper training. With good care, plants will produce abundant harvests for many years. Choose thornless varieties for easier maintenance, especially if you have children or limited time for gardening.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

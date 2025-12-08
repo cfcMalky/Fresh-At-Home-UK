@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Apples - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Apples.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Apples</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Apples in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Apples (Malus domestica) are one of the most popular and rewarding fruits to grow in the UK. With hundreds of varieties available, there's an apple tree suitable for every garden size, from large standard trees to compact dwarf varieties perfect for containers. Apple trees are hardy, long-lived, and with proper care will provide delicious fruit for many years.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Hardy deciduous trees suitable for UK gardens</li>
+                    <li>Available in many sizes: standard, half-standard, dwarf, and cordon forms</li>
+                    <li>Most varieties require cross-pollination with another compatible apple tree</li>
+                    <li>Harvest time varies from late summer to late autumn depending on variety</li>
+                    <li>Many varieties store well for months after harvest</li>
+                    <li>Can be grown as trees, cordons, espaliers, or stepovers</li>
+                </ul>
+            </div>
+            
+            <p>Apple trees have been cultivated in the UK for centuries and are well-suited to our climate. They're relatively easy to grow once established, requiring regular pruning, feeding, and pest management. The key to success is choosing the right variety for your space and ensuring proper pollination if needed.</p>
+            
+            <p>Modern apple varieties offer improved disease resistance, making them easier to grow organically. Whether you want crisp eating apples, tart cooking apples, or dual-purpose varieties, there's an apple tree perfect for your garden. With proper care, a single tree can produce hundreds of apples each year.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> If you only have space for one apple tree, choose a self-fertile variety like 'Discovery', 'Falstaff', or 'James Grieve'. Otherwise, you'll need two compatible varieties for cross-pollination. Many garden centres can advise on suitable pollination partners.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow apples, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4pnLPEd" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4rbFxJA" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Stakes, canes, or trellises for supporting plants as they grow. Essential for climbing varieties.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4oOdqyo" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A small hand trowel for planting, transplanting, and general garden maintenance.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>With hundreds of apple varieties available, choosing the right one depends on several factors: your garden size, intended use (eating, cooking, or both), taste preferences, storage requirements, and pollination needs.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Garden Size:</strong> Standard trees need 6–8m (20–26ft) spacing, while dwarf varieties can be planted 2–3m (6–10ft) apart. Cordons and espaliers are ideal for small spaces. 'Family' trees, grafted with multiple cultivars, can provide variety in a single tree.</li>
+                <li><strong>Usage:</strong> Dessert apples are for eating fresh; culinary apples are for cooking; dual-purpose varieties work for both. Culinary apples often sweeten over time, becoming suitable for fresh consumption.</li>
+                <li><strong>Storage:</strong> Some varieties like 'Cox's Orange Pippin' store well for months, while others like 'Discovery' are best eaten soon after harvest. Consider your consumption habits and storage capabilities.</li>
+                <li><strong>Taste:</strong> Flavour is paramount. Attending autumn apple tasting events can help identify preferred varieties. Note that imported cultivars may taste different when grown locally.</li>
+                <li><strong>Pollination:</strong> Most apples need cross-pollination with another compatible variety flowering at the same time. If space is limited, ensure neighbouring apple trees can serve as pollination partners. Self-fertile varieties can fruit alone but produce better crops with a partner.</li>
+                <li><strong>Disease Resistance:</strong> Modern cultivars often have better resistance to scab, mildew, and canker. Selecting disease-resistant varieties can reduce maintenance and increase yield.</li>
+            </ul>
+            
+            <h3>Rootstocks</h3>
+            <p>Apple trees are typically grafted onto rootstocks that influence their growth and size:</p>
+            <ul>
+                <li><strong>M27:</strong> Produces very dwarf trees, reaching 1.5–1.8m (5–6ft) tall. Ideal for containers and very small gardens.</li>
+                <li><strong>M9:</strong> Results in dwarf trees, about 2.4–3.6m (8–12ft) tall. Good for small gardens and cordons.</li>
+                <li><strong>M26:</strong> Yields semi-dwarf trees, growing to 3.6–5.4m (12–18ft). Suitable for medium-sized gardens.</li>
+                <li><strong>MM106:</strong> Produces semi-vigorous trees, 4.5–6m (15–20ft) tall. Good for larger gardens.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Discovery'</h4>
+                    <p>Early-season dessert apple with crisp, juicy flesh and excellent flavour. Self-fertile and disease-resistant. Harvest in August. Best eaten fresh. Good for small gardens on M9 or M26 rootstock.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Cox's Orange Pippin'</h4>
+                    <p>Classic English dessert apple with complex, aromatic flavour. Requires a pollination partner (Group 3). Harvest in October. Stores well until January. Excellent flavour when grown in UK.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Bramley's Seedling'</h4>
+                    <p>Premier cooking apple, producing large, tart fruits perfect for pies and sauces. Triploid variety requiring two pollination partners. Harvest in October. Stores well. Best for cooking.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Falstaff'</h4>
+                    <p>Self-fertile dessert apple with sweet, crisp flesh. Good disease resistance. Harvest in October. Stores until December. Reliable cropper, good for beginners.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'James Grieve'</h4>
+                    <p>Dual-purpose variety, excellent for eating fresh or cooking. Self-fertile. Harvest in September. Good for northern gardens. Early cropper with good flavour.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Egremont Russet'</h4>
+                    <p>Distinctive russet-skinned dessert apple with nutty flavour. Self-fertile. Harvest in October. Stores well until January. Unique appearance and flavour.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Apple trees are best planted during the dormant season, from late autumn to early spring. Bare-root trees are available from November to March, while container-grown trees can be planted year-round, though autumn and spring are still best.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny, sheltered location with fertile, moisture-retentive but well-drained soil. Avoid frost pockets and areas with poor drainage. Apple trees prefer a pH of 6.0–6.5, though they're reasonably tolerant of different soil types. Avoid shallow soils over chalk, which can cause nutrient deficiencies. Good air circulation helps reduce disease problems.</p>
+            
+            <h3>Planting Bare-Root Trees</h3>
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Dig a hole at least 60cm (2ft) wide and deep, breaking up the soil at the bottom. Mix in well-rotted organic matter or compost.
+                </li>
+                <li>
+                    <strong>Check the roots:</strong> Soak bare roots in water for 30 minutes before planting. Trim any damaged or broken roots back to healthy tissue.
+                </li>
+                <li>
+                    <strong>Plant at correct depth:</strong> Position the tree so the soil mark on the stem (where it was previously planted) is level with the soil surface. Spread roots out evenly in the hole. The graft union (the bulge where the variety joins the rootstock) should be well above soil level.
+                </li>
+                <li>
+                    <strong>Backfill and firm:</strong> Fill the hole with soil, firming gently as you go to eliminate air pockets. Create a slight depression around the tree to help water reach the roots.
+                </li>
+                <li>
+                    <strong>Stake and water:</strong> Insert a stake on the windward side and tie the tree loosely with a tree tie. Water thoroughly and mulch with organic matter, keeping it away from the trunk to prevent rot.
+                </li>
+            </ol>
+            
+            <h3>Planting Container-Grown Trees</h3>
+            <p>Plant container-grown trees at the same depth they were in the pot. Gently tease out any roots that are circling the root ball to encourage them to grow outwards. Water well after planting and keep well-watered during the first growing season, especially during dry spells.</p>
+            
+            <h3>Spacing</h3>
+            <p>Spacing depends on the rootstock and training method:</p>
+            <ul>
+                <li><strong>Standard trees:</strong> 6–8m (20–26ft) apart</li>
+                <li><strong>Half-standard:</strong> 5–6m (16–20ft) apart</li>
+                <li><strong>Dwarf bush:</strong> 2–3m (6–10ft) apart</li>
+                <li><strong>Cordons:</strong> 60–90cm (2–3ft) apart in rows 2–3m (6–10ft) apart</li>
+                <li><strong>Espaliers:</strong> 3–4m (10–13ft) apart</li>
+                <li><strong>Stepovers:</strong> 1.5–2m (5–6ft) apart</li>
+            </ul>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> For best results, plant apple trees in autumn so roots can establish before spring growth. If planting in spring, ensure trees are well-watered throughout the first summer. Always plant with the graft union well above soil level to prevent the variety from rooting and negating the rootstock's size-controlling effect.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Apple trees need regular care to produce healthy crops. Key tasks include watering, feeding, pruning, thinning, and pest management. With proper care, trees will reward you with abundant harvests for many years.</p>
+            
+            <h3>Watering</h3>
+            <p>Water newly planted trees regularly during the first two years, especially during dry spells. Established trees are more drought-tolerant but will benefit from watering during prolonged dry periods, particularly when fruits are swelling (usually June to August). Water at the base of the tree, avoiding wetting the foliage to reduce disease risk. Container-grown trees need more frequent watering than those in the ground.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed apple trees in late winter with a balanced fertiliser or well-rotted organic matter. Apply a high-potassium fertiliser in spring to encourage fruiting. Avoid excessive nitrogen, which promotes leafy growth at the expense of fruit. Mulch annually in spring with well-rotted organic matter, keeping it away from the trunk. This helps conserve moisture, suppress weeds, and gradually improves soil structure.</p>
+            
+            <h3>Pruning</h3>
+            <p>Pruning is essential for healthy, productive trees. The method depends on the tree form:</p>
+            <ul>
+                <li><strong>Formative pruning:</strong> In the first few years, establish a balanced framework of branches. For bush trees, select a central leader and 4–5 evenly spaced lateral branches. Remove competing leaders and poorly positioned branches.</li>
+                <li><strong>Winter pruning:</strong> For established trees, prune between November and early March to maintain an open-centered crown, allowing light and air to penetrate. Remove dead, diseased, or crossing branches. Cut back leaders by about one-third and shorten side shoots to encourage fruiting spurs.</li>
+                <li><strong>Summer pruning:</strong> For trained forms like cordons or espaliers, prune in late summer (August) to maintain shape and encourage fruiting spurs. This helps control vigour and improves fruit quality.</li>
+                <li><strong>Renovation:</strong> Neglected trees can be renovated over several years by removing dead wood and gradually reshaping the canopy. Avoid removing more than one-third of the tree in any one year.</li>
+            </ul>
+            
+            <h3>Thinning</h3>
+            <p>In early summer (June), thin out excess fruitlets to improve fruit size and quality. Leave one fruit per cluster, spacing them 10–15cm (4–6in) apart. This also helps prevent biennial bearing (alternate years of heavy and light crops) and reduces the risk of branches breaking under heavy fruit loads.</p>
+            
+            <h3>Pollination</h3>
+            <p>Most apple varieties need cross-pollination with another compatible variety flowering at the same time. Plant compatible varieties within 50m (160ft) of each other, or choose self-fertile varieties. Bees and other pollinators are essential for good fruit set, so avoid using pesticides during flowering. Apple varieties are grouped by flowering time (1 = earliest, 7 = latest). Varieties in the same or adjacent groups will pollinate each other.</p>
+            
+            <div class="info-box">
+                <p><strong>Pollination Groups:</strong> Apple varieties are grouped by flowering time (1 = earliest, 7 = latest). Varieties in the same or adjacent groups will pollinate each other. For example, 'Discovery' (Group 3) will pollinate 'Cox's Orange Pippin' (Group 3) or 'Falstaff' (Group 4). Triploid varieties like 'Bramley's Seedling' need two pollination partners as they produce sterile pollen.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Apples are ready to harvest when they're fully coloured, detach easily from the tree with a gentle twist, and the seeds are brown. Harvest time varies by variety, from late summer (early varieties like 'Discovery') to late autumn (late varieties like 'Bramley's Seedling').</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Check ripeness:</strong> Lift the apple and give it a gentle twist. If it comes away easily with the stalk attached, it's ready. The seeds inside should be brown, not white. Early varieties may be ready before they're fully coloured.</li>
+                <li><strong>Harvest carefully:</strong> Handle apples gently to avoid bruising, which can lead to rot in storage. Place in a basket or container lined with soft material. Don't drop apples into the container.</li>
+                <li><strong>Harvest in stages:</strong> Not all apples on a tree ripen at once. Harvest over several weeks, starting with the most exposed fruits on the south and west sides of the tree. Check trees regularly during harvest season.</li>
+                <li><strong>Store properly:</strong> Only store perfect, unbruised apples. Check stored fruit regularly and remove any that show signs of rot to prevent it spreading to others.</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Store apples in a cool, dark, well-ventilated place. Ideal storage temperature is 3–5°C (37–41°F). Wrap individual apples in newspaper or place in perforated plastic bags. Some varieties like 'Cox's Orange Pippin' and 'Egremont Russet' store well for several months, while early varieties like 'Discovery' are best eaten within a few weeks of harvest. Check stored apples regularly and remove any showing signs of deterioration.</p>
+            
+            <h3>Using Your Apples</h3>
+            <p>Fresh apples are delicious eaten raw, but they're also versatile in the kitchen. Cooking apples like 'Bramley's Seedling' are perfect for pies, crumbles, and sauces, breaking down to a fluffy texture when cooked. Dessert apples can be used in salads, baked, or juiced. Many varieties make excellent cider when pressed. Early varieties are best eaten fresh, while later varieties often improve in flavour after a few weeks in storage.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Storage Tip:</strong> Store different varieties separately, as some release ethylene gas that can cause others to ripen or spoil faster. Early varieties don't store well and should be eaten soon after harvest. Late varieties often improve in flavour after a period of storage, developing their full taste potential.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Apple trees can be affected by various pests and diseases, but with good cultural practices and, where necessary, appropriate treatments, most problems can be managed effectively.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Aphids:</strong> These small insects can distort leaves and spread viruses. Encourage natural predators like ladybirds, or use organic sprays if necessary. Winter washing with plant oils can help control overwintering eggs. Greenfly and blackfly are common on new growth in spring.</li>
+                <li><strong>Codling moth:</strong> Larvae tunnel into fruits, causing 'wormy' apples. Use pheromone traps to monitor and reduce populations. Remove and destroy affected fruits promptly. Grease bands around trunks can help prevent adults from climbing up.</li>
+                <li><strong>Apple sawfly:</strong> Larvae cause ribbon-like scars on developing fruits. Remove affected fruits promptly. Grease bands around trunks can help prevent adults from climbing up to lay eggs.</li>
+                <li><strong>Caterpillars:</strong> Various caterpillars including winter moth and tortrix can defoliate trees. Hand-pick when possible, or use biological controls like Bacillus thuringiensis. Encourage birds which will help control caterpillar populations.</li>
+                <li><strong>Woolly aphid:</strong> Causes white, woolly growths on branches. Prune out affected areas and treat with organic sprays if necessary.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Apple scab:</strong> Causes dark, scabby patches on leaves and fruits. Choose resistant varieties, ensure good air circulation through pruning, and remove fallen leaves in autumn to reduce overwintering spores. Fungal disease that's worse in wet seasons.</li>
+                <li><strong>Powdery mildew:</strong> White, powdery coating on leaves and shoots. Prune out affected growth, ensure good air circulation, and water at the base of trees rather than overhead. More common in dry conditions.</li>
+                <li><strong>Brown rot:</strong> Causes fruits to rot and develop brown patches with white pustules. Remove and destroy affected fruits promptly. Store only perfect fruits. This fungal disease spreads quickly in storage.</li>
+                <li><strong>Fire blight:</strong> A serious bacterial disease causing blackened, scorched-looking branches. Prune out affected wood well below the infection, disinfecting tools between cuts. Report to plant health authorities if suspected. More common in warm, humid conditions.</li>
+                <li><strong>Honey fungus:</strong> A serious root disease that can kill trees. Symptoms include dieback, poor growth, and honey-coloured mushrooms at the base in autumn. Remove infected trees and their roots. Avoid replanting in the same spot. There's no chemical treatment available.</li>
+                <li><strong>Canker:</strong> Causes sunken, dead areas on branches and trunk. Prune out affected areas, cutting back to healthy wood. More common on trees under stress or in wet conditions.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Poor fruiting:</strong> Can be caused by lack of pollination, over-pruning, biennial bearing, or nutrient imbalances. Ensure compatible pollinators are nearby, avoid excessive pruning, thin fruits to prevent biennial bearing, and feed appropriately. Young trees may take several years to start fruiting.</li>
+                <li><strong>Frost damage:</strong> Late spring frosts can damage blossoms and reduce crops. Choose varieties that flower later, plant in sheltered positions, and consider using fleece to protect blossoms during cold snaps. Avoid planting in frost pockets.</li>
+                <li><strong>Sunscald:</strong> Direct sun on fruits can cause brown patches. Ensure adequate foliage cover through proper pruning. More common on exposed, south-facing sides of trees.</li>
+                <li><strong>Bitter pit:</strong> Dark spots on the skin and flesh, caused by calcium deficiency. Ensure consistent watering and avoid excessive nitrogen fertiliser. More common on light, sandy soils.</li>
+                <li><strong>Biennial bearing:</strong> Trees produce heavy crops one year and light crops the next. Prevent by thinning fruits in heavy-crop years. Some varieties are more prone to this than others.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> The best defence against pests and diseases is a healthy tree. Ensure good cultural practices: proper planting, regular feeding, appropriate pruning, and good hygiene (removing fallen leaves and fruits). Choose disease-resistant varieties where possible, and monitor trees regularly so problems can be caught early. Healthy, well-maintained trees are much more resistant to problems than stressed ones.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

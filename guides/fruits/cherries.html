@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Cherries - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Cherries.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Cherries</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Cherries in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Cherries are beautiful, productive trees that produce delicious fruits perfect for eating fresh or cooking. There are two main types: sweet cherries (Prunus avium) for eating fresh, and sour or acid cherries (Prunus cerasus) for cooking. Both types are well-suited to UK gardens, with many modern varieties offering improved disease resistance and more compact growth habits suitable for smaller spaces.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Deciduous trees available in various sizes depending on rootstock</li>
+                    <li>Sweet cherries: eaten fresh, usually need a pollination partner</li>
+                    <li>Sour cherries: used for cooking, most are self-fertile</li>
+                    <li>Fruits ripen from late June to August, depending on variety</li>
+                    <li>Can be grown as trees, fans, or cordons</li>
+                    <li>Early-flowering, so vulnerable to frost damage</li>
+                </ul>
+            </div>
+            
+            <p>Sweet cherries are the large, juicy fruits we eat fresh, while sour cherries (also called acid or cooking cherries) are smaller and tarter, perfect for pies, jams, and preserves. Sweet cherries are usually larger trees and most need a pollination partner, while sour cherries are more compact and usually self-fertile. Both types flower early in spring, making them vulnerable to frost, so site selection is important.</p>
+            
+            <p>Modern cherry varieties offer improved characteristics including better disease resistance, more compact growth (thanks to dwarfing rootstocks), and some self-fertile sweet cherry varieties. With proper care and site selection, cherry trees will reward you with abundant harvests for many years. Fan-trained cherries against walls are ideal for smaller gardens and help protect early flowers from frost.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Sweet cherries usually need a pollination partner, but modern self-fertile varieties like 'Stella' and 'Lapins' can fruit alone. Sour cherries are usually self-fertile. Both types flower early (often March or April), so choose a warm, sheltered site to protect blossoms from frost. Fan-trained trees against walls are ideal for smaller gardens and provide extra protection.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow cherries, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/47Zo2mH" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4rbFxJA" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Stakes, canes, or trellises for supporting trees and training fans or cordons.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4oOdqyo" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A small hand trowel for planting, transplanting, and general garden maintenance.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>When choosing cherry varieties, first decide whether you want sweet cherries (for eating fresh) or sour cherries (for cooking). Then consider pollination requirements, harvest time, tree size, and disease resistance. Modern varieties offer improved characteristics including self-fertility for sweet cherries and better disease resistance.</p>
+            
+            <h3>Sweet vs Sour Cherries</h3>
+            <ul>
+                <li><strong>Sweet cherries (Prunus avium):</strong> Large, juicy fruits for eating fresh. Most need a pollination partner, though self-fertile varieties are available. Usually larger trees. Examples: 'Stella', 'Lapins', 'Sunburst'.</li>
+                <li><strong>Sour cherries (Prunus cerasus):</strong> Smaller, tarter fruits perfect for cooking, jams, and preserves. Usually self-fertile. More compact trees. Examples: 'Morello', 'Nabella'.</li>
+            </ul>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Pollination:</strong> Most sweet cherries need a pollination partner, but self-fertile varieties like 'Stella' and 'Lapins' can fruit alone. Sour cherries are usually self-fertile. Plant compatible varieties within 50m (160ft) of each other.</li>
+                <li><strong>Tree Size:</strong> Choose rootstock according to available space. Dwarfing rootstocks like 'Gisela 5' produce smaller trees suitable for containers or small gardens.</li>
+                <li><strong>Harvest Time:</strong> Early varieties ripen in late June, while later varieties extend into August. Planting a mix extends your harvest period.</li>
+                <li><strong>Disease Resistance:</strong> Look for varieties with good resistance to common problems like bacterial canker and cherry leaf spot.</li>
+                <li><strong>Use:</strong> Sweet cherries are for eating fresh, while sour cherries are for cooking. Some varieties work well for both.</li>
+            </ul>
+            
+            <h3>Rootstocks</h3>
+            <p>Cherry trees are grafted onto rootstocks that influence their growth and size:</p>
+            <ul>
+                <li><strong>'Colt':</strong> Semi-vigorous, produces trees 4–5m (13–16ft) tall. Good for larger gardens.</li>
+                <li><strong>'Gisela 5':</strong> Dwarfing, produces trees 2.5–3m (8–10ft) tall. Ideal for small gardens and containers.</li>
+                <li><strong>'Tabel':</strong> Semi-dwarfing, produces trees 3–4m (10–13ft) tall. Good for medium-sized gardens.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Stella' (Sweet)</h4>
+                    <p>Self-fertile sweet cherry producing large, dark red fruits with excellent flavour. Heavy cropper. Harvest in mid-July. Good for eating fresh. Reliable performer.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Lapins' (Sweet)</h4>
+                    <p>Self-fertile sweet cherry with large, dark red fruits. Excellent flavour. Good disease resistance. Harvest in late July. Good for eating fresh.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Sunburst' (Sweet)</h4>
+                    <p>Self-fertile sweet cherry producing large, dark red fruits. Good flavour. Heavy cropper. Harvest in late July. Good for eating fresh.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Morello' (Sour)</h4>
+                    <p>Self-fertile sour cherry producing dark red fruits. Excellent for cooking, jams, and preserves. Heavy cropper. Harvest in late July to August. Very reliable.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Nabella' (Sour)</h4>
+                    <p>Self-fertile sour cherry with good crops of dark red fruits. Excellent for cooking. Compact growth. Harvest in late July. Good for smaller gardens.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Early Rivers' (Sweet)</h4>
+                    <p>Early-ripening sweet cherry. Needs a pollination partner. Produces good crops of dark red fruits. Harvest in late June to early July. Good flavour.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Cherries are best planted during the dormant season, from late autumn to early spring. Bare-root trees are available from November to March, while container-grown trees can be planted year-round, though autumn and spring are still best for establishment.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a warm, sheltered, sunny location. Cherries flower early (often March or April), making them vulnerable to frost, so avoid frost pockets. The soil should be well-drained, fertile, and moisture-retentive. Cherries prefer a pH of 6.0–7.0, though they're reasonably tolerant of different soil types. Good air circulation helps reduce disease problems. South- or west-facing walls are ideal for fan-trained trees.</p>
+            
+            <h3>Planting Bare-Root Trees</h3>
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Dig a hole at least 60cm (2ft) wide and deep, breaking up the soil at the bottom. Mix in well-rotted organic matter or compost. Ensure the site is free from perennial weeds.
+                </li>
+                <li>
+                    <strong>Check the roots:</strong> Soak bare roots in water for 30 minutes before planting. Trim any damaged or broken roots back to healthy tissue.
+                </li>
+                <li>
+                    <strong>Plant at correct depth:</strong> Position the tree so the soil mark on the stem (where it was previously planted) is level with the soil surface. Spread roots out evenly in the hole. The graft union (the bulge where the variety joins the rootstock) should be well above soil level.
+                </li>
+                <li>
+                    <strong>Backfill and firm:</strong> Fill the hole with soil, firming gently as you go to eliminate air pockets. Create a slight depression around the tree to help water reach the roots.
+                </li>
+                <li>
+                    <strong>Stake and water:</strong> Insert a stake on the windward side and tie the tree loosely with a tree tie. Water thoroughly and mulch with organic matter, keeping it away from the trunk.
+                </li>
+            </ol>
+            
+            <h3>Planting Container-Grown Trees</h3>
+            <p>Plant container-grown trees at the same depth they were in the pot. Gently tease out any roots that are circling the root ball. Water well after planting and keep well-watered during the first growing season, especially during dry spells.</p>
+            
+            <h3>Spacing</h3>
+            <p>Spacing depends on the rootstock and training method:</p>
+            <ul>
+                <li><strong>Standard trees (Colt rootstock):</strong> 6–8m (20–26ft) apart</li>
+                <li><strong>Semi-dwarf (Tabel rootstock):</strong> 4–5m (13–16ft) apart</li>
+                <li><strong>Dwarf (Gisela 5 rootstock):</strong> 2.5–3m (8–10ft) apart</li>
+                <li><strong>Fans:</strong> 3–4m (10–13ft) apart</li>
+                <li><strong>Cordons:</strong> 60–90cm (2–3ft) apart in rows 2–3m (6–10ft) apart</li>
+            </ul>
+            
+            <h3>Training as Fans</h3>
+            <p>Fan-trained cherries against walls or fences are ideal for smaller gardens and provide protection from frost. Fans have a short trunk topped with a flat fan of radiating branches. They can be kept to 2–3m (6–10ft) tall and 3–4m (10–13ft) wide. Start training in the first year after planting.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> For best results, plant cherries in autumn so roots can establish before spring growth. If planting in spring, ensure trees are well-watered throughout the first summer. Fan-trained trees against walls benefit from the extra heat and protection, making them ideal for UK conditions. Always plant with the graft union well above soil level. Choose a warm, sheltered site to protect early flowers from frost.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Cherries need regular care to produce healthy crops. Key tasks include watering, feeding, pruning, and protecting from frost and pests. With proper care, trees will reward you with abundant harvests for many years.</p>
+            
+            <h3>Watering</h3>
+            <p>Water newly planted trees regularly during the first two years, especially during dry spells. Established trees are more drought-tolerant but will benefit from watering during prolonged dry periods, particularly when fruits are swelling (usually May to June). Water at the base of the tree, avoiding wetting the foliage to reduce disease risk. Container-grown trees need more frequent watering than those in the ground.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed cherry trees in late winter with a balanced fertiliser or well-rotted organic matter. Apply a high-potassium fertiliser in spring to encourage fruiting. Avoid excessive nitrogen, which promotes leafy growth at the expense of fruit. Mulch annually in spring with well-rotted organic matter, keeping it away from the trunk. This helps conserve moisture, suppress weeds, and gradually improves soil structure.</p>
+            
+            <h3>Pruning</h3>
+            <p>Prune cherries in summer (after fruiting) to minimize the risk of silver leaf disease and bacterial canker. Avoid pruning in autumn and winter when these diseases are more active.</p>
+            <ul>
+                <li><strong>Formative pruning:</strong> In the first few years, establish the desired shape. For fan-trained trees, create a framework of radiating branches tied to wires.</li>
+                <li><strong>Established trees:</strong> Prune after fruiting (late summer) to maintain shape and encourage new growth. Remove dead, diseased, or crossing branches. Thin out overcrowded growth to allow light and air to reach all parts of the tree.</li>
+                <li><strong>Summer pruning:</strong> For fan-trained trees, prune in summer to maintain the fan shape and encourage fruiting spurs. This also helps control vigour.</li>
+                <li><strong>Renovation:</strong> Neglected trees can be renovated over several years by removing dead wood and gradually reshaping the canopy. Avoid removing more than one-third of the tree in any one year.</li>
+            </ul>
+            
+            <h3>Frost Protection</h3>
+            <p>Cherries flower very early (often March or April), making them vulnerable to frost damage. Protect blossoms by covering trees with horticultural fleece overnight when frost is forecast. Fan-trained trees against walls are naturally more protected, but may still need covering during severe frosts. Container-grown trees can be moved to a protected position during flowering.</p>
+            
+            <h3>Pollination</h3>
+            <p>Most sweet cherry varieties need cross-pollination with another compatible variety flowering at the same time. Plant compatible varieties within 50m (160ft) of each other, or choose self-fertile varieties. Sour cherries are usually self-fertile. Bees and other pollinators are essential for good fruit set, so avoid using pesticides during flowering.</p>
+            
+            <div class="info-box">
+                <p><strong>Pruning Timing:</strong> Cherries should be pruned in summer (after fruiting) to minimize the risk of silver leaf disease and bacterial canker, which are more active in autumn and winter. Avoid pruning in autumn and winter. If you must prune in winter, seal all cuts with wound paint to prevent disease entry.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Cherries are ready to harvest from late June to August, depending on variety. Ripe sweet cherries are fully coloured, firm but juicy, and come away easily from the tree with the stalk attached. Sour cherries are ready when fully coloured and slightly soft. Fruits don't all ripen at once, so harvest over several weeks.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Check ripeness:</strong> Ripe sweet cherries are fully coloured (usually dark red or black), firm but juicy, and detach easily from the tree with the stalk attached. Sour cherries are ready when fully coloured and slightly soft. Test a few fruits before harvesting the whole crop.</li>
+                <li><strong>Harvest carefully:</strong> Handle cherries gently to avoid bruising. Pick with the stalk attached for better storage. Place in shallow containers to prevent them from being crushed. Don't stack cherries too deeply.</li>
+                <li><strong>Harvest regularly:</strong> Pick cherries every few days during the harvest season, as they ripen quickly. Check trees regularly when fruits are ripening. Harvest in the morning when fruits are cool and firm.</li>
+                <li><strong>Use promptly:</strong> Fresh cherries don't store well and are best eaten within a few days of harvest. Use or process promptly for best quality.</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Fresh cherries don't store well and are best eaten within 2–3 days of harvest. Store in the refrigerator in a shallow container, but don't wash until just before eating. For longer-term storage, cherries can be frozen (freeze on trays first, then transfer to bags), made into jams, jellies, or preserves, or used in cooking and baking. Sour cherries are particularly good for preserving.</p>
+            
+            <h3>Using Your Cherries</h3>
+            <p>Fresh sweet cherries are delicious eaten raw, with their juicy, sweet flavour. They're excellent for desserts, salads, and snacking. Sour cherries are perfect for cooking, making wonderful pies, tarts, crumbles, and sauces. Both types can be used in jams, jellies, and preserves. Cherries can also be used in smoothies, yoghurts, and desserts. The fruits are rich in vitamins A and C, and are a good source of dietary fibre and antioxidants.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Harvesting Tip:</strong> Harvest cherries with the stalk attached for better storage. Pick in the morning when fruits are cool and firm. If you have a large crop, freeze excess cherries on trays first (so they don't stick together), then transfer to freezer bags. This allows you to use them in smaller portions throughout the year. Sour cherries are particularly good for freezing and using in cooking later.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Cherries can be affected by various pests and diseases, but with good cultural practices and appropriate site selection, most problems can be managed effectively. The main challenges in the UK are frost damage to flowers and ensuring adequate pollination for sweet cherries.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Birds:</strong> Birds are attracted to ripening cherries. Protect trees with netting before fruits start to ripen. Ensure netting is well-secured and doesn't trap birds. Alternatively, grow trees in a fruit cage.</li>
+                <li><strong>Black cherry aphid:</strong> Can cluster on new growth, especially in spring. Causes distorted leaves and can spread viruses. Encourage natural predators or use organic sprays if necessary.</li>
+                <li><strong>Cherry fruit fly:</strong> Larvae feed inside developing fruits, causing them to be maggoty. Remove and destroy affected fruits. Good hygiene and regular harvesting help reduce problems.</li>
+                <li><strong>Winter moth:</strong> Caterpillars can defoliate trees. Hand-pick when possible, or use biological controls. Encourage birds which will help control caterpillar populations.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Bacterial canker:</strong> Causes sunken, dead areas on branches and trunk, often with gum oozing from the wounds. Prune out affected areas, cutting back to healthy wood. Avoid pruning in autumn and winter when the disease is more active. Seal all cuts with wound paint.</li>
+                <li><strong>Silver leaf:</strong> A serious fungal disease causing silvery leaves and branch dieback. Prune in summer to minimize risk (avoid autumn/winter pruning). Remove and destroy affected branches promptly. Seal all cuts with wound paint.</li>
+                <li><strong>Cherry leaf spot:</strong> Causes brown spots on leaves, which can lead to defoliation. Remove and destroy affected leaves. Ensure good air circulation through proper pruning. More common in wet conditions.</li>
+                <li><strong>Brown rot:</strong> Causes fruits to rot and develop brown patches. Remove and destroy affected fruits promptly. Ensure good air circulation and avoid overcrowding. Harvest regularly to prevent overripe fruits from rotting.</li>
+                <li><strong>Blossom wilt:</strong> Causes flowers and young fruits to wither and die. Remove affected parts promptly. Ensure good air circulation and avoid overhead watering.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Lack of fruit:</strong> Can be caused by frost damage to flowers, poor pollination, or lack of warmth. Protect blossoms from frost, ensure compatible pollinators are nearby (for sweet cherries), and ensure trees are in warm, sunny positions. Some varieties are more reliable than others.</li>
+                <li><strong>Frost damage:</strong> Early-flowering cherries are very vulnerable to spring frosts. Choose warm, sheltered sites, preferably against walls. Cover trees with fleece when frost is forecast during flowering.</li>
+                <li><strong>Fruits splitting:</strong> Can be caused by irregular watering or heavy rain after dry periods. Ensure consistent watering, especially when fruits are swelling. Some varieties are more prone to splitting than others.</li>
+                <li><strong>Poor growth:</strong> Can be caused by poor soil, lack of water, or unsuitable site. Ensure well-drained, fertile soil, adequate watering, and a warm, sunny position. Cherries need good growing conditions to thrive.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> The key to success with cherries is choosing the right site and variety. Warm, sheltered positions against sunny walls are ideal. Protect early flowers from frost, and for sweet cherries, ensure compatible pollinators are nearby or choose self-fertile varieties. Prune in summer to minimize disease risk. With proper care and site selection, cherries can be successfully grown and will reward you with delicious fruits for many years.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

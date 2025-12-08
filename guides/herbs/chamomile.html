@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Chamomile - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Chamomille.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Chamomile</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Chamomile in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Chamomile is a delightful, daisy-like herb that's easy to grow and has many uses, from making soothing herbal teas to creating fragrant lawns. There are two main types: German chamomile (Matricaria chamomilla), an annual, and Roman chamomile (Chamaemelum nobile), a low-growing perennial. Both are well-suited to UK gardens and provide beautiful, aromatic flowers throughout summer.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Easy to grow from seed</li>
+                    <li>Attractive daisy-like flowers with apple-like fragrance</li>
+                    <li>Perfect for containers, borders, or lawns</li>
+                    <li>Self-seeds readily for continuous growth</li>
+                    <li>Attracts beneficial insects and pollinators</li>
+                    <li>Versatile herb for teas, skincare, and culinary use</li>
+                </ul>
+            </div>
+            
+            <p>Chamomile is one of the most popular herbs for making herbal teas, known for its calming properties and pleasant, apple-like flavour. The flowers are the part used, and they can be harvested fresh or dried for later use. German chamomile is taller and more upright, making it ideal for borders and containers, while Roman chamomile is lower-growing and can be used as a fragrant ground cover or lawn alternative.</p>
+            
+            <p>Both types of chamomile are easy to grow and relatively low-maintenance. They self-seed readily, so once established, you'll often have new plants appearing each year. Chamomile flowers are also attractive to beneficial insects, making it a great addition to any garden.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Chamomile flowers are best harvested in the morning, just after the dew has dried but before the heat of the day. Pick flowers when they're fully open for the best flavour and aroma.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow chamomile, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4oWmocT" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+            </div>
+
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>There are two main types of chamomile: German chamomile (Matricaria chamomilla), which is an annual, and Roman chamomile (Chamaemelum nobile), which is a low-growing perennial. Both are suitable for UK gardens and have similar uses, though they differ in growth habit and appearance.</p>
+            
+            <p>German chamomile grows taller (30–60cm / 12–24in) and is more upright, making it ideal for borders and containers. Roman chamomile is lower-growing (10–15cm / 4–6in) and spreads to form a mat, making it perfect for ground cover or as a fragrant lawn alternative. Both produce similar daisy-like flowers with the characteristic apple-like fragrance.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>German Chamomile</h4>
+                    <p>Taller annual variety perfect for borders and containers. Produces abundant flowers and self-seeds readily. Most commonly used for herbal teas.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Roman Chamomile</h4>
+                    <p>Low-growing perennial that forms a fragrant mat. Ideal for ground cover, between paving stones, or as a lawn alternative. Can be walked on.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Treneague'</h4>
+                    <p>A non-flowering variety of Roman chamomile, perfect for creating a fragrant, low-maintenance lawn that doesn't need mowing.</p>
+                </div>
+            </div>
+        
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Chamomile</h2>
+            
+            <h3>Sowing Indoors</h3>
+            <p>For an early start, sow chamomile seeds indoors from late winter to early spring. Chamomile germinates easily and grows quickly, so it's straightforward to start from seed.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare containers:</strong> Fill seed trays or small pots with peat-free seed compost. Chamomile seeds are small, so use fine compost.
+                </li>
+                <li>
+                    <strong>Sow seeds:</strong> Sow seeds thinly on the surface of the compost. Chamomile seeds need light to germinate, so don't cover them or cover very lightly with a fine layer of vermiculite.
+                </li>
+                <li>
+                    <strong>Provide warmth:</strong> Keep in a warm location (15–20°C / 59–68°F) such as on a windowsill or in a propagator. Germination usually takes 7–14 days.
+                </li>
+                <li>
+                    <strong>Water carefully:</strong> Water from below or use a fine mist to avoid disturbing the small seeds. Keep compost moist but not waterlogged.
+                </li>
+                <li>
+                    <strong>Pot on:</strong> When seedlings have several true leaves, pot them into individual containers or thin to allow space for growth.
+                </li>
+            </ol>
+            
+            <h3>Sowing Outdoors</h3>
+            <p>Chamomile can be sown directly outdoors from early spring to early summer. It's easy to grow and often self-seeds, so you may find volunteer plants appearing in subsequent years.</p>
+            
+            <p>Sow seeds thinly in drills about 0.5cm (¼in) deep, or broadcast sow in a prepared area. Space rows 30cm (12in) apart for German chamomile, or closer for Roman chamomile if creating a ground cover. Thin seedlings to 15–20cm (6–8in) apart when they're large enough to handle. For Roman chamomile lawns, sow more densely and allow plants to spread.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Self-Seeding:</strong> Chamomile self-seeds readily, so once you've grown it once, you'll often have new plants appearing each year. Allow some flowers to go to seed if you want this to happen naturally.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Chamomile is adaptable and can be grown in containers, borders, or as ground cover. It prefers a sunny position but will tolerate partial shade. The soil should be well-drained, though chamomile is quite tolerant of different soil types.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny location with well-drained soil. Chamomile prefers full sun but will grow in partial shade, though flowering may be reduced. German chamomile works well in borders and containers, while Roman chamomile is ideal for ground cover or between paving stones.</p>
+            
+            <h3>Container Planting</h3>
+            <p>Chamomile grows well in containers, making it perfect for patios, balconies, and windowsills. Use pots at least 20cm (8in) in diameter with good drainage. Fill with peat-free multi-purpose compost and plant seedlings 15–20cm (6–8in) apart. Container-grown chamomile will need regular watering, especially during dry spells.</p>
+            
+            <h3>Ground Planting</h3>
+            <p>If planting in the ground, prepare the soil by removing weeds and incorporating well-rotted compost if the soil is poor. Plant seedlings at the same depth they were growing in their pots. Space German chamomile 20–30cm (8–12in) apart, and Roman chamomile 15–20cm (6–8in) apart if creating a ground cover. Water well after planting and keep the soil moist until plants are established.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Companion Planting:</strong> Chamomile is said to improve the health of nearby plants and can help deter pests. It's a good companion for brassicas, onions, and other vegetables. The flowers also attract beneficial insects.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Chamomile is relatively low-maintenance once established. Regular watering, occasional feeding, and deadheading will keep plants healthy and productive. Both types of chamomile are quite drought-tolerant once established.</p>
+            
+            <h3>Watering</h3>
+            <p>Water chamomile regularly during dry spells, especially when plants are young or growing in containers. Once established, chamomile is quite drought-tolerant, but regular watering will encourage more flowers. Water at the base of plants to avoid wetting the flowers, which can cause them to spoil.</p>
+            
+            <h3>Feeding</h3>
+            <p>Chamomile doesn't usually need additional feeding if grown in reasonably fertile soil. However, container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season. Use a balanced, organic fertiliser at half strength. Avoid overfeeding, as this can encourage leafy growth at the expense of flowers.</p>
+            
+            <h3>Deadheading</h3>
+            <p>Regular deadheading (removing spent flowers) encourages more blooms and keeps plants looking tidy. However, if you want chamomile to self-seed, leave some flowers to go to seed. Deadheading is particularly important for container-grown plants where you want continuous flowering.</p>
+            
+            <h3>Pruning</h3>
+            <p>German chamomile doesn't need pruning, but you can cut back plants after flowering to encourage a second flush of blooms. Roman chamomile can be trimmed to maintain its shape and encourage bushy growth. For chamomile lawns, mow occasionally with the mower set high, or simply trim with shears.</p>
+            
+            <h3>Self-Seeding</h3>
+            <p>Chamomile self-seeds readily, so if you allow some flowers to go to seed, you'll often get volunteer seedlings the following year. These can be left to grow or transplanted to desired locations. Self-seeded plants often appear at the perfect time for your local conditions and can help maintain a continuous supply of chamomile.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Chamomile flowers can be harvested throughout the summer as they open. The flowers are the part used for teas and other preparations, and they're best harvested when fully open and at their peak.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Pick fully open flowers:</strong> Harvest flowers when they're fully open, usually in the morning after the dew has dried. This is when they have the best flavour and aroma.</li>
+                <li><strong>Harvest regularly:</strong> Pick flowers regularly to encourage more blooms. Regular harvesting prevents plants from going to seed too quickly.</li>
+                <li><strong>Use clean hands or scissors:</strong> Pick flowers with clean hands or use scissors to avoid damaging the plant. Handle gently to preserve the delicate flowers.</li>
+                <li><strong>Harvest before they fade:</strong> Pick flowers while they're fresh and vibrant. Once they start to fade or turn brown, they're past their best.</li>
+            </ul>
+            
+            <h3>Drying Chamomile</h3>
+            <p>Chamomile flowers can be used fresh or dried for later use. To dry, spread flowers in a single layer on a clean cloth or paper in a warm, dry, well-ventilated area away from direct sunlight. Turn occasionally until completely dry (usually 1–2 weeks). Store dried flowers in an airtight container in a cool, dark place.</p>
+            
+            <h3>Using Your Chamomile</h3>
+            <p>Chamomile is most commonly used to make herbal tea, which is known for its calming properties and pleasant, apple-like flavour. Use 1–2 teaspoons of dried flowers (or a handful of fresh flowers) per cup of boiling water. Steep for 5–10 minutes, then strain. Chamomile can also be used in skincare preparations, as a hair rinse, or added to bath water for a relaxing soak.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Chamomile is generally trouble-free and relatively pest and disease-resistant. Most problems are minor and easily managed. The main issues are usually related to growing conditions rather than serious pests or diseases.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Aphids:</strong> Can occasionally cluster on new growth, especially in spring. Usually not a serious problem. Remove by hand or spray with a strong jet of water. Beneficial insects attracted by chamomile flowers often help control aphids naturally.</li>
+                <li><strong>Slugs and snails:</strong> Can damage young seedlings. Use barriers, traps, or organic controls. Once established, chamomile is less attractive to slugs.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Powdery mildew:</strong> Can occur in humid conditions or when plants are overcrowded. Improve air circulation and avoid overhead watering. Usually not serious if caught early.</li>
+                <li><strong>Damping off:</strong> Fungal disease that affects seedlings. Prevent by avoiding overwatering, ensuring good air circulation, and using clean compost.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Poor flowering:</strong> Can occur if plants don't receive enough sun or are overfed. Ensure adequate sunlight and avoid excessive fertiliser. Chamomile flowers best in full sun.</li>
+                <li><strong>Leggy growth:</strong> Can occur if plants don't receive enough light or are overcrowded. Ensure adequate spacing and provide full sun for best results.</li>
+                <li><strong>Self-seeding too much:</strong> If chamomile is spreading more than desired, deadhead flowers regularly to prevent self-seeding. Remove unwanted seedlings as they appear.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Chamomile's ability to self-seed is usually a benefit, providing you with free plants each year. However, if you want to control where it grows, deadhead flowers regularly or grow in containers where self-seeded plants are easier to manage.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

@@ -1,0 +1,38 @@
+# Build files and private folder (not needed for deployment)
+private/
+
+# Keep sitemap.xml and robots.txt - these ARE needed for deployment
+!sitemap.xml
+!robots.txt
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Tarragon - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Tarragon.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Tarragon</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Tarragon in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Tarragon (Artemisia dracunculus) is a hardy, perennial herb with a distinctive aniseed-like flavour that's essential in French cuisine. This aromatic herb is valued for its unique flavour and is a key ingredient in béarnaise sauce, fines herbes, and many other classic dishes. Tarragon is fully hardy in the UK and will return year after year, making it a valuable addition to any herb garden.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Hardy perennial that returns year after year</li>
+                    <li>Grows 60–90cm (2–3ft) tall with upright, bushy habit</li>
+                    <li>Produces small, insignificant flowers in summer</li>
+                    <li>Distinctive aniseed-like flavour</li>
+                    <li>Essential in French cuisine and béarnaise sauce</li>
+                    <li>Easy to grow and low maintenance</li>
+                </ul>
+            </div>
+            
+            <p>Tarragon is native to Central Asia and has been cultivated for centuries for its culinary properties. The leaves have a distinctive aniseed-like flavour that's perfect for flavouring chicken, fish, eggs, and vegetables. French tarragon (Artemisia dracunculus var. sativa) is the most commonly used type and is considered superior to Russian tarragon, which has a weaker flavour.</p>
+            
+            <p>In the UK, tarragon is fully hardy and will thrive in most gardens. It prefers a sunny position with well-drained soil and is very drought-tolerant once established. Tarragon can be grown in containers or in the ground, and it's an excellent choice for a low-maintenance herb garden. The plant will produce fresh leaves from spring through autumn, and it's best propagated from cuttings or division rather than from seeds.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> French tarragon is sterile and doesn't produce viable seeds, so it must be propagated from cuttings or division. Russian tarragon can be grown from seeds but has a much weaker flavour. Always choose French tarragon for the best culinary results. Once established, tarragon is very low-maintenance and will provide fresh leaves year-round.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow tarragon, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4r5q39J" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>There are two main types of tarragon: French tarragon (Artemisia dracunculus var. sativa) and Russian tarragon (Artemisia dracunculus). French tarragon is the preferred choice for culinary use, as it has a much stronger, more distinctive flavour.</p>
+            
+            <p>French tarragon is sterile and doesn't produce viable seeds, so it must be propagated from cuttings or division. Russian tarragon can be grown from seeds but has a much weaker flavour and is less desirable for cooking. Always choose French tarragon for the best culinary results.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>French Tarragon</h4>
+                    <p>The preferred variety (Artemisia dracunculus var. sativa). Has a strong, distinctive aniseed-like flavour. Sterile, so must be propagated from cuttings or division. Best choice for UK gardens and culinary use.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Russian Tarragon</h4>
+                    <p>Can be grown from seeds but has a much weaker flavour than French tarragon. Less desirable for cooking. Only choose if French tarragon is unavailable, but French tarragon is always preferred.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Tarragon</h2>
+            
+            <h3>Growing from Cuttings (Recommended)</h3>
+            <p>French tarragon is sterile and doesn't produce viable seeds, so it must be propagated from cuttings or division. This is the most reliable method and ensures you get the exact variety you want.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Take cuttings:</strong> In spring or early summer, take 10–15cm (4–6in) cuttings from healthy, non-flowering shoots. Cut just below a leaf node.
+                </li>
+                <li>
+                    <strong>Prepare cuttings:</strong> Remove the lower leaves, leaving just the top few. Dip the cut end in rooting hormone (optional but helpful).
+                </li>
+                <li>
+                    <strong>Pot up:</strong> Insert cuttings into pots filled with a mix of peat-free compost and sharp sand or perlite. Water well.
+                </li>
+                <li>
+                    <strong>Provide warmth:</strong> Place in a warm, bright location out of direct sunlight. Keep the compost moist but not waterlogged.
+                </li>
+                <li>
+                    <strong>Rooting:</strong> Roots should develop within 4–6 weeks. Once rooted, pot on into individual pots and grow on until ready to plant out.
+                </li>
+            </ol>
+            
+            <h3>Growing from Division</h3>
+            <p>Tarragon can also be propagated by dividing established plants in spring or autumn. Lift the plant, divide the root ball into several sections, and replant the divisions. This helps rejuvenate the plant and encourages fresh growth.</p>
+            
+            <h3>Sowing from Seeds (Russian Tarragon Only)</h3>
+            <p>Russian tarragon can be grown from seeds, though it has a much weaker flavour than French tarragon. Sow seeds indoors in spring (March–April) or directly outdoors in late spring. Sow seeds thinly on the surface of peat-free seed compost and cover very lightly. Keep at 15–20°C (59–68°F) and maintain consistent moisture. Seeds should germinate within 2–3 weeks.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Sowing Tip:</strong> French tarragon is sterile and doesn't produce viable seeds, so it must be propagated from cuttings or division. This is the most reliable method and ensures you get the exact variety you want. Russian tarragon can be grown from seeds but has a much weaker flavour, so always choose French tarragon for the best culinary results.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Tarragon prefers a sunny position with well-drained soil. It's fully hardy in the UK and can be grown in containers or in the ground. The key is to provide good drainage, as tarragon doesn't like wet feet.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny location with well-drained, reasonably fertile soil. Tarragon prefers full sun but will tolerate light shade. It will not grow well in heavy, waterlogged soil, so ensure good drainage. Tarragon is very drought-tolerant and grows best in soil that's not too rich. Avoid very dry, poor soil, as this will result in weak growth.</p>
+            
+            <h3>Container Planting</h3>
+            <p>Growing tarragon in containers is an excellent option, especially for smaller spaces or if you want to move plants around. Use a container at least 25cm (10in) wide and deep with good drainage. Fill with a mix of peat-free multi-purpose compost and sharp sand or perlite for extra drainage. Container-grown tarragon will need more frequent watering than ground-grown plants, but still allow the compost to dry out between waterings.</p>
+            
+            <h3>Ground Planting</h3>
+            <p>If planting in the ground, prepare the soil by removing weeds and incorporating sharp sand or grit if the soil is heavy, to improve drainage. Space plants 45–60cm (18–24in) apart to allow for their spreading habit. Tarragon grows well in the ground and can be used as a border plant or in herb gardens. It's also excellent for growing in raised beds where drainage is good.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> Tarragon is fully hardy in the UK and will return year after year. It's a great choice for a low-maintenance herb garden. The plant prefers well-drained soil and doesn't like wet feet, so ensure good drainage. In very heavy soils, consider planting on a mound or in a raised bed to improve drainage.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Tarragon is relatively low-maintenance once established. It's a hardy perennial that will provide fresh leaves from spring through autumn with minimal care. However, a few simple practices will help ensure healthy growth and good harvests.</p>
+            
+            <h3>Watering</h3>
+            <p>Water tarragon regularly during the first year after planting to help it establish. Once established, tarragon is very drought-tolerant and rarely needs watering, except during prolonged dry spells. Container-grown plants will need more frequent watering than those in the ground, but still allow the compost to dry out between waterings. Overwatering is the main cause of problems with tarragon, so err on the side of too dry rather than too wet.</p>
+            
+            <h3>Feeding</h3>
+            <p>Tarragon doesn't usually need additional feeding if grown in reasonably fertile soil. In fact, overly rich soil can encourage excessive growth at the expense of flavour. However, if your soil is very poor, you can apply a balanced, organic fertiliser in spring. Container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season. Avoid over-fertilising, as this can reduce the intensity of the flavour.</p>
+            
+            <h3>Pruning</h3>
+            <p>Regular harvesting of leaves helps keep tarragon bushy and prevents it from becoming leggy. Prune after flowering in late summer, cutting back by about one-third. You can also prune lightly throughout the year to harvest leaves and maintain shape. Regular harvesting also encourages new growth and keeps plants productive.</p>
+            
+            <h3>Dividing</h3>
+            <p>Tarragon can become congested over time, so divide plants every 3–4 years in spring or autumn. Lift the plant, divide the root ball into several sections, and replant the divisions. This helps rejuvenate the plant and encourages fresh growth. You can also use divisions to propagate new plants.</p>
+            
+            <h3>Winter Care</h3>
+            <p>Tarragon is fully hardy in the UK and will survive winter without protection. The leaves will die back in winter, but the plant will regrow in spring. In very cold areas or exposed positions, you may want to protect plants with a layer of mulch, but this is usually not necessary. Container-grown plants may benefit from being moved to a sheltered spot in very cold areas.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Tarragon leaves can be harvested from spring through autumn. The leaves are best used fresh, but they can also be dried or frozen for later use. Harvest regularly to encourage new growth and keep plants bushy.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Pick individual leaves:</strong> Harvest individual leaves or small sprigs by cutting them from the plant with sharp scissors. Cut just above a leaf node to encourage new growth.</li>
+                <li><strong>Harvest regularly:</strong> Pick leaves regularly throughout the growing season to encourage new growth and prevent plants from becoming leggy.</li>
+                <li><strong>Use fresh or preserve:</strong> Tarragon can be used fresh or preserved. Fresh tarragon has the best flavour, but it can also be dried or frozen.</li>
+                <li><strong>Harvest before flowering:</strong> For the best flavour, harvest leaves before the plant flowers. Once plants start to flower, the flavour may become stronger.</li>
+            </ul>
+            
+            <h3>Using Your Tarragon</h3>
+            <p>Fresh tarragon leaves add a distinctive aniseed-like flavour to many dishes. Use them in béarnaise sauce, fines herbes, chicken dishes, fish dishes, egg dishes, and vegetable dishes. They're excellent with chicken, fish, eggs, and in creamy sauces. Tarragon has a strong flavour, so use it sparingly—a little goes a long way. The leaves are particularly good in French cuisine and are essential in béarnaise sauce.</p>
+            
+            <h3>Drying Tarragon</h3>
+            <p>Tarragon can be dried for later use, though it loses some of its flavour when dried. Harvest sprigs and hang them upside down in a warm, well-ventilated area out of direct sunlight. Once dry, strip the leaves from the stems and store in an airtight container. Dried tarragon can be stored for up to 6 months, though fresh is always preferred.</p>
+            
+            <h3>Freezing Tarragon</h3>
+            <p>Tarragon can be frozen for later use, and freezing preserves more of its flavour than drying. Freeze whole leaves or sprigs in freezer bags, or chop leaves and freeze in ice cube trays with a little water or oil. Frozen tarragon is best used in cooked dishes. It retains its flavour reasonably well when frozen.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh tarragon leaves can be stored in the refrigerator for a few days. Place stems in a glass of water like cut flowers, or wrap in damp kitchen paper and store in the fridge. For longer storage, freeze the leaves as described above. Tarragon is best used fresh, so harvest as needed for the best flavour.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Tarragon is generally very trouble-free and rarely suffers from serious pests or diseases. However, there are a few issues to watch out for, mostly related to moisture and soil conditions.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious and can be controlled by encouraging natural predators or using organic methods.</li>
+                <li><strong>Spider mites:</strong> Can occur in hot, dry conditions. Increase humidity and improve air circulation. Usually not serious if caught early.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Root rot:</strong> Can occur if plants are overwatered or if drainage is poor. Ensure good drainage and avoid overwatering. Container-grown plants are particularly susceptible if drainage is poor.</li>
+                <li><strong>Powdery mildew:</strong> Can occur in humid conditions or when plants are overcrowded. Improve air circulation and avoid overhead watering. Usually not serious if caught early.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Overwatering:</strong> The main issue with tarragon is overwatering. Tarragon is very drought-tolerant and doesn't like wet feet. Ensure good drainage and allow the soil to dry out between waterings.</li>
+                <li><strong>Poor drainage:</strong> Can cause root rot and other problems. Ensure good drainage, especially in heavy soils. Consider planting on a mound or in a raised bed if drainage is poor.</li>
+                <li><strong>Leggy growth:</strong> Can occur if plants aren't harvested regularly. Prune after flowering and harvest leaves regularly to encourage bushy growth.</li>
+                <li><strong>Weak flavour:</strong> Can occur if plants are over-fertilised or grown in overly rich soil. Avoid over-fertilising and ensure plants are grown in soil that's not too rich.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Tarragon is one of the easiest herbs to grow and is perfect for beginners. It's very forgiving and will thrive with minimal care. The key to success is providing good drainage and avoiding overwatering. Always choose French tarragon for the best culinary results, and remember that it must be propagated from cuttings or division, not from seeds. With proper care, you'll have a steady supply of fresh, aromatic tarragon leaves from spring through autumn, and the plant will return year after year!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

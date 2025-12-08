@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Savory - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Savory.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Savory</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Savory in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Savory is a hardy, aromatic herb with two main types: summer savory (Satureja hortensis), an annual with a peppery flavour, and winter savory (Satureja montana), a hardy perennial with a stronger, more pungent taste. Both are excellent culinary herbs, with summer savory being more commonly used in cooking. Savory has a peppery, thyme-like flavour that's perfect for flavouring beans, meats, and vegetables.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Summer savory: Annual, grows 30–45cm (12–18in) tall</li>
+                    <li>Winter savory: Hardy perennial, grows 15–30cm (6–12in) tall</li>
+                    <li>Produces small white or pink flowers in summer</li>
+                    <li>Peppery, thyme-like flavour</li>
+                    <li>Excellent for flavouring beans, meats, and vegetables</li>
+                    <li>Easy to grow and low maintenance</li>
+                </ul>
+            </div>
+            
+            <p>Savory is native to the Mediterranean region and has been cultivated for centuries for its culinary properties. The name "savory" comes from the Latin word "satureia," and the herb has been used since Roman times. Summer savory has a milder, more delicate flavour and is the preferred choice for most culinary uses, while winter savory is stronger and more pungent, making it better suited for hearty dishes.</p>
+            
+            <p>In the UK, both types of savory are easy to grow. Summer savory is an annual that needs to be sown each year, while winter savory is a hardy perennial that will return year after year. Both prefer a sunny position with well-drained soil and are very drought-tolerant once established.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Summer savory is the most commonly used type for cooking, with its milder, more delicate flavour. Winter savory is stronger and more pungent, making it better for hearty dishes. Both are easy to grow from seeds, and winter savory can also be propagated from cuttings. Once established, savory is very low-maintenance and will provide fresh leaves throughout the growing season.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow savory, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4oH6MtH" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+            </div>
+
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>There are two main types of savory: summer savory and winter savory. Each has different characteristics and uses, so choose based on your culinary preferences and growing conditions.</p>
+            
+            <p>Summer savory is an annual herb with a milder, more delicate flavour that's preferred for most culinary uses. Winter savory is a hardy perennial with a stronger, more pungent taste that's better suited for hearty dishes. Both are easy to grow and will provide fresh leaves throughout the growing season.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Summer Savory</h4>
+                    <p>The most commonly used type (Satureja hortensis). Annual herb with a milder, peppery flavour. Grows 30–45cm (12–18in) tall. Best choice for most culinary uses, particularly with beans and vegetables.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Winter Savory</h4>
+                    <p>Hardy perennial variety (Satureja montana). Stronger, more pungent flavour. Grows 15–30cm (6–12in) tall. Returns year after year. Better suited for hearty dishes and winter cooking.</p>
+                </div>
+            </div>
+        
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Savory</h2>
+            
+            <h3>Sowing Summer Savory</h3>
+            <p>Summer savory is an annual and should be sown each year. It's easy to grow from seeds and can be sown directly outdoors or started indoors for an earlier harvest.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Indoor sowing:</strong> Sow seeds indoors in late winter or early spring (March–April). Sow seeds thinly on the surface of peat-free seed compost and cover very lightly. Keep at 15–20°C (59–68°F).
+                </li>
+                <li>
+                    <strong>Germination:</strong> Seeds should germinate within 1–2 weeks. Once germinated, grow on in a bright location.
+                </li>
+                <li>
+                    <strong>Pot on:</strong> When seedlings are large enough to handle, pot on into individual pots. Grow on until ready to plant out after the last frost.
+                </li>
+                <li>
+                    <strong>Outdoor sowing:</strong> Alternatively, sow directly outdoors in late spring (April–May) once the soil has warmed. Sow seeds thinly in rows or patches and cover lightly with soil.
+                </li>
+                <li>
+                    <strong>Thinning:</strong> Thin seedlings to 15–20cm (6–8in) apart when they're large enough to handle.
+                </li>
+            </ol>
+            
+            <h3>Sowing Winter Savory</h3>
+            <p>Winter savory can be grown from seeds or propagated from cuttings. Seeds can be sown in spring, or you can take cuttings from established plants in summer.</p>
+            
+            <p>Sow seeds indoors in spring (March–April) following the same method as summer savory. Alternatively, take cuttings from established plants in summer. Winter savory is a perennial and will return year after year once established.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Sowing Tip:</strong> Summer savory is an annual and needs to be sown each year, while winter savory is a perennial that will return year after year. Both are easy to grow from seeds. For a continuous supply of summer savory, make successional sowings every few weeks from spring to early summer. Winter savory can also be propagated from cuttings taken in summer.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Savory prefers a sunny position with well-drained soil. Both summer and winter savory are very drought-tolerant once established and can be grown in containers or in the ground.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny location with well-drained, reasonably fertile soil. Savory prefers full sun but will tolerate light shade. It will not grow well in heavy, waterlogged soil, so ensure good drainage. Savory is very drought-tolerant and grows best in soil that's not too rich.</p>
+            
+            <h3>Container Planting</h3>
+            <p>Growing savory in containers is an excellent option, especially for summer savory. Use a container at least 20cm (8in) wide and deep with good drainage. Fill with a mix of peat-free multi-purpose compost and sharp sand or perlite for extra drainage. Container-grown savory will need more frequent watering than ground-grown plants, but still allow the compost to dry out between waterings.</p>
+            
+            <h3>Ground Planting</h3>
+            <p>If planting in the ground, prepare the soil by removing weeds and incorporating sharp sand or grit if the soil is heavy, to improve drainage. Space summer savory plants 15–20cm (6–8in) apart, and winter savory plants 20–30cm (8–12in) apart. Both types grow well in the ground and can be used in herb gardens or as border plants.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> Savory is very drought-tolerant and doesn't like wet feet, so ensure good drainage. In very heavy soils, consider planting on a mound or in a raised bed to improve drainage. Both types of savory are excellent for growing in containers, making them perfect for smaller spaces or patios.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Savory is very low-maintenance once established. Both summer and winter savory are drought-tolerant and require minimal care. However, a few simple practices will help ensure healthy growth and good harvests.</p>
+            
+            <h3>Watering</h3>
+            <p>Water savory regularly during the first few weeks after planting to help it establish. Once established, savory is very drought-tolerant and rarely needs watering, except during prolonged dry spells. Container-grown plants will need more frequent watering than those in the ground, but still allow the compost to dry out between waterings. Overwatering is the main cause of problems with savory, so err on the side of too dry rather than too wet.</p>
+            
+            <h3>Feeding</h3>
+            <p>Savory doesn't usually need additional feeding if grown in reasonably fertile soil. In fact, overly rich soil can encourage excessive growth at the expense of flavour. However, if your soil is very poor, you can apply a balanced, organic fertiliser in spring. Container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season. Avoid over-fertilising, as this can reduce the intensity of the flavour.</p>
+            
+            <h3>Pruning</h3>
+            <p>Regular harvesting of leaves helps keep savory bushy and prevents it from becoming leggy. For summer savory, pinch out the growing tips to encourage bushy growth. For winter savory, prune lightly after flowering to maintain shape. Regular harvesting also encourages new growth and keeps plants productive.</p>
+            
+            <h3>Preventing Bolting</h3>
+            <p>Summer savory can bolt (flower prematurely) in hot, dry conditions. To prevent bolting, keep plants well-watered during hot weather and harvest regularly. Once plants start to flower, the flavour may become stronger, so harvest leaves before flowering for the best flavour.</p>
+            
+            <h3>Winter Care</h3>
+            <p>Summer savory is an annual and will die after flowering, so you'll need to sow new seeds each year. Winter savory is fully hardy in the UK and will survive winter without protection. In very cold areas or exposed positions, you may want to protect winter savory plants with fleece, but this is usually not necessary.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Savory leaves can be harvested throughout the growing season. The leaves are best used fresh, but they can also be dried for later use. Dried savory retains its flavour well, making it a popular herb for storage. Harvest regularly to encourage new growth and keep plants bushy.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Pick individual leaves:</strong> Harvest individual leaves or small sprigs by cutting them from the plant with sharp scissors. Cut just above a leaf node to encourage new growth.</li>
+                <li><strong>Harvest regularly:</strong> Pick leaves regularly throughout the growing season to encourage new growth and prevent plants from becoming leggy.</li>
+                <li><strong>Use fresh or dry:</strong> Savory can be used fresh or dried. Fresh savory has the best flavour, but dried savory also retains its flavour well.</li>
+                <li><strong>Harvest before flowering:</strong> For the best flavour, harvest leaves before the plant flowers. Once plants start to flower, the flavour may become stronger.</li>
+            </ul>
+            
+            <h3>Using Your Savory</h3>
+            <p>Fresh savory leaves add a peppery, thyme-like flavour to many dishes. Use them in bean dishes (particularly with broad beans), meat dishes, vegetable dishes, and stuffings. Summer savory is particularly good with beans and vegetables, while winter savory is better suited for hearty meat dishes. Savory has a strong flavour, so use it sparingly—a little goes a long way.</p>
+            
+            <h3>Drying Savory</h3>
+            <p>Savory is one of the best herbs for drying, as it retains its flavour well. Harvest sprigs and hang them upside down in a warm, well-ventilated area out of direct sunlight. Once dry, strip the leaves from the stems and store in an airtight container. Dried savory can be stored for up to a year and retains its flavour better than many other dried herbs.</p>
+            
+            <h3>Freezing Savory</h3>
+            <p>Savory can be frozen for later use. Freeze whole leaves or sprigs in freezer bags, or chop leaves and freeze in ice cube trays with a little water. Frozen savory is best used in cooked dishes. It retains its flavour well when frozen.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh savory leaves can be stored in the refrigerator for a few days. Place stems in a glass of water like cut flowers, or wrap in damp kitchen paper and store in the fridge. For longer storage, dry the leaves as described above. Dried savory can be stored in an airtight container for up to a year, and it retains its flavour better than many other dried herbs.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Savory is generally very trouble-free and rarely suffers from serious pests or diseases. However, there are a few issues to watch out for, mostly related to moisture and growing conditions.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious and can be controlled by encouraging natural predators or using organic methods.</li>
+                <li><strong>Spider mites:</strong> Can occur in hot, dry conditions. Increase humidity and improve air circulation. Usually not serious if caught early.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Root rot:</strong> Can occur if plants are overwatered or if drainage is poor. Ensure good drainage and avoid overwatering. Container-grown plants are particularly susceptible if drainage is poor.</li>
+                <li><strong>Powdery mildew:</strong> Can occur in humid conditions or when plants are overcrowded. Improve air circulation and avoid overhead watering. Usually not serious if caught early.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Overwatering:</strong> The main issue with savory is overwatering. Savory is very drought-tolerant and doesn't like wet feet. Ensure good drainage and allow the soil to dry out between waterings.</li>
+                <li><strong>Poor drainage:</strong> Can cause root rot and other problems. Ensure good drainage, especially in heavy soils. Consider planting on a mound or in a raised bed if drainage is poor.</li>
+                <li><strong>Bolting:</strong> Summer savory can bolt (flower prematurely) in hot, dry conditions. Keep plants well-watered during hot weather and harvest regularly to prevent bolting.</li>
+                <li><strong>Leggy growth:</strong> Can occur if plants aren't harvested regularly. Pinch out growing tips and harvest leaves regularly to encourage bushy growth.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Savory is one of the easiest herbs to grow and is perfect for beginners. It's very forgiving and will thrive with minimal care. The key to success is providing good drainage and avoiding overwatering. With proper care, you'll have a steady supply of fresh, aromatic savory leaves throughout the growing season. Summer savory needs to be sown each year, while winter savory will return year after year!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

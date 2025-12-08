@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Fennel - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Fennel.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Fennel</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Fennel in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Fennel (Foeniculum vulgare) is a versatile perennial herb with feathery, aromatic leaves and attractive yellow umbel flowers. This tall, stately herb is valued for both its culinary and ornamental qualities. Fennel provides fresh leaves, seeds, and even edible bulbs (in the case of Florence fennel varieties), making it a multi-purpose addition to any UK garden.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Tall perennial herb (can reach 2m / 6ft)</li>
+                    <li>Provides fresh leaves, seeds, and bulbs</li>
+                    <li>Attractive feathery foliage and yellow flowers</li>
+                    <li>Attracts beneficial insects when flowering</li>
+                    <li>Self-seeds readily for continuous growth</li>
+                    <li>Distinctive aniseed-like flavour</li>
+                </ul>
+            </div>
+            
+            <p>There are two main types of fennel: herb fennel (Foeniculum vulgare), grown for its leaves and seeds, and Florence fennel (Foeniculum vulgare var. azoricum), grown for its swollen bulb-like stem base. Both types are easy to grow in UK gardens and provide valuable culinary ingredients. Herb fennel is a perennial that will return year after year, while Florence fennel is usually grown as an annual.</p>
+            
+            <p>Fennel is a member of the carrot family and has a distinctive aniseed-like flavour that's both fresh and aromatic. The feathery leaves are used fresh in cooking, while the seeds have a stronger, more concentrated flavour. Fennel's tall, architectural form and attractive yellow flowers also make it a valuable ornamental plant in herb gardens and borders.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Fennel has a long taproot and doesn't transplant well, so it's best sown directly where it's to grow. If you must start it indoors, use deep pots and handle seedlings very carefully to avoid disturbing the roots.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow fennel, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/3XmYw6h" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+            </div>
+
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>There are two main types of fennel: herb fennel (grown for leaves and seeds) and Florence fennel (grown for its bulb-like stem base). Within each type, there are several varieties to choose from, each with slightly different characteristics.</p>
+            
+            <p>Herb fennel varieties are perennials that grow tall and produce abundant leaves and seeds. Florence fennel varieties are usually grown as annuals and produce the characteristic swollen stem base that's used as a vegetable. Both types have the characteristic aniseed flavour, though Florence fennel tends to be milder.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Herb Fennel (Common)</h4>
+                    <p>The standard herb fennel variety. Grows tall (up to 2m / 6ft) and produces abundant feathery leaves and seeds. Perennial, returns year after year.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Bronze' Fennel</h4>
+                    <p>Ornamental variety with attractive bronze-purple foliage. Same culinary uses as green fennel but adds visual interest to the garden.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Florence Fennel</h4>
+                    <p>Grown as an annual for its swollen, bulb-like stem base. Milder flavour than herb fennel. Requires specific growing conditions to form good bulbs.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Romanesco'</h4>
+                    <p>Florence fennel variety with particularly large, well-formed bulbs. Reliable performer in UK conditions when grown correctly.</p>
+                </div>
+            </div>
+        
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Fennel</h2>
+            
+            <h3>Sowing Outdoors (Recommended)</h3>
+            <p>Fennel is best sown directly where it's to grow, as it has a long taproot and doesn't transplant well. Sow from early spring to early summer for continuous harvests throughout the season.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Choose a sunny location with well-drained soil. Remove weeds and rake the soil to a fine tilth.
+                </li>
+                <li>
+                    <strong>Sow seeds:</strong> Sow seeds thinly in drills about 1cm (½in) deep, spacing rows 45cm (18in) apart for herb fennel, or 30cm (12in) for Florence fennel.
+                </li>
+                <li>
+                    <strong>Water gently:</strong> Water the soil gently after sowing, taking care not to wash away the seeds. Keep the soil moist until germination.
+                </li>
+                <li>
+                    <strong>Thin seedlings:</strong> When seedlings are large enough to handle, thin them to 30–45cm (12–18in) apart for herb fennel, or 20–30cm (8–12in) for Florence fennel.
+                </li>
+                <li>
+                    <strong>Succession sow:</strong> For continuous harvests of leaves, sow small batches every 2–3 weeks from early spring to early summer.
+                </li>
+            </ol>
+            
+            <h3>Sowing Indoors</h3>
+            <p>If you must start fennel indoors, use deep pots (at least 10cm / 4in deep) to accommodate the long taproot. Sow seeds about 1cm (½in) deep and keep in a warm location (15–20°C / 59–68°F). Transplant very carefully when seedlings are large enough, taking care not to disturb the roots. Direct sowing is strongly recommended for best results.</p>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> Fennel has a long taproot and doesn't transplant well. If you must start it indoors, use deep pots and handle seedlings very carefully. Direct sowing is strongly recommended for best results. Also, avoid planting fennel near dill or coriander, as they can cross-pollinate.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Fennel prefers a sunny position with well-drained soil. It can be grown in containers, raised beds, or directly in the ground. The key is to avoid disturbing the roots, so direct sowing is preferred over transplanting.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny location with well-drained, reasonably fertile soil. Fennel prefers full sun but will tolerate light shade. Avoid windy positions, as tall varieties can be damaged by strong winds. Fennel grows best in soil that's not too rich, as overly fertile soil can encourage excessive leafy growth at the expense of flavour and seed production.</p>
+            
+            <h3>Container Planting</h3>
+            <p>Fennel can be grown in containers, but choose deep pots (at least 30cm / 12in deep) to accommodate the long taproot. Use peat-free multi-purpose compost and sow seeds directly in the container. Thin seedlings to 20–30cm (8–12in) apart. Container-grown fennel will need regular watering and may need support as it grows tall.</p>
+            
+            <h3>Ground Planting</h3>
+            <p>If planting in the ground, prepare the soil by removing weeds and incorporating well-rotted compost if the soil is very poor. However, avoid over-enriching the soil. Sow seeds directly where plants are to grow, as fennel doesn't transplant well. Space plants 30–45cm (12–18in) apart for herb fennel, or 20–30cm (8–12in) for Florence fennel.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Companion Planting:</strong> Fennel attracts beneficial insects like hoverflies and parasitic wasps, which help control pests. However, avoid planting fennel near dill or coriander, as they can cross-pollinate and affect seed quality. Fennel is also said to inhibit the growth of some plants, so give it space.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Fennel is relatively low-maintenance once established. Regular watering, occasional feeding, and supporting tall varieties will keep plants healthy and productive.</p>
+            
+            <h3>Watering</h3>
+            <p>Water fennel regularly during dry spells, especially when plants are young. Once established, fennel is quite drought-tolerant, but regular watering will encourage more vigorous growth and better harvests. Container-grown plants will need more frequent watering than those in the ground. Water at the base of plants to avoid wetting the leaves.</p>
+            
+            <h3>Feeding</h3>
+            <p>Fennel doesn't usually need additional feeding if grown in reasonably fertile soil. In fact, overly rich soil can encourage excessive leafy growth at the expense of flavour and seed production. However, container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season. Use a balanced, organic fertiliser at half strength.</p>
+            
+            <h3>Supporting</h3>
+            <p>Tall varieties of fennel may need support, especially in windy positions. Use stakes or plant supports to prevent plants from falling over. This is particularly important when plants are flowering and setting seed, as the seed heads can be heavy. Florence fennel usually doesn't need support as it's shorter and more compact.</p>
+            
+            <h3>Harvesting to Encourage Growth</h3>
+            <p>Regular harvesting of leaves encourages new growth and helps delay flowering. Pick leaves from the outside of the plant, leaving the central growing point intact. However, if you want to harvest seeds, allow some plants to flower and set seed.</p>
+            
+            <h3>Self-Seeding</h3>
+            <p>Fennel self-seeds readily, so if you allow some plants to flower and set seed, you'll often get volunteer seedlings the following year. These can be left to grow or transplanted to desired locations (though transplanting is not ideal). Self-seeded plants often appear at the perfect time for your local conditions.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Fennel leaves can be harvested as soon as plants are large enough, usually 6–8 weeks after sowing. The leaves are best used fresh, as they lose much of their flavour when dried. Seeds can be harvested when they turn brown and dry on the plant. Florence fennel bulbs are harvested when they're swollen and firm.</p>
+            
+            <h3>How to Harvest Leaves</h3>
+            <ul>
+                <li><strong>Pick young leaves:</strong> Harvest leaves when they're young and tender for the best flavour. Older leaves can become tough and less flavourful.</li>
+                <li><strong>Harvest regularly:</strong> Pick leaves from the outside of the plant regularly to encourage new growth and delay flowering.</li>
+                <li><strong>Cut whole stems:</strong> You can cut whole stems near the base, or pick individual leaves as needed. Regular harvesting encourages bushier growth.</li>
+                <li><strong>Use immediately:</strong> Fennel leaves are best used fresh. The flavour diminishes quickly after picking, so use within a few hours if possible.</li>
+            </ul>
+            
+            <h3>Harvesting Seeds</h3>
+            <p>To harvest fennel seeds, allow plants to flower and set seed. When the seed heads turn brown and dry, cut the stems and hang them upside down in a paper bag in a warm, dry place. The seeds will fall into the bag as they dry. Alternatively, place seed heads in a paper bag and shake to release the seeds. Store dried seeds in an airtight container.</p>
+            
+            <h3>Harvesting Florence Fennel Bulbs</h3>
+            <p>For Florence fennel, harvest the bulbs when they're swollen, firm, and about the size of a tennis ball. Cut the bulb at ground level. The timing is important—harvest too early and the bulb won't be fully formed; too late and it may become tough or bolt. Florence fennel bulbs are best harvested in late summer to early autumn.</p>
+            
+            <h3>Using Your Fennel</h3>
+            <p>Fennel leaves add a fresh, aniseed-like flavour to many dishes, particularly fish, salads, and Mediterranean cuisine. They're excellent in soups, stews, and sauces. Add fennel leaves at the end of cooking or use raw, as heat diminishes their flavour. The seeds have a stronger, more concentrated flavour and are used in spice blends, bread, and pickling. Florence fennel bulbs can be eaten raw in salads, roasted, braised, or grilled.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh fennel leaves can be stored in the refrigerator for a few days. Place stems in a glass of water like cut flowers, or wrap in damp kitchen paper and store in the fridge. Fennel leaves don't dry well, losing most of their flavour, so they're best used fresh. However, they can be frozen for use in cooked dishes. The seeds store well in an airtight container for up to a year. Florence fennel bulbs can be stored in the refrigerator for up to a week.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Fennel is generally trouble-free, but there are a few issues to watch out for. Most problems are minor and easily managed.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. However, fennel's flowers attract hoverflies, which are natural predators of aphids. Usually not a serious problem if plants are healthy.</li>
+                <li><strong>Slugs and snails:</strong> Can damage young seedlings. Use barriers, traps, or organic controls. Once established, fennel is less attractive to slugs.</li>
+                <li><strong>Carrot fly:</strong> Can affect fennel as it's related to carrots. Use barriers or companion planting to deter them.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Powdery mildew:</strong> Can occur in humid conditions or when plants are overcrowded. Improve air circulation and avoid overhead watering. Usually not serious if caught early.</li>
+                <li><strong>Damping off:</strong> Fungal disease that affects seedlings. Prevent by avoiding overwatering, ensuring good air circulation, and using clean compost.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Bolting (Florence fennel):</strong> Florence fennel can bolt (go to seed) before forming a bulb if conditions aren't right. Ensure adequate water, avoid transplanting, and choose bolt-resistant varieties. Hot weather can also trigger bolting.</li>
+                <li><strong>Wind damage:</strong> Tall varieties can be damaged by strong winds. Provide support or choose a sheltered position.</li>
+                <li><strong>Poor bulb formation (Florence fennel):</strong> Can occur if plants are stressed, transplanted, or conditions aren't optimal. Ensure consistent watering and avoid disturbing the roots.</li>
+                <li><strong>Cross-pollination:</strong> Fennel can cross-pollinate with dill and coriander, affecting seed quality. Keep them separated if you're saving seeds.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Fennel's flowers are not just beautiful—they're also valuable for attracting beneficial insects to your garden. Hoverflies, parasitic wasps, and other beneficial insects are particularly attracted to fennel flowers. Consider allowing some plants to flower even if you're primarily growing for leaves, as they'll help control pests in your garden!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

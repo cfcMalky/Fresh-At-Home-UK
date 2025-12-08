@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Raspberries - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Raspberries.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Raspberries</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Raspberries in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Raspberries are one of the most popular and rewarding soft fruits for UK gardens, producing delicious, sweet berries perfect for eating fresh, freezing, or making preserves. With both summer-fruiting and autumn-fruiting varieties available, you can enjoy fresh raspberries from June through to October.</p>
+            
+            <h3>Key Characteristics</h3>
+            <ul>
+                <li><strong>Fruiting Types:</strong> Summer-fruiting (June-July) and autumn-fruiting (August-October) varieties</li>
+                <li><strong>Growth Habit:</strong> Cane fruits that need support systems (posts and wires)</li>
+                <li><strong>Pollination:</strong> Self-fertile, so a single variety will produce fruits</li>
+                <li><strong>Spreading:</strong> Spread by underground suckers - contain with barriers or regular removal</li>
+                <li><strong>Pruning:</strong> Different pruning methods for summer and autumn-fruiting varieties</li>
+                <li><strong>Hardiness:</strong> Fully hardy in UK conditions</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Plant both summer and autumn-fruiting varieties to extend your harvest season from June to October. Autumn-fruiting varieties are often easier for beginners as they fruit on new canes and require simpler pruning.
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow raspberries, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/44ciiVx" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3Xz7qJZ" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Posts and wires for supporting raspberry canes. Essential for keeping canes upright and making harvesting easier. Can be used to create a post-and-wire system.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3Xz7qJZ" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A sturdy hand trowel for planting bare-root canes and container-grown plants, essential for proper root placement and soil preparation.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>Selecting the right raspberry varieties is crucial for success. The main choice is between summer-fruiting and autumn-fruiting types, each with different characteristics and pruning requirements.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Fruiting Season:</strong> Summer-fruiting (June-July) or autumn-fruiting (August-October)</li>
+                <li><strong>Pruning:</strong> Autumn-fruiting varieties are simpler to prune (cut all canes to ground in winter)</li>
+                <li><strong>Flavour:</strong> Some varieties have better flavour or are more disease-resistant</li>
+                <li><strong>Size:</strong> Consider available space - raspberries spread by suckers</li>
+                <li><strong>Disease Resistance:</strong> Some varieties show better resistance to common problems</li>
+            </ul>
+
+            <h3>Recommended Varieties for UK Gardens</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Glen Ample (Summer)</h4>
+                    <p><strong>Type:</strong> Summer-fruiting<br>
+                    <strong>Harvest:</strong> Mid-June to July<br>
+                    <strong>Notes:</strong> Excellent flavour, large fruits, heavy cropper, spine-free canes. Most popular summer variety.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Autumn Bliss (Autumn)</h4>
+                    <p><strong>Type:</strong> Autumn-fruiting<br>
+                    <strong>Harvest:</strong> August to October<br>
+                    <strong>Notes:</strong> Reliable, good flavour, easy to prune, heavy cropper. Excellent for beginners.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Joan J (Autumn)</h4>
+                    <p><strong>Type:</strong> Autumn-fruiting<br>
+                    <strong>Harvest:</strong> August to October<br>
+                    <strong>Notes:</strong> Spine-free, excellent flavour, reliable, easy to grow. Great for families.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Malling Jewel (Summer)</h4>
+                    <p><strong>Type:</strong> Summer-fruiting<br>
+                    <strong>Harvest:</strong> Early to mid-July<br>
+                    <strong>Notes:</strong> Excellent flavour, reliable, good disease resistance. Traditional favourite.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Polka (Autumn)</h4>
+                    <p><strong>Type:</strong> Autumn-fruiting<br>
+                    <strong>Harvest:</strong> August to October<br>
+                    <strong>Notes:</strong> Large fruits, excellent flavour, reliable, spine-free. High quality.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Glen Magna (Summer)</h4>
+                    <p><strong>Type:</strong> Summer-fruiting<br>
+                    <strong>Harvest:</strong> Mid-July<br>
+                    <strong>Notes:</strong> Large fruits, excellent flavour, good disease resistance, heavy cropper.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>ℹ️ Fruiting Types:</strong> Summer-fruiting varieties produce fruit on canes that grew the previous year, while autumn-fruiting varieties produce fruit on canes that grew in the same year. This difference affects pruning - autumn varieties are simpler as you cut all canes to the ground in winter.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Proper planting and support system setup are essential for successful raspberry growing. Choose the right site, prepare the soil well, and install supports before planting.</p>
+            
+            <h3>Site Selection</h3>
+            <ul>
+                <li><strong>Sunlight:</strong> Full sun is ideal, though raspberries tolerate light shade</li>
+                <li><strong>Soil:</strong> Well-drained, fertile soil with pH 6.0-6.5. Raspberries dislike waterlogged conditions</li>
+                <li><strong>Shelter:</strong> Protect from strong winds, which can damage canes</li>
+                <li><strong>Space:</strong> Allow space for spreading - raspberries send out suckers</li>
+                <li><strong>Containment:</strong> Consider installing a barrier (30-40cm deep) to contain spreading</li>
+            </ul>
+
+            <h3>Installing Support System</h3>
+            <p>Raspberries need support to keep canes upright. Install supports before planting.</p>
+            <ul>
+                <li><strong>Posts:</strong> Install posts 2-3m apart along the row (2m high posts)</li>
+                <li><strong>Wires:</strong> Attach horizontal wires at 60cm, 1.2m, and 1.8m heights</li>
+                <li><strong>Method:</strong> Tie canes to wires as they grow, or use a "V-trellis" system</li>
+                <li><strong>Alternative:</strong> For small plantings, individual stakes can be used</li>
+            </ul>
+
+            <h3>Planting Bare-Root Canes</h3>
+            <ol class="step-list">
+                <li><strong>Timing:</strong> Plant during dormancy (November-March), avoiding frozen or waterlogged soil</li>
+                <li><strong>Preparation:</strong> Soak roots in water for 1-2 hours before planting</li>
+                <li><strong>Spacing:</strong> Plant canes 40-50cm apart in rows 1.5-2m apart</li>
+                <li><strong>Depth:</strong> Plant so the soil mark on the cane is level with the soil surface</li>
+                <li><strong>Roots:</strong> Spread roots out in the planting hole</li>
+                <li><strong>Backfill:</strong> Fill hole, firming soil gently around roots</li>
+                <li><strong>Pruning:</strong> Cut canes back to 15-20cm above ground after planting</li>
+                <li><strong>Watering:</strong> Water thoroughly after planting</li>
+            </ol>
+
+            <h3>Planting Container-Grown Plants</h3>
+            <ul>
+                <li>Can be planted year-round, but autumn-winter is still best</li>
+                <li>Plant at the same depth as in the container</li>
+                <li>Water regularly, especially if planting in spring or summer</li>
+                <li>Cut canes back to 15-20cm after planting if not already done</li>
+            </ul>
+
+            <h3>Spacing Guidelines</h3>
+            <ul>
+                <li><strong>Between Canes:</strong> 40-50cm apart</li>
+                <li><strong>Between Rows:</strong> 1.5-2m apart (allows access and prevents overcrowding)</li>
+                <li><strong>Containment:</strong> Install barriers 30-40cm deep around the planting area to contain suckers</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Install your support system before planting - it's much easier than trying to add it later. For small gardens, consider growing autumn-fruiting varieties in containers or raised beds to control spreading.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Consistent care throughout the growing season ensures healthy growth, good yields, and high-quality fruits. Raspberries require attention to watering, feeding, pruning, and controlling their spreading habit.</p>
+            
+            <h3>Watering</h3>
+            <ul>
+                <li><strong>Establishment:</strong> Water regularly during the first year, especially in dry periods</li>
+                <li><strong>Growing Season:</strong> Water during dry spells, particularly when fruits are developing (May-September)</li>
+                <li><strong>Method:</strong> Water at the base of plants, avoiding wetting the foliage</li>
+                <li><strong>Mulching:</strong> Apply organic mulch around plants to conserve moisture and suppress weeds</li>
+            </ul>
+
+            <h3>Feeding</h3>
+            <ul>
+                <li><strong>Spring:</strong> Apply balanced fertiliser (e.g., Growmore) or well-rotted manure in early spring</li>
+                <li><strong>Potassium:</strong> Apply sulphate of potash in late winter to improve fruit quality</li>
+                <li><strong>Frequency:</strong> Feed annually for best growth and fruiting</li>
+                <li><strong>Container Plants:</strong> Feed regularly with liquid fertiliser during the growing season</li>
+            </ul>
+
+            <h3>Pruning</h3>
+            <p>Pruning methods differ significantly between summer-fruiting and autumn-fruiting varieties. Correct pruning is essential for good crops.</p>
+            
+            <h4>Summer-Fruiting Varieties</h4>
+            <ul>
+                <li><strong>After Harvest:</strong> Cut out all canes that have fruited (they won't fruit again)</li>
+                <li><strong>New Canes:</strong> Keep 6-8 of the strongest new canes per plant, remove the rest</li>
+                <li><strong>Timing:</strong> Prune immediately after harvest (July-August) and again in late winter</li>
+                <li><strong>Winter Pruning:</strong> Remove weak, damaged, or overcrowded canes, leaving 6-8 strong canes</li>
+                <li><strong>Tie In:</strong> Tie remaining canes to support wires</li>
+            </ul>
+
+            <h4>Autumn-Fruiting Varieties</h4>
+            <ul>
+                <li><strong>Winter Pruning:</strong> Cut all canes to ground level in late winter (February-March)</li>
+                <li><strong>Simple Method:</strong> All canes are removed - new canes will grow and fruit in the same year</li>
+                <li><strong>Alternative:</strong> Can be treated like summer varieties for two crops (summer on old canes, autumn on new)</li>
+                <li><strong>Timing:</strong> Prune when completely dormant, before new growth starts</li>
+            </ul>
+
+            <h3>Controlling Spread</h3>
+            <ul>
+                <li><strong>Suckers:</strong> Raspberries spread by underground suckers - remove unwanted ones regularly</li>
+                <li><strong>Barriers:</strong> Install barriers 30-40cm deep around the planting area to contain spread</li>
+                <li><strong>Regular Maintenance:</strong> Dig out or mow over suckers that appear outside the planting area</li>
+                <li><strong>Spacing:</strong> Keep rows clear by removing suckers between rows</li>
+            </ul>
+
+            <h3>Mulching</h3>
+            <ul>
+                <li>Apply a 5-8cm layer of organic mulch (compost, well-rotted manure, or bark chips) around plants</li>
+                <li>Keep mulch away from the base of canes to prevent rot</li>
+                <li>Replenish annually in spring</li>
+                <li>Helps suppress weeds and conserve moisture</li>
+            </ul>
+
+            <h3>Tying In Canes</h3>
+            <ul>
+                <li><strong>Summer Varieties:</strong> Tie canes to wires as they grow, spacing them evenly</li>
+                <li><strong>Method:</strong> Use soft garden twine or special raspberry ties</li>
+                <li><strong>Spacing:</strong> Space canes 10-15cm apart along wires</li>
+                <li><strong>Height:</strong> Canes can grow 1.5-2m tall - support them well</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ Pruning Warning:</strong> It's crucial to prune correctly for your variety type. Summer-fruiting varieties fruit on last year's canes, while autumn-fruiting varieties fruit on this year's canes. Pruning incorrectly will result in no fruit!
+            </div>
+
+            <div class="info-box">
+                <strong>ℹ️ Pruning Note:</strong> Summer-fruiting varieties need careful management of old and new canes. Autumn-fruiting varieties are much simpler - just cut everything to the ground in winter and let new canes grow and fruit.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Raspberries are ready to harvest when fully coloured and easily come away from the plant. Harvest regularly as fruits ripen quickly and don't store well once picked.</p>
+            
+            <h3>When to Harvest</h3>
+            <ul>
+                <li><strong>Colour:</strong> Fruits should be fully coloured (deep red, yellow, or purple depending on variety)</li>
+                <li><strong>Feel:</strong> Fruits should be firm but yield slightly to gentle pressure</li>
+                <li><strong>Ease of Picking:</strong> Ripe raspberries should come away easily with a gentle pull</li>
+                <li><strong>Timing:</strong> Harvest every 2-3 days during the fruiting season</li>
+                <li><strong>Season:</strong> Summer varieties (June-July), autumn varieties (August-October)</li>
+                <li><strong>Weather:</strong> Harvest in dry weather, preferably in the morning when cool</li>
+            </ul>
+
+            <h3>Harvesting Method</h3>
+            <ul>
+                <li><strong>Gentle Pull:</strong> Gently pull the fruit - if ripe, it will come away easily, leaving the core (receptacle) on the plant</li>
+                <li><strong>Avoid Squashing:</strong> Handle fruits carefully as they're very delicate and bruise easily</li>
+                <li><strong>Container:</strong> Use shallow containers to avoid crushing fruits - don't pile them deep</li>
+                <li><strong>Regular Picking:</strong> Pick regularly to encourage more fruits to develop</li>
+                <li><strong>Check Daily:</strong> During peak season, check plants daily as fruits ripen quickly</li>
+            </ul>
+
+            <h3>Storage</h3>
+            <ul>
+                <li><strong>Immediate Use:</strong> Raspberries are best eaten fresh, within 1-2 days of picking</li>
+                <li><strong>Refrigeration:</strong> Store in the refrigerator for up to 2-3 days, but use as soon as possible</li>
+                <li><strong>Handling:</strong> Don't wash until just before eating - moisture causes them to deteriorate quickly</li>
+                <li><strong>Freezing:</strong> Raspberries freeze well - freeze on trays first, then transfer to containers</li>
+                <li><strong>Preserving:</strong> Excellent for making jams, jellies, and preserves</li>
+            </ul>
+
+            <h3>Harvesting Tips</h3>
+            <ul>
+                <li><strong>Peak Season:</strong> Harvest is usually heaviest in mid-season - be prepared for large quantities</li>
+                <li><strong>Staggered Ripening:</strong> Fruits on the same plant ripen at different times - multiple harvests needed</li>
+                <li><strong>Quality:</strong> Pick only fully ripe fruits - they won't ripen further after picking</li>
+                <li><strong>Damaged Fruits:</strong> Remove and discard any damaged or mouldy fruits immediately</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Raspberries don't keep well once picked, so harvest only what you can use within a day or two. For longer storage, freeze them immediately after picking. Freeze on baking trays first (so they don't stick together), then transfer to freezer bags or containers.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Raspberries can be affected by various pests and diseases. Early identification and appropriate action help maintain healthy, productive plants. Good hygiene and proper pruning are key to prevention.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Raspberry Beetle:</strong> Larvae feed inside fruits, causing them to be inedible. Use pheromone traps, remove affected fruits, consider biological controls.</li>
+                <li><strong>Aphids:</strong> Can cause leaf curl and spread viruses. Encourage natural predators, use insecticidal soap if severe.</li>
+                <li><strong>Birds:</strong> Can strip entire crops. Use netting to protect fruits, especially during ripening season.</li>
+                <li><strong>Raspberry Cane Midge:</strong> Larvae cause canes to die back. Remove and destroy affected canes, improve air circulation.</li>
+                <li><strong>Spider Mites:</strong> Can cause leaf discolouration. Increase humidity, use biological controls if severe.</li>
+            </ul>
+
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Raspberry Cane Blight:</strong> Causes canes to die back, often with purple/black patches. Remove affected canes promptly, improve air circulation, avoid damage to canes.</li>
+                <li><strong>Raspberry Cane Spot:</strong> Purple spots on canes and leaves. Remove affected material, improve air circulation, consider resistant varieties.</li>
+                <li><strong>Grey Mould (Botrytis):</strong> Fruits develop grey, fuzzy mould. Remove affected fruits, improve air circulation, avoid wetting foliage.</li>
+                <li><strong>Raspberry Viruses:</strong> Various viruses can affect plants, causing stunted growth and poor fruiting. Remove and destroy affected plants, buy certified virus-free stock.</li>
+                <li><strong>Root Rot:</strong> Caused by waterlogged soil. Improve drainage, avoid overwatering, remove affected plants.</li>
+            </ul>
+
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Poor Drainage:</strong> Raspberries dislike waterlogged soil. Improve drainage, plant in raised beds if necessary.</li>
+                <li><strong>Drought Stress:</strong> Can cause poor fruit development. Water regularly during dry periods, especially when fruits are developing.</li>
+                <li><strong>Overcrowding:</strong> Too many canes reduce air circulation and increase disease risk. Prune to recommended numbers, maintain spacing.</li>
+                <li><strong>Frost Damage:</strong> Late spring frosts can damage flowers. Protect with fleece if frost is forecast during flowering.</li>
+                <li><strong>Excessive Spreading:</strong> Canes spread by suckers. Install barriers, remove unwanted suckers regularly.</li>
+            </ul>
+
+            <h3>Prevention Strategies</h3>
+            <ul>
+                <li><strong>Good Hygiene:</strong> Remove and destroy all pruned material, fallen fruits, and dead canes</li>
+                <li><strong>Air Circulation:</strong> Maintain proper spacing and pruning to ensure good air flow</li>
+                <li><strong>Healthy Stock:</strong> Buy certified virus-free plants from reputable suppliers</li>
+                <li><strong>Rotation:</strong> Don't plant raspberries where they've been grown before (wait 5+ years)</li>
+                <li><strong>Proper Pruning:</strong> Correct pruning reduces disease risk and improves plant health</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ Virus Warning:</strong> Raspberry viruses are serious and can spread through the planting. Always buy certified virus-free stock. If plants show virus symptoms (stunted growth, mottled leaves, poor fruiting), remove and destroy them immediately.
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Prevention Tips:</strong> Maintain good plant health through proper feeding and watering, ensure good air circulation through correct pruning and spacing, practice good garden hygiene by removing all pruned material and fallen fruits, buy certified virus-free plants, and protect fruits from birds with netting.
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

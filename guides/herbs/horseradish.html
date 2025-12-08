@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Horseradish - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Horseradish.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Horseradish</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Horseradish in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Horseradish (Armoracia rusticana) is a hardy perennial herb grown for its pungent, spicy roots. This robust plant is incredibly easy to grow in UK gardens and will return year after year, providing a steady supply of fresh horseradish roots. The large, dark green leaves are also edible and can be used in cooking, though the roots are the main attraction.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Hardy perennial that returns year after year</li>
+                    <li>Grows large, dark green leaves up to 60cm (2ft) tall</li>
+                    <li>Produces pungent, spicy roots for culinary use</li>
+                    <li>Very easy to grow and low maintenance</li>
+                    <li>Can become invasive if not contained</li>
+                    <li>Best grown in containers or with root barriers</li>
+                </ul>
+            </div>
+            
+            <p>Horseradish is a member of the Brassicaceae (cabbage) family and is native to Eastern Europe and Western Asia. It's been cultivated for centuries for its medicinal and culinary properties. The roots contain compounds that produce a pungent, sinus-clearing heat when grated or crushed, making it a popular condiment for roast beef, fish, and other dishes.</p>
+            
+            <p>One important thing to note about horseradish is that it can spread quite vigorously through its roots. For this reason, many gardeners prefer to grow it in containers or use root barriers to prevent it from taking over the garden. However, with proper management, horseradish is an excellent addition to any herb garden.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Horseradish is best grown from root cuttings rather than seeds, as seeds can be unreliable. You can also start with a small piece of root from a friend's plant or purchase root cuttings from garden centres. The plant will establish quickly and can be harvested from the first year.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow horseradish, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/49Z80Mi" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4oOdqyo" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A small hand trowel for planting and transplanting. Essential for digging holes and moving plants.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+            </div>
+
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>While there aren't many named varieties of horseradish available, there are a few options to consider. Most horseradish sold is simply labeled as "common horseradish" or "Armoracia rusticana," but there are some distinctions worth noting.</p>
+            
+            <p>Horseradish is typically grown from root cuttings rather than seeds, as seeds can be unreliable and slow to establish. When purchasing horseradish, you're usually buying root cuttings or small plants. The main consideration is whether you want to grow it in the ground or in containers, as this will affect which form you choose.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Common Horseradish</h4>
+                    <p>The standard variety, widely available. Produces large, pungent roots and vigorous growth. Best for ground planting with root barriers or container growing.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Container-Grown Horseradish</h4>
+                    <p>Any horseradish variety can be grown in containers, which helps control its spread. Choose deep containers (at least 45cm / 18in deep) for best root development.</p>
+                </div>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> Horseradish can become invasive if not properly contained. Consider growing it in containers or using root barriers (at least 60cm / 2ft deep) if planting in the ground. This will prevent it from spreading throughout your garden.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting Horseradish</h2>
+            
+            <h3>Planting from Root Cuttings (Recommended)</h3>
+            <p>Horseradish is best grown from root cuttings rather than seeds. Root cuttings establish quickly and reliably, and you can harvest from the first year. Plant root cuttings in early spring or autumn.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare root cuttings:</strong> If you have a horseradish root, cut it into pieces about 15–20cm (6–8in) long. Each piece should have at least one bud or "eye" at the top.
+                </li>
+                <li>
+                    <strong>Prepare the site:</strong> Choose a sunny or partially shaded location with deep, well-drained soil. If planting in the ground, consider installing a root barrier (at least 60cm / 2ft deep) to prevent spread.
+                </li>
+                <li>
+                    <strong>Plant the cuttings:</strong> Plant root cuttings at a 45-degree angle, with the top (cut end) about 5cm (2in) below the soil surface. Space plants 60–90cm (2–3ft) apart.
+                </li>
+                <li>
+                    <strong>Water well:</strong> Water thoroughly after planting and keep the soil moist until the cuttings establish.
+                </li>
+                <li>
+                    <strong>Mark the location:</strong> Horseradish dies back in winter, so mark where you've planted it so you don't accidentally dig it up.
+                </li>
+            </ol>
+            
+            <h3>Container Planting</h3>
+            <p>Growing horseradish in containers is an excellent way to control its spread. Use a deep container (at least 45cm / 18in deep and wide) with good drainage. Fill with peat-free multi-purpose compost and plant root cuttings as described above. Container-grown horseradish will need more frequent watering than ground-grown plants.</p>
+            
+            <h3>Planting from Seeds</h3>
+            <p>While horseradish can be grown from seeds, it's not recommended as seeds can be unreliable and slow to establish. If you do choose to grow from seeds, sow them in spring in pots or directly in the ground. However, root cuttings are much more reliable and will give you harvestable roots much sooner.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> Plant horseradish at the edge of your garden or in a dedicated area where it won't interfere with other plants. If planting in the ground, consider using a root barrier or planting it in a bottomless container sunk into the ground to control its spread.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Horseradish is very low-maintenance once established. It's a hardy perennial that will return year after year with minimal care. However, a few simple practices will help ensure healthy growth and good harvests.</p>
+            
+            <h3>Watering</h3>
+            <p>Horseradish prefers consistently moist soil, especially during dry spells. Water regularly during the growing season, particularly when plants are young. Once established, horseradish is quite drought-tolerant, but regular watering will encourage better root development. Container-grown plants will need more frequent watering than those in the ground. Water at the base of plants to avoid wetting the leaves.</p>
+            
+            <h3>Feeding</h3>
+            <p>Horseradish doesn't usually need additional feeding if grown in reasonably fertile soil. However, if your soil is poor, you can apply a balanced, organic fertiliser in spring. Avoid over-fertilising, as this can encourage excessive leafy growth at the expense of root development. Container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season.</p>
+            
+            <h3>Weeding</h3>
+            <p>Keep the area around horseradish plants free of weeds, especially when plants are young. Once established, the large leaves will help suppress weeds. Be careful when weeding not to damage the roots, as any small pieces left in the ground can sprout new plants.</p>
+            
+            <h3>Controlling Spread</h3>
+            <p>Horseradish can spread vigorously through its roots. To control spread, regularly dig up any roots that extend beyond your desired area. If you're growing horseradish in the ground, consider installing a root barrier (at least 60cm / 2ft deep) around the planting area. Alternatively, grow it in containers to completely control its spread.</p>
+            
+            <h3>Removing Flowers</h3>
+            <p>Horseradish produces small white flowers in summer, but these are usually removed to encourage root growth. If you allow plants to flower and set seed, the energy will go into seed production rather than root development. However, the flowers are attractive to beneficial insects, so you might want to allow a few to flower if you're not concerned about maximum root size.</p>
+            
+            <h3>Winter Care</h3>
+            <p>Horseradish is fully hardy and will die back in winter, then regrow in spring. In autumn, cut back any dead foliage. The roots will survive underground and send up new growth in spring. Container-grown plants may benefit from some protection in very cold areas—move containers to a sheltered spot or wrap them in fleece.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Horseradish roots can be harvested from autumn through to spring, when the plant is dormant. The roots develop their best flavour after the first frost, so many gardeners wait until late autumn or early winter to harvest. However, you can dig roots as needed throughout the dormant season.</p>
+            
+            <h3>When to Harvest</h3>
+            <p>Horseradish roots are best harvested when the plant is dormant (autumn to early spring). The flavour is strongest after the first frost, as the cold triggers the development of the pungent compounds. However, you can harvest roots at any time during the dormant season. Avoid harvesting during the growing season, as this will weaken the plant.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Dig carefully:</strong> Use a garden fork to carefully dig around the plant, taking care not to damage the roots. Horseradish roots can be quite deep, so dig carefully and thoroughly.</li>
+                <li><strong>Harvest selectively:</strong> You don't need to dig up the entire plant. You can harvest some roots while leaving the plant in place to continue growing. This is especially useful if you're growing horseradish in a container.</li>
+                <li><strong>Save root pieces:</strong> When harvesting, save some root pieces (about 15–20cm / 6–8in long) to replant for next year's crop. This ensures you'll always have horseradish available.</li>
+                <li><strong>Clean roots:</strong> Brush off excess soil but don't wash the roots until you're ready to use them, as moisture can cause them to deteriorate.</li>
+            </ul>
+            
+            <h3>Preparing Horseradish</h3>
+            <p>Horseradish roots are grated or ground to release their pungent flavour. The compounds that create the heat are released when the root cells are broken, so grating or crushing is essential. Be prepared—the fumes can be quite strong! Work in a well-ventilated area, and consider wearing gloves and eye protection.</p>
+            
+            <p>To prepare horseradish, peel the root and grate it finely. You can use a food processor, but be careful not to over-process, as this can make it bitter. Mix grated horseradish with a little vinegar to preserve it and stabilise the flavour. Add salt to taste. Prepared horseradish can be stored in the refrigerator for several weeks.</p>
+            
+            <h3>Using Your Horseradish</h3>
+            <p>Fresh horseradish is much more pungent and flavourful than store-bought versions. Use it to make horseradish sauce for roast beef, add it to Bloody Mary cocktails, mix it into mayonnaise or cream for a spicy condiment, or use it to add heat to other dishes. The large leaves are also edible and can be used in cooking, though they're milder than the roots.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh horseradish roots can be stored in the refrigerator for several weeks. Wrap them in damp kitchen paper or store in a perforated plastic bag. Don't wash the roots until you're ready to use them. You can also store roots in a box of slightly damp sand in a cool, dark place (like a root cellar) for several months. Prepared horseradish (grated and mixed with vinegar) can be stored in the refrigerator for several weeks.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Horseradish is generally very trouble-free and rarely suffers from pests or diseases. However, there are a few issues to watch out for, mostly related to its vigorous growth habit.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Flea beetles:</strong> Small beetles that can create small holes in the leaves. Usually not serious and doesn't affect root quality. Can be controlled with organic methods if necessary.</li>
+                <li><strong>Slugs and snails:</strong> Can damage young leaves, especially in spring. Use barriers, traps, or organic controls. Once established, horseradish is less attractive to slugs.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Root rot:</strong> Can occur in waterlogged soil. Ensure good drainage and avoid overwatering. Container-grown plants are particularly susceptible if drainage is poor.</li>
+                <li><strong>White rust:</strong> A fungal disease that can affect leaves, causing white pustules. Usually not serious and doesn't affect root quality. Improve air circulation and avoid overhead watering.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Invasive spread:</strong> The main issue with horseradish is its tendency to spread. Control by growing in containers, using root barriers, or regularly digging up spreading roots.</li>
+                <li><strong>Poor root development:</strong> Can occur if soil is too compacted, too shallow, or if plants are overcrowded. Ensure deep, loose soil and adequate spacing.</li>
+                <li><strong>Bolting:</strong> Horseradish may bolt (go to seed) in hot, dry conditions. This doesn't usually affect root quality, but you can remove flower stalks to encourage root growth.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Horseradish is one of the easiest herbs to grow and is virtually indestructible once established. The main challenge is controlling its spread, so plan ahead and use containers or root barriers. With proper management, you'll have a steady supply of fresh, pungent horseradish roots for years to come!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

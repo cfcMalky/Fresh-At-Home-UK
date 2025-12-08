@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Gooseberries - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Gooseberries.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Gooseberries</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Gooseberries in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Gooseberries (Ribes uva-crispa) are hardy, productive shrubs that produce tart, tangy fruits perfect for cooking, jams, and desserts. These easy-to-grow plants are well-suited to UK gardens and are among the first fruits to ripen in summer. Gooseberries are self-fertile, so you only need one plant, and they can be grown as bushes, cordons, or standards, making them versatile for different garden sizes.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Hardy, deciduous shrubs reaching 1–1.5m (3–5ft) in height</li>
+                    <li>Self-fertile, so only one plant is needed</li>
+                    <li>Fruits ripen from late June to early August, depending on variety</li>
+                    <li>Can be grown as bushes, cordons, or standards</li>
+                    <li>Excellent for cooking, jams, and desserts; some varieties good for eating fresh</li>
+                    <li>Thorny stems (though some thornless varieties available)</li>
+                </ul>
+            </div>
+            
+            <p>Gooseberries are native to Europe and are perfectly adapted to UK growing conditions. They're among the hardiest of fruit bushes and are very productive, making them ideal for beginners. Gooseberries can be harvested at different stages: underripe for cooking (firm and tart) or fully ripe for eating fresh (sweet and juicy). This versatility makes them valuable in the kitchen.</p>
+            
+            <p>These plants are relatively trouble-free and can be grown in various ways to suit different garden sizes. Bush-grown gooseberries take up more space but are easier to maintain, while cordons are ideal for small gardens and can be trained against walls or fences. Standards (grafted plants with a clear trunk) are decorative and can be grown in containers. With proper care, a single bush can produce 3–5kg (6–11lb) of fruit each year.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Gooseberries are self-fertile, so you only need one plant. They're among the hardiest fruit bushes and are very productive. Harvest underripe fruits in June for cooking, or leave them to ripen fully in July/August for eating fresh. Prune in winter to maintain an open centre, which helps prevent powdery mildew. 'Invicta' is a popular, reliable variety with good disease resistance.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow gooseberries, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/3M856uF" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4rbFxJA" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Stakes, canes, or trellises for supporting cordons and training against walls if needed.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4oOdqyo" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A small hand trowel for planting, transplanting, and general garden maintenance.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>When choosing gooseberry varieties, consider fruit colour, flavour, disease resistance, and use (cooking vs. eating fresh). All gooseberries are self-fertile, so you only need one plant. Look for varieties with good resistance to powdery mildew, which is the main disease problem.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Disease Resistance:</strong> Powdery mildew is the main problem. Choose varieties with good resistance, such as 'Invicta' or 'Hinnonmaki Red'.</li>
+                <li><strong>Fruit Colour:</strong> Gooseberries can be green, yellow, red, or purple. Colour doesn't affect flavour, but red varieties are often sweeter when ripe.</li>
+                <li><strong>Use:</strong> Some varieties are better for cooking (tart, firm), while others are good for eating fresh (sweeter, juicier). Many are dual-purpose.</li>
+                <li><strong>Thorns:</strong> Most gooseberries have thorns, but some thornless varieties are available. Thornless varieties are easier to harvest but may be less vigorous.</li>
+                <li><strong>Harvest Time:</strong> Early varieties ripen in late June, while later ones ripen in July/August. Choose varieties that suit your needs.</li>
+                <li><strong>Size:</strong> Some varieties are more compact and suitable for smaller gardens or containers.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Invicta'</h4>
+                    <p>Popular culinary variety producing heavy crops of large, green berries with excellent flavour. Vigorous and has good resistance to mildew. Harvest from late June. Self-fertile. Excellent for cooking and jams.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Hinnonmaki Red'</h4>
+                    <p>Produces reliable heavy crops of smooth-skinned red berries in July. Excellent disease resistance. Self-fertile. Good for eating fresh when fully ripe, or cooking when underripe.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Hinnonmaki Yellow'</h4>
+                    <p>Produces heavy crops of yellow berries with excellent flavour. Good disease resistance. Self-fertile. Harvest in July. Good for eating fresh and cooking.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Captivator'</h4>
+                    <p>Thornless variety producing smooth purple fruits that are sweet and good for eating straight from the bush. Excellent mildew resistance. Self-fertile. Harvest in July.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Careless'</h4>
+                    <p>Traditional variety producing large, green berries. Good cropper. Harvest in late June to early July. Self-fertile. Excellent for cooking and jams.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Whitesmith'</h4>
+                    <p>Produces large, pale green berries with excellent flavour. Good cropper. Harvest in July. Self-fertile. Good for cooking and eating fresh when fully ripe.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Gooseberries are best planted during the dormant season, from late autumn to early spring. Bare-root plants are available from November to March, while container-grown plants can be planted year-round, though autumn and spring are still best for establishment.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny or partially shaded position. Gooseberries tolerate partial shade better than many fruits, making them useful for less-than-ideal positions. Avoid waterlogged sites and frost pockets. Most soil types are suitable, but well-drained, moisture-retentive, fertile soil is ideal. Gooseberries prefer a pH of 6.0–6.5, though they're reasonably tolerant of different soil types. Good air circulation helps reduce disease problems.</p>
+            
+            <h3>Planting Bare-Root Plants</h3>
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Dig a hole at least 60cm (2ft) wide and deep, breaking up the soil at the bottom. Mix in well-rotted organic matter or compost. Ensure the site is free from perennial weeds.
+                </li>
+                <li>
+                    <strong>Check the roots:</strong> Soak bare roots in water for 30 minutes before planting. Trim any damaged or broken roots back to healthy tissue.
+                </li>
+                <li>
+                    <strong>Plant at correct depth:</strong> Position the plant so the soil mark on the stem (where it was previously planted) is level with the soil surface. Spread roots out evenly in the hole.
+                </li>
+                <li>
+                    <strong>Backfill and firm:</strong> Fill the hole with soil, firming gently as you go to eliminate air pockets. Create a slight depression around the plant to help water reach the roots.
+                </li>
+                <li>
+                    <strong>Water and mulch:</strong> Water thoroughly after planting. Mulch with organic matter, keeping it away from the stem.
+                </li>
+            </ol>
+            
+            <h3>Planting Container-Grown Plants</h3>
+            <p>Plant container-grown plants at the same depth they were in the pot. Gently tease out any roots that are circling the root ball. Water well after planting and keep well-watered during the first growing season, especially during dry spells.</p>
+            
+            <h3>Spacing</h3>
+            <p>Space bushes 1.2–1.5m (4–5ft) apart to allow for mature growth and good air circulation. This spacing helps reduce disease problems and makes maintenance easier. For cordons, space 30–45cm (12–18in) apart. For standards, space 1–1.2m (3–4ft) apart.</p>
+            
+            <h3>Training Forms</h3>
+            <p>Gooseberries can be grown in several ways:</p>
+            <ul>
+                <li><strong>Bushes:</strong> The most common form. Easy to maintain and productive. Takes up more space but is ideal for larger gardens.</li>
+                <li><strong>Cordons:</strong> Single-stemmed plants trained vertically. Ideal for small gardens and can be grown against walls or fences. Space-saving and easy to harvest.</li>
+                <li><strong>Standards:</strong> Grafted plants with a clear trunk and a bushy head. Decorative and can be grown in containers. Takes up less ground space.</li>
+            </ul>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> For best results, plant gooseberries in autumn so roots can establish before spring growth. If planting in spring, ensure plants are well-watered throughout the first summer. Always plant at the same depth as the soil mark on the stem. Gooseberries tolerate partial shade, making them useful for less-than-ideal positions. Prune after planting to establish the framework.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Gooseberries need regular care to produce healthy crops. Key tasks include watering, feeding, mulching, and pruning. With proper care, plants will reward you with abundant harvests for many years.</p>
+            
+            <h3>Watering</h3>
+            <p>Water newly planted gooseberries regularly during the first growing season, especially during dry spells. Established plants are more drought-tolerant but will benefit from watering during prolonged dry periods, particularly when fruits are swelling (usually May to June). Water at the base of the plant, avoiding wetting the foliage to reduce disease risk.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed gooseberry bushes in late winter with a balanced fertiliser or well-rotted organic matter. Apply a high-potassium fertiliser in spring to encourage fruiting. Avoid excessive nitrogen, which promotes leafy growth at the expense of fruit and can increase disease susceptibility. Mulch annually in spring with well-rotted organic matter, keeping it away from the stem. This helps conserve moisture, suppress weeds, and gradually improves soil structure.</p>
+            
+            <h3>Pruning</h3>
+            <p>Prune gooseberries in late winter or early spring (before growth starts) to maintain shape and encourage productive growth. The aim is to create an open-centred bush with 8–12 main branches, which helps reduce disease problems and makes harvesting easier.</p>
+            <ul>
+                <li><strong>Formative pruning:</strong> In the first few years, establish a balanced framework of 8–12 main branches. Remove weak, crossing, or overcrowded branches. Aim for an open-centred, goblet-shaped bush.</li>
+                <li><strong>Established bushes:</strong> Prune in late winter to remove dead, diseased, or damaged wood. Cut back the previous year's growth by about one-third to encourage new growth. Remove any branches growing into the centre to maintain an open structure.</li>
+                <li><strong>Cordons:</strong> Prune in late winter to maintain the single stem and encourage fruiting spurs. Cut back side shoots to 2–3 buds. Tie the main stem to a support.</li>
+                <li><strong>Standards:</strong> Prune the head similarly to bush-trained plants, maintaining an open-centred structure.</li>
+            </ul>
+            
+            <h3>Mulching</h3>
+            <p>Mulch annually in spring with well-rotted organic matter, keeping it away from the stem to prevent rot. Mulching helps conserve moisture, suppress weeds, and gradually improves soil structure. Apply a layer 5–7cm (2–3in) deep around the base of the plant.</p>
+            
+            <h3>Protecting from Birds</h3>
+            <p>Birds are attracted to ripening fruits. Protect plants with netting before fruits start to ripen. Ensure netting is well-secured and doesn't trap birds. Alternatively, grow plants in a fruit cage.</p>
+            
+            <div class="info-box">
+                <p><strong>Pruning for Disease Prevention:</strong> Maintaining an open-centred bush is essential for preventing powdery mildew, which thrives in humid, still conditions. Good air circulation through proper pruning helps keep plants healthy. Remove any branches growing into the centre and aim for 8–12 well-spaced main branches.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Gooseberries can be harvested at different stages depending on their intended use. For cooking, pick underripe fruits in June when they're firm and tart. For eating fresh, leave fruits to ripen fully in July or August when they're sweet and juicy. Fruits don't all ripen at once, so harvest over several weeks.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>For cooking:</strong> Harvest in June when fruits are firm, underripe, and tart. These are perfect for cooking, jams, and desserts. Pick every few days as fruits develop.</li>
+                <li><strong>For eating fresh:</strong> Leave fruits to ripen fully on the bush until July or August. Ripe fruits are soft, fully coloured (depending on variety), and sweet. They should come away easily from the bush with a gentle twist.</li>
+                <li><strong>Harvest carefully:</strong> Handle gooseberries gently to avoid bruising. Use gloves if the variety has thorns. Pick with the stalk attached for better storage. Place in shallow containers to prevent them from being crushed.</li>
+                <li><strong>Harvest regularly:</strong> Pick fruits every few days during the harvest season, as they ripen over several weeks. Check plants regularly when fruits are ripening.</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Fresh gooseberries can be stored in the refrigerator for up to a week. Don't wash until just before using. For longer-term storage, gooseberries can be frozen (freeze on trays first, then transfer to bags), made into jams, jellies, or preserves, or used in cooking and baking. Underripe fruits store better than fully ripe ones.</p>
+            
+            <h3>Using Your Gooseberries</h3>
+            <p>Gooseberries are versatile in the kitchen. Underripe fruits are excellent for cooking, making wonderful pies, crumbles, tarts, and sauces. They're particularly good for jams and jellies due to their high pectin content. Fully ripe fruits are delicious eaten fresh, with their sweet, tangy flavour making them perfect for desserts and snacking. Gooseberries are rich in vitamin C and are a good source of dietary fibre and antioxidants.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Harvesting Tip:</strong> Gooseberries can be harvested at two stages: underripe for cooking (firm and tart in June) or fully ripe for eating fresh (sweet and juicy in July/August). This versatility makes them valuable in the kitchen. If you have a large crop, freeze excess fruits on trays first (so they don't stick together), then transfer to freezer bags. This allows you to use them in smaller portions throughout the year.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Gooseberries are generally trouble-free, but they can be affected by various pests and diseases. The main challenge is powdery mildew, which can be prevented through good cultural practices. With proper care and site selection, most problems can be managed effectively.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Birds:</strong> Birds are attracted to ripening fruits. Protect plants with netting before fruits start to ripen. Ensure netting is well-secured and doesn't trap birds. Alternatively, grow plants in a fruit cage.</li>
+                <li><strong>Gooseberry sawfly:</strong> Larvae can defoliate plants rapidly, especially in spring and early summer. Check plants regularly and hand-pick larvae when seen. Encourage natural predators. Use organic sprays if necessary.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious, but can distort leaves and spread viruses. Encourage natural predators or use organic sprays if necessary.</li>
+                <li><strong>Capsid bugs:</strong> Can cause distorted leaves and fruits. Usually not serious, but can affect plant health. Encourage natural predators.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Powdery mildew:</strong> The main disease problem. Causes white, powdery coating on leaves and fruits. Prevent by maintaining an open-centred bush for good air circulation. Choose resistant varieties. Remove and destroy affected parts. Ensure good air circulation through proper pruning and spacing.</li>
+                <li><strong>Leaf spot:</strong> Causes brown spots on leaves, which can lead to defoliation. Remove and destroy affected leaves. Ensure good air circulation through proper pruning. More common in wet conditions.</li>
+                <li><strong>American gooseberry mildew:</strong> A more serious form of powdery mildew. Causes white, powdery coating and can affect fruits. Prevent and treat as for powdery mildew. Choose resistant varieties.</li>
+                <li><strong>Botrytis (grey mould):</strong> Causes fruits to rot, especially in wet weather. Remove affected fruits promptly. Ensure good air circulation and avoid overcrowding. Harvest regularly to prevent overripe fruits from rotting.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Poor fruiting:</strong> Can be caused by lack of pruning, nutrient imbalances, or overcrowding. Ensure plants are properly pruned and fed. Gooseberries are self-fertile, so pollination isn't usually a problem.</li>
+                <li><strong>Frost damage:</strong> Early-flowering gooseberries can be vulnerable to spring frosts. Choose sheltered sites. Cover plants with fleece when frost is forecast during flowering.</li>
+                <li><strong>Drought stress:</strong> Can cause poor fruiting and leaf drop. Water during dry spells, especially when fruits are swelling. Mulch to conserve moisture.</li>
+                <li><strong>Overcrowding:</strong> Can lead to poor air circulation and increased disease problems. Ensure proper spacing and prune to maintain an open structure.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Most Common Problem:</strong> Powdery mildew is the main disease problem with gooseberries. It thrives in humid, still conditions, so maintaining an open-centred bush through proper pruning is essential. Choose resistant varieties like 'Invicta' or 'Hinnonmaki Red'. Good air circulation through proper spacing and pruning helps prevent the disease.</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Gooseberries are among the hardiest and most productive fruit bushes, making them ideal for beginners. They're self-fertile, so you only need one plant. Maintain an open-centred bush through proper pruning to prevent powdery mildew. Choose resistant varieties for best results. With proper care, gooseberries will produce abundant harvests for many years. They're particularly valued for their versatility - harvest underripe for cooking or fully ripe for eating fresh.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

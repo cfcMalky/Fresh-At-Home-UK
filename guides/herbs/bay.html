@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Bay - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Bay.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Bay</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Bay in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Bay (Laurus nobilis) is a versatile evergreen shrub or small tree that provides aromatic leaves for cooking year-round. While it's native to the Mediterranean, bay can be successfully grown in the UK, especially in containers where it can be moved indoors during harsh winters. This hardy herb is perfect for both ornamental and culinary purposes, making it an excellent addition to any garden.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Evergreen perennial shrub or tree</li>
+                    <li>Thrives in containers and can be grown indoors</li>
+                    <li>Hardy in mild UK winters, needs protection in colder areas</li>
+                    <li>Harvest leaves year-round once established</li>
+                    <li>Can be pruned into attractive shapes</li>
+                    <li>Attractive glossy green leaves with yellow spring flowers</li>
+                </ul>
+            </div>
+            
+            <p>Bay laurel is a slow-growing evergreen that can reach several metres in height if left unpruned, but it responds well to regular pruning and can be kept compact. In the UK, bay is often grown in containers, which allows gardeners to move plants to sheltered positions or indoors during winter. The aromatic leaves are a staple in many cuisines, particularly in soups, stews, and Mediterranean dishes.</p>
+            
+            <p>Bay plants are relatively low-maintenance once established and can live for many years. They make excellent container plants for patios, balconies, and conservatories, and can also be grown as attractive hedging or specimen plants in sheltered gardens.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Bay leaves are best used dried rather than fresh. Pick mature leaves and allow them to dry for a few days before using in cooking. The flavour intensifies as the leaves dry.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow bay, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/47T3ITW" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4i6l6cw" target="_blank" rel="noopener">
+                    <span class="emoji">💡</span>
+                    <h4>Grow Lights</h4>
+                    <p>LED grow lights provide the bright conditions plants need. Essential for winter growing or north-facing windows.</p>
+                    <span class="browse-button">Browse Grow Lights</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+            </div>
+
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>While the common bay laurel (Laurus nobilis) is the most widely available variety, there are a few cultivars worth considering for UK gardens. The standard bay laurel is the most reliable choice for culinary use and general garden growing.</p>
+            
+            <p>Bay laurel is the true culinary bay, with the characteristic aromatic leaves used in cooking. Other plants sometimes called "bay" (such as cherry laurel or California bay) are not suitable for culinary use and should be avoided.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Aurea' (Golden Bay)</h4>
+                    <p>Features attractive golden-yellow new growth that matures to green. Adds ornamental interest while maintaining culinary qualities.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Angustifolia' (Willow-Leaved Bay)</h4>
+                    <p>Has narrower, willow-like leaves. More compact growth habit, ideal for smaller gardens and containers.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Standard Bay Laurel</h4>
+                    <p>The classic culinary bay with glossy, dark green leaves. Most reliable and widely available variety for UK growing.</p>
+                </div>
+            </div>
+        
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Bay</h2>
+            
+            <h3>Growing from Seed</h3>
+            <p>Bay can be grown from seed, though it's a slow process. Seeds need stratification (cold treatment) and can take several months to germinate. For most gardeners, buying a young plant or propagating from cuttings is more practical.</p>
+            
+            <p>If growing from seed, sow fresh seeds in autumn or early spring. Soak seeds in warm water for 24 hours before sowing. Use seed compost in pots or trays, and keep in a warm location (15–20°C / 59–68°F). Germination can take 3–6 months, so be patient.</p>
+            
+            <h3>Propagating from Cuttings</h3>
+            <p>Bay is more commonly propagated from semi-ripe cuttings taken in late summer. This is the most reliable method for home gardeners.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Take cuttings:</strong> Select healthy, semi-ripe shoots about 10–15cm (4–6in) long from the current year's growth.
+                </li>
+                <li>
+                    <strong>Prepare cuttings:</strong> Remove the lower leaves, leaving just 2–3 leaves at the top. Dip the cut end in rooting hormone powder.
+                </li>
+                <li>
+                    <strong>Plant cuttings:</strong> Insert cuttings into pots filled with a mix of peat-free compost and sharp sand or perlite.
+                </li>
+                <li>
+                    <strong>Provide warmth:</strong> Keep in a propagator or cover with a plastic bag to maintain humidity. Place in bright, indirect light.
+                </li>
+                <li>
+                    <strong>Pot on:</strong> Once roots have developed (usually 6–8 weeks), pot into individual containers with peat-free multi-purpose compost.
+                </li>
+            </ol>
+            
+            <div class="tip-box">
+                <p><strong>💡 Propagation Tip:</strong> Bay cuttings root more successfully in a heated propagator. Bottom heat of 18–21°C (65–70°F) significantly improves success rates.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Bay can be planted in the ground in mild areas of the UK, but container growing is often more successful, especially in colder regions. Container-grown bay can be moved to sheltered positions or brought indoors during winter.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Bay prefers a warm, sheltered position in full sun or partial shade. In the ground, choose a spot protected from cold winds and frost pockets. Bay is hardy down to about -5°C (23°F), but severe cold can damage or kill plants, especially young ones.</p>
+            
+            <h3>Container Planting</h3>
+            <p>For container growing, choose a pot at least 30–40cm (12–16in) in diameter with good drainage holes. Use a well-draining, peat-free compost mix. A loam-based compost works well, or mix multi-purpose compost with some grit or perlite for improved drainage.</p>
+            
+            <p>Plant at the same depth as the root ball. Water thoroughly after planting and place in a sheltered, sunny position. Container-grown bay should be repotted every 2–3 years in spring, moving to a slightly larger pot each time.</p>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> In areas prone to hard frosts, protect bay plants with horticultural fleece or move container-grown plants to a greenhouse or conservatory during winter. Young plants are particularly vulnerable to cold damage.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Bay is relatively low-maintenance once established, but regular care will keep plants healthy and productive. Proper watering, feeding, and pruning are key to success.</p>
+            
+            <h3>Watering</h3>
+            <p>Water bay plants regularly during the growing season, especially container-grown plants which dry out more quickly. Allow the top few centimetres of compost to dry out between waterings, then water thoroughly. Avoid overwatering, as bay doesn't like waterlogged roots. Reduce watering in winter, but don't let the compost completely dry out.</p>
+            
+            <h3>Feeding</h3>
+            <p>Container-grown bay benefits from regular feeding during the growing season (spring to early autumn). Apply a balanced liquid fertiliser every 4–6 weeks, or use a slow-release fertiliser in spring. Plants in the ground usually don't need additional feeding if the soil is reasonably fertile, but a spring mulch of well-rotted compost will help maintain soil quality.</p>
+            
+            <h3>Pruning</h3>
+            <p>Bay responds well to pruning and can be shaped into formal topiary, kept as a compact shrub, or allowed to grow into a small tree. Prune in late spring or early summer, after the risk of frost has passed. Remove any dead, damaged, or crossing branches, and trim to maintain the desired shape.</p>
+            
+            <p>Regular light pruning encourages bushy growth and makes harvesting easier. Bay can be pruned quite hard if needed, but avoid cutting back into old, bare wood as it may not regrow. For topiary or formal shapes, prune 2–3 times during the growing season.</p>
+            
+            <h3>Winter Protection</h3>
+            <p>In colder areas, protect bay plants from frost. Container-grown plants should be moved to a greenhouse, conservatory, or cool, bright room indoors. If plants must stay outside, wrap with horticultural fleece and move to the most sheltered position available. Mulch around the base of ground-grown plants to protect roots.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Bay leaves can be harvested year-round once plants are established, though the flavour is best when leaves are mature. Fresh leaves can be used immediately, but drying intensifies the flavour and makes them easier to store.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Pick mature leaves:</strong> Choose fully developed, dark green leaves from healthy branches. Avoid very young, pale green leaves as they have less flavour.</li>
+                <li><strong>Harvest in moderation:</strong> Don't remove more than one-third of the leaves from a plant at once, especially from young plants. This allows the plant to continue growing healthily.</li>
+                <li><strong>Use sharp secateurs:</strong> Cut leaves with clean, sharp tools to avoid damaging the plant.</li>
+                <li><strong>Harvest before flowering:</strong> Leaves have the best flavour before the plant flowers in spring, though leaves can be harvested at any time.</li>
+            </ul>
+            
+            <h3>Using Your Bay Leaves</h3>
+            <p>Bay leaves are a classic ingredient in soups, stews, casseroles, and stocks. They're typically added whole during cooking and removed before serving, as the leaves themselves are tough and not meant to be eaten. Bay leaves add depth and complexity to slow-cooked dishes, marinades, and pickling brines. They're also essential in bouquet garni and many Mediterranean recipes.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Bay is generally a trouble-free plant, but there are a few issues to watch out for. Most problems are related to growing conditions rather than pests or diseases.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Scale insects:</strong> These small, immobile insects can attach themselves to leaves and stems, appearing as small brown or white bumps. Treat with horticultural oil or insecticidal soap, or remove by hand if the infestation is small.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, particularly in spring. Remove by hand or spray with a strong jet of water. Organic sprays can be used if necessary.</li>
+                <li><strong>Bay sucker:</strong> A specific pest that affects bay, causing leaves to curl and become distorted. Remove affected leaves and treat with an appropriate insecticide if the problem persists.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Root rot:</strong> Caused by overwatering or poor drainage. Ensure containers have adequate drainage and don't let plants sit in water. Improve soil drainage for ground-grown plants.</li>
+                <li><strong>Leaf spot:</strong> Fungal diseases can cause spots on leaves. Improve air circulation, avoid overhead watering, and remove affected leaves. Usually not serious if plants are healthy.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Frost damage:</strong> Bay is not fully hardy in the UK and can be damaged by severe frosts. Protect plants in winter, especially young specimens. Brown or blackened leaves after frost should be pruned away in spring.</li>
+                <li><strong>Leaf yellowing:</strong> Can indicate overwatering, poor drainage, or nutrient deficiency. Check watering practices and ensure good drainage. Feed container-grown plants if yellowing persists.</li>
+                <li><strong>Slow growth:</strong> Bay is naturally slow-growing, but very slow growth may indicate poor soil, lack of nutrients, or insufficient light. Ensure plants have adequate light and feed container-grown plants regularly.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

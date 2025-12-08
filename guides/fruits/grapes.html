@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Grapes - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Grapes.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Grapes</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Grapes in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Grapes (Vitis vinifera) are attractive, productive vines that produce delicious fruits perfect for eating fresh, making wine, or preserving. While they're native to warmer climates, grapes can be successfully grown in the UK, especially when trained against sunny walls or grown in greenhouses. With the right variety and care, grapes can produce abundant harvests even in cooler climates.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Deciduous climbing vines that can reach 3–5m (10–16ft) or more</li>
+                    <li>Most varieties are self-fertile, so only one plant is needed</li>
+                    <li>Fruits ripen from late August to October, depending on variety and location</li>
+                    <li>Can be grown outdoors against sunny walls or in greenhouses</li>
+                    <li>Excellent for eating fresh, making wine, or preserving</li>
+                    <li>Require regular pruning to maintain productivity</li>
+                </ul>
+            </div>
+            
+            <p>Grapes are native to the Mediterranean and western Asia but can be grown successfully in the UK with proper care. The key to success is choosing the right variety for your location (outdoor or greenhouse), providing adequate warmth and sun, and maintaining proper pruning. Outdoor grapes need a warm, sunny, sheltered position, while greenhouse grapes benefit from the extra heat and protection.</p>
+            
+            <p>These vines are productive and can be trained in various ways to suit different spaces. Outdoor grapes are best trained against sunny walls or on pergolas, while greenhouse grapes can be trained along wires or trellises. With proper care, a single vine can produce 5–15kg (11–33lb) of fruit each year. Grapes are particularly valued for their versatility - they can be eaten fresh, used for wine-making, or preserved as jams and jellies.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Grapes need a warm, sunny position to ripen well. Outdoor varieties need a south-facing wall or very sheltered spot. Greenhouse growing is more reliable in the UK and allows earlier ripening. Choose varieties suited to your location - some are better for outdoor growing, while others need greenhouse protection. Regular pruning is essential for good fruiting. 'Boskoop Glory' and 'Phoenix' are good outdoor varieties for the UK.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow grapes, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4pjCbSV" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4rbFxJA" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Wires, trellises, or pergolas for training vines. Essential for supporting growth and fruit production.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4oOdqyo" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A small hand trowel for planting, transplanting, and general garden maintenance.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>When choosing grape varieties, consider whether you'll be growing outdoors or in a greenhouse, as well as intended use (eating fresh, wine-making, or both). Most grape varieties are self-fertile, so you only need one plant. Look for varieties that are suited to UK conditions and your growing location.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Location:</strong> Some varieties are better suited to outdoor growing (need very warm, sheltered sites), while others are ideal for greenhouse growing. Greenhouse growing is more reliable in the UK.</li>
+                <li><strong>Use:</strong> Some varieties are better for eating fresh (dessert grapes), while others are better for wine-making. Many are dual-purpose.</li>
+                <li><strong>Ripening Time:</strong> Early-ripening varieties are better for outdoor growing in the UK, as they have more time to ripen before autumn. Greenhouse varieties can ripen later.</li>
+                <li><strong>Disease Resistance:</strong> Some varieties have better resistance to common problems like powdery mildew and downy mildew.</li>
+                <li><strong>Flavour:</strong> Grape varieties vary in flavour, from sweet dessert grapes to more acidic wine grapes. Choose based on your preferences.</li>
+                <li><strong>Hardiness:</strong> Some varieties are more cold-tolerant than others, which is important for outdoor growing in the UK.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Boskoop Glory'</h4>
+                    <p>Excellent outdoor variety for the UK. Produces medium-sized, dark blue-black grapes with good flavour. Early ripening (September). Self-fertile. Good disease resistance. Good for eating fresh and wine-making.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Phoenix'</h4>
+                    <p>Reliable outdoor variety producing medium-sized, white grapes with good flavour. Early ripening (September). Self-fertile. Good disease resistance. Good for eating fresh.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Seyval Blanc'</h4>
+                    <p>Hardy outdoor variety producing medium-sized, white grapes. Good for wine-making. Early ripening (September). Self-fertile. Good disease resistance. Reliable cropper.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Black Hamburg'</h4>
+                    <p>Excellent greenhouse variety producing large, dark purple grapes with excellent flavour. Mid-season ripening (September-October). Self-fertile. Excellent for eating fresh.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Muscat of Alexandria'</h4>
+                    <p>Greenhouse variety producing large, green grapes with distinctive muscat flavour. Late ripening (October). Self-fertile. Excellent for eating fresh. Needs greenhouse protection.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Regent'</h4>
+                    <p>Hardy outdoor variety producing small, dark grapes. Good for wine-making. Early ripening (September). Self-fertile. Good disease resistance. Reliable cropper.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Grapes are best planted during the dormant season, from late autumn to early spring. Container-grown plants can be planted year-round, though autumn and spring are still best for establishment. The most important consideration is choosing the right location - outdoor grapes need a very warm, sunny, sheltered position, while greenhouse grapes benefit from the extra heat and protection.</p>
+            
+            <h3>Site Selection</h3>
+            <p>For outdoor grapes, choose a warm, sunny, sheltered position. South- or west-facing walls are ideal, as they provide extra heat and protection. The soil should be well-drained, moisture-retentive, and fertile. Grapes prefer a pH of 6.0–7.0, though they're reasonably tolerant of different soil types. Avoid waterlogged sites and frost pockets. Good air circulation helps reduce disease problems.</p>
+            
+            <p>For greenhouse grapes, position plants near the back wall or train along wires. Ensure good ventilation to prevent disease problems. The greenhouse should be well-ventilated and have good light levels.</p>
+            
+            <h3>Planting Outdoor Grapes</h3>
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare the site:</strong> Dig a hole at least 60cm (2ft) wide and deep, breaking up the soil at the bottom. Mix in well-rotted organic matter or compost. Ensure the site is free from perennial weeds.
+                </li>
+                <li>
+                    <strong>Check the roots:</strong> If planting a container-grown vine, gently tease out any roots that are circling the root ball.
+                </li>
+                <li>
+                    <strong>Plant at correct depth:</strong> Position the vine so it sits at the same depth it was in its previous pot. Spread roots out evenly in the hole. The graft union (if present) should be well above soil level.
+                </li>
+                <li>
+                    <strong>Backfill and firm:</strong> Fill around the roots with the soil mixture, firming gently to eliminate air pockets. Create a slight depression around the vine to help water reach the roots.
+                </li>
+                <li>
+                    <strong>Water and mulch:</strong> Water thoroughly after planting. Mulch with organic matter, keeping it away from the stem.
+                </li>
+                <li>
+                    <strong>Install supports:</strong> Install wires or trellis for training the vine. For wall training, fix wires 30cm (12in) apart, starting 30cm (12in) above ground level.
+                </li>
+            </ol>
+            
+            <h3>Planting Greenhouse Grapes</h3>
+            <p>Plant greenhouse grapes in the border soil or in large containers. If planting in borders, prepare the soil as for outdoor grapes. If planting in containers, use a loam-based compost. Install wires or trellis for training along the greenhouse. Position plants to allow good air circulation and light penetration.</p>
+            
+            <h3>Training Systems</h3>
+            <p>Grapes can be trained in several ways:</p>
+            <ul>
+                <li><strong>Wall training:</strong> Train along horizontal wires fixed to a wall. Ideal for outdoor grapes. Provides extra heat and protection.</li>
+                <li><strong>Pergola training:</strong> Train over a pergola or arch. Decorative and provides shade. Good for outdoor grapes in larger gardens.</li>
+                <li><strong>Greenhouse training:</strong> Train along wires or trellis within the greenhouse. Allows better control of growing conditions.</li>
+                <li><strong>Rod and spur system:</strong> A formal training system with a permanent framework and fruiting spurs. Good for both outdoor and greenhouse growing.</li>
+            </ul>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> For best results, plant grapes in autumn so roots can establish before spring growth. Outdoor grapes need a very warm, sunny, sheltered position - a south-facing wall is ideal. Greenhouse growing is more reliable in the UK and allows earlier ripening. Install supports before or immediately after planting. Most grapes are self-fertile, so you only need one plant.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Grapes need regular care to produce healthy crops. Key tasks include watering, feeding, pruning, and training. With proper care, vines will reward you with abundant harvests for many years.</p>
+            
+            <h3>Watering</h3>
+            <p>Water newly planted vines regularly during the first growing season, especially during dry spells. Established vines are more drought-tolerant but will benefit from watering during prolonged dry periods, particularly when fruits are swelling (usually July to August). Water at the base of the vine, avoiding wetting the foliage to reduce disease risk. Greenhouse grapes may need more frequent watering, especially in hot weather.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed grape vines in late winter with a balanced fertiliser or well-rotted organic matter. Apply a high-potassium fertiliser in spring to encourage fruiting. Avoid excessive nitrogen, which promotes leafy growth at the expense of fruit. Mulch annually in spring with well-rotted organic matter, keeping it away from the stem. This helps conserve moisture, suppress weeds, and gradually improves soil structure.</p>
+            
+            <h3>Pruning</h3>
+            <p>Pruning is essential for grapes to produce good crops. Prune in winter (December to February) when the vine is dormant. The aim is to maintain a framework of permanent branches (rods) and encourage fruiting spurs.</p>
+            <ul>
+                <li><strong>Winter pruning:</strong> Prune in December to February. For rod and spur systems, cut back the previous year's growth to 2–3 buds from the main rod. Remove any dead, diseased, or overcrowded growth. Maintain the permanent framework.</li>
+                <li><strong>Summer pruning:</strong> In summer, pinch out the tips of new shoots to encourage fruiting. Remove any unwanted shoots. This helps control vigour and directs energy into fruit production.</li>
+                <li><strong>Thinning:</strong> Thin out excess bunches in early summer to improve fruit size and quality. Leave 1–2 bunches per shoot, depending on the variety and vigour.</li>
+                <li><strong>Training:</strong> Tie in new growth as it develops to maintain the training system. For wall training, tie shoots to horizontal wires.</li>
+            </ul>
+            
+            <h3>Training</h3>
+            <p>Training is essential for grapes to maintain shape and encourage fruiting. Tie in new growth regularly to maintain the training system. For wall training, tie shoots to horizontal wires. For greenhouse growing, train along wires or trellis. Remove any shoots growing in the wrong direction.</p>
+            
+            <h3>Thinning</h3>
+            <p>In early summer, thin out excess bunches to improve fruit size and quality. Leave 1–2 bunches per shoot, depending on the variety and vigour. This also helps prevent overcropping, which can reduce fruit quality and weaken the vine.</p>
+            
+            <div class="info-box">
+                <p><strong>Pruning Timing:</strong> Grapes should be pruned in winter (December to February) when the vine is dormant. This is the main pruning period. Summer pruning (pinching out tips and removing unwanted shoots) helps control vigour and directs energy into fruit production. Regular pruning is essential for good fruiting - unpruned vines produce lots of leaves but few fruits.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Grapes are ready to harvest from late August to October, depending on variety and location. Ripe grapes are fully coloured (depending on variety), slightly soft, and have a sweet flavour. They should come away easily from the bunch. Test a few grapes before harvesting the whole bunch, as grapes on the same bunch can ripen at slightly different times.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Check ripeness:</strong> Ripe grapes are fully coloured (depending on variety), slightly soft, and have a sweet flavour. They should come away easily from the bunch. Test a few grapes from different parts of the bunch before harvesting.</li>
+                <li><strong>Harvest carefully:</strong> Handle grapes gently to avoid bruising. Cut entire bunches with secateurs, leaving a short stem attached. Place in shallow containers to prevent them from being crushed. Don't stack bunches too deeply.</li>
+                <li><strong>Harvest regularly:</strong> Grapes on the same vine can ripen over several weeks, so check regularly and harvest as they become ready. Harvest in the morning when fruits are cool and firm.</li>
+                <li><strong>Use promptly:</strong> Fresh grapes don't store well and are best eaten within a few days of harvest. Use or process promptly for best quality.</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Fresh grapes can be stored in the refrigerator for up to a week. Don't wash until just before eating. Store in a shallow container to prevent crushing. For longer-term storage, grapes can be frozen (freeze on trays first, then transfer to bags), made into jams or preserves, or used for wine-making. Some varieties store better than others.</p>
+            
+            <h3>Using Your Grapes</h3>
+            <p>Fresh grapes are delicious eaten raw, with their sweet, juicy flavour making them perfect for snacking and desserts. They're also excellent for cooking, making great additions to tarts, cakes, and savoury dishes. Grapes can be used in jams, preserves, and chutneys. Wine-making is another popular use for grapes, especially with wine varieties. The fruits are rich in vitamins and minerals, and are a good source of dietary fibre and antioxidants.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Harvesting Tip:</strong> Grapes on the same bunch can ripen at slightly different times, so test a few grapes from different parts of the bunch before harvesting. Ripe grapes should be fully coloured, slightly soft, and have a sweet flavour. If you have a large crop, process excess grapes promptly - they can be frozen, made into jam, or used for wine-making. Greenhouse grapes often ripen earlier than outdoor grapes.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Grapes can be affected by various pests and diseases. The main challenges in the UK are providing adequate warmth for ripening and preventing disease problems. With good cultural practices and proper site selection, most problems can be managed effectively.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Birds:</strong> Birds are attracted to ripening fruits. Protect vines with netting before fruits start to ripen. Ensure netting is well-secured and doesn't trap birds. Alternatively, grow vines in a fruit cage.</li>
+                <li><strong>Wasps:</strong> Wasps are attracted to ripening fruits. Hang wasp traps near vines or protect bunches with netting. Remove any fallen fruits promptly.</li>
+                <li><strong>Grapevine moth:</strong> Larvae can feed on leaves and fruits. Remove and destroy affected parts. Good hygiene helps reduce problems.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious, but can distort leaves and spread viruses. Encourage natural predators or use organic sprays if necessary.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Powdery mildew:</strong> Causes white, powdery coating on leaves and fruits. Prevent by ensuring good air circulation through proper pruning and spacing. Remove and destroy affected parts. More common in humid conditions.</li>
+                <li><strong>Downy mildew:</strong> Causes yellow spots on leaves and can affect fruits. Prevent by ensuring good air circulation and avoiding overhead watering. Remove and destroy affected parts. More common in wet conditions.</li>
+                <li><strong>Botrytis (grey mould):</strong> Causes fruits to rot, especially in wet weather. Remove affected fruits promptly. Ensure good air circulation and avoid overcrowding. Harvest regularly to prevent overripe fruits from rotting.</li>
+                <li><strong>Black rot:</strong> Causes black spots on fruits and leaves. Remove and destroy affected parts. Ensure good air circulation through proper pruning.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Fruits not ripening:</strong> Can be caused by lack of sun, cool weather, or lack of warmth. Ensure vines are in a sunny, warm position, preferably against a south-facing wall or in a greenhouse. In poor summers, fruits may not ripen fully.</li>
+                <li><strong>Poor fruiting:</strong> Can be caused by lack of pruning, lack of warmth, or nutrient imbalances. Ensure vines are properly pruned and fed. Regular pruning is essential for good fruiting.</li>
+                <li><strong>Frost damage:</strong> Early growth can be vulnerable to spring frosts. Choose warm, sheltered sites. Cover vines with fleece when frost is forecast during early growth.</li>
+                <li><strong>Overcropping:</strong> Too many bunches can reduce fruit quality and weaken the vine. Thin out excess bunches in early summer to improve fruit size and quality.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Most Common Problem:</strong> Fruits not ripening is often caused by lack of warmth. Outdoor grapes need a very warm, sunny, sheltered position - a south-facing wall is ideal. In poor summers or less-than-ideal positions, fruits may not ripen fully. Greenhouse growing is more reliable in the UK and allows earlier ripening. Regular pruning is also essential for good fruiting.</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> The key to success with grapes in the UK is providing adequate warmth and regular pruning. Outdoor grapes need a very warm, sunny, sheltered position - a south-facing wall is ideal. Greenhouse growing is more reliable and allows earlier ripening. Regular pruning is essential for good fruiting - unpruned vines produce lots of leaves but few fruits. Choose varieties suited to your location. With proper care, grapes will produce abundant harvests for many years.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

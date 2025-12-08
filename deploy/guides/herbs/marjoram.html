@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Marjoram - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Marjoram.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Marjoram</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Marjoram in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Marjoram (Origanum majorana) is a tender perennial herb with a sweet, mild flavour that's similar to oregano but more delicate. This aromatic herb is valued for its culinary uses, particularly in Mediterranean cuisine. In the UK, marjoram is typically grown as an annual or overwintered indoors, as it's not fully frost-hardy.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Tender perennial (not fully frost-hardy in UK)</li>
+                    <li>Grows 30–60cm (1–2ft) tall with small, oval leaves</li>
+                    <li>Produces small white or pink flowers in summer</li>
+                    <li>Sweet, mild flavour similar to oregano</li>
+                    <li>Essential in Mediterranean cooking</li>
+                    <li>Best grown in containers for easy overwintering</li>
+                </ul>
+            </div>
+            
+            <p>Marjoram is native to the Mediterranean region and has been cultivated for centuries for its culinary and medicinal uses. The leaves have a sweet, mild flavour that's more delicate than oregano, making it perfect for salads, soups, and meat dishes. Marjoram is often confused with oregano, but it has a sweeter, more subtle flavour.</p>
+            
+            <p>In the UK, marjoram requires some protection from frost, though it's hardier than some other tender herbs. Many gardeners grow it in containers so it can be moved indoors during winter, or treat it as an annual and sow fresh seeds each year. With proper care, marjoram can be a rewarding addition to your herb garden.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Marjoram is best started from seed indoors in early spring, though it can also be sown directly outdoors in late spring. It's relatively easy to grow and will provide fresh leaves throughout the summer. If you want to overwinter it, grow it in containers and bring indoors before the first frost.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow marjoram, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/3LJAwaO" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+            </div>
+
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>There are a few varieties of marjoram available, though most sold for culinary use is simply labeled as "sweet marjoram" or "Origanum majorana." There are also some ornamental varieties and related species worth noting.</p>
+            
+            <p>Marjoram is typically grown from seeds, though you can also purchase small plants or take cuttings. When purchasing marjoram, you're usually buying seeds or small plants. The main consideration is whether you want the standard sweet marjoram or one of the ornamental varieties.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Sweet Marjoram</h4>
+                    <p>The standard culinary variety (Origanum majorana). Most widely available and reliable performer. Has the characteristic sweet, mild flavour. Best choice for UK gardens.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Pot Marjoram</h4>
+                    <p>A hardier variety (Origanum onites) that's more cold-tolerant. Has a stronger flavour than sweet marjoram. Can be grown as a perennial in mild areas.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Wild Marjoram (Oregano)</h4>
+                    <p>Related species (Origanum vulgare) that's fully hardy in UK. Has a stronger, more pungent flavour than sweet marjoram. Often used interchangeably in cooking.</p>
+                </div>
+            </div>
+        
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Marjoram</h2>
+            
+            <h3>Sowing Indoors (Recommended)</h3>
+            <p>Marjoram is best started indoors in early spring for an earlier start. Sow seeds in late winter or early spring (February to April) for planting out after the last frost.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare seed trays:</strong> Fill seed trays or small pots with peat-free seed compost. Moisten the compost before sowing.
+                </li>
+                <li>
+                    <strong>Sow seeds:</strong> Sow seeds thinly on the surface of the compost and cover very lightly (seeds need light to germinate). Space seeds about 2–3cm (1in) apart.
+                </li>
+                <li>
+                    <strong>Provide warmth:</strong> Place in a warm location (15–20°C / 59–68°F). Cover with a clear lid or plastic bag to maintain humidity.
+                </li>
+                <li>
+                    <strong>Maintain moisture:</strong> Keep the compost moist but not waterlogged. Mist the surface if it starts to dry out.
+                </li>
+                <li>
+                    <strong>Germination:</strong> Seeds should germinate within 10–14 days. Once seedlings appear, remove the cover and continue growing in a bright location.
+                </li>
+                <li>
+                    <strong>Pot on:</strong> When seedlings are large enough to handle, pot them on into individual pots. Keep in a bright location until ready to plant out.
+                </li>
+            </ol>
+            
+            <h3>Sowing Outdoors</h3>
+            <p>Marjoram can also be sown directly outdoors from late spring to early summer, once the soil has warmed up. Sow seeds thinly in drills about 1cm (½in) deep, spacing rows 30cm (12in) apart. Thin seedlings to 20–30cm (8–12in) apart when they're large enough to handle. Outdoor sowing is less reliable than indoor sowing, especially in cooler areas.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Sowing Tip:</strong> Marjoram seeds are very small and need light to germinate, so don't cover them with too much soil. A very light covering or no covering at all is best. The seeds will germinate reliably if kept moist and at the right temperature. Once germinated, seedlings need bright light to grow well.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Marjoram prefers a sunny position with well-drained soil. It can be grown in containers or in the ground, though container growing makes it easier to overwinter. The key is to provide good drainage and plenty of sunlight.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny location with well-drained, reasonably fertile soil. Marjoram prefers full sun but will tolerate light shade. It will not grow well in heavy, waterlogged soil, so ensure good drainage. Avoid very dry, poor soil, as this will result in weak growth.</p>
+            
+            <h3>Container Planting (Recommended)</h3>
+            <p>Growing marjoram in containers is an excellent option, especially if you want to overwinter it. Use a container at least 20cm (8in) wide and deep with good drainage. Fill with peat-free multi-purpose compost. Container-grown marjoram can be moved indoors in winter or placed in a greenhouse or conservatory.</p>
+            
+            <h3>Ground Planting</h3>
+            <p>If planting in the ground, prepare the soil by removing weeds and incorporating well-rotted compost if the soil is poor. Space plants 20–30cm (8–12in) apart. Marjoram can be grown as an annual in the ground, or you can protect plants with fleece in winter if you want to try overwintering them.</p>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> Marjoram is not fully frost-hardy and will be damaged by temperatures below -5°C (23°F). In the UK, it's best grown in containers so it can be moved indoors in winter, or treated as an annual. If you want to overwinter ground-grown plants, protect them with fleece or mulch.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Marjoram requires regular care to thrive, especially regarding watering and protection from cold. With proper care, it will grow well throughout the summer and can be overwintered for use the following year.</p>
+            
+            <h3>Watering</h3>
+            <p>Water marjoram regularly during dry spells, especially when plants are young. Once established, marjoram is quite drought-tolerant, but regular watering will encourage more vigorous growth and better leaf quality. Container-grown plants will need more frequent watering than those in the ground. Water at the base of plants to avoid wetting the leaves, which can lead to fungal issues. Reduce watering in winter if overwintering indoors, but don't let the compost dry out completely.</p>
+            
+            <h3>Feeding</h3>
+            <p>Marjoram doesn't usually need additional feeding if grown in reasonably fertile soil. However, if your soil is poor, you can apply a balanced, organic fertiliser in spring. Container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season. Avoid over-fertilising, as this can encourage excessive growth at the expense of flavour.</p>
+            
+            <h3>Pruning and Cutting Back</h3>
+            <p>Regular harvesting of leaves helps keep marjoram bushy and encourages new growth. Cut back plants by about one-third after flowering to encourage fresh growth. You can also cut back hard in early spring to remove old growth and encourage new shoots. Regular harvesting also helps prevent plants from becoming leggy.</p>
+            
+            <h3>Overwintering</h3>
+            <p>To overwinter marjoram, move container-grown plants indoors before the first frost (usually by late September or early October in the UK). Place in a bright, cool location such as a greenhouse, conservatory, or sunny windowsill. Reduce watering but don't let the compost dry out completely. Plants may die back somewhat in winter but should regrow in spring when temperatures and light levels increase. Alternatively, you can harvest all the leaves in autumn and start fresh plants from seed the following year.</p>
+            
+            <h3>Dividing</h3>
+            <p>Marjoram can be divided to create new plants, though it's less commonly done than with other herbs. Divide plants in spring when they're actively growing. Dig up the clump (or remove from container) and separate into smaller sections, each with roots and some stems. Replant immediately in fresh compost.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Marjoram leaves can be harvested as soon as plants are large enough, usually 6–8 weeks after sowing. The leaves are best used fresh, as they lose much of their flavour when dried. However, they can be dried or frozen for later use. Harvest regularly to encourage new growth and keep plants bushy.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Pick young leaves:</strong> Harvest leaves when they're young and tender for the best flavour. Older leaves can become tough and less flavourful.</li>
+                <li><strong>Harvest regularly:</strong> Pick leaves regularly throughout the growing season to encourage new growth and prevent plants from becoming leggy.</li>
+                <li><strong>Cut whole stems:</strong> You can cut whole stems near the base, or pick individual leaves as needed. Cutting stems encourages bushier growth.</li>
+                <li><strong>Harvest before flowering:</strong> For the best flavour, harvest leaves before the plant flowers. However, the flowers are attractive to bees, so you may want to allow some to flower.</li>
+            </ul>
+            
+            <h3>Using Your Marjoram</h3>
+            <p>Fresh marjoram leaves add a sweet, mild flavour to many dishes. Use them in salads, soups, stews, and meat dishes. They're excellent in Mediterranean cuisine, particularly with tomatoes, lamb, and vegetables. Marjoram has a more delicate flavour than oregano, so it's perfect for dishes where you want a subtle herb flavour. Add marjoram at the end of cooking or use raw, as heat can diminish its flavour.</p>
+            
+            <h3>Drying Marjoram</h3>
+            <p>While fresh leaves have the best flavour, marjoram can be dried for later use. Harvest leaves in the morning after the dew has dried. Dry them in a warm, well-ventilated area out of direct sunlight, or use a dehydrator. Store dried leaves in an airtight container in a cool, dark place. Dried marjoram retains some flavour but is not as aromatic as fresh leaves.</p>
+            
+            <h3>Freezing Marjoram</h3>
+            <p>Marjoram can be frozen for use in cooked dishes. Freeze whole leaves on a tray, then transfer to freezer bags, or chop leaves and freeze in ice cube trays with a little water. Frozen marjoram is best used in cooked dishes rather than raw applications, as freezing can affect the texture.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh marjoram leaves can be stored in the refrigerator for a few days. Place stems in a glass of water like cut flowers, or wrap in damp kitchen paper and store in the fridge. For longer storage, dry or freeze the leaves as described above. Dried marjoram can be stored in an airtight container for up to a year, though the flavour will diminish over time.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Marjoram is generally trouble-free when grown in the right conditions, but there are a few issues to watch out for, mostly related to moisture and temperature.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious and can be controlled by encouraging natural predators or using organic methods.</li>
+                <li><strong>Spider mites:</strong> Can occur in hot, dry conditions, especially when overwintering indoors. Increase humidity and improve air circulation. Usually not serious if caught early.</li>
+                <li><strong>Slugs and snails:</strong> Can damage young leaves, especially in spring. Use barriers, traps, or organic controls. Once established, marjoram is less attractive to slugs.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Root rot:</strong> Can occur if plants are overwatered or if drainage is poor. Ensure good drainage and avoid overwatering. Container-grown plants are particularly susceptible if drainage is poor.</li>
+                <li><strong>Powdery mildew:</strong> Can occur in humid conditions or when plants are overcrowded. Improve air circulation and avoid overhead watering. Usually not serious if caught early.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Cold damage:</strong> The main issue with marjoram in the UK is cold damage. Protect from frost and bring indoors before temperatures drop below -5°C (23°F). Cold-damaged plants may recover if the roots are still alive.</li>
+                <li><strong>Insufficient light:</strong> Can cause weak, leggy growth. Ensure plants receive bright light—full sun outdoors or a bright windowsill or grow lights indoors.</li>
+                <li><strong>Drying out:</strong> Marjoram needs consistent moisture and will suffer if allowed to dry out completely. Water regularly, especially container-grown plants.</li>
+                <li><strong>Poor growth:</strong> Can occur if plants don't receive enough light or if soil is very poor. Ensure adequate light and reasonable soil fertility for best growth.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Marjoram is a rewarding herb to grow in the UK, but it does require some protection from cold. The key to success is providing good drainage, plenty of sunlight, and protection from frost. Container growing makes it much easier to manage, as you can move plants to the best location and bring them indoors in winter. With proper care, you'll have a steady supply of fresh, sweet marjoram for your cooking!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

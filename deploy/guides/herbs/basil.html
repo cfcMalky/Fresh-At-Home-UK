@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Basil - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Basil.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Basil</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Basil in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Basil is a popular tender herb that's easy to grow from seed and thrives in warmth and sunshine, providing abundant harvests of aromatic leaves throughout summer. This versatile herb is ideal for even the smallest garden, growing beautifully in containers, in the ground, or indoors on a bright windowsill.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Easy to grow from seed</li>
+                    <li>Thrives in warm, sunny conditions</li>
+                    <li>Perfect for containers and small spaces</li>
+                    <li>Can be grown indoors on windowsills</li>
+                    <li>Harvest leaves throughout summer</li>
+                    <li>Attracts beneficial pollinators when flowering</li>
+                </ul>
+            </div>
+            
+            <p>Basil is a useful culinary herb to grow at home, but it isn't hardy in the UK – it needs warm conditions, so grows well in a greenhouse or on an indoor windowsill. It can be grown outside in summer, ideally in a sunny, sheltered spot. Many types of basil are perennial, but because they need a lot of warmth and sunlight, they are usually treated as annuals and discarded in autumn.</p>
+            
+            <p>Basil makes an attractive addition to herb gardens and vegetable plots, and even flower borders and container displays, especially varieties with coloured or ruffled leaves. Plants often start flowering in mid- to late summer, which does affect the flavour of the leaves, but the nectar-rich flowers are enjoyed by bees.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Basil can also be grown as microgreens on a sunny windowsill. In just a couple of weeks you'll have tasty, colourful and nutritious seedlings to add to salads and sandwiches.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow basil, you'll need the following essentials. These items will help ensure your basil plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <!-- Seeds - Seed link provided per product -->
+                <a class="requirement-card" href="https://amzn.to/488hB0U" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <!-- Seed Trays & Pots - Link from generic_requirements.csv -->
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <!-- Heat Mat or Propagator - Link from generic_requirements.csv -->
+                <a class="requirement-card" href="https://amzn.to/3LJp8vv" target="_blank" rel="noopener">
+                    <span class="emoji">🌡️</span>
+                    <h4>Heat Mat or Propagator</h4>
+                    <p>A heated propagator or heat mat ensures consistent temperature for successful germination.</p>
+                    <span class="browse-button">Browse Heat Mats</span>
+                </a>
+                <!-- Grow Lights - Link from generic_requirements.csv -->
+                <a class="requirement-card" href="https://amzn.to/4i6l6cw" target="_blank" rel="noopener">
+                    <span class="emoji">💡</span>
+                    <h4>Grow Lights</h4>
+                    <p>LED grow lights provide the bright conditions plants need. Essential for winter growing or north-facing windows.</p>
+                    <span class="browse-button">Browse Grow Lights</span>
+                </a>
+                <!-- Containers - Link from generic_requirements.csv -->
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <!-- Peat-Free Compost - Link from generic_requirements.csv -->
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Compost</span>
+                </a>
+            </div>
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>There are many species and varieties of basil (Ocimum) to choose from, ranging from commonly used sweet basil to spicy, aniseed-flavoured Thai basil, as well as lemon, lime and cinnamon flavours. Many species of basil have medicinal as well as culinary uses, such as holy basil.</p>
+            
+            <p>The aromatic leaves of basil may be ruffled or smooth, large or small, and various shades of green or purple. Most form fairly compact plants, 20–50cm (8–20in) tall and are kept bushy by regular picking.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Aroma 2'</h4>
+                    <p>A vigorous F1 hybrid with sweet, aromatic large green leaves. Good resistance to bolting and disease.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Cinnamon'</h4>
+                    <p>Features distinctive cinnamon-flavoured leaves with purple stems and flowers. Adds unique flavour to dishes.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Lemon'</h4>
+                    <p>Bright, citrusy flavour perfect for fish dishes, salads, and teas. Compact growth habit.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Purple'</h4>
+                    <p>Eye-catching purple leaves that provide both visual appeal and flavour. Great for garnishes.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Thai'</h4>
+                    <p>Spicy, aniseed-flavoured leaves essential for Asian cuisine. Tolerates heat well.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Magic Mountain'</h4>
+                    <p>Attractive variety with good flower production, excellent for pollinators. Maintains leaf quality well.</p>
+                </div>
+            </div>
+        
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Basil</h2>
+            
+            <h3>Sowing Indoors</h3>
+            <p>For the best results, sow basil seeds indoors from early spring onwards. Basil needs warmth to germinate, ideally 15–25°C (59–77°F), so use a heated propagator or place in a warm location. If sowing several small batches a few weeks apart, you'll have harvests over a longer period.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Prepare your containers:</strong> Fill seed trays or small pots with peat-free seed compost.
+                </li>
+                <li>
+                    <strong>Sow the seeds:</strong> Sow seeds thinly on the surface, without covering them, as they need light to germinate.
+                </li>
+                <li>
+                    <strong>Provide warmth:</strong> Keep in a warm, bright location (15–25°C / 59–77°F) such as on a windowsill or in a heated propagator.
+                </li>
+                <li>
+                    <strong>Water carefully:</strong> Water regularly but avoid overwatering, as seedlings are prone to fungal diseases such as damping off.
+                </li>
+                <li>
+                    <strong>Pot on:</strong> When seedlings have several leaves, move them into their own 7.5cm (3in) pot of peat-free multi-purpose compost or plant several in a larger pot, 7.5cm (3in) apart.
+                </li>
+            </ol>
+            
+            <h3>Sowing Microgreens</h3>
+            <p>You can also sow basil seeds more densely in trays for harvesting as microgreens. They will be ready to harvest within 10 to 14 days, depending on light levels and temperature. Sow at any time of year, keep on a warm bright windowsill and water regularly – you'll soon have tasty, nutritious seedlings to snip and scatter in salads and other dishes.</p>
+            
+            <h3>Sowing Outdoors</h3>
+            <p>Basil can be sown outdoors but results are likely to be less successful than indoor sowings. If sowing outdoors, wait until early summer, once night-time temperatures consistently stay above 10°C. Sowing outdoors gives a shorter growing season and is only suitable for warm locations.</p>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> Growing in containers is often more successful than in the ground, as they provide the free-draining conditions basil needs, and plants are easier to protect from slugs and snails.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>You can plant out newly bought basil plants and indoor-sown plants in early summer. Harden off the young plants first, to acclimatise them to outdoor conditions.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Basil needs a warm, sunny, sheltered location, and usually does best in a container, but can also be planted in well-drained soil.</p>
+            
+            <h3>Container Planting</h3>
+            <p>Choose a container at least 20cm (8in) wide and deep, and fill with peat-free multi-purpose compost. Plant basil at the same level it was previously growing, and space plants at least 10cm (4in) apart.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Greenhouse Growing:</strong> As basil loves warmth, it does particularly well in a greenhouse, in pots, growing bags or a greenhouse border. This is the best way to grow it in cooler locations.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Once established, basil is easy to look after – just keep it warm, provide sufficient moisture and keep plants bushy and productive by harvesting the shoot tips regularly.</p>
+            
+            <h3>Watering</h3>
+            <p>Water newly planted basil well until it's established, then water during dry spells to keep the soil or compost evenly moist. Plants in greenhouses and containers will need regular watering. When watering, try to avoid splashing the leaves and water in the morning if possible, as basil hates having wet roots overnight. Basil may start to flower sooner in dry conditions.</p>
+            
+            <h3>Feeding</h3>
+            <p>When growing basil in the ground, there's usually no need for feeding, but plants in containers can run short of nutrients, so you could apply an organic-based, balanced liquid fertiliser to boost leafy growth. Avoid using potassium-rich fertilisers like tomato feed, as these encourage flowering.</p>
+            
+            <h3>Removing Flowers</h3>
+            <p>Basil usually starts to flower in mid- to late summer – you can delay this and maintain leaf quality for as long as possible by removing any flower stems as soon as you spot them. It's worth letting plants bloom eventually though, or allowing one to flower early if you have several plants, as basil flowers are rich in nectar, providing food for bees and other insects.</p>
+            
+            <h3>Propagating</h3>
+            <p>Although basil is usually grown from seed, it's easy to grow new plants from softwood cuttings taken during summer. Snip off a non-flowering shoot just below a leaf, remove the lower leaves and pinch out the tip, then stand the cutting in a jar of water. It will quickly form roots and can be planted in a pot of peat-free multi-purpose compost after just a few weeks.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Basil leaves can be harvested throughout the summer. Pick leaves as required, taking a few shoot tips from each plant to encourage bushy growth, or harvest entire plants if lots of leaves are needed to make pesto or sauce.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Regular picking:</strong> Pick the tips of the shoots regularly to keep basil plants bushy and productive</li>
+                <li><strong>Microgreens:</strong> Harvest basil seedlings after only a couple of weeks, when packed with flavour and nutrients</li>
+                <li><strong>Flowers:</strong> Basil flowers are also edible, with a milder flavour than the leaves</li>
+            </ul>
+            
+            <h3>Using Your Basil</h3>
+            <p>You can use your home-grown basil in many ways – add the leaves to salads and use sweet basil to make pesto, tomato-based dishes or even to flavour ice cream. Thai basil brings rich flavours to Asian cuisine. Basil tends to lose its flavour if cooked, so just scatter fresh leaves over hot dishes right before serving.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Basil is generally easy to grow, but there are a few issues to watch out for:</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Slugs and snails:</strong> These can damage young plants. Use barriers, traps, or organic controls</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth. Remove by hand or use organic sprays</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Fungal diseases:</strong> When growing basil in a greenhouse, ventilate well to help reduce problems with fungal diseases</li>
+                <li><strong>Damping off:</strong> Avoid overwatering seedlings to prevent this fungal disease</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Cold damage:</strong> Basil is tender and needs plenty of warmth and sun. Keep young plants indoors until after the last frost</li>
+                <li><strong>Early flowering:</strong> To prolong the leafy harvests, remove any flowers that start to form</li>
+                <li><strong>End of season:</strong> At the end of the season, bring plants indoors or cover with cloches if you want to keep them going into autumn</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>
+

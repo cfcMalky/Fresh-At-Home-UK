@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Your Own Redcurrants - GrowItAtHome.co.uk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Redcurrants.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">🌱 GrowItAtHome.co.uk</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Grow Your Own Redcurrants</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Redcurrants in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Redcurrants are attractive, easy-to-grow soft fruit bushes that produce clusters of bright red, tart berries perfect for making jellies, jams, and desserts. They're hardy, self-fertile, and relatively trouble-free, making them excellent choices for UK gardens.</p>
+            
+            <h3>Key Characteristics</h3>
+            <ul>
+                <li><strong>Pollination:</strong> Self-fertile, so a single bush will produce fruits</li>
+                <li><strong>Growth Habit:</strong> Compact bushes that can be grown as bushes, standards, or cordons</li>
+                <li><strong>Harvesting:</strong> Fruits ripen in mid to late summer (July-August) in long clusters (strigs)</li>
+                <li><strong>Pruning:</strong> Prune in winter to maintain an open, goblet-shaped bush</li>
+                <li><strong>Use:</strong> Primarily for cooking, preserving, and making jellies - too tart to eat raw</li>
+                <li><strong>Hardiness:</strong> Fully hardy in UK conditions</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Redcurrants are excellent for small gardens as they're compact and can be trained as cordons against walls or fences. They're also very hardy and reliable, producing good crops even in less-than-ideal conditions.
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow redcurrants, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4oKkhsp" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3Xz7qJZ" target="_blank" rel="noopener">
+                    <span class="emoji">🌾</span>
+                    <h4>Plant Supports</h4>
+                    <p>Stakes and wires for supporting standard forms and training cordons. Essential for maintaining proper growth structure and training against walls or fences.</p>
+                    <span class="browse-button">Browse Plant Supports</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3Xz7qJZ" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A sturdy hand trowel for planting bare-root and container-grown bushes, essential for proper root placement and soil preparation.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>While there are fewer redcurrant varieties available compared to some other fruits, the main types offer different characteristics. All are self-fertile, so you only need one bush.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Fruit Size:</strong> Some varieties produce larger berries than others</li>
+                <li><strong>Flavour:</strong> All are tart, but some are considered better for cooking</li>
+                <li><strong>Disease Resistance:</strong> Some varieties show better resistance to common problems</li>
+                <li><strong>Growth Habit:</strong> Most are similar, but consider if you want a bush or standard form</li>
+                <li><strong>Harvest Time:</strong> Most ripen in July-August, but timing can vary slightly</li>
+            </ul>
+
+            <h3>Recommended Varieties for UK Gardens</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Red Lake</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Mid to late July<br>
+                    <strong>Notes:</strong> Most popular variety, reliable, large fruits, excellent flavour. Heavy cropper, good for all uses.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Jonkheer van Tets</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Early to mid-July<br>
+                    <strong>Notes:</strong> Early variety, large fruits, good flavour, reliable. Excellent for early harvests.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Rovada</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Late July to early August<br>
+                    <strong>Notes:</strong> Late variety, very long strigs, large fruits, excellent flavour. Heavy cropper.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Stanza</h4>
+                    <p><strong>Pollination:</strong> Self-fertile<br>
+                    <strong>Harvest:</strong> Mid-July<br>
+                    <strong>Notes:</strong> Reliable, good flavour, disease resistant. Good all-round variety.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>ℹ️ Note:</strong> All redcurrant varieties are self-fertile, so you only need one bush. However, planting multiple varieties can extend your harvest season. Redcurrants are closely related to whitecurrants and blackcurrants, but have their own distinct flavour and uses.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Proper planting sets the foundation for healthy, productive redcurrant bushes. Choose the right site, prepare the soil well, and plant at the correct time and depth.</p>
+            
+            <h3>Site Selection</h3>
+            <ul>
+                <li><strong>Sunlight:</strong> Full sun is ideal, though redcurrants tolerate light shade</li>
+                <li><strong>Soil:</strong> Well-drained, fertile soil with pH 6.0-7.0. Redcurrants tolerate a range of soil types</li>
+                <li><strong>Shelter:</strong> Protect from strong winds, especially important for standard forms</li>
+                <li><strong>Space:</strong> Allow adequate space for the mature bush size (1-1.5m height and spread)</li>
+                <li><strong>Position:</strong> Can be grown as free-standing bushes, standards, or trained as cordons against walls/fences</li>
+            </ul>
+
+            <h3>Planting Bare-Root Bushes</h3>
+            <ol class="step-list">
+                <li><strong>Timing:</strong> Plant during dormancy (November-March), avoiding frozen or waterlogged soil</li>
+                <li><strong>Preparation:</strong> Soak roots in water for 1-2 hours before planting</li>
+                <li><strong>Hole:</strong> Dig a hole wide enough to spread roots comfortably (at least 40cm wide), depth to match soil mark on stem</li>
+                <li><strong>Soil Improvement:</strong> Mix well-rotted compost or manure with excavated soil</li>
+                <li><strong>Planting:</strong> Position bush with roots spread out, ensuring the soil mark on stem is 5cm deeper than it was in the nursery</li>
+                <li><strong>Backfill:</strong> Fill hole, firming soil gently around roots to eliminate air pockets</li>
+                <li><strong>Staking:</strong> For standard forms, insert stake and tie securely</li>
+                <li><strong>Pruning:</strong> Cut back all shoots to 2-3 buds above ground after planting</li>
+                <li><strong>Watering:</strong> Water thoroughly after planting</li>
+            </ol>
+
+            <h3>Planting Container-Grown Bushes</h3>
+            <ul>
+                <li>Can be planted year-round, but autumn-winter is still best</li>
+                <li>Tease out any circling roots before planting</li>
+                <li>Plant 5cm deeper than in the container to encourage new shoots from the base</li>
+                <li>Water regularly, especially if planting in spring or summer</li>
+                <li>Prune back shoots to 2-3 buds after planting</li>
+            </ul>
+
+            <h3>Spacing Guidelines</h3>
+            <ul>
+                <li><strong>Bush forms:</strong> 1.5m apart</li>
+                <li><strong>Standard forms:</strong> 1.5m apart</li>
+                <li><strong>Cordons:</strong> 40-50cm apart</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Plant redcurrants 5cm deeper than they were in the nursery or container. This encourages new shoots to grow from below ground, creating a bushier plant with more fruiting wood.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Consistent care throughout the growing season ensures healthy growth, good yields, and high-quality fruits. Redcurrants require attention to watering, feeding, and winter pruning to maintain productive bushes.</p>
+            
+            <h3>Watering</h3>
+            <ul>
+                <li><strong>Establishment:</strong> Water regularly during the first year, especially in dry periods</li>
+                <li><strong>Growing Season:</strong> Water during dry spells, particularly when fruits are developing (June-August)</li>
+                <li><strong>Method:</strong> Water at the base of plants, avoiding wetting the foliage</li>
+                <li><strong>Mulching:</strong> Apply organic mulch around plants to conserve moisture and suppress weeds</li>
+            </ul>
+
+            <h3>Feeding</h3>
+            <ul>
+                <li><strong>Spring:</strong> Apply balanced fertiliser (e.g., Growmore) or well-rotted manure in early spring</li>
+                <li><strong>Potassium:</strong> Apply sulphate of potash in late winter to improve fruit quality</li>
+                <li><strong>Frequency:</strong> Feed annually for best growth and fruiting</li>
+                <li><strong>Container Plants:</strong> Feed regularly with liquid fertiliser during the growing season</li>
+            </ul>
+
+            <h3>Pruning</h3>
+            <p>Redcurrants produce fruit on old wood (2-3 year old branches) and at the base of new growth. Pruning maintains an open, goblet-shaped bush and encourages new fruiting wood.</p>
+            
+            <h4>Formative Pruning (First 3 Years)</h4>
+            <ul>
+                <li><strong>Year 1:</strong> After planting, cut all shoots back to 2-3 buds above ground</li>
+                <li><strong>Year 2:</strong> In winter, select 6-8 strong shoots to form the framework, cut back by half</li>
+                <li><strong>Year 3:</strong> Continue building framework, remove weak or crossing branches</li>
+                <li><strong>Goal:</strong> Create an open, goblet-shaped bush with 8-10 main branches</li>
+            </ul>
+
+            <h4>Maintenance Pruning (Established Bushes)</h4>
+            <ul>
+                <li><strong>Timing:</strong> Prune in winter (November-March) when dormant</li>
+                <li><strong>Remove:</strong> Dead, diseased, or damaged wood</li>
+                <li><strong>Thin:</strong> Remove old, unproductive branches (4+ years old) to encourage new growth</li>
+                <li><strong>Shape:</strong> Maintain open, goblet shape by removing crossing or overcrowded branches</li>
+                <li><strong>New Growth:</strong> Shorten new shoots by about a third to encourage branching</li>
+                <li><strong>Keep:</strong> Maintain 8-10 main branches, replacing old ones with new shoots from the base</li>
+            </ul>
+
+            <h4>Pruning Cordons</h4>
+            <ul>
+                <li><strong>Summer:</strong> Prune side shoots back to 5 leaves in summer (July-August)</li>
+                <li><strong>Winter:</strong> Further shorten side shoots to 2-3 buds in winter</li>
+                <li><strong>Leader:</strong> Allow main stem to grow to desired height, then prune to maintain</li>
+            </ul>
+
+            <h3>Mulching</h3>
+            <ul>
+                <li>Apply a 5-8cm layer of organic mulch (compost, well-rotted manure, or bark chips) around plants</li>
+                <li>Keep mulch away from the base of stems to prevent rot</li>
+                <li>Replenish annually in spring</li>
+                <li>Helps suppress weeds and conserve moisture</li>
+            </ul>
+
+            <h3>Netting</h3>
+            <ul>
+                <li><strong>Birds:</strong> Net plants when fruits start to ripen to protect from birds</li>
+                <li><strong>Timing:</strong> Apply netting in late June to early July</li>
+                <li><strong>Method:</strong> Use fine mesh netting, ensure it's secure and doesn't trap birds</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>ℹ️ Pruning Note:</strong> Redcurrants fruit on old wood (2-3 year old branches) and at the base of new growth. Don't remove all old wood - maintain a balance of old and new branches. The goal is an open, goblet-shaped bush that allows light and air to reach all parts.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Redcurrants are ready to harvest when fully coloured and easily come away from the plant. They're typically harvested as whole clusters (strigs) rather than individual berries.</p>
+            
+            <h3>When to Harvest</h3>
+            <ul>
+                <li><strong>Colour:</strong> Fruits should be fully red when ripe (usually mid to late July)</li>
+                <li><strong>Feel:</strong> Berries should be firm and come away easily from the strig</li>
+                <li><strong>Taste:</strong> Taste one to check - they should be tart but not unpleasantly sour</li>
+                <li><strong>Timing:</strong> Harvest when all berries in a strig are ripe - they ripen together</li>
+                <li><strong>Season:</strong> Typically July to early August, depending on variety</li>
+                <li><strong>Weather:</strong> Harvest in dry weather, preferably in the morning when cool</li>
+            </ul>
+
+            <h3>Harvesting Method</h3>
+            <ul>
+                <li><strong>Whole Strigs:</strong> Harvest entire clusters (strigs) rather than individual berries</li>
+                <li><strong>Method:</strong> Gently pull or cut the strig from the plant, leaving the stalk attached</li>
+                <li><strong>Container:</strong> Use shallow containers to avoid crushing fruits</li>
+                <li><strong>Staged Harvesting:</strong> Strigs ripen at different times - harvest over several weeks</li>
+                <li><strong>Gentle Handling:</strong> Handle strigs carefully to avoid berries falling off</li>
+            </ul>
+
+            <h3>Storage</h3>
+            <ul>
+                <li><strong>Short-term:</strong> Store in the refrigerator for up to a week, keeping strigs intact</li>
+                <li><strong>Freezing:</strong> Redcurrants freeze well - freeze whole strigs or strip berries and freeze</li>
+                <li><strong>Preserving:</strong> Excellent for making jellies, jams, and preserves</li>
+                <li><strong>Processing:</strong> Can be used fresh for cooking, or processed immediately after harvest</li>
+            </ul>
+
+            <h3>Using Redcurrants</h3>
+            <ul>
+                <li><strong>Cooking:</strong> Too tart to eat raw, but excellent for cooking and preserving</li>
+                <li><strong>Jellies:</strong> High in pectin, making them perfect for clear redcurrant jelly</li>
+                <li><strong>Desserts:</strong> Can be used in tarts, pies, and other desserts</li>
+                <li><strong>Stripping:</strong> To remove berries from strigs, run a fork down the strig</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Harvest redcurrants as whole strigs - it's much easier than picking individual berries. The berries can be stripped from the strigs later using a fork if needed. Redcurrants are high in pectin, making them excellent for jellies and jams.
+            </div>
+        </div>
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Redcurrants are generally trouble-free, but they can occasionally be affected by some pests and diseases. Early identification and appropriate action help maintain healthy, productive bushes.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Birds:</strong> Can strip entire crops. Use netting to protect fruits, especially during ripening season.</li>
+                <li><strong>Aphids:</strong> Can cause leaf curl and sooty mould. Usually not serious - encourage natural predators, use insecticidal soap if severe.</li>
+                <li><strong>Currant Clearwing Moth:</strong> Larvae tunnel into stems, causing dieback. Remove and destroy affected stems, improve plant health.</li>
+                <li><strong>Gooseberry Sawfly:</strong> Larvae can defoliate plants. Pick off by hand or use biological controls.</li>
+            </ul>
+
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Powdery Mildew:</strong> White, powdery coating on leaves and fruits. Improve air circulation, remove affected material, consider resistant varieties.</li>
+                <li><strong>Leaf Spot:</strong> Brown spots on leaves. Usually not serious - remove affected leaves, improve air circulation.</li>
+                <li><strong>Coral Spot:</strong> Red spots on dead wood. Prune out affected branches, maintain good plant health.</li>
+                <li><strong>Rust:</strong> Orange spots on leaves. Remove affected leaves, improve air circulation.</li>
+            </ul>
+
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Poor Fruit Set:</strong> Usually due to frost damage to flowers. Redcurrants flower early, so protect from late frosts.</li>
+                <li><strong>Drought Stress:</strong> Can cause poor fruit development. Water regularly during dry periods, especially when fruits are developing.</li>
+                <li><strong>Overcrowding:</strong> Too many branches reduce air circulation and increase disease risk. Prune to maintain open shape.</li>
+                <li><strong>Frost Damage:</strong> Early flowers can be damaged by late frosts. Protect with fleece if frost is forecast during flowering.</li>
+            </ul>
+
+            <h3>Prevention Strategies</h3>
+            <ul>
+                <li><strong>Good Hygiene:</strong> Remove and destroy all pruned material and fallen fruits</li>
+                <li><strong>Air Circulation:</strong> Maintain proper spacing and pruning to ensure good air flow</li>
+                <li><strong>Healthy Stock:</strong> Buy healthy plants from reputable suppliers</li>
+                <li><strong>Proper Pruning:</strong> Correct pruning reduces disease risk and improves plant health</li>
+                <li><strong>Netting:</strong> Protect fruits from birds with netting during ripening</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Prevention Tips:</strong> Maintain good plant health through proper feeding and watering, ensure good air circulation through correct pruning, practice good garden hygiene by removing all pruned material and fallen fruits, protect flowers from late frosts, and net plants to protect fruits from birds.
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GrowItAtHome.co.uk. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

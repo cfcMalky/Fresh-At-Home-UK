@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Sage - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/herb/Sage.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../herbs.html" class="back-link">← Back to Herbs</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Sage</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Sage in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Sage (Salvia officinalis) is a hardy, evergreen perennial herb with aromatic, velvety leaves and a strong, earthy flavour. This Mediterranean herb is essential in many cuisines, particularly for stuffing and flavouring meats. Sage is fully hardy in the UK and will return year after year, making it a valuable addition to any herb garden.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Hardy evergreen perennial that returns year after year</li>
+                    <li>Grows 30–60cm (1–2ft) tall with bushy habit</li>
+                    <li>Produces spikes of purple, pink, or white flowers in summer</li>
+                    <li>Strong, earthy flavour</li>
+                    <li>Essential in stuffing and meat dishes</li>
+                    <li>Very easy to grow and low maintenance</li>
+                </ul>
+            </div>
+            
+            <p>Sage is native to the Mediterranean region and has been cultivated for centuries for its culinary, medicinal, and aromatic properties. The leaves have a strong, earthy flavour that's perfect for stuffing, flavouring meats (particularly pork and poultry), and adding to Mediterranean dishes. Sage is also valued for its ornamental qualities, with attractive grey-green foliage and beautiful flowers that attract bees.</p>
+            
+            <p>In the UK, sage is fully hardy and will thrive in most gardens. It prefers a sunny position with well-drained soil and is very drought-tolerant once established. Sage can be grown as a shrub in the ground or in containers, and it's an excellent choice for a low-maintenance herb garden.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> Sage is very easy to grow from cuttings, which is the most reliable method. Seeds can be slow to germinate and may not come true to type. Take cuttings in summer from healthy plants, and they'll root easily. Once established, sage is very low-maintenance and will provide fresh leaves year-round.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow sage, you'll need the following essentials. These items will help ensure your plants thrive from seed to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/47YXLVB" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/488Vesb" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Seed Trays & Pots</h4>
+                    <p>Small containers for starting seeds indoors. Use pots at least 7.5cm (3in) wide for proper root development.</p>
+                    <span class="browse-button">Browse Seed Trays & Pots</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Peat-Free Compost</h4>
+                    <p>Quality seed compost for germination and multi-purpose compost for potting on. Provides essential nutrients and good drainage.</p>
+                    <span class="browse-button">Browse Peat-Free Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/3XA5BjL" target="_blank" rel="noopener">
+                    <span class="emoji">✂️</span>
+                    <h4>Pruning Shears</h4>
+                    <p>Sharp scissors or secateurs for harvesting and maintaining plant health.</p>
+                    <span class="browse-button">Browse Pruning Shears</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+            </div>
+
+        </div>
+
+                <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌱</td>
+                            <td class="active">🌱</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌱</span>
+                        <span>Sow</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>There are several varieties of sage available, each with slightly different leaf colours, flavours, and growth habits. The most common is the standard grey-green sage, but there are also purple, golden, and variegated varieties.</p>
+            
+            <p>Sage is typically grown from cuttings, as seeds can be slow to germinate and may not come true to type. When purchasing sage, you're usually buying small plants or cuttings. The main consideration is whether you want the standard culinary sage or one of the more ornamental varieties, which can add visual interest to the garden.</p>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>Common Sage</h4>
+                    <p>The standard variety (Salvia officinalis). Most widely available and reliable performer. Has the characteristic strong, earthy flavour. Best choice for UK gardens and culinary use.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Purple Sage</h4>
+                    <p>Ornamental variety with purple-tinged leaves (Salvia officinalis 'Purpurascens'). Same flavour as common sage but adds visual interest. Attractive in herb gardens and containers.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Golden Sage</h4>
+                    <p>Ornamental variety with golden-yellow variegated leaves (Salvia officinalis 'Icterina'). Less vigorous than common sage but adds visual interest. Same culinary uses.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>Tricolor Sage</h4>
+                    <p>Ornamental variety with green, purple, and cream variegated leaves (Salvia officinalis 'Tricolor'). Decorative and aromatic. Same flavour as common sage but less vigorous.</p>
+                </div>
+            </div>
+        
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Sowing Sage</h2>
+            
+            <h3>Growing from Cuttings (Recommended)</h3>
+            <p>Sage is most commonly grown from cuttings, as this is the most reliable method and ensures you get the exact variety you want. Seeds can be slow to germinate and may not come true to type.</p>
+            
+            <ol class="step-list">
+                <li>
+                    <strong>Take cuttings:</strong> In summer, take 10–15cm (4–6in) cuttings from healthy, non-flowering shoots. Cut just below a leaf node.
+                </li>
+                <li>
+                    <strong>Prepare cuttings:</strong> Remove the lower leaves, leaving just the top few. Dip the cut end in rooting hormone (optional but helpful).
+                </li>
+                <li>
+                    <strong>Pot up:</strong> Insert cuttings into pots filled with a mix of peat-free compost and sharp sand or perlite. Water well.
+                </li>
+                <li>
+                    <strong>Provide warmth:</strong> Place in a warm, bright location out of direct sunlight. Keep the compost moist but not waterlogged.
+                </li>
+                <li>
+                    <strong>Rooting:</strong> Roots should develop within 4–6 weeks. Once rooted, pot on into individual pots and grow on until ready to plant out.
+                </li>
+            </ol>
+            
+            <h3>Sowing from Seeds</h3>
+            <p>Sage can be grown from seeds, though it's less reliable than cuttings. Sow seeds indoors in late winter or early spring. Sow seeds thinly on the surface of peat-free seed compost and cover very lightly. Keep at 15–20°C (59–68°F) and maintain consistent moisture. Seeds can be slow to germinate (often 3–4 weeks). Once germinated, grow on in a bright location until ready to plant out.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Sowing Tip:</strong> Sage is much more reliably grown from cuttings than from seeds. Cuttings root easily and ensure you get the exact variety you want. If you do grow from seeds, be patient—germination can be slow. Once established, sage is very easy to propagate by taking cuttings from your own plants.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Sage prefers a sunny position with well-drained soil. It's fully hardy in the UK and can be grown in containers or in the ground. The key is to provide good drainage, as sage doesn't like wet feet.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny location with well-drained, reasonably fertile soil. Sage prefers full sun but will tolerate light shade. It will not grow well in heavy, waterlogged soil, so ensure good drainage. Sage is very drought-tolerant and grows best in soil that's not too rich. Avoid very dry, poor soil, as this will result in weak growth.</p>
+            
+            <h3>Container Planting</h3>
+            <p>Growing sage in containers is an excellent option, especially for smaller spaces or if you want to move plants around. Use a container at least 25cm (10in) wide and deep with good drainage. Fill with a mix of peat-free multi-purpose compost and sharp sand or perlite for extra drainage. Container-grown sage will need more frequent watering than ground-grown plants, but still allow the compost to dry out between waterings.</p>
+            
+            <h3>Ground Planting</h3>
+            <p>If planting in the ground, prepare the soil by removing weeds and incorporating sharp sand or grit if the soil is heavy, to improve drainage. Space plants 45–60cm (18–24in) apart to allow for their spreading habit. Sage grows well in the ground and can be used as a border plant or in herb gardens. It's also excellent for growing in rock gardens or on slopes where drainage is good.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> Sage is fully hardy in the UK and will return year after year. It's a great choice for a low-maintenance herb garden. The plant prefers well-drained soil and doesn't like wet feet, so ensure good drainage. In very heavy soils, consider planting on a mound or in a raised bed to improve drainage.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Sage is very low-maintenance once established. It's a hardy evergreen that will provide fresh leaves year-round with minimal care. However, a few simple practices will help ensure healthy growth and good harvests.</p>
+            
+            <h3>Watering</h3>
+            <p>Water sage regularly during the first year after planting to help it establish. Once established, sage is very drought-tolerant and rarely needs watering, except during prolonged dry spells. Container-grown plants will need more frequent watering than those in the ground, but still allow the compost to dry out between waterings. Overwatering is the main cause of problems with sage, so err on the side of too dry rather than too wet.</p>
+            
+            <h3>Feeding</h3>
+            <p>Sage doesn't usually need additional feeding if grown in reasonably fertile soil. In fact, overly rich soil can encourage excessive growth at the expense of flavour. However, if your soil is very poor, you can apply a balanced, organic fertiliser in spring. Container-grown plants may benefit from a light liquid feed every 4–6 weeks during the growing season. Avoid over-fertilising, as this can reduce the intensity of the flavour.</p>
+            
+            <h3>Pruning</h3>
+            <p>Regular pruning helps keep sage bushy and prevents it from becoming leggy. Prune after flowering in spring or early summer, cutting back by about one-third. You can also prune lightly throughout the year to harvest leaves and maintain shape. Avoid cutting into old, woody stems, as these may not regrow. Regular harvesting of leaves also helps keep the plant compact. Every few years, cut back hard in spring to rejuvenate the plant.</p>
+            
+            <h3>Rejuvenating</h3>
+            <p>Sage can become woody and less productive over time. To rejuvenate plants, cut back hard in spring, removing about half of the growth. This encourages new, fresh growth from the base. Alternatively, take cuttings from healthy plants and replace old plants every few years.</p>
+            
+            <h3>Winter Care</h3>
+            <p>Sage is fully hardy in the UK and will survive winter without protection. In very cold areas or exposed positions, you may want to protect plants with fleece, but this is usually not necessary. Container-grown plants may benefit from being moved to a sheltered spot in very cold areas, or you can wrap containers in fleece. In mild winters, sage will continue growing throughout the year.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Sage leaves can be harvested year-round, as the plant is evergreen. The leaves are best used fresh, but they can also be dried for later use. Dried sage retains its flavour well, making it a popular herb for storage. Harvest regularly to encourage new growth and keep plants bushy.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Pick individual leaves:</strong> Harvest individual leaves or small sprigs by cutting them from the plant with sharp secateurs or scissors. Cut just above a leaf node to encourage new growth.</li>
+                <li><strong>Harvest regularly:</strong> Pick leaves regularly throughout the year to encourage new growth and prevent plants from becoming leggy.</li>
+                <li><strong>Use fresh or dry:</strong> Sage can be used fresh or dried. Fresh sage has the best flavour, but dried sage also retains its flavour well.</li>
+                <li><strong>Harvest before flowering:</strong> For the best flavour, harvest leaves before the plant flowers. However, the flowers are attractive to bees, so you may want to allow some to flower.</li>
+            </ul>
+            
+            <h3>Using Your Sage</h3>
+            <p>Fresh sage leaves add a strong, earthy flavour to many dishes. Use them in stuffing (particularly for poultry), roasting meats (particularly pork), pasta dishes, and Mediterranean cuisine. They're excellent with butter, in sauces, and in risottos. Sage has a strong flavour, so use it sparingly—a little goes a long way. The leaves can also be fried to make crispy sage leaves, which are a delicious garnish.</p>
+            
+            <h3>Drying Sage</h3>
+            <p>Sage is one of the best herbs for drying, as it retains its flavour well. Harvest sprigs and hang them upside down in a warm, well-ventilated area out of direct sunlight. Once dry, strip the leaves from the stems and store in an airtight container. Dried sage can be stored for up to a year and retains its flavour better than many other dried herbs.</p>
+            
+            <h3>Freezing Sage</h3>
+            <p>Sage can be frozen for later use. Freeze whole leaves or sprigs in freezer bags, or chop leaves and freeze in ice cube trays with a little water. Frozen sage is best used in cooked dishes. It retains its flavour well when frozen.</p>
+            
+            <h3>Storage</h3>
+            <p>Fresh sage leaves can be stored in the refrigerator for a few days. Place stems in a glass of water like cut flowers, or wrap in damp kitchen paper and store in the fridge. For longer storage, dry the leaves as described above. Dried sage can be stored in an airtight container for up to a year, and it retains its flavour better than many other dried herbs.</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Sage is generally very trouble-free and rarely suffers from serious pests or diseases. However, there are a few issues to watch out for, mostly related to moisture and soil conditions.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Sage leafhopper:</strong> Can affect sage, causing damage to leaves. Usually not serious and can be controlled by encouraging natural predators or using organic methods.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious and can be controlled by encouraging natural predators or using organic methods.</li>
+                <li><strong>Spider mites:</strong> Can occur in hot, dry conditions. Increase humidity and improve air circulation. Usually not serious if caught early.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Root rot:</strong> The main issue with sage is root rot, which occurs if plants are overwatered or if drainage is poor. Ensure good drainage and avoid overwatering. Container-grown plants are particularly susceptible if drainage is poor.</li>
+                <li><strong>Powdery mildew:</strong> Can occur in humid conditions or when plants are overcrowded. Improve air circulation and avoid overhead watering. Usually not serious if caught early.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Overwatering:</strong> The main issue with sage is overwatering. Sage is very drought-tolerant and doesn't like wet feet. Ensure good drainage and allow the soil to dry out between waterings.</li>
+                <li><strong>Poor drainage:</strong> Can cause root rot and other problems. Ensure good drainage, especially in heavy soils. Consider planting on a mound or in a raised bed if drainage is poor.</li>
+                <li><strong>Leggy growth:</strong> Can occur if plants aren't pruned regularly. Prune after flowering and harvest leaves regularly to encourage bushy growth. Cut back hard every few years to rejuvenate.</li>
+                <li><strong>Woody growth:</strong> Sage can become woody and less productive over time. Rejuvenate by cutting back hard in spring, or take cuttings and replace old plants every few years.</li>
+            </ul>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> Sage is one of the easiest herbs to grow and is perfect for beginners. It's very forgiving and will thrive with minimal care. The key to success is providing good drainage and avoiding overwatering. With proper care, you'll have a steady supply of fresh, aromatic sage leaves year-round, and the plant will return year after year!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>

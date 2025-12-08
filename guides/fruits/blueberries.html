@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh At Home Blueberries - Fresh At Home UK</title>
+        <link rel="icon" type="image/svg+xml" href="../../images/logo.svg">
+    <link rel="alternate icon" href="../../images/logo.svg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guide-header {
+            background: linear-gradient(135deg, var(--pastel-green) 0%, var(--soft-green) 100%);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .guide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../../images/fruit/Blueberries.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .guide-header > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guide-header h1 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.9), 0 0 8px rgba(255,255,255,0.6);
+            font-weight: bold;
+        }
+        
+        .guide-header .subtitle {
+            color: #2d5016;
+            font-size: 1.1rem;
+            font-style: normal;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .guide-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--sage-green);
+        }
+        
+        .guide-section h2 {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--pastel-green);
+        }
+        
+        .guide-section h3 {
+            color: var(--sage-green);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section ul, .guide-section ol {
+            color: #555;
+            line-height: 1.8;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .guide-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background: var(--warm-beige);
+            border-left: 4px solid var(--earth-brown);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .tip-box {
+            background: #fff9e6;
+            border-left: 4px solid #ffa500;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .variety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .variety-card {
+            background: var(--pastel-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--sage-green);
+        }
+        
+        .variety-card h4 {
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .month-calendar {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .month-calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .month-calendar th {
+            background: var(--sage-green);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            width: calc(100% / 12);
+            font-weight: 600;
+        }
+        
+        .month-calendar td {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            border: 1px solid var(--pastel-green);
+            width: calc(100% / 12);
+        }
+        
+        .month-calendar .active {
+            background: transparent;
+            font-weight: bold;
+            color: var(--dark-green);
+            font-size: 1.3rem;
+        }
+        
+        .calendar-key {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--pastel-green);
+            flex-wrap: wrap;
+        }
+        
+        .calendar-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-green);
+        }
+        
+        .calendar-key-item emoji {
+            font-size: 1.2rem;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-card {
+            background: white;
+            border: 2px solid var(--sage-green);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .requirement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--dark-green);
+        }
+        
+        .requirement-card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .requirement-card h4 {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        
+        .requirement-card .browse-button {
+            display: inline-block;
+            background: var(--dark-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+            margin-top: auto;
+        }
+        
+        .requirement-card:hover .browse-button {
+            background: #2e7d32;
+        }
+        
+        .requirement-card:not([href]) .browse-button {
+            display: none;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--dark-green);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: var(--pastel-green);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.html" class="logo">
+                <img src="../../images/logo.svg" alt="Fresh At Home UK Logo">
+                <span>Fresh At Home UK</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../vegetables.html">Vegetables</a></li>
+                <li><a href="../../fruits.html">Fruits</a></li>
+                <li><a href="../../herbs.html">Herbs</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="guide-container">
+        <a href="../../fruits.html" class="back-link">← Back to Fruits</a>
+        
+        <div class="guide-header">
+            <h1>Fresh At Home Blueberries</h1>
+            <p class="subtitle">Complete Guide to Growing Fresh Blueberries in the UK</p>
+        </div>
+
+        <div class="guide-section">
+            <h2>Getting Started</h2>
+            <p>Blueberries (Vaccinium corymbosum) are attractive, productive shrubs that produce delicious, antioxidant-rich berries perfect for eating fresh, cooking, or preserving. These plants are well-suited to UK gardens, though they have specific soil requirements that must be met for success. Blueberries need acidic soil (pH 4.5–5.5), making them ideal for container growing with ericaceous compost if your garden soil is alkaline.</p>
+            
+            <div class="info-box">
+                <p><strong>Key Characteristics:</strong></p>
+                <ul>
+                    <li>Deciduous shrubs reaching 1.5–2m (5–6ft) in height and width</li>
+                    <li>Require acidic soil (pH 4.5–5.5) - this is essential for success</li>
+                    <li>Fruits ripen from mid-July to September, depending on variety</li>
+                    <li>Most varieties are self-fertile, but planting two varieties improves yields</li>
+                    <li>Very high in antioxidants and vitamin C</li>
+                    <li>Excellent for containers with ericaceous compost</li>
+                </ul>
+            </div>
+            
+            <p>Blueberries are native to North America but are well-adapted to UK growing conditions. They're particularly valued for their health benefits, being one of the richest sources of antioxidants among fruits. Modern varieties offer improved flavour, larger fruits, and better disease resistance compared to older cultivars.</p>
+            
+            <p>The key to success with blueberries is providing the right soil conditions. They absolutely require acidic soil, which is why many gardeners choose to grow them in containers with ericaceous (acidic) compost. This makes them ideal for patios, balconies, and gardens with alkaline soil. With proper care, a single bush can produce 2–4kg (4–9lb) of fruit each year.</p>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Important:</strong> Blueberries require acidic soil (pH 4.5–5.5) to thrive. If your garden soil is alkaline (most UK soils are), you must either amend it significantly with ericaceous materials or grow blueberries in containers with ericaceous compost. They will not grow well in neutral or alkaline soil.</p>
+            </div>
+            
+            <div class="tip-box">
+                <p><strong>💡 Quick Tip:</strong> The easiest way to grow blueberries in the UK is in containers with ericaceous compost. This ensures the correct soil pH and makes it easy to maintain. Use rainwater for watering if possible, as tap water can raise the pH over time. Plant two different varieties for better pollination and extended harvest periods.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Requirements</h2>
+            <p>To successfully grow blueberries, you'll need the following essentials. These items will help ensure your plants thrive from planting to harvest.</p>
+            
+            <div class="requirements-grid">
+                <a class="requirement-card" href="https://amzn.to/4i6jf7H" target="_blank" rel="noopener">
+                    <span class="emoji">🌱</span>
+                    <h4>Seeds</h4>
+                    <p>Essential seeds for starting your plants. Choose varieties suited to UK growing conditions.</p>
+                    <span class="browse-button">Browse Seeds</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/47XWLRK" target="_blank" rel="noopener">
+                    <span class="emoji">🌿</span>
+                    <h4>Ericaceous Compost</h4>
+                    <p>Acidic compost essential for blueberries. Provides the correct pH (4.5–5.5) and nutrients. Required for container growing or amending alkaline soil.</p>
+                    <span class="browse-button">Browse Ericaceous Compost</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4phAF3J" target="_blank" rel="noopener">
+                    <span class="emoji">💧</span>
+                    <h4>Watering Can</h4>
+                    <p>A watering can with a fine rose attachment for gentle watering of seedlings and young plants.</p>
+                    <span class="browse-button">Browse Watering Can</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/43XKJ9Z" target="_blank" rel="noopener">
+                    <span class="emoji">🪴</span>
+                    <h4>Containers</h4>
+                    <p>Pots and planters for growing plants. Choose appropriate sizes with good drainage.</p>
+                    <span class="browse-button">Browse Containers</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/49kOfP4" target="_blank" rel="noopener">
+                    <span class="emoji">🏷️</span>
+                    <h4>Plant Labels</h4>
+                    <p>Markers to identify your plants and varieties. Essential for keeping track of different seeds and planting dates.</p>
+                    <span class="browse-button">Browse Plant Labels</span>
+                </a>
+                <a class="requirement-card" href="https://amzn.to/4oOdqyo" target="_blank" rel="noopener">
+                    <span class="emoji">🔨</span>
+                    <h4>Garden Trowel</h4>
+                    <p>A small hand trowel for planting, transplanting, and general garden maintenance.</p>
+                    <span class="browse-button">Browse Garden Trowel</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Growing Calendar</h2>
+            <div class="month-calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>J</th>
+                            <th>F</th>
+                            <th>M</th>
+                            <th>A</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>J</th>
+                            <th>A</th>
+                            <th>S</th>
+                            <th>O</th>
+                            <th>N</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🌿</td>
+                            <td class="active">🌿</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td class="active">🍃</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="calendar-key">
+                    <div class="calendar-key-item">
+                        <span>🌿</span>
+                        <span>Plant</span>
+                    </div>
+                    <div class="calendar-key-item">
+                        <span>🍃</span>
+                        <span>Harvest</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-section">
+            <h2>Choosing Varieties</h2>
+            <p>When choosing blueberry varieties, consider harvest time, fruit size, flavour, and whether you want early, mid, or late-season varieties. Planting two or more varieties that flower at the same time improves pollination and extends the harvest period. All varieties are self-fertile, but cross-pollination increases yields.</p>
+            
+            <h3>Factors to Consider</h3>
+            <ul>
+                <li><strong>Harvest Time:</strong> Early varieties ripen in July, mid-season in August, and late varieties in September. Planting a mix extends your harvest period.</li>
+                <li><strong>Fruit Size:</strong> Modern varieties produce larger fruits than older cultivars, making them easier to harvest and more appealing.</li>
+                <li><strong>Flavour:</strong> Some varieties are sweeter and more suitable for eating fresh, while others are better for cooking. Most have the characteristic sweet-tart blueberry flavour.</li>
+                <li><strong>Pollination:</strong> While self-fertile, planting two or more varieties improves yields through cross-pollination. Choose varieties that flower at the same time.</li>
+                <li><strong>Size:</strong> Some varieties are more compact and suitable for smaller gardens or containers, while others are more vigorous.</li>
+                <li><strong>Disease Resistance:</strong> Modern varieties often have better resistance to common problems. Look for varieties with good overall health.</li>
+            </ul>
+            
+            <h3>Recommended Varieties</h3>
+            <div class="variety-grid">
+                <div class="variety-card">
+                    <h4>'Duke'</h4>
+                    <p>Early-season variety producing medium to large, sweet berries. Heavy cropper. Good flavour. Harvest in mid-July. Excellent for eating fresh.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Spartan'</h4>
+                    <p>Early to mid-season variety with large, sweet berries. Excellent flavour. Heavy cropper. Harvest in late July to early August. Good for all uses.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Bluecrop'</h4>
+                    <p>Mid-season variety producing large, firm berries. Reliable cropper. Good flavour. Harvest in August. Excellent for all uses and widely available.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Chandler'</h4>
+                    <p>Mid to late-season variety with very large berries. Excellent flavour. Heavy cropper. Harvest in August. Good for eating fresh.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Ozarkblue'</h4>
+                    <p>Late-season variety producing large berries with excellent flavour. Heavy cropper. Harvest in September. Extends the harvest period.</p>
+                </div>
+                <div class="variety-card">
+                    <h4>'Patriot'</h4>
+                    <p>Early-season variety with large, sweet berries. Good disease resistance. Heavy cropper. Harvest in mid-July. Good for containers.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Planting</h2>
+            <p>Blueberries are best planted during the dormant season, from late autumn to early spring. Container-grown plants can be planted year-round, though autumn and spring are still best for establishment. The most important consideration is providing the correct acidic soil conditions.</p>
+            
+            <h3>Site Selection</h3>
+            <p>Choose a sunny position for best fruit production, though blueberries will tolerate partial shade. Avoid waterlogged sites. The soil must be acidic (pH 4.5–5.5). Most UK soils are alkaline, so container growing with ericaceous compost is often the best option. If planting in the ground, test your soil pH first and amend with ericaceous materials if needed.</p>
+            
+            <h3>Container Growing (Recommended)</h3>
+            <p>Container growing is the easiest way to grow blueberries in the UK, as it ensures the correct soil pH. Use a large container (at least 45cm / 18in diameter) with good drainage. Plant in ericaceous (acidic) compost. Position in full sun and water regularly with rainwater if possible (tap water can raise pH over time).</p>
+            
+            <h3>Planting in the Ground</h3>
+            <p>If your soil is naturally acidic (pH 4.5–5.5), you can plant directly in the ground. Otherwise, you'll need to create an acidic bed:</p>
+            <ol class="step-list">
+                <li>
+                    <strong>Test soil pH:</strong> Use a pH testing kit to check your soil. Blueberries need pH 4.5–5.5.
+                </li>
+                <li>
+                    <strong>Prepare the site:</strong> Dig a hole at least 60cm (2ft) wide and deep. Remove the existing soil.
+                </li>
+                <li>
+                    <strong>Add ericaceous materials:</strong> Fill the hole with ericaceous compost mixed with well-rotted pine needles, leaf mould, or composted bark. This creates an acidic environment.
+                </li>
+                <li>
+                    <strong>Plant at correct depth:</strong> Position the plant so it sits at the same depth it was in the pot. Spread roots out evenly.
+                </li>
+                <li>
+                    <strong>Backfill and mulch:</strong> Fill around the roots with ericaceous compost. Mulch with pine needles or composted bark to maintain acidity.
+                </li>
+            </ol>
+            
+            <h3>Planting Container-Grown Plants</h3>
+            <p>Plant container-grown plants at the same depth they were in the pot. Gently tease out any roots that are circling the root ball. Water well after planting with rainwater if possible. Keep well-watered during the first growing season, especially during dry spells.</p>
+            
+            <h3>Spacing</h3>
+            <p>Space plants 1.5m (5ft) apart to allow for mature growth and good air circulation. For container-grown plants, position containers so plants don't shade each other as they grow.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Planting Tip:</strong> Container growing is the easiest way to grow blueberries in the UK, as most garden soils are alkaline. Use ericaceous compost and water with rainwater when possible to maintain the correct pH. If planting in the ground, you'll need to create an acidic bed and maintain it with regular applications of ericaceous materials. Test your soil pH regularly to ensure it stays in the correct range.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Plant Care</h2>
+            <p>Blueberries need regular care to produce healthy crops. Key tasks include watering (with rainwater if possible), feeding with ericaceous fertiliser, mulching with acidic materials, and pruning. Maintaining the correct soil pH is essential throughout the plant's life.</p>
+            
+            <h3>Watering</h3>
+            <p>Water blueberries regularly, especially during dry spells and when fruits are swelling. Use rainwater if possible, as tap water is often alkaline and can raise the soil pH over time. If you must use tap water, allow it to stand for 24 hours first. Container-grown plants need more frequent watering than those in the ground, as containers dry out faster. Keep the soil consistently moist but not waterlogged.</p>
+            
+            <h3>Feeding</h3>
+            <p>Feed blueberries in early spring with an ericaceous (acidic) fertiliser. Avoid alkaline fertilisers, which will raise the pH. Apply fertiliser according to package instructions, usually once in spring and again after fruiting. Mulch annually with acidic materials like pine needles, leaf mould, or composted bark to maintain soil acidity and provide nutrients.</p>
+            
+            <h3>Mulching</h3>
+            <p>Mulch annually in spring with acidic materials like pine needles, leaf mould, or composted bark. This helps maintain soil acidity, conserve moisture, suppress weeds, and gradually improves soil structure. Apply a layer 5–7cm (2–3in) deep around the base of plants, keeping it away from the stems.</p>
+            
+            <h3>Pruning</h3>
+            <p>Prune blueberries in late winter or early spring to maintain health and productivity. Blueberries fruit on one- and two-year-old wood, so regular pruning encourages new growth.</p>
+            <ul>
+                <li><strong>Young plants:</strong> Little pruning needed in the first 2–3 years. Remove any dead or damaged stems.</li>
+                <li><strong>Established plants:</strong> Remove about one-quarter of the oldest stems at ground level each year. These are the thickest, darkest stems. This encourages new shoots from the base.</li>
+                <li><strong>Maintenance pruning:</strong> Remove any dead, diseased, or damaged stems. Thin out overcrowded growth to allow light and air to reach all parts of the plant. Remove any low-hanging branches that touch the ground.</li>
+                <li><strong>Renovation:</strong> Neglected plants can be renovated by cutting all stems back to ground level in winter. This will result in no crop the following year, but the plant will regenerate with strong new growth.</li>
+            </ul>
+            
+            <h3>Maintaining Soil Acidity</h3>
+            <p>Regularly test soil pH to ensure it stays in the correct range (4.5–5.5). If pH rises, apply ericaceous materials like pine needles, leaf mould, or composted bark. For container-grown plants, repot every 2–3 years with fresh ericaceous compost to maintain acidity. Water with rainwater when possible to prevent pH from rising.</p>
+            
+            <div class="info-box">
+                <p><strong>Soil pH Maintenance:</strong> Blueberries absolutely require acidic soil (pH 4.5–5.5). If the pH rises above 5.5, plants will show yellowing leaves (chlorosis) and poor growth. Test soil pH regularly, especially for container-grown plants. Use rainwater for watering when possible, as tap water can raise pH over time. Mulch with acidic materials and use ericaceous fertilisers to maintain the correct pH.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Harvesting</h2>
+            <p>Blueberries are ready to harvest from mid-July to September, depending on variety. Ripe fruits are fully blue-black, plump, and come away easily from the plant. They should be sweet and juicy. Fruits don't all ripen at once, so harvest over several weeks.</p>
+            
+            <h3>How to Harvest</h3>
+            <ul>
+                <li><strong>Check ripeness:</strong> Ripe blueberries are fully blue-black, plump, and come away easily from the plant with a gentle pull. They should be sweet and juicy. Test a few fruits before harvesting the whole crop. Berries on the same cluster ripen at different times.</li>
+                <li><strong>Harvest carefully:</strong> Handle berries gently to avoid bruising. Pick into shallow containers to prevent them from being crushed. Don't stack berries too deeply.</li>
+                <li><strong>Harvest regularly:</strong> Pick berries every few days during the harvest season, as they ripen over several weeks. Check plants regularly when fruits are ripening. Harvest in the morning when berries are cool and firm.</li>
+                <li><strong>Use promptly:</strong> Fresh blueberries store better than many soft fruits but are best used within a week of harvest. Use or process promptly for best quality.</li>
+            </ul>
+            
+            <h3>Storage</h3>
+            <p>Fresh blueberries can be stored in the refrigerator for up to a week. Store in a shallow container, but don't wash until just before using. For longer-term storage, blueberries can be frozen (freeze on trays first, then transfer to bags), made into jams, jellies, or preserves, or used in cooking and baking. Blueberries freeze very well and retain their flavour and texture.</p>
+            
+            <h3>Using Your Blueberries</h3>
+            <p>Fresh blueberries are delicious eaten raw, with their sweet-tart flavour. They're excellent for cooking, making wonderful pies, crumbles, tarts, muffins, and pancakes. Blueberries can be used in smoothies, yoghurts, and desserts. They also make excellent jams and jellies. The fruits are very rich in antioxidants and vitamin C, making them particularly nutritious. Blueberries are one of the healthiest fruits you can grow.</p>
+            
+            <div class="tip-box">
+                <p><strong>💡 Harvesting Tip:</strong> Blueberries on the same cluster ripen at different times, so you'll need to pick over the same clusters several times. Wait until berries are fully blue-black and come away easily before harvesting. If you have a large crop, freeze excess berries on trays first (so they don't stick together), then transfer to freezer bags. This allows you to use them in smaller portions throughout the year.</p>
+            </div>
+        </div>
+
+        <div class="guide-section">
+            <h2>Common Problems</h2>
+            <p>Blueberries are generally trouble-free, but they can be affected by various pests and diseases. The most common problem is incorrect soil pH, which causes yellowing leaves and poor growth. With good cultural practices and proper soil management, most problems can be avoided.</p>
+            
+            <h3>Pests</h3>
+            <ul>
+                <li><strong>Birds:</strong> Birds are attracted to ripening fruits. Protect plants with netting before fruits start to ripen. Ensure netting is well-secured and doesn't trap birds. Alternatively, grow plants in a fruit cage.</li>
+                <li><strong>Vine weevil:</strong> Larvae feed on roots, especially in containers. Can cause plants to wilt and die. Check roots regularly and treat with biological controls if necessary. More common in container-grown plants.</li>
+                <li><strong>Aphids:</strong> Can cluster on new growth, especially in spring. Usually not serious, but can distort leaves. Encourage natural predators or use organic sprays if necessary.</li>
+                <li><strong>Capsid bugs:</strong> Can cause distorted leaves and fruits. Usually not serious, but can affect fruit quality. Encourage natural predators.</li>
+            </ul>
+            
+            <h3>Diseases</h3>
+            <ul>
+                <li><strong>Powdery mildew:</strong> Causes white, powdery coating on leaves. More common in dry conditions or when plants are stressed. Ensure adequate watering and good air circulation. Remove and destroy affected parts.</li>
+                <li><strong>Root rot:</strong> Can occur in waterlogged soils or containers with poor drainage. Ensure good drainage and avoid overwatering. Remove and destroy affected plants.</li>
+                <li><strong>Botrytis (grey mould):</strong> Causes fruits to rot, especially in wet weather. Remove affected fruits promptly. Ensure good air circulation and avoid overcrowding. Harvest regularly to prevent overripe fruits from rotting.</li>
+                <li><strong>Chlorosis (yellowing leaves):</strong> Usually caused by incorrect soil pH (too alkaline). Test soil pH and amend with ericaceous materials. This is the most common problem with blueberries in the UK.</li>
+            </ul>
+            
+            <h3>Environmental Issues</h3>
+            <ul>
+                <li><strong>Incorrect soil pH:</strong> The most common problem. Blueberries require acidic soil (pH 4.5–5.5). If pH is too high, leaves turn yellow and plants fail to thrive. Test soil pH regularly and amend with ericaceous materials. Container growing with ericaceous compost is the easiest solution.</li>
+                <li><strong>Poor fruiting:</strong> Can be caused by lack of pollination, incorrect soil pH, or nutrient imbalances. Plant two or more varieties for better pollination. Ensure correct soil pH and feed with ericaceous fertiliser. Young plants may take 2–3 years to start fruiting well.</li>
+                <li><strong>Fruits not ripening:</strong> Can be caused by lack of sun, cool weather, or poor growing conditions. Ensure plants are in a sunny position and have adequate water and nutrients. Some varieties are more reliable than others.</li>
+                <li><strong>Drought stress:</strong> Can cause poor growth and reduced fruiting. Ensure adequate watering, especially during dry spells and when fruits are swelling. Mulching helps conserve moisture. Use rainwater when possible.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>⚠️ Most Common Problem:</strong> Incorrect soil pH is by far the most common problem with blueberries in the UK. Most garden soils are alkaline, which causes yellowing leaves (chlorosis) and poor growth. The solution is either to grow in containers with ericaceous compost or to create and maintain an acidic bed in the ground. Test your soil pH regularly and maintain it with ericaceous materials.</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>💡 Growing Tip:</strong> The key to success with blueberries is maintaining the correct soil pH (4.5–5.5). Container growing with ericaceous compost is the easiest way to achieve this in the UK. Use rainwater for watering when possible, feed with ericaceous fertiliser, and mulch with acidic materials. Plant two or more varieties for better pollination and extended harvests. With proper care, blueberries will produce abundant harvests for many years.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fresh At Home UK. All rights reserved.</p>
+        
+    </footer>
+</body>
+</html>
